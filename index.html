@@ -22,7 +22,7 @@
     <div class="title" id="title">美股 AI 監控</div>
     <div class="sub" id="subtitle">24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。</div>
   </div>
-  <button class="btn primary" id="refreshBtn">↻ 重新整理</button>
+  <button class="btn primary" id="refreshBtn" title="重新讀取目前市場快照">↻ 重新載入</button>
 </header>
 
 <div class="market-tabs">
@@ -333,7 +333,14 @@ function switchMode(next){
   setHeader(); setClock(); loadData();
 }
 document.querySelectorAll(".market-tab").forEach(function(el){el.addEventListener("click",function(){switchMode(el.getAttribute("data-market"))})});
-document.getElementById("refreshBtn").addEventListener("click",loadData);
+document.getElementById("refreshBtn").addEventListener("click",function(){
+  var btn=document.getElementById("refreshBtn");
+  if(btn.dataset.busy==="1") return;
+  btn.dataset.busy="1";
+  btn.textContent="↻ 讀取中";
+  loadData();
+  setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 重新載入";},1200);
+});
 ["search","minscore","fpe","risk"].forEach(function(id){document.getElementById(id).addEventListener("input",render);document.getElementById(id).addEventListener("change",render)});
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
 document.getElementById("cryptoGroups").addEventListener("click",function(e){
