@@ -1,12 +1,12 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-06T21:40:06.046513-04:00",
+  "asOf": "2026-10-06T21:40:47.504100-04:00",
   "date": "2026-10-06",
   "rows": [],
   "coverage": 0,
   "universeCount": 0,
   "focusCount": 0,
-  "method": "FMP exchange quotes + analyst estimates + TTM ratios + earnings calendar",
+  "method": "FMP exchange quotes with company-screener/batch-quote fallback + analyst estimates + TTM ratios + earnings calendar",
   "fpeFormula": "latest price / next annual consensus EPS",
   "holiday": [],
   "note": "研究/監控工具，不構成投資建議。"
