@@ -1125,18 +1125,30 @@ def crypto_get(path, params=None):
         return None
 
 def cmc_listings(limit=250):
-    try:
-        r = S.get(
-            CMC_API + "/cryptocurrency/listings/latest",
-            params={"start": 1, "limit": limit, "convert": "USD"},
-            timeout=20,
-        )
-        r.raise_for_status()
-        payload = r.json()
-        return payload.get("data", []) if isinstance(payload, dict) else []
-    except Exception as e:
-        print(f"CMC warning: {e}", file=sys.stderr)
-        return []
+    last_error = None
+    for attempt in range(4):
+        try:
+            r = S.get(
+                CMC_API + "/cryptocurrency/listings/latest",
+                params={"start": 1, "limit": limit, "convert": "USD"},
+                timeout=30,
+            )
+            r.raise_for_status()
+            payload = r.json()
+            data = payload.get("data", []) if isinstance(payload, dict) else []
+            if data:
+                return data
+        except Exception as e:
+            last_error = e
+            status = getattr(getattr(e, "response", None), "status_code", None)
+            if status == 429:
+                wait = 5 * (2 ** attempt)
+                print(f"CMC rate limited; retrying in {wait}s", file=sys.stderr)
+                time.sleep(wait)
+            else:
+                time.sleep(2 * (attempt + 1))
+    print(f"CMC warning: {last_error}", file=sys.stderr)
+    return []
 
 def cmc_quote(item):
     q = item.get("quote")
