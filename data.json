@@ -1,48 +1,20 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-07T13:33:37.348459-04:00",
+  "asOf": "2026-10-07T13:48:19.829788-04:00",
   "date": "2026-10-07",
+  "snapshotDate": "2026-10-07",
+  "dataMode": "INTRADAY",
   "rows": [
-    {
-      "ticker": "AFRM",
-      "name": "Affirm Holdings, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "金融",
-      "price": 75.28,
-      "changePct": 0.5341901,
-      "marketCap": 25401071616.0,
-      "volume": 1476271.0,
-      "fpe": 15.592733,
-      "forwardEps": 4.82789,
-      "epsGrowthPct": 26.02265222645961,
-      "analysts": 0,
-      "priceAvg50": 73.4312,
-      "priceAvg200": 66.80435,
-      "roe": null,
-      "margin": null,
-      "debt": null,
-      "earningsDate": "2026-11-05",
-      "score": 86,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康",
-        "＋16｜FPE合理"
-      ]
-    },
     {
       "ticker": "MU",
       "name": "Micron Technology, Inc.",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 1084.87,
-      "changePct": 3.759306,
-      "marketCap": 1225244803072.0,
-      "volume": 21732337.0,
-      "fpe": 5.2578745,
+      "price": 1086.2,
+      "changePct": 3.8869019,
+      "marketCap": 1226746757120.0,
+      "volume": 22309299.0,
+      "fpe": 5.26432,
       "forwardEps": 206.33243,
       "epsGrowthPct": 17.133739972744987,
       "analysts": 0,
@@ -57,10 +29,18 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 1032.5564971923827,
+      "volumeRatio": 0.885303373842209,
+      "eventSignals": [],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -68,13 +48,13 @@
       "name": "Sandisk Corporation",
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
-      "price": 1722.53,
-      "changePct": 3.7381248,
-      "marketCap": 252211134464.0,
-      "volume": 6451630.0,
-      "fpe": 6.494196,
-      "forwardEps": 265.24146,
-      "epsGrowthPct": 23.72350663251648,
+      "price": 1726.82,
+      "changePct": 3.9967108,
+      "marketCap": 252839264256.0,
+      "volume": 6598834.0,
+      "fpe": 6.553756,
+      "forwardEps": 263.48553,
+      "epsGrowthPct": 22.904442309008253,
       "analysts": 0,
       "priceAvg50": 1552.6646,
       "priceAvg200": 1160.5952,
@@ -87,10 +67,18 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 1705.9132446289063,
+      "volumeRatio": 0.7734445644686979,
+      "eventSignals": [],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -98,11 +86,11 @@
       "name": "Super Micro Computer, Inc.",
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
-      "price": 44.55,
-      "changePct": 2.5080538,
-      "marketCap": 28818192384.0,
-      "volume": 21467890.0,
-      "fpe": 8.364752,
+      "price": 44.68,
+      "changePct": 2.8065362,
+      "marketCap": 29353213952.0,
+      "volume": 22788525.0,
+      "fpe": 8.389161,
       "forwardEps": 5.32592,
       "epsGrowthPct": 22.783534863347654,
       "analysts": 0,
@@ -117,10 +105,20 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 40.79549942016602,
+      "volumeRatio": 0.6367255382720804,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -128,13 +126,13 @@
       "name": "Morningstar, Inc.",
       "exchange": "NasdaqGS",
       "sector": "金融",
-      "price": 203.93,
-      "changePct": 4.2107363,
-      "marketCap": 7650142208.0,
-      "volume": 156706.0,
-      "fpe": 14.631245,
-      "forwardEps": 13.93798,
-      "epsGrowthPct": 12.717127156714891,
+      "price": 205.335,
+      "changePct": 4.9287157,
+      "marketCap": 7702849536.0,
+      "volume": 185332.0,
+      "fpe": 14.66598,
+      "forwardEps": 14.00077,
+      "epsGrowthPct": 13.224912963135193,
       "analysts": 0,
       "priceAvg50": 202.0532,
       "priceAvg200": 186.0368,
@@ -147,10 +145,20 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 195.93200073242187,
+      "volumeRatio": 0.6353286280967994,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -158,11 +166,11 @@
       "name": "Amazon.com, Inc.",
       "exchange": "NasdaqGS",
       "sector": "電商",
-      "price": 259.0,
-      "changePct": 1.0573926,
-      "marketCap": 2793655238656.0,
-      "volume": 19338362.0,
-      "fpe": 24.745783,
+      "price": 258.965,
+      "changePct": 1.0437347,
+      "marketCap": 2793277489152.0,
+      "volume": 20044446.0,
+      "fpe": 24.74244,
       "forwardEps": 10.46643,
       "epsGrowthPct": 25.987721938007844,
       "analysts": 0,
@@ -177,10 +185,17 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋10｜FPE中性"
+      ],
+      "priceAvg20": 251.5775001525879,
+      "volumeRatio": 0.5696338368656714,
+      "eventSignals": [],
+      "profiles": [
+        "momentum"
       ]
     },
     {
@@ -188,13 +203,13 @@
       "name": "Eli Lilly and Company",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 1197.84,
-      "changePct": 3.485989,
-      "marketCap": 1067703074816.0,
-      "volume": 1294109.0,
-      "fpe": 25.168697,
+      "price": 1195.59,
+      "changePct": 3.291603,
+      "marketCap": 1066157015040.0,
+      "volume": 1327120.0,
+      "fpe": 25.121422,
       "forwardEps": 47.59245,
-      "epsGrowthPct": 28.802404981654917,
+      "epsGrowthPct": 28.82824038182519,
       "analysts": 0,
       "priceAvg50": 1174.9304,
       "priceAvg200": 1074.8373,
@@ -207,10 +222,95 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋10｜FPE中性"
+      ],
+      "priceAvg20": 1156.1519897460937,
+      "volumeRatio": 0.6048416132780035,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "profiles": [
+        "momentum"
+      ]
+    },
+    {
+      "ticker": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "金融",
+      "price": 75.005,
+      "changePct": 0.16693376,
+      "marketCap": 25308278784.0,
+      "volume": 1533774.0,
+      "fpe": 15.535772,
+      "forwardEps": 4.82789,
+      "epsGrowthPct": 26.02265222645961,
+      "analysts": 0,
+      "priceAvg50": 73.4312,
+      "priceAvg200": 66.80435,
+      "roe": null,
+      "margin": null,
+      "debt": null,
+      "earningsDate": "2026-11-05",
+      "score": 79,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向",
+        "＋16｜FPE合理"
+      ],
+      "priceAvg20": 71.17724914550782,
+      "volumeRatio": 0.4010662979869297,
+      "eventSignals": [],
+      "profiles": [
+        "momentum",
+        "value"
+      ]
+    },
+    {
+      "ticker": "SIMO",
+      "name": "Silicon Motion Technology Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 285.0842,
+      "changePct": 0.04358736,
+      "marketCap": 9666702336.0,
+      "volume": 406754.0,
+      "fpe": 17.960617,
+      "forwardEps": 15.87274,
+      "epsGrowthPct": 42.54293286012818,
+      "analysts": 0,
+      "priceAvg50": 257.3262,
+      "priceAvg200": 203.45335,
+      "roe": null,
+      "margin": null,
+      "debt": null,
+      "earningsDate": "2026-10-29",
+      "score": 79,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向",
+        "＋16｜FPE合理"
+      ],
+      "priceAvg20": 270.7437110900879,
+      "volumeRatio": 0.5706323694849994,
+      "eventSignals": [],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -218,11 +318,11 @@
       "name": "Hewlett Packard Enterprise Company",
       "exchange": "NYSE",
       "sector": "科技",
-      "price": 72.765,
-      "changePct": 3.2420487,
-      "marketCap": 96592977920.0,
-      "volume": 14725288.0,
-      "fpe": 15.453048,
+      "price": 72.7,
+      "changePct": 3.1498206,
+      "marketCap": 96506691584.0,
+      "volume": 15414721.0,
+      "fpe": 15.439243,
       "forwardEps": 4.70878,
       "epsGrowthPct": 23.069645148728092,
       "analysts": 0,
@@ -237,10 +337,20 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋16｜FPE合理"
+      ],
+      "priceAvg20": 62.60600051879883,
+      "volumeRatio": 0.7128302801540759,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     },
     {
@@ -248,11 +358,11 @@
       "name": "Vistra Corp.",
       "exchange": "NYSE",
       "sector": "公用事業",
-      "price": 165.08,
-      "changePct": 2.8535838,
-      "marketCap": 55406657536.0,
-      "volume": 7355147.0,
-      "fpe": 15.848177,
+      "price": 165.94,
+      "changePct": 3.3894095,
+      "marketCap": 55695306752.0,
+      "volume": 7596211.0,
+      "fpe": 15.93074,
       "forwardEps": 10.41634,
       "epsGrowthPct": 18.593366457024985,
       "analysts": 0,
@@ -267,48 +377,28 @@
       "risk": "低",
       "reasons": [
         "摘要｜站上200日均線、站上50日均線",
+        "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
         "＋15｜短線動能健康",
         "＋16｜FPE合理"
-      ]
-    },
-    {
-      "ticker": "LAUR",
-      "name": "Laureate Education, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "必需消費",
-      "price": 39.055,
-      "changePct": 2.1045759,
-      "marketCap": 5379801088.0,
-      "volume": 618702.0,
-      "fpe": 16.070892,
-      "forwardEps": 2.43017,
-      "epsGrowthPct": 14.535034428802351,
-      "analysts": 0,
-      "priceAvg50": 37.3874,
-      "priceAvg200": 35.201824,
-      "roe": null,
-      "margin": null,
-      "debt": null,
-      "earningsDate": "2026-10-29",
-      "score": 78,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康",
-        "＋16｜FPE合理"
+      ],
+      "priceAvg20": 143.30825119018556,
+      "volumeRatio": 1.213576870378589,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "profiles": [
+        "momentum",
+        "value"
       ]
     }
   ],
   "coverage": 100,
-  "universeCount": 271,
+  "universeCount": 275,
   "focusCount": 10,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
   "holiday": [],
-  "note": "研究/監控工具，不構成投資建議。"
+  "note": "休市／隔夜顯示最近交易日 TOP 10；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。"
 }
