@@ -512,7 +512,7 @@ def build_live():
         "snapshotDate": nyse_latest_session(day),
         "dataMode": "LATEST_CLOSE" if session in {"closed", "overnight"} else "INTRADAY",
         "rows": rows,
-        "coverage": round(100 * valuation_count / max(1, len(rows))),
+        "coverage": round(100 * fpe_count / max(1, len(rows))),
         "universeCount": len(normalized),
         "focusCount": len(rows),
         "method": "Yahoo Finance screener via yfinance",
