@@ -188,6 +188,18 @@ def main():
     now = datetime.now(ET)
     day = now.date().isoformat()
     debug = {"exchangeRows": 0, "fallbackUniverse": 0, "fallbackQuoteCount": 0, "errors": []}
+    probes = {}
+    for name, path, params in [
+        ("quote", "quote", {"symbol":"AAPL"}),
+        ("screener", "company-screener", {"exchange":"NASDAQ","country":"US","marketCapMoreThan":5000000000,"limit":3}),
+        ("estimates", "analyst-estimates", {"symbol":"AAPL","period":"annual","page":0,"limit":3})
+    ]:
+        try:
+            probe = api(path, **params)
+            probes[name] = {"ok": True, "rows": len(probe) if isinstance(probe, list) else None, "sample": (list(probe[0].keys())[:12] if isinstance(probe, list) and probe else None)}
+        except Exception as e:
+            probes[name] = {"ok": False, "error": str(e)[:500]}
+    debug["probes"] = probes
 
     if now.weekday() >= 5:
         payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":["Weekend"],"rows":[],"coverage":0,"universeCount":0}
