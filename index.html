@@ -58,7 +58,7 @@
   <div class="filters">
     <input class="input" id="search" placeholder="搜尋 Ticker / 公司">
     <select class="select" id="minscore"><option value="0">最低分：全部</option><option value="75">75+</option><option value="80">80+</option><option value="85">85+</option><option value="90">90+</option></select>
-    <select class="select" id="fpe"><option value="all">FPE：全部</option><option value="lt20">FPE &lt; 20</option><option value="20_35">FPE 20–35</option><option value="gt35">FPE &gt; 35</option><option value="na">FPE N/A</option></select>
+    <select class="select" id="fpe"><option value="all">估值：全部</option><option value="lt20">估值 &lt; 20x</option><option value="20_35">估值 20–35x</option><option value="gt35">估值 &gt; 35x</option><option value="na">估值 N/A</option></select>
     <select class="select" id="risk"><option value="all">風險：全部</option><option>低</option><option>中</option><option>高</option></select>
     <button class="btn" id="csvBtn">CSV</button>
   </div>
@@ -138,10 +138,11 @@ function render(){
     if(rf!=="all" && x.risk!==rf) return false;
     if(mode==="crypto" && cryptoCategory!=="all" && x.category!==cryptoCategory) return false;
     if(mode!=="crypto" && tab!=="all" && tabKind(x)!==tab) return false;
-    if(fb==="lt20" && !(x.fpe!=null && x.fpe>0 && x.fpe<20)) return false;
-    if(fb==="20_35" && !(x.fpe!=null && x.fpe>=20 && x.fpe<=35)) return false;
-    if(fb==="gt35" && !(x.fpe!=null && x.fpe>35)) return false;
-    if(fb==="na" && x.fpe!=null) return false;
+    var valuation=x.valuation!=null?x.valuation:x.fpe;
+    if(fb==="lt20" && !(valuation!=null && valuation>0 && valuation<20)) return false;
+    if(fb==="20_35" && !(valuation!=null && valuation>=20 && valuation<=35)) return false;
+    if(fb==="gt35" && !(valuation!=null && valuation>35)) return false;
+    if(fb==="na" && valuation!=null) return false;
     return true;
   }).sort(function(a,b){return Number(b.score||0)-Number(a.score||0)});
   var threshold=mode==="crypto"?85:78;
@@ -193,7 +194,8 @@ function render(){
     if(mode==="crypto"){
       meta="<span class='metric'>CMC #"+(x.cmcRank==null?"N/A":esc(x.cmcRank))+"</span><span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>";
     } else {
-      meta="<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
+      var valText=x.valuation!=null?(Number(x.valuation).toFixed(1)+"x"+(x.valuationSource==="PE"?" PE":" FPE")):(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x FPE");
+      meta="<span class='metric'>"+valText+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
     }
     var display=esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name));
     return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+display+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
@@ -296,7 +298,7 @@ function loadData(){
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
     document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":(p.universeCount||0)+" symbols";
     if(p.asOf){
-      document.getElementById("updated").textContent=new Date(p.asOf).toLocaleTimeString("zh-TW",{timeZone:"Asia/Taipei",hour12:false});
+      document.getElementById("updated").textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(p.asOf));
     }else{
       document.getElementById("updated").textContent="—";
     }
