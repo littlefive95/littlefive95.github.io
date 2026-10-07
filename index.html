@@ -185,7 +185,7 @@ function render(){
     } else {
       meta="<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
     }
-    var display=mode==="cnadr"?esc(x.aCode)+" · "+esc(x.name):esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name));
+    var display=esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name));
     return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+display+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
       "<div class='pickwhy'>"+reasonHtml(x.reasons)+"</div>"+
       "<div class='pickmeta'>"+meta+"</div></div>";
@@ -201,8 +201,8 @@ function setHeader(){
   document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":"FPE 覆蓋率";
   document.getElementById("sessionHeading").textContent=mode==="us"?"24H Session":mode==="crypto"?"24H Crypto Market":"台股交易時段";
   document.getElementById("sessionBadge").textContent=mode==="us"?"ET":mode==="crypto"?"24/7":"TWT";
-  document.getElementById("fpe").disabled=mode==="crypto"||mode==="cnadr";
-  document.getElementById("standardTabs").style.display=(mode==="crypto"||mode==="cnadr")?"none":"flex";
+  document.getElementById("fpe").disabled=mode==="crypto";
+  document.getElementById("standardTabs").style.display=mode==="crypto"?"none":"flex";
   document.getElementById("categoryPanel").style.display=mode==="crypto"?"block":"none";
   document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS。FPE 要和 EPS 成長、趨勢與風險一起看。":mode==="tw"?"FPE 優先；缺少 Forward P/E 時使用最新可得 PE 作為估值輔助，並搭配 EPS 成長、均線與量能判斷。":"FPE / Forward EPS 不適用於加密貨幣；改看均線、24H 動能、量能、流動性與波動風險。";
   document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：TTM 利潤率 / ROE / 負債<br>事件：財報風險":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>風險：高估值／跌破長期均線":"100 分制：趨勢 35<br>動能：24H 25<br>量能：20<br>流動性：5<br>CMC 市場地位：5<br>相對200日線位置：10<br>CMC：市值排名／24H成交量／分類標籤<br>估值：FPE 不適用";
@@ -249,7 +249,6 @@ function setClock(){
   var session;
   if(mode==="us") session=closed?"市場休市":mins>=240&&mins<570?"盤前交易":mins>=570&&mins<960?"正常交易":mins>=960&&mins<1200?"盤後交易":"隔夜監控";
   else if(mode==="crypto") session="市場開放（24/7）";
-  else if(mode==="cnadr") session="跨市場監控";
   else session=closed?"市場休市":mins<510?"盤前":mins<810?"盤中":"收盤後監控";
   document.getElementById("market").textContent=session;
   document.getElementById("clock").textContent=v.hour+":"+v.minute+":"+v.second+" "+c.tzLabel+" · "+wd;
@@ -259,7 +258,7 @@ function loadData(){
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
     data=Array.isArray(p.rows)?p.rows:[];
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
-    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":mode==="cnadr"?(p.focusCount||0)+" 組可用配對 · "+(p.universeCount||0)+" 組有效名單":(p.universeCount||0)+" symbols";
+    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":(p.universeCount||0)+" symbols";
     if(p.asOf){
       document.getElementById("updated").textContent=new Date(p.asOf).toLocaleTimeString("zh-TW",{timeZone:"Asia/Taipei",hour12:false});
     }else{
