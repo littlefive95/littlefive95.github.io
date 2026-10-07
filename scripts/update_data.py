@@ -187,19 +187,6 @@ def score(q, fpe, eps_growth, nm, roe, de, earnings_flag):
 def main():
     now = datetime.now(ET)
     day = now.date().isoformat()
-    debug = {"exchangeRows": 0, "fallbackUniverse": 0, "fallbackQuoteCount": 0, "errors": []}
-    probes = {}
-    for name, path, params in [
-        ("quote", "quote", {"symbol":"AAPL"}),
-        ("screener", "company-screener", {"exchange":"NASDAQ","country":"US","marketCapMoreThan":5000000000,"limit":3}),
-        ("estimates", "analyst-estimates", {"symbol":"AAPL","period":"annual","page":0,"limit":3})
-    ]:
-        try:
-            probe = api(path, **params)
-            probes[name] = {"ok": True, "rows": len(probe) if isinstance(probe, list) else None, "sample": (list(probe[0].keys())[:12] if isinstance(probe, list) and probe else None)}
-        except Exception as e:
-            probes[name] = {"ok": False, "error": str(e)[:500]}
-    debug["probes"] = probes
 
     if now.weekday() >= 5:
         payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":["Weekend"],"rows":[],"coverage":0,"universeCount":0}
@@ -215,7 +202,7 @@ def main():
     # Use exchange-wide quotes when available. If the account/time window does not return them,
     # fall back to the screener + batch-quote pair, which also works outside regular hours.
     qrows = exchange_quotes("NASDAQ") + exchange_quotes("NYSE")
-    debug["exchangeRows"] = len(qrows)
+    
     quotes = {}
     for q in qrows:
         sym = (q.get("symbol") or "").strip()
@@ -232,10 +219,8 @@ def main():
                 base.append({"symbol":sym, "companyName":q.get("name") or sym, "exchange":q.get("exchange") or ""})
     else:
         base = company_universe()
-        debug["fallbackUniverse"] = len(base)
         symbols = [x.get("symbol") for x in base if x.get("symbol")]
         quotes = batch_quotes(symbols)
-        debug["fallbackQuoteCount"] = len(quotes)
         base = [{"symbol":x.get("symbol"),"companyName":x.get("companyName") or x.get("name") or x.get("symbol"),"exchange":x.get("exchange") or ""} for x in base if x.get("symbol") in quotes]
 
     universe = []
@@ -304,8 +289,7 @@ def main():
         "method":"FMP exchange quotes with company-screener/batch-quote fallback + analyst estimates + TTM ratios + earnings calendar",
         "fpeFormula":"latest price / next annual consensus EPS",
         "holiday":[],
-        "note":"研究/監控工具，不構成投資建議。",
-        "debug": debug
+        "note":"研究/監控工具，不構成投資建議。"
     }
     json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
 
