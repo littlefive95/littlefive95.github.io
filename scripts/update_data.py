@@ -816,54 +816,35 @@ def build_taiwan_live():
             "note": "研究/監控工具，不構成投資建議。",
         }
 
-    if now.weekday() >= 5:
-        return {
-            "status": "MARKET_CLOSED",
-            "asOf": now.isoformat(),
-            "date": day,
-            "snapshotDate": snapshot_date,
-            "holiday": ["Weekend"],
-            "rows": [],
-            "coverage": 0,
-            "universeCount": 0,
-            "focusCount": 0,
-            "method": "TWSE/TPEx realtime quotes + daily snapshot + Yahoo Finance technical/valuation data",
-            "note": "台股休市時不產生進場候選。",
-        }
-
+    # Always keep the latest completed trading-day snapshot available.
+    # During a live session, replace it with same-day intraday quotes when
+    # Yahoo has current-day bars. Outside the session, continue screening
+    # the latest close instead of returning an empty table.
     snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
     shortlist = snapshot[:80]
-    symbols = [x["yahoo"] for x in shortlist]
-    live = yahoo_intraday(symbols)
-    live_today = sum(1 for q in live.values() if q.get("date") == day)
-    if live_today == 0:
-        return {
-            "status": "MARKET_CLOSED",
-            "asOf": now.isoformat(),
-            "date": day,
-            "snapshotDate": snapshot_date,
-            "holiday": ["No current Taiwan intraday data"],
-            "rows": [],
-            "coverage": 0,
-            "universeCount": 0,
-            "focusCount": 0,
-            "method": "TWSE/TPEx daily stock pool + Yahoo Finance 5-minute intraday/technical/valuation data",
-            "note": "休市或當日盤中行情尚未提供時，不產生進場候選。",
-        }
+    using_intraday = False
 
-    current_rows = []
-    for row in shortlist:
-        q = live.get(row["yahoo"], {})
-        if q.get("date") != day or q.get("price") is None:
-            continue
-        prev_close = row.get("price")
-        row["price"] = q["price"]
-        row["changePct"] = ((row["price"] - prev_close) / prev_close * 100) if prev_close else row.get("changePct")
-        if q.get("volume"):
-            row["volume"] = q["volume"]
-        current_rows.append(row)
+    if now.weekday() < 5:
+        symbols = [x["yahoo"] for x in shortlist]
+        live = yahoo_intraday(symbols)
+        live_today = sum(1 for q in live.values() if q.get("date") == day)
+        if live_today > 0:
+            current_rows = []
+            for row in shortlist:
+                q = live.get(row["yahoo"], {})
+                if q.get("date") != day or q.get("price") is None:
+                    continue
+                prev_close = row.get("price")
+                row = dict(row)
+                row["price"] = q["price"]
+                row["changePct"] = ((row["price"] - prev_close) / prev_close * 100) if prev_close else row.get("changePct")
+                if q.get("volume"):
+                    row["volume"] = q["volume"]
+                current_rows.append(row)
+            if current_rows:
+                shortlist = current_rows
+                using_intraday = True
 
-    shortlist = current_rows
     symbols = [x["yahoo"] for x in shortlist]
     hist = yahoo_history(symbols)
 
@@ -879,7 +860,12 @@ def build_taiwan_live():
         row["priceAvg200"] = float(close.tail(200).mean()) if len(close) >= 200 else None
         avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
         row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
-        row["price"] = float(close.iloc[-1]) if len(close) else row["price"]
+
+        # During live trading, preserve the intraday quote. Outside the
+        # session, use the latest completed daily close from Yahoo history.
+        if not using_intraday and len(close):
+            row["price"] = float(close.iloc[-1])
+            row["changePct"] = row.get("changePct")
         enriched.append(row)
 
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
@@ -907,7 +893,7 @@ def build_taiwan_live():
             row["name"],
             first(inf, ["quoteType", "quoteTypeDisp"]),
         )
-    
+
     for row in enriched:
         sc, label, risk, reasons = taiwan_score(row)
         row["score"] = sc
@@ -922,19 +908,29 @@ def build_taiwan_live():
     rows = enriched[:10]
     fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
 
+    if using_intraday:
+        status = "LIVE"
+        note = "盤中使用當日即時行情；依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。"
+        data_mode = "INTRADAY"
+    else:
+        status = "MARKET_CLOSED"
+        note = f"目前非台股即時交易時段；顯示最近交易日 {snapshot_date} 收盤 TOP 10，並維持量化排序，研究/監控工具，不構成投資建議。"
+        data_mode = "LATEST_CLOSE"
+
     return {
-        "status": "LIVE",
+        "status": status,
         "asOf": now.isoformat(),
         "date": day,
         "snapshotDate": snapshot_date,
+        "dataMode": data_mode,
         "rows": rows,
         "coverage": round(100 * fpe_count / max(1, len(rows))),
         "universeCount": len(enriched),
         "focusCount": len(rows),
-        "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
+        "method": "TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data",
         "fpeFormula": "Yahoo Forward P/E, fallback to latest price / forward EPS",
-        "holiday": [],
-        "note": "依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。",
+        "holiday": [] if using_intraday else ["Outside Taiwan cash-session; latest completed trading day shown"],
+        "note": note,
     }
 
 CRYPTO_API = "https://data-api.binance.vision/api/v3"
