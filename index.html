@@ -269,10 +269,10 @@ function setClock(){
   parts.forEach(function(p){v[p.type]=p.value});
   var hh=Number(v.hour), mm=Number(v.minute), wd=v.weekday, mins=hh*60+mm, closed=(wd==="Sat"||wd==="Sun");
   var session;
-  if(mode==="us") session=closed?"MARKET CLOSED":mins>=240&&mins<570?"PRE-MARKET":mins>=570&&mins<960?"REGULAR":mins>=960&&mins<1200?"AFTER-HOURS":"OVERNIGHT MONITOR";
-  else if(mode==="crypto") session="MARKET OPEN 24/7";
-  else if(mode==="cnadr") session="CROSS-MARKET MONITOR";
-  else session=closed?"MARKET CLOSED":mins<510?"PRE-MARKET":mins<810?"REGULAR":"POST-MARKET MONITOR";
+  if(mode==="us") session=closed?"市場休市":mins>=240&&mins<570?"盤前交易":mins>=570&&mins<960?"正常交易":mins>=960&&mins<1200?"盤後交易":"隔夜監控";
+  else if(mode==="crypto") session="市場開放（24/7）";
+  else if(mode==="cnadr") session="跨市場監控";
+  else session=closed?"市場休市":mins<510?"盤前":mins<810?"盤中":"收盤後監控";
   document.getElementById("market").textContent=session;
   document.getElementById("clock").textContent=v.hour+":"+v.minute+":"+v.second+" "+c.tzLabel+" · "+wd;
 }
