@@ -852,6 +852,7 @@ def yahoo_intraday(symbols):
 def yahoo_history(symbols):
     if not symbols:
         return {}
+    out = {}
     try:
         raw = yf.download(
             tickers=symbols,
@@ -862,42 +863,60 @@ def yahoo_history(symbols):
             threads=True,
             group_by="ticker",
         )
-    except Exception as e:
-        print("Taiwan history warning", e, file=sys.stderr)
-        return {}
-
-    out = {}
-    for sym in symbols:
-        try:
-            if len(symbols) == 1:
-                close = raw["Close"].dropna()
-                volume = raw["Volume"].dropna()
-            else:
-                close = raw[(sym, "Close")].dropna()
-                volume = raw[(sym, "Volume")].dropna()
-            if len(close) < 60:
+        for sym in symbols:
+            try:
+                if len(symbols) == 1:
+                    close = raw["Close"].dropna()
+                    volume = raw["Volume"].fillna(0)
+                    high = raw["High"].reindex(close.index).dropna()
+                    low = raw["Low"].reindex(close.index).dropna()
+                else:
+                    close = raw[(sym, "Close")].dropna()
+                    volume = raw[(sym, "Volume")].fillna(0)
+                    high = raw[(sym, "High")].reindex(close.index).dropna()
+                    low = raw[(sym, "Low")].reindex(close.index).dropna()
+                aligned = close.index.intersection(high.index).intersection(low.index)
+                close = close.reindex(aligned).dropna()
+                volume = volume.reindex(close.index).fillna(0)
+                high = high.reindex(close.index).dropna()
+                low = low.reindex(close.index).dropna()
+                if len(close) >= 60 and len(high) == len(close) and len(low) == len(close):
+                    out[sym] = {"close": close, "high": high, "low": low, "volume": volume}
+            except Exception:
                 continue
-            if len(symbols) == 1:
-                high = raw["High"].reindex(close.index).dropna()
-                low = raw["Low"].reindex(close.index).dropna()
-            else:
-                high = raw[(sym, "High")].reindex(close.index).dropna()
-                low = raw[(sym, "Low")].reindex(close.index).dropna()
+    except Exception as e:
+        print("Yahoo history bulk warning", e, file=sys.stderr)
+
+    # Retry missing symbols one-by-one. Bulk yfinance occasionally fails
+    # individual tickers with transient cache/database-lock errors.
+    for sym in symbols:
+        if sym in out:
+            continue
+        try:
+            raw = yf.download(
+                tickers=sym,
+                period="1y",
+                interval="1d",
+                auto_adjust=False,
+                progress=False,
+                threads=False,
+                group_by="column",
+            )
+            if raw is None or len(raw) == 0:
+                continue
+            close = raw["Close"].dropna()
+            volume = raw["Volume"].fillna(0)
+            high = raw["High"].reindex(close.index).dropna()
+            low = raw["Low"].reindex(close.index).dropna()
             aligned = close.index.intersection(high.index).intersection(low.index)
             close = close.reindex(aligned).dropna()
             volume = volume.reindex(close.index).fillna(0)
             high = high.reindex(close.index).dropna()
             low = low.reindex(close.index).dropna()
-            if len(close) < 60 or len(high) != len(close) or len(low) != len(close):
-                continue
-            out[sym] = {
-                "close": close,
-                "high": high,
-                "low": low,
-                "volume": volume,
-            }
-        except Exception:
-            continue
+            if len(close) >= 60 and len(high) == len(close) and len(low) == len(close):
+                out[sym] = {"close": close, "high": high, "low": low, "volume": volume}
+        except Exception as e:
+            print(f"Yahoo history retry warning {sym}: {e}", file=sys.stderr)
     return out
 
 def yahoo_info(symbols):
@@ -1271,14 +1290,19 @@ def crypto_category(symbol):
         return "穩定幣"
     return "加密貨幣"
 
+CRYPTO_API_FALLBACK = "https://api.binance.com/api/v3"
+
 def crypto_get(path, params=None):
-    try:
-        r = S.get(CRYPTO_API + path, params=params or {}, timeout=20)
-        r.raise_for_status()
-        return r.json()
-    except Exception as e:
-        print(f"Crypto API warning {path}: {e}", file=sys.stderr)
-        return None
+    last_error = None
+    for base in (CRYPTO_API, CRYPTO_API_FALLBACK):
+        try:
+            r = S.get(base + path, params=params or {}, timeout=20)
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            last_error = e
+    print(f"Crypto API warning {path}: {last_error}", file=sys.stderr)
+    return None
 
 def cmc_listings(limit=250):
     last_error = None
