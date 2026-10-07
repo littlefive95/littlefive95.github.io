@@ -329,7 +329,7 @@ document.getElementById("csvBtn").addEventListener("click",function(){
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });;
-setHeader();setClock();updateNextUpdate();loadData();setInterval(setClock,15000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);
+setHeader();setClock();updateNextUpdate();loadData();setInterval(setClock,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);
 </script>
 </body>
 </html>
