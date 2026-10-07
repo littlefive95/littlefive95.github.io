@@ -1,337 +1,268 @@
 import json
 import os
 import sys
-import time
-from datetime import datetime, timedelta
+from datetime import datetime
 from zoneinfo import ZoneInfo
-
 import requests
 
 BASE = "https://financialmodelingprep.com/stable"
 KEY = os.environ.get("FMP_API_KEY")
 if not KEY:
-    print("FMP_API_KEY is missing", file=sys.stderr)
-    sys.exit(1)
+    raise SystemExit("FMP_API_KEY missing")
 
 ET = ZoneInfo("America/New_York")
 UTC = ZoneInfo("UTC")
-session = requests.Session()
-session.headers.update({"User-Agent": "US-Alpha-Watch/1.0"})
+S = requests.Session()
+S.headers["User-Agent"] = "US-Alpha-Watch/1.0"
 
-def api(path, params=None, timeout=20):
-    params = dict(params or {})
+def api(path, **params):
     params["apikey"] = KEY
-    url = f"{BASE}/{path.lstrip('/')}"
-    r = session.get(url, params=params, timeout=timeout)
+    r = S.get(f"{BASE}/{path}", params=params, timeout=25)
     r.raise_for_status()
     data = r.json()
-    if isinstance(data, dict) and any(k.lower().startswith("error") for k in data):
-        raise RuntimeError(str(data))
+    if isinstance(data, dict) and any(str(k).lower().startswith("error") for k in data):
+        raise RuntimeError(data)
     return data
 
 def num(v):
     try:
-        if v is None or v == "" or v == "None":
+        if v is None or v == "" or v == "null":
             return None
         return float(v)
     except Exception:
         return None
 
-def holiday_closed(date_str):
-    closed = False
-    names = []
+def holiday_names(day):
+    names = set()
     for exch in ("NASDAQ", "NYSE"):
         try:
-            rows = api("holidays-by-exchange", {"exchange": exch, "from": date_str, "to": date_str})
+            rows = api("holidays-by-exchange", exchange=exch, **{"from": day, "to": day})
             for x in rows or []:
-                if x.get("date") == date_str and x.get("isClosed") is True:
-                    closed = True
-                    names.append(f"{exch}: {x.get('name') or 'Market Holiday'}")
+                if x.get("date") == day and x.get("isClosed") is True:
+                    names.add(x.get("name") or exch)
         except Exception as e:
-            print(f"holiday lookup warning {exch}: {e}", file=sys.stderr)
-    return closed, names
+            print("holiday lookup warning", exch, e, file=sys.stderr)
+    return sorted(names)
 
-def get_candidates():
-    out = {}
-    for exch in ("NASDAQ", "NYSE"):
-        rows = api("company-screener", {
-            "exchange": exch,
-            "country": "US",
-            "marketCapMoreThan": 5_000_000_000,
-            "volumeMoreThan": 500_000,
-            "isEtf": "false",
-            "isFund": "false",
-            "limit": 120,
-        })
-        for x in rows or []:
-            sym = (x.get("symbol") or "").strip()
-            if not sym or "." in sym or "^" in sym:
-                continue
-            out[sym] = x
-    return list(out.values())
-
-def get_quotes(symbols):
-    quotes = {}
-    # FMP batch quote endpoint supports multiple symbols in one request.
-    for i in range(0, len(symbols), 80):
-        chunk = symbols[i:i+80]
-        data = api("batch-quote", {"symbols": ",".join(chunk)})
-        for q in data or []:
-            quotes[q.get("symbol")] = q
-    return quotes
-
-def get_estimate(symbol):
+def exchange_quotes(exchange):
     try:
-        rows = api("analyst-estimates", {
-            "symbol": symbol,
-            "period": "annual",
-            "page": 0,
-            "limit": 5,
-        })
+        rows = api("batch-exchange-quote", exchange=exchange)
+        return rows or []
     except Exception as e:
-        print(f"estimate warning {symbol}: {e}", file=sys.stderr)
-        return None, None, None
+        print("exchange quote warning", exchange, e, file=sys.stderr)
+        return []
+
+def estimate(sym):
+    try:
+        rows = api("analyst-estimates", symbol=sym, period="annual", page=0, limit=6)
+    except Exception as e:
+        print("estimate warning", sym, e, file=sys.stderr)
+        return None, None, None, None
     today = datetime.now(UTC).date()
-    usable = []
+    vals = []
     for x in rows or []:
-        d = None
         try:
-            d = datetime.fromisoformat((x.get("date") or "").replace("Z", "+00:00")).date()
+            d = datetime.strptime(str(x.get("date")), "%Y-%m-%d").date()
         except Exception:
-            try:
-                d = datetime.strptime(x.get("date", ""), "%Y-%m-%d").date()
-            except Exception:
-                pass
+            continue
         eps = num(x.get("epsAvg"))
-        if d and eps is not None and eps > 0 and d >= today:
-            usable.append((d, eps, int(x.get("numAnalystsEps") or 0)))
-    usable.sort()
-    if not usable:
-        return None, None, None
-    d, eps, analysts = usable[0]
-    prev = usable[1] if len(usable) > 1 else None
-    return eps, analysts, (prev[1] if prev else None)
+        analysts = int(num(x.get("numAnalystsEps")) or 0)
+        if d >= today and eps is not None and eps > 0:
+            vals.append((d, eps, analysts))
+    vals.sort()
+    if not vals:
+        return None, None, None, None
+    d, eps, analysts = vals[0]
+    prev_eps = vals[1][1] if len(vals) > 1 else None
+    return eps, analysts, prev_eps, d.isoformat()
 
-def get_quality(symbol):
+def quality(sym):
     try:
-        rows = api("ratios-ttm", {"symbol": symbol})
-        x = (rows or [None])[0] or {}
-        return {
-            "netMargin": num(x.get("netProfitMarginTTM")),
-            "roe": num(x.get("returnOnEquityTTM")),
-            "debtEquity": num(x.get("debtToEquityRatioTTM")),
-        }
+        rows = api("ratios-ttm", symbol=sym)
+        x = (rows or [{}])[0]
+        return num(x.get("netProfitMarginTTM")), num(x.get("returnOnEquityTTM")), num(x.get("debtToEquityRatioTTM"))
     except Exception as e:
-        print(f"quality warning {symbol}: {e}", file=sys.stderr)
-        return {"netMargin": None, "roe": None, "debtEquity": None}
+        print("quality warning", sym, e, file=sys.stderr)
+        return None, None, None
 
-def earnings_map(date_str):
+def earnings(day):
     try:
-        rows = api("earnings-calendar", {"from": date_str, "to": date_str})
+        rows = api("earnings-calendar", **{"from": day, "to": day})
         return {x.get("symbol"): x for x in rows or [] if x.get("symbol")}
     except Exception as e:
-        print(f"earnings calendar warning: {e}", file=sys.stderr)
+        print("earnings warning", e, file=sys.stderr)
         return {}
 
-def score_row(q, eps, analysts, prev_eps, quality, earnings):
+def score(q, fpe, eps_growth, nm, roe, de, earnings_flag):
     price = num(q.get("price")) or 0
     chg = num(q.get("changePercentage")) or 0
-    avg50 = num(q.get("priceAvg50")) or 0
-    avg200 = num(q.get("priceAvg200")) or 0
-    cap = num(q.get("marketCap")) or 0
-    fpe = (price / eps) if eps and eps > 0 else None
-    points = 0
+    a50 = num(q.get("priceAvg50")) or 0
+    a200 = num(q.get("priceAvg200")) or 0
+
+    pts = 45
     reasons = []
     risk = "低"
 
-    if avg200 and price > avg200:
-        points += 16
-        reasons.append("站上 200 日均線")
-    if avg50 and price > avg50:
-        points += 14
-        reasons.append("站上 50 日均線")
-    if chg > 0.5 and chg < 6:
-        points += 12
+    if a200 and price > a200:
+        pts += 14
+        reasons.append("站上200日均線")
+    if a50 and price > a50:
+        pts += 12
+        reasons.append("站上50日均線")
+
+    if 0.5 < chg < 6:
+        pts += 11
         reasons.append("短線動能健康")
     elif chg >= 6:
-        points += 4
+        pts += 3
         risk = "中"
         reasons.append("單日漲幅偏大")
-    elif chg < -3:
-        points -= 8
+    elif chg <= -3:
+        pts -= 8
         reasons.append("短線轉弱")
 
     if fpe is not None:
         if fpe < 15:
-            points += 22
-            reasons.append("FPE 偏低")
+            pts += 18
+            reasons.append("FPE偏低")
         elif fpe < 22:
-            points += 18
-            reasons.append("FPE 合理")
+            pts += 15
+            reasons.append("FPE合理")
         elif fpe < 30:
-            points += 12
-            reasons.append("FPE 中性")
+            pts += 10
+            reasons.append("FPE中性")
         elif fpe < 45:
-            points += 5
-            reasons.append("FPE 偏高")
+            pts += 3
             risk = "中"
+            reasons.append("FPE偏高")
         else:
-            points -= 8
-            reasons.append("FPE 很高")
+            pts -= 10
             risk = "高"
+            reasons.append("FPE很高")
 
-    if prev_eps and eps and prev_eps > 0:
-        growth = (eps / prev_eps - 1) * 100
-        if growth >= 25:
-            points += 18
-            reasons.append(f"預估 EPS 成長 {growth:.0f}%")
-        elif growth >= 10:
-            points += 12
-            reasons.append(f"預估 EPS 成長 {growth:.0f}%")
-        elif growth < 0:
-            points -= 8
+    if eps_growth is not None:
+        if eps_growth >= 25:
+            pts += 15
+            reasons.append("預估EPS高成長")
+        elif eps_growth >= 10:
+            pts += 9
+            reasons.append("預估EPS成長")
+        elif eps_growth < 0:
+            pts -= 8
             risk = "高" if risk == "高" else "中"
-    else:
-        growth = None
+            reasons.append("預估EPS下滑")
 
-    if analysts is not None:
-        if analysts >= 8:
-            points += 7
-        elif analysts >= 4:
-            points += 4
-
-    nm = quality.get("netMargin")
-    roe = quality.get("roe")
-    de = quality.get("debtEquity")
     if nm is not None and nm > 0.15:
-        points += 5
+        pts += 4
         reasons.append("獲利率佳")
     if roe is not None and roe > 0.15:
-        points += 4
+        pts += 4
+        reasons.append("ROE佳")
     if de is not None and de > 2.5:
-        points -= 5
+        pts -= 5
         risk = "高" if risk == "高" else "中"
-        reasons.append("負債權益比偏高")
+        reasons.append("負債偏高")
+    if earnings_flag:
+        pts -= 5
+        risk = "高"
+        reasons.append("今日財報事件")
 
-    if earnings:
-        risk = "高" if risk != "高" else risk
-        reasons.append("近期財報事件")
-        points -= 5
-
-    score = max(0, min(100, round(45 + points)))
-    if score >= 88 and risk == "低":
-        label = "優先觀察"
-    elif score >= 80:
-        label = "值得研究"
-    elif score >= 70:
-        label = "觀察"
-    else:
-        label = "暫不優先"
-
-    return fpe, growth, score, label, risk, reasons
+    pts = max(0, min(100, round(pts)))
+    label = "優先觀察" if pts >= 88 else "值得研究" if pts >= 80 else "觀察" if pts >= 70 else "暫不優先"
+    return pts, label, risk, reasons[:5]
 
 def main():
     now = datetime.now(ET)
-    today = now.date()
-    date_str = today.isoformat()
-    weekend = today.weekday() >= 5
-    closed, holiday_names = holiday_closed(date_str) if not weekend else (True, ["Weekend"])
+    day = now.date().isoformat()
 
-    if closed:
-        payload = {
-            "status": "MARKET_CLOSED",
-            "asOf": now.isoformat(),
-            "date": date_str,
-            "holiday": holiday_names,
-            "rows": [],
-            "coverage": 0,
-            "note": "休市日不虛構行情。",
-        }
-        with open("data.json", "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
+    if now.weekday() >= 5:
+        payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":["Weekend"],"rows":[],"coverage":0,"universeCount":0}
+        json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
         return
 
-    base = get_candidates()
-    symbols = [x.get("symbol") for x in base if x.get("symbol")]
-    quotes = get_quotes(symbols)
+    holidays = holiday_names(day)
+    if holidays:
+        payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":holidays,"rows":[],"coverage":0,"universeCount":0}
+        json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
+        return
 
-    prelim = []
-    for x in base:
-        sym = x.get("symbol")
-        q = quotes.get(sym)
-        if not q:
-            continue
+    qrows = exchange_quotes("NASDAQ") + exchange_quotes("NYSE")
+    dedup = {}
+    for q in qrows:
+        sym = (q.get("symbol") or "").strip()
+        if sym and "." not in sym and "^" not in sym:
+            dedup[sym] = q
+
+    universe = []
+    for sym, q in dedup.items():
         price = num(q.get("price"))
         cap = num(q.get("marketCap"))
-        if not price or price < 10 or not cap or cap < 5_000_000_000:
+        vol = num(q.get("volume")) or 0
+        if not price or price < 10 or not cap or cap < 5_000_000_000 or vol < 300_000:
             continue
-        avg50 = num(q.get("priceAvg50")) or 0
-        avg200 = num(q.get("priceAvg200")) or 0
+        a50 = num(q.get("priceAvg50")) or 0
+        a200 = num(q.get("priceAvg200")) or 0
         chg = num(q.get("changePercentage")) or 0
         pre = 0
-        if avg200 and price > avg200: pre += 20
-        if avg50 and price > avg50: pre += 15
+        if a200 and price > a200: pre += 20
+        if a50 and price > a50: pre += 15
         if 0.5 < chg < 6: pre += 15
-        if chg >= 6: pre += 5
-        if chg < -3: pre -= 10
-        if cap > 50_000_000_000: pre += 4
-        prelim.append((pre, sym, q, x))
+        elif chg >= 6: pre += 5
+        elif chg <= -3: pre -= 10
+        universe.append((pre, cap, sym, q))
 
-    prelim.sort(reverse=True, key=lambda z: (z[0], num(z[2].get("marketCap")) or 0))
-    focus = prelim[:32]
-    earnings = earnings_map(date_str)
+    universe.sort(reverse=True, key=lambda z:(z[0], z[1]))
+    focus = universe[:24]
+    cal = earnings(day)
     rows = []
-    fpe_available = 0
+    fpe_count = 0
 
-    for _, sym, q, meta in focus:
-        eps, analysts, prev_eps = get_estimate(sym)
-        fpe, growth, score, label, risk, reasons = score_row(
-            q, eps, analysts, prev_eps, get_quality(sym), earnings.get(sym)
-        )
+    for _, cap, sym, q in focus:
+        eps, analysts, prev_eps, estimate_date = estimate(sym)
+        fpe = (num(q.get("price")) / eps) if eps and eps > 0 else None
+        eps_growth = ((eps / prev_eps) - 1) * 100 if eps and prev_eps and prev_eps > 0 else None
+        nm, roe, de = quality(sym)
+        sc, label, risk, reasons = score(q, fpe, eps_growth, nm, roe, de, sym in cal)
         if fpe is not None:
-            fpe_available += 1
+            fpe_count += 1
 
         rows.append({
-            "ticker": sym,
-            "name": q.get("name") or meta.get("companyName") or meta.get("name") or sym,
-            "exchange": q.get("exchange") or meta.get("exchange") or "",
-            "price": price_or_null(q.get("price")),
-            "changePct": price_or_null(q.get("changePercentage")),
-            "fpe": round(fpe, 2) if fpe is not None else None,
-            "forwardEps": round(eps, 2) if eps is not None else None,
-            "epsGrowthPct": round(growth, 1) if growth is not None else None,
-            "analysts": analysts,
-            "marketCap": q.get("marketCap"),
-            "priceAvg50": q.get("priceAvg50"),
-            "priceAvg200": q.get("priceAvg200"),
-            "score": score,
-            "label": label,
-            "risk": risk,
-            "reasons": reasons[:4],
-            "earningsDate": earnings.get(sym, {}).get("date") if sym in earnings else None,
-            "earningsFlag": sym in earnings,
+            "ticker":sym,
+            "name":q.get("name") or q.get("companyName") or sym,
+            "exchange":q.get("exchange") or "",
+            "price":num(q.get("price")),
+            "changePct":num(q.get("changePercentage")),
+            "marketCap":num(q.get("marketCap")),
+            "volume":num(q.get("volume")),
+            "fpe":round(fpe,2) if fpe is not None else None,
+            "forwardEps":round(eps,2) if eps is not None else None,
+            "epsGrowthPct":round(eps_growth,1) if eps_growth is not None else None,
+            "analysts":analysts,
+            "priceAvg50":num(q.get("priceAvg50")),
+            "priceAvg200":num(q.get("priceAvg200")),
+            "score":sc,
+            "label":label,
+            "risk":risk,
+            "reasons":reasons,
+            "earningsDate":cal.get(sym,{}).get("date"),
+            "estimateDate":estimate_date,
         })
 
-    rows.sort(key=lambda r: (-r["score"], r["fpe"] is None, r["fpe"] or 999))
+    rows.sort(key=lambda r:(-r["score"], r["fpe"] is None, r["fpe"] if r["fpe"] is not None else 999))
     payload = {
-        "status": "LIVE",
-        "asOf": now.isoformat(),
-        "date": date_str,
-        "rows": rows,
-        "coverage": round(100 * fpe_available / max(1, len(rows))),
-        "universeCount": len(symbols),
-        "focusCount": len(rows),
-        "method": "FMP Quote + Analyst Estimates + TTM Ratios + Earnings Calendar",
-        "fpeFormula": "Latest Price / next annual consensus EPS",
-        "holiday": [],
-        "note": "研究/監控工具，不構成投資建議。",
+        "status":"LIVE",
+        "asOf":now.isoformat(),
+        "date":day,
+        "rows":rows,
+        "coverage":round(100*fpe_count/max(1,len(rows))),
+        "universeCount":len(universe),
+        "focusCount":len(rows),
+        "method":"FMP exchange quotes + analyst estimates + TTM ratios + earnings calendar",
+        "fpeFormula":"latest price / next annual consensus EPS",
+        "holiday":[],
+        "note":"研究/監控工具，不構成投資建議。"
     }
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-
-def price_or_null(v):
-    n = num(v)
-    return round(n, 4) if n is not None else None
+    json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()
