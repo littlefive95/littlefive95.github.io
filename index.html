@@ -111,16 +111,20 @@ function riskClass(r){return r==="低"?"good":r==="高"?"warn":""}
 function reasonClass(t){ if(/^＋/.test(t)) return "good"; if(/^−/.test(t)||/^⚠/.test(t)) return "warn"; return ""; }
 function reasonHtml(arr){
   arr=Array.isArray(arr)?arr:[];
-  var summary="", judgement="", factors=[];
+  var summary="", core="", primary="", judgement="", factors=[];
   arr.forEach(function(t){
     t=String(t||"");
     if(t.indexOf("摘要｜")===0) summary=t.slice(3);
+    else if(t.indexOf("核心優勢｜")===0) core=t.slice(5);
+    else if(t.indexOf("主要風險｜")===0) primary=t.slice(5);
     else if(t.indexOf("判斷｜")===0) judgement=t.slice(3);
     else if(t) factors.push(t);
   });
   var h=summary?"<div class='reason-summary'>"+esc(summary)+"</div>":"";
+  if(core) h+="<div class='reason-summary'>核心優勢："+esc(core)+"</div>";
+  if(primary) h+="<div class='reason-summary'>主要風險："+esc(primary)+"</div>";
   h+=judgement?"<div class='reason-judgement'>判斷："+esc(judgement)+"</div>":"";
-  h+="<div class='reason-pills'>"+factors.slice(0,5).map(function(t){return "<span class='pill "+reasonClass(t)+"'>"+esc(t)+"</span>"}).join("")+"</div>";
+  h+="<div class='reason-pills'>"+factors.slice(0,4).map(function(t){return "<span class='pill "+reasonClass(t)+"'>"+esc(t)+"</span>"}).join("")+"</div>";
   return h;
 }
 function tabKind(x){
