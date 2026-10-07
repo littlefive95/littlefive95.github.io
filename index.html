@@ -132,7 +132,7 @@ function render(){
   document.getElementById("cryptoGroups").style.display=mode==="crypto"?"flex":"none";
   if(mode!=="crypto"){ cryptoCategory="all"; }
   if(mode==="crypto"){
-    document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>24H</th><th>24H VOLUME</th><th>VOL RATIO</th><th>MA20</th><th>MA50</th><th>MA200</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
+    document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>24H</th><th>CMC RANK</th><th>24H VOLUME</th><th>VOL RATIO</th><th>MA20</th><th>MA50</th><th>MA200</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
       arr.map(function(x){
         var reasons=(x.reasons||[]).slice(0,3).map(function(t){return "<span class='pill'>"+esc(t)+"</span>"}).join("");
         var price=(x.price==null?"N/A":(CFG[mode].currency+Number(x.price).toFixed(4)));
@@ -142,7 +142,7 @@ function render(){
         return "<tr><td><div class='sym'>"+esc(x.ticker)+"/USDT</div><div class='company'>"+esc(x.name)+" · Binance Spot · <span class='sector-tag'>"+esc(x.sector||"加密貨幣")+"</span></div></td>"+
         "<td>"+price+"</td>"+
         "<td class='"+(Number(x.changePct||0)>=0?"up":"down")+"'>"+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</td>"+
-        "<td>"+qvText+"</td><td>"+vr+"</td><td>"+ma(x.priceAvg20)+"</td><td>"+ma(x.priceAvg50)+"</td><td>"+ma(x.priceAvg200)+"</td>"+
+        "<td>"+(x.cmcRank==null?"N/A":"#"+esc(x.cmcRank))+"</td><td>"+qvText+"</td><td>"+vr+"</td><td>"+ma(x.priceAvg20)+"</td><td>"+ma(x.priceAvg50)+"</td><td>"+ma(x.priceAvg200)+"</td>"+
         "<td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span></td>"+
         "<td class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</td><td>"+reasons+"</td></tr>";
       }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有符合條件的加密貨幣。</div>";
@@ -164,7 +164,7 @@ function render(){
   }
   document.getElementById("picks").innerHTML=data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).map(function(x){
     var meta=mode==="crypto"
-      ? "<span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>"
+      ? "<span class='metric'>CMC #"+(x.cmcRank==null?"N/A":esc(x.cmcRank))+"</span><span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>"
       : "<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
     return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name))+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
       "<div class='pickwhy'>"+esc((x.reasons||[]).join(" · ")||"量化條件符合")+"</div>"+
@@ -178,7 +178,7 @@ function setHeader(){
   document.getElementById("subtitle").textContent=c.subtitle;
   document.getElementById("universeName").textContent=c.universeName;
   document.getElementById("timeZoneLabel").textContent=c.tzLabel;
-  document.getElementById("coverageLabel").textContent=mode==="crypto"?"估值適用率":"FPE 覆蓋率";
+  document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":"FPE 覆蓋率";
   document.getElementById("sessionHeading").textContent=mode==="us"?"24H Session":mode==="tw"?"台股交易時段":"24H Crypto Market";
   document.getElementById("sessionBadge").textContent=mode==="us"?"ET":mode==="tw"?"TWT":"24/7";
   document.getElementById("fpe").disabled=mode==="crypto";
@@ -232,7 +232,7 @@ function loadData(){
   document.getElementById("sourceBadge").textContent="UPDATING";
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
     data=Array.isArray(p.rows)?p.rows:[];
-    document.getElementById("coverage").textContent=mode==="crypto"?"N/A":(p.coverage||0)+"%";
+    document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
     document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種":(p.universeCount||0)+" symbols";
     document.getElementById("updated").textContent=p.asOf?new Date(p.asOf).toLocaleString("zh-TW",{timeZone:"Asia/Taipei",hour12:false}):"—";
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
