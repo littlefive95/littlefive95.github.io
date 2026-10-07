@@ -114,7 +114,9 @@ function render(){
     if(fb==="na" && x.fpe!=null) return false;
     return true;
   }).sort(function(a,b){return Number(b.score||0)-Number(a.score||0)});
-  arr=arr.slice(0,10);\n  document.getElementById("count").textContent=arr.length;\n  document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>1D</th><th>FPE</th><th>FWD EPS</th><th>EPS GROWTH</th><th>ANALYSTS</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
+  arr=arr.slice(0,10);
+  document.getElementById("count").textContent=arr.length;
+  document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>1D</th><th>FPE</th><th>FWD EPS</th><th>EPS GROWTH</th><th>ANALYSTS</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
     arr.map(function(x){
       var reasons=(x.reasons||[]).slice(0,3).map(function(t){return "<span class='pill'>"+esc(t)+"</span>"}).join("");
       var price=(x.price==null?"N/A":(CFG[mode].currency+Number(x.price).toFixed(2)));
@@ -194,7 +196,8 @@ document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("clic
 document.getElementById("csvBtn").addEventListener("click",function(){
   var rows=[["Code","Company","Exchange","Price","ChangePct","FPE","ForwardEPS","EPSGrowthPct","Analysts","Risk","Score"]];
   data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.exchange,x.price,x.changePct,x.fpe,x.forwardEps,x.epsGrowthPct,x.analysts,x.risk,x.score])});
-  var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
+  var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("
+");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });
 setHeader();setClock();loadData();setInterval(setClock,15000);setInterval(loadData,300000);
