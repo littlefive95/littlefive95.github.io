@@ -995,14 +995,15 @@ def crypto_score(row):
     a200 = row.get("priceAvg200") or 0
     vr = row.get("volumeRatio") or 0
     qv = row.get("quoteVolume24h") or 0
+    cmc_rank = row.get("cmcRank")
 
     # 100-point crypto model:
-    # Trend 35 + 24H momentum 25 + volume 20 + liquidity 10 + position vs MA200 10.
+    # Trend 35 + 24H momentum 25 + volume 20 + Binance liquidity 5
+    # + CoinMarketCap market position 5 + position vs MA200 10.
     pts = 0
     reasons = []
     risk = "低"
 
-    # Trend: 35 points.
     if a200 and price > a200:
         pts += 20
         reasons.append("站上200日均線")
@@ -1013,7 +1014,6 @@ def crypto_score(row):
         pts += 5
         reasons.append("站上20日均線")
 
-    # 24H momentum: 25 points.
     if 1 <= chg < 6:
         pts += 25
         reasons.append("24H強勢動能")
@@ -1038,7 +1038,6 @@ def crypto_score(row):
         risk = "中"
         reasons.append("24H漲幅偏大")
 
-    # Volume expansion: 20 points.
     if vr >= 2:
         pts += 20
         reasons.append("成交量明顯放大")
@@ -1053,19 +1052,33 @@ def crypto_score(row):
     else:
         reasons.append("成交量偏低")
 
-    # Liquidity: 10 points.
     if qv >= 1_000_000_000:
-        pts += 10
-        reasons.append("流動性高")
+        pts += 5
+        reasons.append("Binance流動性高")
     elif qv >= 250_000_000:
-        pts += 8
-        reasons.append("流動性佳")
+        pts += 4
+        reasons.append("Binance流動性佳")
     elif qv >= 100_000_000:
-        pts += 6
-    elif qv >= 50_000_000:
         pts += 3
+    elif qv >= 50_000_000:
+        pts += 1
 
-    # Position relative to MA200: 10 points.
+    if cmc_rank is not None:
+        try:
+            rank = int(cmc_rank)
+            if rank <= 20:
+                pts += 5
+                reasons.append("CMC市值前20")
+            elif rank <= 50:
+                pts += 4
+                reasons.append("CMC市值前50")
+            elif rank <= 100:
+                pts += 3
+            elif rank <= 250:
+                pts += 2
+        except Exception:
+            pass
+
     if a200 and price > a200:
         distance = (price / a200 - 1) * 100
         if 0 <= distance <= 20:
@@ -1086,7 +1099,6 @@ def crypto_score(row):
         risk = "高" if risk == "高" else "中"
         reasons.append("跌破200日線較多")
 
-    # Avoid letting very sharp one-day moves look risk-free.
     if abs(chg) >= 10:
         risk = "高"
 
@@ -1111,6 +1123,22 @@ def build_crypto_live():
             "note": "加密貨幣為 24/7 市場；資料來自公開市場行情。",
         }
 
+    cmc_rows = cmc_listings(250)
+    cmc_map = {}
+    for item in cmc_rows:
+        sym = str(item.get("symbol") or "").upper().strip()
+        if not sym:
+            continue
+        quote = cmc_quote(item)
+        cmc_map[sym] = {
+            "rank": item.get("cmc_rank"),
+            "marketCap": quote.get("market_cap"),
+            "volume24h": quote.get("volume_24h"),
+            "change24h": quote.get("percent_change_24h"),
+            "tags": cmc_tags(item),
+            "name": item.get("name") or sym,
+        }
+
     candidates = []
     for q in tickers:
         sym = str(q.get("symbol") or "").upper()
@@ -1130,13 +1158,19 @@ def build_crypto_live():
             continue
         if price <= 0 or qv < 50_000_000:
             continue
+        cmc = cmc_map.get(base, {})
+        cmc_rank = cmc.get("rank")
         candidates.append({
             "ticker": base,
             "symbol": sym,
-            "name": base,
-            "exchange": "Binance Spot",
+            "name": cmc.get("name") or base,
+            "exchange": "Binance Spot + CMC",
             "sector": crypto_category(sym),
-            "category": crypto_group(sym),
+            "category": crypto_group(sym, cmc.get("tags"), cmc_rank),
+            "cmcRank": cmc_rank,
+            "cmcMarketCap": cmc.get("marketCap"),
+            "cmcVolume24h": cmc.get("volume24h"),
+            "cmcChange24h": cmc.get("change24h"),
             "price": price,
             "changePct": chg,
             "quoteVolume24h": qv,
@@ -1194,7 +1228,8 @@ def build_crypto_live():
         "universeCount": len(enriched),
         "focusCount": len(rows),
         "categoryStats": category_stats,
-        "method": "Binance public spot market data",
+        "cmcCoverage": round(100 * sum(1 for r in enriched if r.get("cmcRank") is not None) / max(1, len(enriched))),
+        "method": "Binance public spot market data + CoinMarketCap market reference",
         "fpeFormula": "不適用；加密貨幣不使用 FPE / Forward EPS",
         "holiday": [],
         "note": "24/7 加密貨幣市場；依均線、24H動能、量能、流動性與波動風險排序，僅供研究與監控。",
