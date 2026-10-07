@@ -152,22 +152,25 @@ def score(row):
     roe = row["roe"]
     debt = row["debt"]
 
-    pts = 45
+    pts = 0
     reasons = []
     risk = "低"
 
     if a200 and price > a200:
-        pts += 14
+        pts += 25
         reasons.append("站上200日均線")
     if a50 and price > a50:
-        pts += 12
+        pts += 10
         reasons.append("站上50日均線")
     if chg is not None:
         if 0.5 < chg < 6:
-            pts += 11
+            pts += 15
             reasons.append("短線動能健康")
+        elif 0 <= chg <= 0.5:
+            pts += 8
+            reasons.append("短線維持正向")
         elif chg >= 6:
-            pts += 4
+            pts += 5
             risk = "中"
             reasons.append("單日漲幅偏大")
         elif chg <= -3:
@@ -177,60 +180,57 @@ def score(row):
 
     if fpe is not None and fpe > 0:
         if fpe < 15:
-            pts += 18
+            pts += 20
             reasons.append("FPE偏低")
         elif fpe < 22:
-            pts += 15
+            pts += 16
             reasons.append("FPE合理")
         elif fpe < 30:
             pts += 10
             reasons.append("FPE中性")
         elif fpe < 45:
-            pts += 3
+            pts += 4
             risk = "中"
             reasons.append("FPE偏高")
         else:
-            pts -= 10
             risk = "高"
             reasons.append("FPE很高")
     elif fpe is not None and fpe <= 0:
+        pts -= 10
         risk = "高"
         reasons.append("Forward EPS為負，FPE不具估值意義")
 
     if growth is not None:
         if growth >= 25:
-            pts += 15
+            pts += 20
             reasons.append("預估EPS高成長")
         elif growth >= 10:
-            pts += 9
+            pts += 12
             reasons.append("預估EPS成長")
-        elif growth < 0:
+        elif growth >= 0:
+            pts += 5
+        else:
             pts -= 8
             risk = "高" if risk == "高" else "中"
             reasons.append("預估EPS下滑")
 
     if analysts >= 8:
-        pts += 4
+        pts += 5
         reasons.append("分析師覆蓋度佳")
     if margin is not None and margin > 0.15:
-        pts += 4
+        pts += 5
         reasons.append("獲利率佳")
     if roe is not None and roe > 0.15:
-        pts += 4
+        pts += 5
         reasons.append("ROE佳")
     if debt is not None and debt > 250:
         pts -= 5
         risk = "高" if risk == "高" else "中"
         reasons.append("負債偏高")
-    if row.get("earningsDate") == row.get("_today"):
-        pts -= 5
-        risk = "高"
-        reasons.append("今日財報事件")
 
     pts = max(0, min(100, round(pts)))
-    label = "優先觀察" if pts >= 88 else "值得研究" if pts >= 80 else "觀察" if pts >= 70 else "暫不優先"
+    label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
     return pts, label, risk, reasons[:5]
-
 def build_live():
     now = datetime.now(ET)
     day = now.date().isoformat()
@@ -459,78 +459,83 @@ def taiwan_score(row):
     growth = row.get("epsGrowthPct")
     pe = row.get("pe")
 
-    pts = 40
+    pts = 0
     reasons = []
     risk = "低"
 
-    if a20 and price > a20:
-        pts += 8
-        reasons.append("站上20日均線")
-    if a50 and price > a50:
-        pts += 12
-        reasons.append("站上50日均線")
     if a200 and price > a200:
-        pts += 12
+        pts += 20
         reasons.append("站上200日均線")
+    if a50 and price > a50:
+        pts += 10
+        reasons.append("站上50日均線")
+    if a20 and price > a20:
+        pts += 5
+        reasons.append("站上20日均線")
 
     if 0.5 <= chg < 6:
-        pts += 9
+        pts += 15
         reasons.append("短線動能健康")
+    elif 0 <= chg < 0.5:
+        pts += 8
+        reasons.append("短線維持正向")
     elif chg >= 6:
-        pts += 2
+        pts += 4
         risk = "中"
         reasons.append("單日漲幅偏大")
     elif chg <= -3:
-        pts -= 10
+        pts -= 8
         risk = "中"
         reasons.append("短線轉弱")
 
     if vr >= 1.5:
-        pts += 10
+        pts += 15
         reasons.append("成交量放大")
     elif vr >= 1.15:
-        pts += 5
+        pts += 8
         reasons.append("成交量增溫")
 
     valuation = fpe if fpe is not None and fpe > 0 else pe if pe is not None and pe > 0 else None
     if valuation is not None:
         if valuation < 15:
-            pts += 14
+            pts += 20
             reasons.append("估值偏低")
         elif valuation < 22:
-            pts += 11
+            pts += 15
             reasons.append("估值合理")
         elif valuation < 30:
-            pts += 6
+            pts += 8
             reasons.append("估值中性")
         elif valuation < 45:
+            pts += 3
             risk = "中"
             reasons.append("估值偏高")
         else:
-            pts -= 8
             risk = "高"
             reasons.append("估值很高")
 
     if growth is not None:
         if growth >= 25:
-            pts += 10
+            pts += 15
             reasons.append("EPS高成長")
         elif growth >= 10:
-            pts += 7
+            pts += 10
             reasons.append("EPS成長")
-        elif growth < 0:
+        elif growth >= 0:
+            pts += 4
+        else:
             pts -= 7
-            risk = "中"
+            risk = "高" if risk == "高" else "中"
             reasons.append("EPS成長轉弱")
 
     if a200 and price < a200 * 0.92:
+        pts -= 6
         risk = "高" if risk == "高" else "中"
         reasons.append("距200日均線偏遠")
 
     pts = max(0, min(100, round(pts)))
-    label = "進場候選" if pts >= 85 else "值得研究" if pts >= 75 else "觀察" if pts >= 65 else "暫不優先"
+    label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
     return pts, label, risk, reasons[:5]
-
 def build_taiwan_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     day = now.date().isoformat()
