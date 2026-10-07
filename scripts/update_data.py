@@ -1348,17 +1348,17 @@ def cn_adr_score(row):
     reasons = []
     risk = "低"
 
-    if row.get("a200") and row["a_price"] > row["a200"]:
+    if row.get("a200") and row["aPrice"] > row["a200"]:
         pts += 25
         reasons.append("A股站上200日線")
-    if row.get("a50") and row["a_price"] > row["a50"]:
+    if row.get("a50") and row["aPrice"] > row["a50"]:
         pts += 15
         reasons.append("A股站上50日線")
-    if row.get("a20") and row["a_price"] > row["a20"]:
+    if row.get("a20") and row["aPrice"] > row["a20"]:
         pts += 10
         reasons.append("A股站上20日線")
 
-    achg = row.get("a_changePct")
+    achg = row.get("aChangePct")
     if achg is not None:
         if 0.5 <= achg < 4:
             pts += 15
@@ -1393,7 +1393,7 @@ def cn_adr_score(row):
             risk = "中" if risk != "高" else risk
             reasons.append("ADR溢折價很大")
 
-    uschg = row.get("adr_changePct")
+    uschg = row.get("adrChangePct")
     if uschg is not None and achg is not None:
         if achg * uschg > 0:
             pts += 5
@@ -1403,18 +1403,18 @@ def cn_adr_score(row):
             risk = "中" if risk == "低" else risk
             reasons.append("A股與ADR方向分歧")
 
-    if row.get("adr_volume", 0) >= 50_000:
+    if row.get("adrVolume", 0) >= 50_000:
         pts += 10
         reasons.append("ADR成交量較佳")
-    elif row.get("adr_volume", 0) >= 10_000:
+    elif row.get("adrVolume", 0) >= 10_000:
         pts += 6
-    elif row.get("adr_volume", 0) >= 1_000:
+    elif row.get("adrVolume", 0) >= 1_000:
         pts += 3
     else:
         risk = "中" if risk == "低" else risk
         reasons.append("ADR流動性偏低")
 
-    if row.get("a_price") and row.get("a200") and row["a_price"] < row["a200"] * 0.92:
+    if row.get("aPrice") and row.get("a200") and row["aPrice"] < row["a200"] * 0.92:
         pts -= 5
         risk = "中" if risk == "低" else risk
         reasons.append("A股距200日線偏遠")
