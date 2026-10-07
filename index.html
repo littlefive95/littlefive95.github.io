@@ -37,7 +37,7 @@
   <div class="card kpi"><div class="label">監控宇宙</div><div class="value" id="universeName">NASDAQ + NYSE</div><div class="hint" id="universe">—</div></div>
   <div class="card kpi"><div class="label">進場候選</div><div class="value" id="count">—</div><div class="hint">量化分數排序</div></div>
   <div class="card kpi"><div class="label" id="coverageLabel">FPE 覆蓋率</div><div class="value" id="coverage">—</div><div class="hint">Forward P/E</div></div>
-  <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div><div class="hint" id="dataAge">等待資料</div></div><div class="card kpi"><div class="label">下次更新</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端每小時更新</div></div>
+  <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div></div><div class="card kpi"><div class="label">下次更新</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端每小時更新</div></div>
 </section>
 
 <div class="grid layout">
@@ -272,15 +272,6 @@ function setClock(){
   document.getElementById("market").textContent=session;
   document.getElementById("clock").textContent=v.hour+":"+v.minute+":"+v.second+" "+c.tzLabel+" · "+wd;
 }
-var lastDataAt=null;
-function updateDataAge(){
-  var el=document.getElementById("dataAge");
-  if(!el || !lastDataAt) return;
-  var age=Math.max(0,Date.now()-lastDataAt);
-  var totalSec=Math.floor(age/1000), hh=Math.floor(totalSec/3600), mm=Math.floor((totalSec%3600)/60), ss=totalSec%60;
-  var label=hh>0?String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0"):String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0");
-  el.textContent="資料已更新 "+label+" 前";
-}
 function loadData(){
   document.getElementById("sourceBadge").textContent="UPDATING";
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
@@ -288,13 +279,9 @@ function loadData(){
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
     document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":mode==="cnadr"?(p.focusCount||0)+" 組可用配對 · "+(p.universeCount||0)+" 組有效名單":(p.universeCount||0)+" symbols";
     if(p.asOf){
-      lastDataAt=new Date(p.asOf).getTime();
       document.getElementById("updated").textContent=new Date(p.asOf).toLocaleTimeString("zh-TW",{timeZone:"Asia/Taipei",hour12:false});
-      updateDataAge();
     }else{
-      lastDataAt=null;
       document.getElementById("updated").textContent="—";
-      document.getElementById("dataAge").textContent="等待資料";
     }
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
     document.getElementById("sourceBadge").textContent=p.status==="LIVE"?CFG[mode].source:p.status==="MARKET_CLOSED"?"MARKET CLOSED":"DATA ERROR";
@@ -343,7 +330,7 @@ document.getElementById("csvBtn").addEventListener("click",function(){
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });;
-setHeader();setClock();updateNextUpdate();loadData();setInterval(setClock,15000);setInterval(updateNextUpdate,1000);setInterval(updateDataAge,1000);setInterval(loadData,300000);
+setHeader();setClock();updateNextUpdate();loadData();setInterval(setClock,15000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);
 </script>
 </body>
 </html>
