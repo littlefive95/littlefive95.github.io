@@ -106,6 +106,28 @@ def sector_label(sector=None, industry=None, ticker=None, name=None, quote_type=
         return INDUSTRY_MAP[industry]
     if sector in SECTOR_MAP:
         return SECTOR_MAP[sector]
+
+    # Fallback classification from ticker/name when the provider does not
+    # return Sector/Industry metadata.
+    hay = f"{ticker} {name}".lower()
+    keyword_groups = [
+        (["semiconductor", "chip", "memory", "半導體", "矽"], "半導體"),
+        (["broadcom", "super micro", "server", "computer", "hardware", "伺服器", "電腦"], "電腦硬體／AI伺服器"),
+        (["electronic", "electronics", "celestica", "flex", "component", "電子", "零組件"], "電子零組件"),
+        (["insurance", "insurance", "corebridge", "保險"], "保險"),
+        (["bank", "financial", "mizuho", "nubank", "unibanco", "銀行", "金融"], "金融"),
+        (["gold", "mining", "minerals", "黃金", "礦業"], "礦業／原物料"),
+        (["airline", "airlines", "航空"], "航空"),
+        (["software", "cloud", "saas", "軟體", "雲端"], "軟體／雲端"),
+        (["biotech", "biotechnology", "drug", "pharma", "生技", "製藥"], "生技／製藥"),
+        (["energy", "oil", "gas", "能源", "石油"], "能源"),
+        (["retail", "store", "stores", "零售"], "零售"),
+        (["telecom", "communications", "電信", "通訊"], "通訊"),
+    ]
+    for words, label in keyword_groups:
+        if any(w in hay for w in words):
+            return label
+
     if industry and industry.lower() not in {"none", "nan", "null"}:
         return industry
     if sector and sector.lower() not in {"none", "nan", "null"}:
