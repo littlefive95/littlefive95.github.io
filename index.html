@@ -196,8 +196,7 @@ document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("clic
 document.getElementById("csvBtn").addEventListener("click",function(){
   var rows=[["Code","Company","Exchange","Price","ChangePct","FPE","ForwardEPS","EPSGrowthPct","Analysts","Risk","Score"]];
   data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.exchange,x.price,x.changePct,x.fpe,x.forwardEps,x.epsGrowthPct,x.analysts,x.risk,x.score])});
-  var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("
-");
+  var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });
 setHeader();setClock();loadData();setInterval(setClock,15000);setInterval(loadData,300000);
