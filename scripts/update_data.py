@@ -5,8 +5,11 @@ from zoneinfo import ZoneInfo
 
 import pandas_market_calendars as mcal
 import yfinance as yf
+import requests
 
 ET = ZoneInfo("America/New_York")
+S = requests.Session()
+S.headers.update({"User-Agent": "US-TW-Alpha-Watch/1.0"})
 
 SCREENS = (
     "most_actives",
