@@ -37,7 +37,7 @@
   <div class="card kpi"><div class="label">監控宇宙</div><div class="value" id="universeName">NASDAQ + NYSE</div><div class="hint" id="universe">—</div></div>
   <div class="card kpi"><div class="label">進場候選</div><div class="value" id="count">—</div><div class="hint">量化分數排序</div></div>
   <div class="card kpi"><div class="label" id="coverageLabel">FPE 覆蓋率</div><div class="value" id="coverage">—</div><div class="hint">Forward P/E</div></div>
-  <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div></div><div class="card kpi"><div class="label">下次更新</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端每小時更新</div></div>
+  <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div><div class="hint">目前時間 <span id="pageTime">—</span></div></div><div class="card kpi"><div class="label">下次更新</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端每小時更新</div></div>
 </section>
 
 <div class="grid layout">
@@ -258,6 +258,11 @@ function updateNextUpdate(){
   el.textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",hour12:false}).format(next);
   document.getElementById("nextUpdateHint").textContent="倒數 "+String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0")+" · 約每小時";
 }
+function updatePageTime(){
+  var el=document.getElementById("pageTime");
+  if(!el) return;
+  el.textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date());
+}
 function setClock(){
   var c=CFG[mode], d=new Date();
   var parts=new Intl.DateTimeFormat("en-US",{timeZone:c.tz,weekday:"short",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(d), v={};
@@ -329,7 +334,7 @@ document.getElementById("csvBtn").addEventListener("click",function(){
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });;
-setHeader();setClock();updateNextUpdate();loadData();setInterval(setClock,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);
+setHeader();setClock();updatePageTime();updateNextUpdate();loadData();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);
 </script>
 </body>
 </html>
