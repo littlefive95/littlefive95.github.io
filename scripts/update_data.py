@@ -254,84 +254,109 @@ def score(row):
     debt = row["debt"]
 
     pts = 0
-    reasons = []
+    positives = []
+    risks = []
     risk = "低"
+
+    def addp(points, text):
+        positives.append(f"＋{points}｜{text}")
+
+    def addn(points, text):
+        positives.append(f"−{abs(points)}｜{text}")
+
+    def addr(text):
+        risks.append(f"⚠｜{text}")
 
     if a200 and price > a200:
         pts += 25
-        reasons.append("站上200日均線")
+        addp(25, "站上200日均線")
     if a50 and price > a50:
         pts += 10
-        reasons.append("站上50日均線")
+        addp(10, "站上50日均線")
     if chg is not None:
         if 0.5 < chg < 6:
             pts += 15
-            reasons.append("短線動能健康")
+            addp(15, "短線動能健康")
         elif 0 <= chg <= 0.5:
             pts += 8
-            reasons.append("短線維持正向")
+            addp(8, "短線維持正向")
         elif chg >= 6:
             pts += 5
+            addp(5, "單日仍有正向動能")
             risk = "中"
-            reasons.append("單日漲幅偏大")
+            addr("單日漲幅偏大")
         elif chg <= -3:
             pts -= 8
+            addn(-8, "短線轉弱")
             risk = "中"
-            reasons.append("短線轉弱")
+            addr("短線轉弱")
 
     if fpe is not None and fpe > 0:
         if fpe < 15:
             pts += 20
-            reasons.append("FPE偏低")
+            addp(20, "FPE偏低")
         elif fpe < 22:
             pts += 16
-            reasons.append("FPE合理")
+            addp(16, "FPE合理")
         elif fpe < 30:
             pts += 10
-            reasons.append("FPE中性")
+            addp(10, "FPE中性")
         elif fpe < 45:
             pts += 4
+            addp(4, "FPE偏高但仍有估值分")
             risk = "中"
-            reasons.append("FPE偏高")
+            addr("FPE偏高")
         else:
             risk = "高"
-            reasons.append("FPE很高")
+            addr("FPE很高")
     elif fpe is not None and fpe <= 0:
         pts -= 10
+        addn(-10, "Forward EPS為負")
         risk = "高"
-        reasons.append("Forward EPS為負，FPE不具估值意義")
+        addr("FPE不具估值意義")
 
     if growth is not None:
         if growth >= 25:
             pts += 20
-            reasons.append("預估EPS高成長")
+            addp(20, "預估EPS高成長")
         elif growth >= 10:
             pts += 12
-            reasons.append("預估EPS成長")
+            addp(12, "預估EPS成長")
         elif growth >= 0:
             pts += 5
+            addp(5, "預估EPS維持成長")
         else:
             pts -= 8
+            addn(-8, "預估EPS下滑")
             risk = "高" if risk == "高" else "中"
-            reasons.append("預估EPS下滑")
+            addr("EPS成長轉弱")
 
     if analysts >= 8:
         pts += 5
-        reasons.append("分析師覆蓋度佳")
+        addp(5, "分析師覆蓋度佳")
     if margin is not None and margin > 0.15:
         pts += 5
-        reasons.append("獲利率佳")
+        addp(5, "獲利率佳")
     if roe is not None and roe > 0.15:
         pts += 5
-        reasons.append("ROE佳")
+        addp(5, "ROE佳")
     if debt is not None and debt > 250:
         pts -= 5
+        addn(-5, "負債偏高")
         risk = "高" if risk == "高" else "中"
-        reasons.append("負債偏高")
+        addr("負債偏高")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
-    return pts, label, risk, reasons[:5]
+
+    pos_text = [x.split("｜", 1)[1] for x in positives if x.startswith("＋")][:2]
+    neg_text = [x.split("｜", 1)[1] for x in positives if x.startswith("−")][:1]
+    risk_text = [x.split("｜", 1)[1] for x in risks][:1]
+    summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
+    if risk_text:
+        summary += "；注意：" + risk_text[0]
+    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:7]
 def build_live():
     now = datetime.now(ET)
     day = now.date().isoformat()
@@ -671,82 +696,107 @@ def taiwan_score(row):
     pe = row.get("pe")
 
     pts = 0
-    reasons = []
+    positives = []
+    risks = []
     risk = "低"
+
+    def addp(points, text):
+        positives.append(f"＋{points}｜{text}")
+
+    def addn(points, text):
+        positives.append(f"−{abs(points)}｜{text}")
+
+    def addr(text):
+        risks.append(f"⚠｜{text}")
 
     if a200 and price > a200:
         pts += 20
-        reasons.append("站上200日均線")
+        addp(20, "站上200日均線")
     if a50 and price > a50:
         pts += 10
-        reasons.append("站上50日均線")
+        addp(10, "站上50日均線")
     if a20 and price > a20:
         pts += 5
-        reasons.append("站上20日均線")
+        addp(5, "站上20日均線")
 
     if 0.5 <= chg < 6:
         pts += 15
-        reasons.append("短線動能健康")
+        addp(15, "短線動能健康")
     elif 0 <= chg < 0.5:
         pts += 8
-        reasons.append("短線維持正向")
+        addp(8, "短線維持正向")
     elif chg >= 6:
         pts += 4
+        addp(4, "單日仍有正向動能")
         risk = "中"
-        reasons.append("單日漲幅偏大")
+        addr("單日漲幅偏大")
     elif chg <= -3:
         pts -= 8
+        addn(-8, "短線轉弱")
         risk = "中"
-        reasons.append("短線轉弱")
+        addr("短線轉弱")
 
     if vr >= 1.5:
         pts += 15
-        reasons.append("成交量放大")
+        addp(15, "成交量放大")
     elif vr >= 1.15:
         pts += 8
-        reasons.append("成交量增溫")
+        addp(8, "成交量增溫")
+    elif vr < 0.8:
+        addr("成交量偏低")
 
     valuation = fpe if fpe is not None and fpe > 0 else pe if pe is not None and pe > 0 else None
     if valuation is not None:
         if valuation < 15:
             pts += 20
-            reasons.append("估值偏低")
+            addp(20, "估值偏低")
         elif valuation < 22:
             pts += 15
-            reasons.append("估值合理")
+            addp(15, "估值合理")
         elif valuation < 30:
             pts += 8
-            reasons.append("估值中性")
+            addp(8, "估值中性")
         elif valuation < 45:
             pts += 3
+            addp(3, "估值偏高但仍有估值分")
             risk = "中"
-            reasons.append("估值偏高")
+            addr("估值偏高")
         else:
             risk = "高"
-            reasons.append("估值很高")
+            addr("估值很高")
 
     if growth is not None:
         if growth >= 25:
             pts += 15
-            reasons.append("EPS高成長")
+            addp(15, "EPS高成長")
         elif growth >= 10:
             pts += 10
-            reasons.append("EPS成長")
+            addp(10, "EPS成長")
         elif growth >= 0:
             pts += 4
+            addp(4, "EPS維持正成長")
         else:
             pts -= 7
+            addn(-7, "EPS成長轉弱")
             risk = "高" if risk == "高" else "中"
-            reasons.append("EPS成長轉弱")
+            addr("EPS成長轉弱")
 
     if a200 and price < a200 * 0.92:
         pts -= 6
+        addn(-6, "距200日線偏遠")
         risk = "高" if risk == "高" else "中"
-        reasons.append("距200日均線偏遠")
+        addr("A股距200日線偏遠")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
-    return pts, label, risk, reasons[:5]
+    pos_text = [x.split("｜", 1)[1] for x in positives if x.startswith("＋")][:2]
+    neg_text = [x.split("｜", 1)[1] for x in positives if x.startswith("−")][:1]
+    risk_text = [x.split("｜", 1)[1] for x in risks][:1]
+    summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
+    if risk_text:
+        summary += "；注意：" + risk_text[0]
+    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:7]
 def build_taiwan_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     day = now.date().isoformat()
@@ -1041,67 +1091,76 @@ def crypto_score(row):
     qv = row.get("quoteVolume24h") or 0
     cmc_rank = row.get("cmcRank")
 
-    # 100-point crypto model:
-    # Trend 35 + 24H momentum 25 + volume 20 + Binance liquidity 5
-    # + CoinMarketCap market position 5 + position vs MA200 10.
     pts = 0
-    reasons = []
+    positives = []
+    risks = []
     risk = "低"
+
+    def addp(points, text):
+        positives.append(f"＋{points}｜{text}")
+
+    def addn(points, text):
+        positives.append(f"−{abs(points)}｜{text}")
+
+    def addr(text):
+        risks.append(f"⚠｜{text}")
 
     if a200 and price > a200:
         pts += 20
-        reasons.append("站上200日均線")
+        addp(20, "站上200日均線")
     if a50 and price > a50:
         pts += 10
-        reasons.append("站上50日均線")
+        addp(10, "站上50日均線")
     if a20 and price > a20:
         pts += 5
-        reasons.append("站上20日均線")
+        addp(5, "站上20日均線")
 
     if 1 <= chg < 6:
         pts += 25
-        reasons.append("24H強勢動能")
+        addp(25, "24H強勢動能")
     elif 0.5 <= chg < 1:
         pts += 20
-        reasons.append("24H動能健康")
+        addp(20, "24H動能健康")
     elif 0 <= chg < 0.5:
         pts += 14
-        reasons.append("24H維持正向")
+        addp(14, "24H維持正向")
     elif -1 <= chg < 0:
         pts += 8
-        reasons.append("24H小幅回檔")
+        addp(8, "24H小幅回檔")
     elif -3 <= chg < -1:
         pts += 4
+        addp(4, "24H跌勢有限")
         risk = "中"
-        reasons.append("24H短線偏弱")
+        addr("24H短線偏弱")
     elif chg <= -3:
+        addr("24H短線轉弱")
         risk = "中"
-        reasons.append("24H短線轉弱")
     elif chg >= 6:
         pts += 18
+        addp(18, "24H漲幅仍有動能")
         risk = "中"
-        reasons.append("24H漲幅偏大")
+        addr("24H漲幅偏大")
 
     if vr >= 2:
         pts += 20
-        reasons.append("成交量明顯放大")
+        addp(20, "成交量明顯放大")
     elif vr >= 1.5:
         pts += 16
-        reasons.append("24H成交量放大")
+        addp(16, "24H成交量放大")
     elif vr >= 1.15:
         pts += 10
-        reasons.append("成交量增溫")
+        addp(10, "成交量增溫")
     elif vr >= 0.8:
         pts += 5
     else:
-        reasons.append("成交量偏低")
+        addr("成交量偏低")
 
     if qv >= 1_000_000_000:
         pts += 5
-        reasons.append("Binance流動性高")
+        addp(5, "Binance流動性高")
     elif qv >= 250_000_000:
         pts += 4
-        reasons.append("Binance流動性佳")
+        addp(4, "Binance流動性佳")
     elif qv >= 100_000_000:
         pts += 3
     elif qv >= 50_000_000:
@@ -1112,10 +1171,10 @@ def crypto_score(row):
             rank = int(cmc_rank)
             if rank <= 20:
                 pts += 5
-                reasons.append("CMC市值前20")
+                addp(5, "CMC市值前20")
             elif rank <= 50:
                 pts += 4
-                reasons.append("CMC市值前50")
+                addp(4, "CMC市值前50")
             elif rank <= 100:
                 pts += 3
             elif rank <= 250:
@@ -1127,29 +1186,38 @@ def crypto_score(row):
         distance = (price / a200 - 1) * 100
         if 0 <= distance <= 20:
             pts += 10
-            reasons.append("位於200日線上方合理區")
+            addp(10, "位於200日線上方合理區")
         elif distance <= 40:
             pts += 7
-            reasons.append("高於200日線")
+            addp(7, "高於200日線")
         elif distance <= 70:
             pts += 4
+            addp(4, "距200日線較遠")
             risk = "中"
-            reasons.append("距200日線較遠")
+            addr("價格距200日線偏遠")
         else:
             pts += 2
+            addp(2, "價格遠離200日線")
             risk = "高"
-            reasons.append("價格遠離200日線")
+            addr("價格遠離200日線")
     elif a200 and price < a200 * 0.92:
         risk = "高" if risk == "高" else "中"
-        reasons.append("跌破200日線較多")
+        addr("跌破200日線較多")
 
     if abs(chg) >= 10:
         risk = "高"
+        addr("單日波動達兩位數")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 85 else "優先研究" if pts >= 78 else "值得觀察" if pts >= 68 else "中性" if pts >= 58 else "偏弱"
-    return pts, label, risk, reasons[:5]
-
+    pos_text = [x.split("｜", 1)[1] for x in positives if x.startswith("＋")][:2]
+    neg_text = [x.split("｜", 1)[1] for x in positives if x.startswith("−")][:1]
+    risk_text = [x.split("｜", 1)[1] for x in risks][:1]
+    summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
+    if risk_text:
+        summary += "；注意：" + risk_text[0]
+    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:7]
 def build_crypto_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     tickers = crypto_get("/ticker/24hr")
@@ -1345,84 +1413,108 @@ def cn_adr_fx():
 
 def cn_adr_score(row):
     pts = 0
-    reasons = []
+    positives = []
+    risks = []
     risk = "低"
+
+    def addp(points, text):
+        positives.append(f"＋{points}｜{text}")
+
+    def addn(points, text):
+        positives.append(f"−{abs(points)}｜{text}")
+
+    def addr(text):
+        risks.append(f"⚠｜{text}")
 
     if row.get("a200") and row["aPrice"] > row["a200"]:
         pts += 25
-        reasons.append("A股站上200日線")
+        addp(25, "A股站上200日線")
     if row.get("a50") and row["aPrice"] > row["a50"]:
         pts += 15
-        reasons.append("A股站上50日線")
+        addp(15, "A股站上50日線")
     if row.get("a20") and row["aPrice"] > row["a20"]:
         pts += 10
-        reasons.append("A股站上20日線")
+        addp(10, "A股站上20日線")
 
     achg = row.get("aChangePct")
     if achg is not None:
         if 0.5 <= achg < 4:
             pts += 15
-            reasons.append("A股動能健康")
+            addp(15, "A股動能健康")
         elif 0 <= achg < 0.5:
             pts += 9
-            reasons.append("A股維持正向")
+            addp(9, "A股維持正向")
         elif achg >= 4:
             pts += 8
+            addp(8, "A股仍有正向動能")
             risk = "中"
-            reasons.append("A股單日漲幅偏大")
+            addr("A股單日漲幅偏大")
         elif achg <= -3:
             pts -= 6
+            addn(-6, "A股短線轉弱")
             risk = "中"
-            reasons.append("A股短線轉弱")
+            addr("A股短線轉弱")
 
     d = row.get("adrPremiumPct")
     if d is not None:
         ad = abs(d)
         if ad <= 2:
             pts += 20
-            reasons.append("ADR與A股價格接近")
+            addp(20, "ADR與A股參考價接近")
         elif ad <= 5:
             pts += 15
-            reasons.append("ADR溢折價合理")
+            addp(15, "ADR溢折價合理")
         elif ad <= 10:
             pts += 8
+            addp(8, "ADR溢折價偏大但仍可比較")
             risk = "中"
-            reasons.append("ADR溢折價偏大")
+            addr("ADR溢折價偏大")
         else:
             pts += 2
-            risk = "中" if risk != "高" else risk
-            reasons.append("ADR溢折價很大")
+            addp(2, "跨市場價格差異大")
+            risk = "中"
+            addr("ADR溢折價很大")
 
     uschg = row.get("adrChangePct")
     if uschg is not None and achg is not None:
         if achg * uschg > 0:
             pts += 5
-            reasons.append("A股與ADR方向一致")
+            addp(5, "A股與ADR方向一致")
         elif achg * uschg < 0:
             pts += 1
+            addp(1, "方向仍有可比性")
             risk = "中" if risk == "低" else risk
-            reasons.append("A股與ADR方向分歧")
+            addr("A股與ADR方向分歧")
 
     if row.get("adrVolume", 0) >= 50_000:
         pts += 10
-        reasons.append("ADR成交量較佳")
+        addp(10, "ADR成交量較佳")
     elif row.get("adrVolume", 0) >= 10_000:
         pts += 6
+        addp(6, "ADR成交量尚可")
     elif row.get("adrVolume", 0) >= 1_000:
         pts += 3
+        addp(3, "ADR有基本流動性")
     else:
         risk = "中" if risk == "低" else risk
-        reasons.append("ADR流動性偏低")
+        addr("ADR流動性偏低")
 
     if row.get("aPrice") and row.get("a200") and row["aPrice"] < row["a200"] * 0.92:
         pts -= 5
-        risk = "中" if risk == "低" else risk
-        reasons.append("A股距200日線偏遠")
+        addn(-5, "A股距200日線偏遠")
+        risk = "高" if risk == "高" else "中"
+        addr("A股距200日線偏遠")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 85 else "優先研究" if pts >= 78 else "值得觀察" if pts >= 68 else "中性" if pts >= 58 else "偏弱"
-    return pts, label, risk, reasons[:5]
-
+    pos_text = [x.split("｜", 1)[1] for x in positives if x.startswith("＋")][:2]
+    neg_text = [x.split("｜", 1)[1] for x in positives if x.startswith("−")][:1]
+    risk_text = [x.split("｜", 1)[1] for x in risks][:1]
+    summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
+    if risk_text:
+        summary += "；注意：" + risk_text[0]
+    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:7]
 def build_cn_adr_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     a_symbols = [x["a_symbol"] for x in CN_ADR_MAP]
