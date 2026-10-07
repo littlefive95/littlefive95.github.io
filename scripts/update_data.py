@@ -1280,13 +1280,13 @@ def build_crypto_live():
     }
 
 CN_ADR_MAP = (
-    {"a_code":"601988","a_symbol":"601988.SS","name":"中國銀行","adr":"BACHY","ratio":25,"sector":"銀行"},
-    {"a_code":"601939","a_symbol":"601939.SS","name":"建設銀行","adr":"CICHY","ratio":20,"sector":"銀行"},
-    {"a_code":"601398","a_symbol":"601398.SS","name":"工商銀行","adr":"IDCBY","ratio":20,"sector":"銀行"},
-    {"a_code":"601328","a_symbol":"601328.SS","name":"交通銀行","adr":"BCMXY","ratio":25,"sector":"銀行"},
-    {"a_code":"600036","a_symbol":"600036.SS","name":"招商銀行","adr":"CIHKY","ratio":5,"sector":"銀行"},
-    {"a_code":"601088","a_symbol":"601088.SS","name":"中國神華","adr":"CSUAY","ratio":4,"sector":"能源／煤炭"},
-    {"a_code":"601857","a_symbol":"601857.SS","name":"中國石油","adr":"PTCCY","ratio":20,"sector":"能源"},
+    {"a_code":"601988","a_symbol":"601988.SS","name":"中國銀行","h_code":"03988","adr":"BACHY","ratio":25,"sector":"銀行"},
+    {"a_code":"601939","a_symbol":"601939.SS","name":"建設銀行","h_code":"00939","adr":"CICHY","ratio":20,"sector":"銀行"},
+    {"a_code":"601398","a_symbol":"601398.SS","name":"工商銀行","h_code":"01398","adr":"IDCBY","ratio":20,"sector":"銀行"},
+    {"a_code":"601328","a_symbol":"601328.SS","name":"交通銀行","h_code":"03328","adr":"BCMXY","ratio":25,"sector":"銀行"},
+    {"a_code":"600036","a_symbol":"600036.SS","name":"招商銀行","h_code":"03968","adr":"CIHKY","ratio":5,"sector":"銀行"},
+    {"a_code":"601088","a_symbol":"601088.SS","name":"中國神華","h_code":"01088","adr":"CSUAY","ratio":4,"sector":"能源／煤炭"},
+    {"a_code":"601857","a_symbol":"601857.SS","name":"中國石油","h_code":"00857","adr":"PTCCY","ratio":20,"sector":"能源"},
 )
 
 def yahoo_daily_quotes(symbols):
