@@ -427,8 +427,9 @@ def score(row):
     summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
     if risk_text:
         summary += "；注意：" + risk_text[0]
-    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:7]
+    judgement = "趨勢與基本面條件偏多" if pts >= 78 and risk == "低" else "條件偏多，但仍需確認風險" if pts >= 68 else "目前量化優勢有限"
+    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:8]
 def build_live():
     now = datetime.now(ET)
     day = now.date().isoformat()
@@ -511,7 +512,7 @@ def build_live():
         "snapshotDate": nyse_latest_session(day),
         "dataMode": "LATEST_CLOSE" if session in {"closed", "overnight"} else "INTRADAY",
         "rows": rows,
-        "coverage": round(100 * fpe_count / max(1, len(rows))),
+        "coverage": round(100 * valuation_count / max(1, len(rows))),
         "universeCount": len(normalized),
         "focusCount": len(rows),
         "method": "Yahoo Finance screener via yfinance",
@@ -932,6 +933,7 @@ def build_taiwan_live():
             continue
         close = h["close"]
         vol = h["volume"]
+        row["_close_series"] = close
         row["priceAvg20"] = float(close.tail(20).mean()) if len(close) >= 20 else None
         row["priceAvg50"] = float(close.tail(50).mean()) if len(close) >= 50 else None
         row["priceAvg200"] = float(close.tail(200).mean()) if len(close) >= 200 else None
@@ -977,13 +979,23 @@ def build_taiwan_live():
         row["label"] = label
         row["risk"] = risk
         row["reasons"] = reasons
+        row["profiles"] = []
+        if ((row.get("priceAvg200") or 0) and row["price"] > row["priceAvg200"]) or (row.get("changePct") or 0) > 0.5:
+            row["profiles"].append("momentum")
+        if row.get("valuation") is not None and row["valuation"] > 0 and row["valuation"] < 24:
+            row["profiles"].append("value")
+        if (row.get("epsGrowthPct") is not None and row["epsGrowthPct"] >= 10) and ((row.get("fpe") is not None and row["fpe"] < 35) or (row.get("pe") is not None and row["pe"] < 35)):
+            row["profiles"].append("quality")
+        if not row["profiles"]:
+            row["profiles"] = ["momentum"]
+        row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
+        row.pop("_close_series", None)
         row.pop("yahoo", None)
         row.pop("turnover", None)
-        row.pop("pe", None)
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("fpe") is None, r.get("fpe") or 999))
     rows = enriched[:10]
-    fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
+    valuation_count = sum(1 for r in rows if r.get("valuation") is not None)
 
     if using_intraday:
         status = "LIVE"
@@ -1289,8 +1301,9 @@ def crypto_score(row):
     summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
     if risk_text:
         summary += "；注意：" + risk_text[0]
-    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:7]
+    judgement = "趨勢與24H動能偏多" if pts >= 78 and risk == "低" else "動能尚可，但波動與量能需留意" if pts >= 68 else "目前量化優勢有限"
+    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:8]
 def build_crypto_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     tickers = crypto_get("/ticker/24hr")
@@ -1382,11 +1395,14 @@ def build_crypto_live():
         row["priceAvg200"] = sum(close[-200:]) / 200 if len(close) >= 200 else None
         avg20 = sum(qv[-20:]) / 20 if len(qv) >= 20 else None
         row["volumeRatio"] = row["quoteVolume24h"] / avg20 if avg20 and avg20 > 0 else None
+        row["_close_series"] = close
         sc, label, risk, reasons = crypto_score(row)
         row["score"] = sc
         row["label"] = label
         row["risk"] = risk
         row["reasons"] = reasons
+        row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
+        row.pop("_close_series", None)
         row.pop("symbol", None)
         enriched.append(row)
 
