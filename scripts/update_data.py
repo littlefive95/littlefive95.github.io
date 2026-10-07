@@ -302,6 +302,334 @@ def build_live():
         "note": "研究/監控工具，不構成投資建議。",
     }
 
+TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
+TWSE_VAL_URL = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL"
+TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
+
+def tw_num(v):
+    try:
+        x = str(v).strip().replace(",", "")
+        if x in {"", "-", "--", "---", "N/A", "null"}:
+            return None
+        return float(x)
+    except Exception:
+        return None
+
+def roc_date(v):
+    x = str(v or "").strip()
+    if len(x) == 7 and x.isdigit():
+        return f"{int(x[:3]) + 1911:04d}-{x[3:5]}-{x[5:7]}"
+    return x[:10] if len(x) >= 10 else x
+
+def fetch_json(url):
+    r = S.get(url, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+def taiwan_snapshot():
+    twse = fetch_json(TWSE_URL)
+    tpex = fetch_json(TPEX_URL)
+    valuation = {}
+    try:
+        for x in fetch_json(TWSE_VAL_URL) or []:
+            code = str(first(x, ["證券代號", "SecuritiesCompanyCode", "Code"], "")).strip()
+            if code:
+                valuation[code] = tw_num(first(x, ["本益比", "PEratio", "PER", "PE"]))
+    except Exception as e:
+        print("TWSE valuation warning", e, file=sys.stderr)
+
+    rows = []
+    for x in twse or []:
+        code = str(first(x, ["證券代號", "SecuritiesCompanyCode", "Code"], "")).strip()
+        if not code.isdigit() or len(code) < 4:
+            continue
+        close = tw_num(first(x, ["收盤價", "Close", "ClosingPrice"]))
+        vol = tw_num(first(x, ["成交股數", "TradingShares", "Volume"])) or 0
+        chg = tw_num(first(x, ["漲跌價差", "Change", "ChangePrice"]))
+        sign = str(first(x, ["漲跌(+/-)", "Direction"], "")).strip()
+        if sign in {"+", "-"} and chg is not None:
+            chg = chg if sign == "+" else -abs(chg)
+        turnover = tw_num(first(x, ["成交金額", "TradingValue", "TradingAmount"])) or 0
+        if close and close >= 10 and vol >= 300_000:
+            rows.append({
+                "ticker": code,
+                "yahoo": code + ".TW",
+                "name": str(first(x, ["證券名稱", "CompanyName", "Name"], code)).strip(),
+                "exchange": "TWSE",
+                "price": close,
+                "changePct": ((chg / (close - chg)) * 100) if chg is not None and close - chg else None,
+                "volume": vol,
+                "turnover": turnover,
+                "pe": valuation.get(code),
+            })
+
+    for x in tpex or []:
+        code = str(first(x, ["SecuritiesCompanyCode", "證券代號", "Code"], "")).strip()
+        if not code.isdigit() or len(code) < 4:
+            continue
+        close = tw_num(first(x, ["Close", "收盤價", "ClosingPrice"]))
+        vol = tw_num(first(x, ["TradingShares", "成交股數", "Volume"])) or 0
+        turnover = tw_num(first(x, ["TradingValue", "成交金額", "TradingAmount"])) or 0
+        change_pct = tw_num(first(x, ["ChangePercent", "漲跌幅", "ChangePct"]))
+        change_price = tw_num(first(x, ["Change", "漲跌價差", "ChangePrice"]))
+        if change_pct is None and change_price is not None and close and close - change_price:
+            change_pct = (change_price / (close - change_price)) * 100
+        if close and close >= 10 and vol >= 300_000:
+            rows.append({
+                "ticker": code,
+                "yahoo": code + ".TWO",
+                "name": str(first(x, ["CompanyName", "證券名稱", "Name"], code)).strip(),
+                "exchange": "TPEx",
+                "price": close,
+                "changePct": change_pct,
+                "volume": vol,
+                "turnover": turnover,
+                "pe": None,
+            })
+
+    dates = []
+    for x in twse or []:
+        d = roc_date(first(x, ["日期", "Date"]))
+        if d:
+            dates.append(d)
+    for x in tpex or []:
+        d = roc_date(first(x, ["Date", "日期"]))
+        if d:
+            dates.append(d)
+    snapshot_date = max(dates) if dates else None
+    return rows, snapshot_date
+
+def yahoo_history(symbols):
+    if not symbols:
+        return {}
+    try:
+        raw = yf.download(
+            tickers=symbols,
+            period="1y",
+            interval="1d",
+            auto_adjust=False,
+            progress=False,
+            threads=True,
+            group_by="ticker",
+        )
+    except Exception as e:
+        print("Taiwan history warning", e, file=sys.stderr)
+        return {}
+
+    out = {}
+    for sym in symbols:
+        try:
+            if len(symbols) == 1:
+                close = raw["Close"].dropna()
+                volume = raw["Volume"].dropna()
+            else:
+                close = raw[(sym, "Close")].dropna()
+                volume = raw[(sym, "Volume")].dropna()
+            if len(close) < 60:
+                continue
+            out[sym] = {
+                "close": close,
+                "volume": volume,
+            }
+        except Exception:
+            continue
+    return out
+
+def taiwan_info(symbols):
+    out = {}
+    for sym in symbols:
+        try:
+            info = yf.Ticker(sym).get_info()
+            out[sym] = info or {}
+        except Exception as e:
+            print("Taiwan Yahoo info warning", sym, e, file=sys.stderr)
+    return out
+
+def taiwan_score(row):
+    price = row["price"] or 0
+    chg = row["changePct"] or 0
+    a20 = row.get("priceAvg20") or 0
+    a50 = row.get("priceAvg50") or 0
+    a200 = row.get("priceAvg200") or 0
+    vr = row.get("volumeRatio") or 0
+    fpe = row.get("fpe")
+    growth = row.get("epsGrowthPct")
+    pe = row.get("pe")
+
+    pts = 40
+    reasons = []
+    risk = "低"
+
+    if a20 and price > a20:
+        pts += 8
+        reasons.append("站上20日均線")
+    if a50 and price > a50:
+        pts += 12
+        reasons.append("站上50日均線")
+    if a200 and price > a200:
+        pts += 12
+        reasons.append("站上200日均線")
+
+    if 0.5 <= chg < 6:
+        pts += 9
+        reasons.append("短線動能健康")
+    elif chg >= 6:
+        pts += 2
+        risk = "中"
+        reasons.append("單日漲幅偏大")
+    elif chg <= -3:
+        pts -= 10
+        risk = "中"
+        reasons.append("短線轉弱")
+
+    if vr >= 1.5:
+        pts += 10
+        reasons.append("成交量放大")
+    elif vr >= 1.15:
+        pts += 5
+        reasons.append("成交量增溫")
+
+    valuation = fpe if fpe is not None and fpe > 0 else pe if pe is not None and pe > 0 else None
+    if valuation is not None:
+        if valuation < 15:
+            pts += 14
+            reasons.append("估值偏低")
+        elif valuation < 22:
+            pts += 11
+            reasons.append("估值合理")
+        elif valuation < 30:
+            pts += 6
+            reasons.append("估值中性")
+        elif valuation < 45:
+            risk = "中"
+            reasons.append("估值偏高")
+        else:
+            pts -= 8
+            risk = "高"
+            reasons.append("估值很高")
+
+    if growth is not None:
+        if growth >= 25:
+            pts += 10
+            reasons.append("EPS高成長")
+        elif growth >= 10:
+            pts += 7
+            reasons.append("EPS成長")
+        elif growth < 0:
+            pts -= 7
+            risk = "中"
+            reasons.append("EPS成長轉弱")
+
+    if a200 and price < a200 * 0.92:
+        risk = "高" if risk == "高" else "中"
+        reasons.append("距200日均線偏遠")
+
+    pts = max(0, min(100, round(pts)))
+    label = "進場候選" if pts >= 85 else "值得研究" if pts >= 75 else "觀察" if pts >= 65 else "暫不優先"
+    return pts, label, risk, reasons[:5]
+
+def build_taiwan_live():
+    now = datetime.now(ZoneInfo("Asia/Taipei"))
+    day = now.date().isoformat()
+    try:
+        snapshot, snapshot_date = taiwan_snapshot()
+    except Exception as e:
+        return {
+            "status": "DATA_ERROR",
+            "asOf": now.isoformat(),
+            "date": day,
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "error": str(e),
+            "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
+            "note": "研究/監控工具，不構成投資建議。",
+        }
+
+    if now.weekday() >= 5 or snapshot_date != day:
+        return {
+            "status": "MARKET_CLOSED",
+            "asOf": now.isoformat(),
+            "date": day,
+            "snapshotDate": snapshot_date,
+            "holiday": ["Weekend"] if now.weekday() >= 5 else ["TWSE/TPEx no current-session snapshot"],
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
+            "note": "台股休市時不產生進場候選。",
+        }
+
+    snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
+    shortlist = snapshot[:160]
+    symbols = [x["yahoo"] for x in shortlist]
+    hist = yahoo_history(symbols)
+
+    enriched = []
+    for row in shortlist:
+        h = hist.get(row["yahoo"])
+        if not h:
+            continue
+        close = h["close"]
+        vol = h["volume"]
+        row["priceAvg20"] = float(close.tail(20).mean()) if len(close) >= 20 else None
+        row["priceAvg50"] = float(close.tail(50).mean()) if len(close) >= 50 else None
+        row["priceAvg200"] = float(close.tail(200).mean()) if len(close) >= 200 else None
+        avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
+        row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
+        row["price"] = float(close.iloc[-1]) if len(close) else row["price"]
+        enriched.append(row)
+
+    enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
+    info = taiwan_info([x["yahoo"] for x in enriched[:40]])
+
+    for row in enriched[:40]:
+        inf = info.get(row["yahoo"], {})
+        fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio"]))
+        fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
+        growth = tw_num(first(inf, ["earningsGrowth", "earningsQuarterlyGrowth", "epsGrowth"]))
+        if growth is not None and abs(growth) < 2:
+            growth *= 100
+        if fpe is None and fwd_eps and fwd_eps > 0:
+            fpe = row["price"] / fwd_eps
+        row["fpe"] = fpe
+        row["forwardEps"] = fwd_eps
+        row["epsGrowthPct"] = growth
+        row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
+        row["earningsDate"] = as_date(first(inf, ["earningsTimestampStart", "earningsTimestamp"]))
+        row["quality"] = tw_num(first(inf, ["returnOnEquity", "profitMargins"]))
+    
+    for row in enriched:
+        sc, label, risk, reasons = taiwan_score(row)
+        row["score"] = sc
+        row["label"] = label
+        row["risk"] = risk
+        row["reasons"] = reasons
+        row.pop("yahoo", None)
+        row.pop("turnover", None)
+        row.pop("pe", None)
+
+    enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("fpe") is None, r.get("fpe") or 999))
+    rows = enriched[:32]
+    fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
+
+    return {
+        "status": "LIVE",
+        "asOf": now.isoformat(),
+        "date": day,
+        "snapshotDate": snapshot_date,
+        "rows": rows,
+        "coverage": round(100 * fpe_count / max(1, len(rows))),
+        "universeCount": len(enriched),
+        "focusCount": len(rows),
+        "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
+        "fpeFormula": "Yahoo Forward P/E, fallback to latest price / forward EPS",
+        "holiday": [],
+        "note": "依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。",
+    }
+
 def main():
     try:
         payload = build_live()
@@ -324,3 +652,19 @@ def main():
 
 if __name__ == "__main__":
     main()
+    try:
+        taiwan_payload = build_taiwan_live()
+    except Exception as e:
+        taiwan_payload = {
+            "status": "DATA_ERROR",
+            "asOf": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
+            "date": datetime.now(ZoneInfo("Asia/Taipei")).date().isoformat(),
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "error": str(e),
+            "note": "研究/監控工具，不構成投資建議。",
+        }
+    with open("taiwan_data.json", "w", encoding="utf-8") as f:
+        json.dump(taiwan_payload, f, ensure_ascii=False, indent=2)
