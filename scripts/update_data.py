@@ -271,6 +271,39 @@ def normalize_quote(q, session="regular"):
         "earningsDate": earnings_date,
     }
 
+def quality_profile(row):
+    """Pure quality screen: profitability + capital efficiency + leverage.
+    It intentionally does not use price trend or valuation, so the Quality
+    tab stays independent from Momentum and Value.
+    """
+    margin = row.get("margin")
+    roe = row.get("roe")
+    debt = row.get("debt")
+
+    margin_ok = margin is not None and margin >= 0.10
+    roe_ok = roe is not None and roe >= 0.15
+    leverage_ok = debt is not None and debt <= 200
+
+    core_hits = sum([1 if margin_ok else 0, 1 if roe_ok else 0, 1 if leverage_ok else 0])
+    quality_data = sum([1 if margin is not None else 0, 1 if roe is not None else 0, 1 if debt is not None else 0])
+
+    if quality_data < 2:
+        return False, 0
+
+    # 100-point quality score: profitability, ROE and leverage only.
+    qs = 0
+    if margin is not None:
+        qs += 25 if margin >= 0.15 else 18 if margin >= 0.10 else 8 if margin > 0 else 0
+    if roe is not None:
+        qs += 35 if roe >= 0.20 else 28 if roe >= 0.15 else 12 if roe > 0 else 0
+    if debt is not None:
+        qs += 40 if debt <= 50 else 32 if debt <= 100 else 22 if debt <= 200 else 5
+    else:
+        qs += 10
+
+    return core_hits >= 2 and qs >= 55, round(qs)
+
+
 def stock_profiles(row):
     profiles = []
     price = row.get("price") or 0
@@ -278,19 +311,12 @@ def stock_profiles(row):
     a200 = row.get("priceAvg200") or 0
     chg = row.get("changePct") or 0
     fpe = row.get("fpe")
-    growth = row.get("epsGrowthPct")
-    margin = row.get("margin")
-    roe = row.get("roe")
-    debt = row.get("debt")
     if (a200 and price > a200) or (a50 and price > a50) or chg > 0.5:
         profiles.append("momentum")
     if fpe is not None and 0 < fpe < 24:
         profiles.append("value")
-    quality_ok = (
-        growth is not None and growth >= 10
-        and ((margin is not None and margin >= 0.12) or (roe is not None and roe >= 0.12) or row.get("analysts", 0) >= 8)
-        and (debt is None or debt <= 250)
-    )
+    quality_ok, quality_score = quality_profile(row)
+    row["qualityScore"] = quality_score
     if quality_ok:
         profiles.append("quality")
     return profiles or ["momentum"]
@@ -971,7 +997,10 @@ def build_taiwan_live():
         row["epsGrowthPct"] = growth
         row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
         row["earningsDate"] = as_date(first(inf, ["earningsTimestampStart", "earningsTimestamp"]))
-        row["quality"] = tw_num(first(inf, ["returnOnEquity", "profitMargins"]))
+        row["margin"] = tw_num(first(inf, ["profitMargins", "operatingMargins", "grossMargins"]))
+        row["roe"] = tw_num(first(inf, ["returnOnEquity"]))
+        row["debt"] = tw_num(first(inf, ["debtToEquity"]))
+        row["quality"] = row["roe"] if row["roe"] is not None else row["margin"]
         row["sector"] = sector_label(
             first(inf, ["sectorDisp", "sector"]),
             first(inf, ["industryDisp", "industry"]),
@@ -991,7 +1020,9 @@ def build_taiwan_live():
             row["profiles"].append("momentum")
         if row.get("valuation") is not None and row["valuation"] > 0 and row["valuation"] < 24:
             row["profiles"].append("value")
-        if (row.get("epsGrowthPct") is not None and row["epsGrowthPct"] >= 10) and ((row.get("fpe") is not None and row["fpe"] < 35) or (row.get("pe") is not None and row["pe"] < 35)):
+        quality_ok, quality_score = quality_profile(row)
+        row["qualityScore"] = quality_score
+        if quality_ok:
             row["profiles"].append("quality")
         if not row["profiles"]:
             row["profiles"] = ["momentum"]
