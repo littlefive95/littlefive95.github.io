@@ -1,28 +1,26 @@
 import json
-import os
 import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import requests
 
-BASE = "https://financialmodelingprep.com/stable"
-KEY = os.environ.get("FMP_API_KEY")
-if not KEY:
-    raise SystemExit("FMP_API_KEY missing")
+import pandas_market_calendars as mcal
+import yfinance as yf
 
 ET = ZoneInfo("America/New_York")
-UTC = ZoneInfo("UTC")
-S = requests.Session()
-S.headers["User-Agent"] = "US-Alpha-Watch/1.0"
 
-def api(path, **params):
-    params["apikey"] = KEY
-    r = S.get(f"{BASE}/{path}", params=params, timeout=25)
-    r.raise_for_status()
-    data = r.json()
-    if isinstance(data, dict) and any(str(k).lower().startswith("error") for k in data):
-        raise RuntimeError(data)
-    return data
+SCREENS = (
+    "most_actives",
+    "day_gainers",
+    "growth_technology_stocks",
+    "undervalued_growth_stocks",
+    "undervalued_large_caps",
+    "aggressive_small_caps",
+)
+
+FALLBACK_SYMBOLS = (
+    "AAPL","MSFT","NVDA","AMZN","META","GOOGL","AVGO","TSLA","NFLX","ORCL",
+    "AMD","QCOM","MU","CRM","ADBE","JPM","LLY","COST","WMT","XOM",
+)
 
 def num(v):
     try:
@@ -32,266 +30,294 @@ def num(v):
     except Exception:
         return None
 
-def holiday_names(day):
-    names = set()
-    for exch in ("NASDAQ", "NYSE"):
-        try:
-            rows = api("holidays-by-exchange", exchange=exch, **{"from": day, "to": day})
-            for x in rows or []:
-                if x.get("date") == day and x.get("isClosed") is True:
-                    names.add(x.get("name") or exch)
-        except Exception as e:
-            print("holiday lookup warning", exch, e, file=sys.stderr)
-    return sorted(names)
+def first(d, keys, default=None):
+    for key in keys:
+        v = d.get(key)
+        if v is not None and v != "":
+            return v
+    return default
 
-def company_universe():
-    merged = {}
-    for exch in ("NASDAQ", "NYSE"):
-        try:
-            rows = api(
-                "company-screener",
-                exchange=exch,
-                country="US",
-                marketCapMoreThan=5_000_000_000,
-                volumeMoreThan=300_000,
-                isEtf="false",
-                isFund="false",
-                limit=200,
-            )
-        except Exception as e:
-            print("company screener warning", exch, e, file=sys.stderr)
-            rows = []
-        for x in rows or []:
-            sym = (x.get("symbol") or "").strip()
-            if sym and "." not in sym and "^" not in sym:
-                merged[sym] = x
-    return list(merged.values())
-
-def batch_quotes(symbols):
-    out = {}
-    for i in range(0, len(symbols), 80):
-        chunk = symbols[i:i+80]
-        try:
-            rows = api("batch-quote", symbols=",".join(chunk))
-        except Exception as e:
-            print("batch quote warning", e, file=sys.stderr)
-            rows = []
-        for q in rows or []:
-            sym = (q.get("symbol") or "").strip()
-            if sym:
-                out[sym] = q
-    return out
-
-def exchange_quotes(exchange):
+def as_date(v):
+    if v is None:
+        return None
     try:
-        rows = api("batch-exchange-quote", exchange=exchange)
-        return rows or []
+        x = float(v)
+        if x > 10_000_000_000:
+            x /= 1000
+        return datetime.fromtimestamp(x, tz=ET).date().isoformat()
+    except Exception:
+        return None
+
+def market_closed(day):
+    cal = mcal.get_calendar("NYSE")
+    schedule = cal.schedule(start_date=day, end_date=day)
+    return schedule.empty
+
+def yahoo_screen(screen_name):
+    try:
+        result = yf.screen(screen_name, count=250)
+        quotes = result.get("quotes", []) if isinstance(result, dict) else []
+        print(f"Yahoo screen {screen_name}: {len(quotes)} rows")
+        return quotes
     except Exception as e:
-        print("exchange quote warning", exchange, e, file=sys.stderr)
+        print(f"Yahoo screen warning {screen_name}: {e}", file=sys.stderr)
         return []
 
-def estimate(sym):
-    try:
-        rows = api("analyst-estimates", symbol=sym, period="annual", page=0, limit=6)
-    except Exception as e:
-        print("estimate warning", sym, e, file=sys.stderr)
-        return None, None, None, None
-    today = datetime.now(UTC).date()
-    vals = []
-    for x in rows or []:
+def fallback_info():
+    rows = []
+    for sym in FALLBACK_SYMBOLS:
         try:
-            d = datetime.strptime(str(x.get("date")), "%Y-%m-%d").date()
-        except Exception:
-            continue
-        eps = num(x.get("epsAvg"))
-        analysts = int(num(x.get("numAnalystsEps")) or 0)
-        if d >= today and eps is not None and eps > 0:
-            vals.append((d, eps, analysts))
-    vals.sort()
-    if not vals:
-        return None, None, None, None
-    d, eps, analysts = vals[0]
-    prev_eps = vals[1][1] if len(vals) > 1 else None
-    return eps, analysts, prev_eps, d.isoformat()
+            info = yf.Ticker(sym).get_info()
+            info["symbol"] = sym
+            rows.append(info)
+        except Exception as e:
+            print(f"Fallback info warning {sym}: {e}", file=sys.stderr)
+    return rows
 
-def quality(sym):
-    try:
-        rows = api("ratios-ttm", symbol=sym)
-        x = (rows or [{}])[0]
-        return num(x.get("netProfitMarginTTM")), num(x.get("returnOnEquityTTM")), num(x.get("debtToEquityRatioTTM"))
-    except Exception as e:
-        print("quality warning", sym, e, file=sys.stderr)
-        return None, None, None
+def normalize_quote(q):
+    sym = str(first(q, ["symbol"], "")).strip().upper()
+    price = num(first(q, ["postMarketPrice", "preMarketPrice", "regularMarketPrice", "currentPrice", "price"]))
+    if price is None or price <= 0:
+        return None
 
-def earnings(day):
-    try:
-        rows = api("earnings-calendar", **{"from": day, "to": day})
-        return {x.get("symbol"): x for x in rows or [] if x.get("symbol")}
-    except Exception as e:
-        print("earnings warning", e, file=sys.stderr)
-        return {}
+    forward_eps = num(first(q, ["epsForward", "forwardEps", "epsNextYear"]))
+    fpe = num(first(q, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
+    if fpe is None and forward_eps and forward_eps > 0:
+        fpe = price / forward_eps
 
-def score(q, fpe, eps_growth, nm, roe, de, earnings_flag):
-    price = num(q.get("price")) or 0
-    chg = num(q.get("changePercentage")) or 0
-    a50 = num(q.get("priceAvg50")) or 0
-    a200 = num(q.get("priceAvg200")) or 0
+    current_eps = num(first(q, ["epsCurrentYear", "epsTrailingTwelveMonths"]))
+    next_eps = num(first(q, ["epsNextYear", "epsForward"]))
+    eps_growth = num(first(q, ["earningsGrowth", "epsGrowth"]))
+    if eps_growth is not None and abs(eps_growth) < 2:
+        eps_growth *= 100
+    if eps_growth is None and current_eps and next_eps and current_eps > 0:
+        eps_growth = (next_eps / current_eps - 1) * 100
+
+    change = num(first(q, ["regularMarketChangePercent", "percentchange", "changePercent"]))
+    market_cap = num(first(q, ["marketCap", "intradaymarketcap"]))
+    volume = num(first(q, ["regularMarketVolume", "dayvolume", "volume"])) or 0
+    avg_volume = num(first(q, ["averageDailyVolume3Month", "avgdailyvol3m"])) or 0
+    a50 = num(first(q, ["fiftyDayAverage", "priceAvg50"]))
+    a200 = num(first(q, ["twoHundredDayAverage", "priceAvg200"]))
+
+    if not market_cap or market_cap < 5_000_000_000:
+        return None
+    if price < 10:
+        return None
+    if volume < 300_000 and avg_volume < 300_000:
+        return None
+    if not sym or "." in sym or "^" in sym:
+        return None
+
+    analysts = int(num(first(q, ["numberOfAnalystOpinions", "numAnalystsEps"])) or 0)
+    roe = num(first(q, ["returnOnEquity"]))
+    margin = num(first(q, ["profitMargins", "netProfitMargin"]))
+    debt = num(first(q, ["debtToEquity", "debtToEquityRatio"]))
+
+    earnings_ts = first(q, ["earningsTimestampStart", "earningsTimestamp"])
+    earnings_date = as_date(earnings_ts)
+
+    return {
+        "ticker": sym,
+        "name": first(q, ["longName", "shortName", "displayName", "companyName", "name"], sym),
+        "exchange": first(q, ["fullExchangeName", "exchange"], ""),
+        "price": price,
+        "changePct": change,
+        "marketCap": market_cap,
+        "volume": volume,
+        "fpe": fpe,
+        "forwardEps": forward_eps,
+        "epsGrowthPct": eps_growth,
+        "analysts": analysts,
+        "priceAvg50": a50,
+        "priceAvg200": a200,
+        "roe": roe,
+        "margin": margin,
+        "debt": debt,
+        "earningsDate": earnings_date,
+    }
+
+def score(row):
+    price = row["price"] or 0
+    chg = row["changePct"] or 0
+    a50 = row["priceAvg50"] or 0
+    a200 = row["priceAvg200"] or 0
+    fpe = row["fpe"]
+    growth = row["epsGrowthPct"]
+    analysts = row["analysts"] or 0
+    margin = row["margin"]
+    roe = row["roe"]
+    debt = row["debt"]
+
     pts = 45
     reasons = []
     risk = "低"
 
     if a200 and price > a200:
-        pts += 14; reasons.append("站上200日均線")
+        pts += 14
+        reasons.append("站上200日均線")
     if a50 and price > a50:
-        pts += 12; reasons.append("站上50日均線")
-    if 0.5 < chg < 6:
-        pts += 11; reasons.append("短線動能健康")
-    elif chg >= 6:
-        pts += 3; risk = "中"; reasons.append("單日漲幅偏大")
-    elif chg <= -3:
-        pts -= 8; reasons.append("短線轉弱")
+        pts += 12
+        reasons.append("站上50日均線")
+    if chg is not None:
+        if 0.5 < chg < 6:
+            pts += 11
+            reasons.append("短線動能健康")
+        elif chg >= 6:
+            pts += 4
+            risk = "中"
+            reasons.append("單日漲幅偏大")
+        elif chg <= -3:
+            pts -= 8
+            risk = "中"
+            reasons.append("短線轉弱")
 
     if fpe is not None:
         if fpe < 15:
-            pts += 18; reasons.append("FPE偏低")
+            pts += 18
+            reasons.append("FPE偏低")
         elif fpe < 22:
-            pts += 15; reasons.append("FPE合理")
+            pts += 15
+            reasons.append("FPE合理")
         elif fpe < 30:
-            pts += 10; reasons.append("FPE中性")
+            pts += 10
+            reasons.append("FPE中性")
         elif fpe < 45:
-            pts += 3; risk = "中"; reasons.append("FPE偏高")
+            pts += 3
+            risk = "中"
+            reasons.append("FPE偏高")
         else:
-            pts -= 10; risk = "高"; reasons.append("FPE很高")
+            pts -= 10
+            risk = "高"
+            reasons.append("FPE很高")
 
-    if eps_growth is not None:
-        if eps_growth >= 25:
-            pts += 15; reasons.append("預估EPS高成長")
-        elif eps_growth >= 10:
-            pts += 9; reasons.append("預估EPS成長")
-        elif eps_growth < 0:
-            pts -= 8; risk = "高" if risk == "高" else "中"; reasons.append("預估EPS下滑")
+    if growth is not None:
+        if growth >= 25:
+            pts += 15
+            reasons.append("預估EPS高成長")
+        elif growth >= 10:
+            pts += 9
+            reasons.append("預估EPS成長")
+        elif growth < 0:
+            pts -= 8
+            risk = "高" if risk == "高" else "中"
+            reasons.append("預估EPS下滑")
 
-    if nm is not None and nm > 0.15:
-        pts += 4; reasons.append("獲利率佳")
+    if analysts >= 8:
+        pts += 4
+        reasons.append("分析師覆蓋度佳")
+    if margin is not None and margin > 0.15:
+        pts += 4
+        reasons.append("獲利率佳")
     if roe is not None and roe > 0.15:
-        pts += 4; reasons.append("ROE佳")
-    if de is not None and de > 2.5:
-        pts -= 5; risk = "高" if risk == "高" else "中"; reasons.append("負債偏高")
-    if earnings_flag:
-        pts -= 5; risk = "高"; reasons.append("今日財報事件")
+        pts += 4
+        reasons.append("ROE佳")
+    if debt is not None and debt > 250:
+        pts -= 5
+        risk = "高" if risk == "高" else "中"
+        reasons.append("負債偏高")
+    if row.get("earningsDate") == row.get("_today"):
+        pts -= 5
+        risk = "高"
+        reasons.append("今日財報事件")
 
     pts = max(0, min(100, round(pts)))
     label = "優先觀察" if pts >= 88 else "值得研究" if pts >= 80 else "觀察" if pts >= 70 else "暫不優先"
     return pts, label, risk, reasons[:5]
 
-def main():
+def build_live():
     now = datetime.now(ET)
     day = now.date().isoformat()
 
-    if now.weekday() >= 5:
-        payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":["Weekend"],"rows":[],"coverage":0,"universeCount":0}
-        json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
-        return
+    if now.weekday() >= 5 or market_closed(day):
+        return {
+            "status": "MARKET_CLOSED",
+            "asOf": now.isoformat(),
+            "date": day,
+            "holiday": ["Weekend"] if now.weekday() >= 5 else ["NYSE market holiday"],
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "method": "Yahoo Finance screener via yfinance",
+            "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
+            "note": "研究/監控工具，不構成投資建議。",
+        }
 
-    holidays = holiday_names(day)
-    if holidays:
-        payload = {"status":"MARKET_CLOSED","asOf":now.isoformat(),"date":day,"holiday":holidays,"rows":[],"coverage":0,"universeCount":0}
-        json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
-        return
+    merged = {}
+    for screen_name in SCREENS:
+        for q in yahoo_screen(screen_name):
+            sym = str(first(q, ["symbol"], "")).strip().upper()
+            if sym:
+                merged[sym] = q
 
-    # Use exchange-wide quotes when available. If the account/time window does not return them,
-    # fall back to the screener + batch-quote pair, which also works outside regular hours.
-    qrows = exchange_quotes("NASDAQ") + exchange_quotes("NYSE")
-    
-    quotes = {}
-    for q in qrows:
-        sym = (q.get("symbol") or "").strip()
-        if sym and "." not in sym and "^" not in sym:
-            quotes[sym] = q
+    if not merged:
+        print("Yahoo screener returned no rows; using fallback watch universe.")
+        for q in fallback_info():
+            sym = str(first(q, ["symbol"], "")).strip().upper()
+            if sym:
+                merged[sym] = q
 
-    base = []
-    if quotes:
-        for sym, q in quotes.items():
-            price = num(q.get("price"))
-            cap = num(q.get("marketCap"))
-            vol = num(q.get("volume")) or 0
-            if price and price >= 10 and cap and cap >= 5_000_000_000 and vol >= 300_000:
-                base.append({"symbol":sym, "companyName":q.get("name") or sym, "exchange":q.get("exchange") or ""})
-    else:
-        base = company_universe()
-        symbols = [x.get("symbol") for x in base if x.get("symbol")]
-        quotes = batch_quotes(symbols)
-        base = [{"symbol":x.get("symbol"),"companyName":x.get("companyName") or x.get("name") or x.get("symbol"),"exchange":x.get("exchange") or ""} for x in base if x.get("symbol") in quotes]
+    normalized = []
+    for q in merged.values():
+        row = normalize_quote(q)
+        if row:
+            normalized.append(row)
 
-    universe = []
-    for x in base:
-        sym = x.get("symbol")
-        q = quotes.get(sym)
-        if not q:
-            continue
-        price = num(q.get("price"))
-        cap = num(q.get("marketCap"))
-        vol = num(q.get("volume")) or 0
-        if not price or price < 10 or not cap or cap < 5_000_000_000 or vol < 300_000:
-            continue
-        a50 = num(q.get("priceAvg50")) or 0
-        a200 = num(q.get("priceAvg200")) or 0
-        chg = num(q.get("changePercentage")) or 0
-        pre = (20 if a200 and price > a200 else 0) + (15 if a50 and price > a50 else 0)
-        pre += 15 if 0.5 < chg < 6 else 5 if chg >= 6 else -10 if chg <= -3 else 0
-        universe.append((pre, cap, sym, q, x))
+    today = day
+    for row in normalized:
+        row["_today"] = today
+        sc, label, risk, reasons = score(row)
+        row["score"] = sc
+        row["label"] = label
+        row["risk"] = risk
+        row["reasons"] = reasons
+        row.pop("_today", None)
 
-    universe.sort(reverse=True, key=lambda z:(z[0], z[1]))
-    focus = universe[:24]
-    cal = earnings(day)
-    rows = []
-    fpe_count = 0
+    normalized.sort(
+        key=lambda r: (
+            -r["score"],
+            r["fpe"] is None,
+            r["fpe"] if r["fpe"] is not None else 999,
+            -(r["marketCap"] or 0),
+        )
+    )
+    rows = normalized[:32]
+    fpe_count = sum(1 for r in rows if r["fpe"] is not None)
 
-    for _, cap, sym, q, meta in focus:
-        eps, analysts, prev_eps, estimate_date = estimate(sym)
-        fpe = (num(q.get("price")) / eps) if eps and eps > 0 else None
-        growth = ((eps / prev_eps) - 1) * 100 if eps and prev_eps and prev_eps > 0 else None
-        nm, roe, de = quality(sym)
-        sc, label, risk, reasons = score(q, fpe, growth, nm, roe, de, sym in cal)
-        if fpe is not None:
-            fpe_count += 1
-        rows.append({
-            "ticker":sym,
-            "name":q.get("name") or q.get("companyName") or meta.get("companyName") or sym,
-            "exchange":q.get("exchange") or meta.get("exchange") or "",
-            "price":num(q.get("price")),
-            "changePct":num(q.get("changePercentage")),
-            "marketCap":num(q.get("marketCap")),
-            "volume":num(q.get("volume")),
-            "fpe":round(fpe,2) if fpe is not None else None,
-            "forwardEps":round(eps,2) if eps is not None else None,
-            "epsGrowthPct":round(growth,1) if growth is not None else None,
-            "analysts":analysts,
-            "priceAvg50":num(q.get("priceAvg50")),
-            "priceAvg200":num(q.get("priceAvg200")),
-            "score":sc,
-            "label":label,
-            "risk":risk,
-            "reasons":reasons,
-            "earningsDate":cal.get(sym,{}).get("date"),
-            "estimateDate":estimate_date,
-        })
-
-    rows.sort(key=lambda r:(-r["score"], r["fpe"] is None, r["fpe"] if r["fpe"] is not None else 999))
-    payload = {
-        "status":"LIVE",
-        "asOf":now.isoformat(),
-        "date":day,
-        "rows":rows,
-        "coverage":round(100*fpe_count/max(1,len(rows))),
-        "universeCount":len(universe),
-        "focusCount":len(rows),
-        "method":"FMP exchange quotes with company-screener/batch-quote fallback + analyst estimates + TTM ratios + earnings calendar",
-        "fpeFormula":"latest price / next annual consensus EPS",
-        "holiday":[],
-        "note":"研究/監控工具，不構成投資建議。"
+    return {
+        "status": "LIVE",
+        "asOf": now.isoformat(),
+        "date": day,
+        "rows": rows,
+        "coverage": round(100 * fpe_count / max(1, len(rows))),
+        "universeCount": len(normalized),
+        "focusCount": len(rows),
+        "method": "Yahoo Finance screener via yfinance",
+        "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
+        "holiday": [],
+        "note": "研究/監控工具，不構成投資建議。",
     }
-    json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
+
+def main():
+    try:
+        payload = build_live()
+    except Exception as e:
+        print(f"Fatal data build error: {e}", file=sys.stderr)
+        payload = {
+            "status": "DATA_ERROR",
+            "asOf": datetime.now(ET).isoformat(),
+            "date": datetime.now(ET).date().isoformat(),
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "error": str(e),
+            "note": "研究/監控工具，不構成投資建議。",
+        }
+
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()
