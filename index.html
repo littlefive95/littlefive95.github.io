@@ -96,7 +96,7 @@ var mode="us", data=[], tab="all", cryptoCategory="all";
 var CFG={
   us:{file:"data.json",title:"美股 AI 監控",eyebrow:"ALPHA WATCH / US 24H",subtitle:"24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。",universeName:"NASDAQ + NYSE",tz:"America/New_York",tzLabel:"ET",currency:"$",closed:"MARKET CLOSED",source:"LIVE · YAHOO",csv:"us_alpha_watch.csv"},
   tw:{file:"taiwan_data.json",title:"台股 AI 監控",eyebrow:"ALPHA WATCH / TAIWAN",subtitle:"全天監看台股，從上市＋上櫃市場篩出當下趨勢、量能、估值與 EPS 成長較佳的進場候選。",universeName:"TWSE + TPEx",tz:"Asia/Taipei",tzLabel:"TWT",currency:"NT$",closed:"MARKET CLOSED",source:"LIVE · TWSE / TPEx",csv:"taiwan_alpha_watch.csv"},
-  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，依 20/50/200 日趨勢、24H 動能、量能、流動性與波動風險篩出 TOP 10。",universeName:"Binance Spot",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE",csv:"crypto_alpha_watch.csv"}
+  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，採 100 分制評估趨勢、24H 動能、量能、流動性與相對位置，篩出 TOP 10。",universeName:"Binance Spot",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE",csv:"crypto_alpha_watch.csv"}
 };
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function clsScore(s){return s>=85?"hot":s>=75?"watch":"weak"}
@@ -185,7 +185,7 @@ function setHeader(){
   document.getElementById("standardTabs").style.display=mode==="crypto"?"none":"flex";
   document.getElementById("categoryPanel").style.display=mode==="crypto"?"block":"none";
   document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS。FPE 要和 EPS 成長、趨勢與風險一起看。":mode==="tw"?"FPE 優先；缺少 Forward P/E 時使用最新可得 PE 作為估值輔助，並搭配 EPS 成長、均線與量能判斷。":"FPE / Forward EPS 不適用於加密貨幣；改看均線、24H 動能、量能、流動性與波動風險。";
-  document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：TTM 利潤率 / ROE / 負債<br>事件：財報風險":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>風險：高估值／跌破長期均線":"趨勢：20/50/200 日均線<br>動能：24H 漲跌幅<br>量能：24H 成交量 / 20日均量<br>流動性：USDT 交易量<br>風險：高波動／跌離長期均線<br>估值：FPE 不適用";
+  document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：TTM 利潤率 / ROE / 負債<br>事件：財報風險":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>風險：高估值／跌破長期均線":"100 分制：趨勢 35<br>動能：24H 25<br>量能：20<br>流動性：10<br>相對200日線位置：10<br>估值：FPE 不適用";
   document.getElementById("sessionCards").innerHTML=mode==="us"?
     "<div class='notice'><b>Pre-market</b><br>04:00–09:30</div><div class='notice'><b>Regular</b><br>09:30–16:00</div><div class='notice'><b>After-hours</b><br>16:00–20:00</div><div class='notice'><b>Overnight</b><br>20:00–04:00</div>":
     mode==="tw"?
