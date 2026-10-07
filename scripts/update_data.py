@@ -630,7 +630,7 @@ def build_taiwan_live():
         }
 
     snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
-    shortlist = snapshot[:160]
+    shortlist = snapshot[:80]
     symbols = [x["yahoo"] for x in shortlist]
     live = taiwan_live_quotes(symbols)
     live_today = sum(1 for q in live.values() if q.get("date") == day)
@@ -676,9 +676,9 @@ def build_taiwan_live():
         enriched.append(row)
 
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
-    info = taiwan_info([x["yahoo"] for x in enriched[:40]])
+    info = taiwan_info([x["yahoo"] for x in enriched[:20]])
 
-    for row in enriched[:40]:
+    for row in enriched[:20]:
         inf = info.get(row["yahoo"], {})
         fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio"]))
         fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
