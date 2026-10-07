@@ -994,11 +994,15 @@ def crypto_score(row):
     a50 = row.get("priceAvg50") or 0
     a200 = row.get("priceAvg200") or 0
     vr = row.get("volumeRatio") or 0
+    qv = row.get("quoteVolume24h") or 0
 
+    # 100-point crypto model:
+    # Trend 35 + 24H momentum 25 + volume 20 + liquidity 10 + position vs MA200 10.
     pts = 0
     reasons = []
     risk = "低"
 
+    # Trend: 35 points.
     if a200 and price > a200:
         pts += 20
         reasons.append("站上200日均線")
@@ -1009,46 +1013,85 @@ def crypto_score(row):
         pts += 5
         reasons.append("站上20日均線")
 
-    if 0.5 <= chg < 6:
-        pts += 15
+    # 24H momentum: 25 points.
+    if 1 <= chg < 6:
+        pts += 25
+        reasons.append("24H強勢動能")
+    elif 0.5 <= chg < 1:
+        pts += 20
         reasons.append("24H動能健康")
     elif 0 <= chg < 0.5:
-        pts += 8
+        pts += 14
         reasons.append("24H維持正向")
-    elif chg >= 6:
+    elif -1 <= chg < 0:
+        pts += 8
+        reasons.append("24H小幅回檔")
+    elif -3 <= chg < -1:
         pts += 4
         risk = "中"
-        reasons.append("24H漲幅偏大")
+        reasons.append("24H短線偏弱")
     elif chg <= -3:
-        pts -= 8
         risk = "中"
         reasons.append("24H短線轉弱")
+    elif chg >= 6:
+        pts += 18
+        risk = "中"
+        reasons.append("24H漲幅偏大")
 
-    if vr >= 1.5:
+    # Volume expansion: 20 points.
+    if vr >= 2:
         pts += 20
+        reasons.append("成交量明顯放大")
+    elif vr >= 1.5:
+        pts += 16
         reasons.append("24H成交量放大")
     elif vr >= 1.15:
         pts += 10
         reasons.append("成交量增溫")
-    elif vr < 0.7:
-        pts -= 3
+    elif vr >= 0.8:
+        pts += 5
+    else:
         reasons.append("成交量偏低")
 
-    if a200 and price < a200 * 0.92:
-        pts -= 8
-        risk = "高" if risk == "高" else "中"
-        reasons.append("距200日均線偏遠")
-
-    if row.get("quoteVolume24h", 0) >= 1_000_000_000:
+    # Liquidity: 10 points.
+    if qv >= 1_000_000_000:
         pts += 10
         reasons.append("流動性高")
-    elif row.get("quoteVolume24h", 0) >= 250_000_000:
-        pts += 5
+    elif qv >= 250_000_000:
+        pts += 8
         reasons.append("流動性佳")
+    elif qv >= 100_000_000:
+        pts += 6
+    elif qv >= 50_000_000:
+        pts += 3
 
-    # Crypto does not have a meaningful FPE/EPS valuation field.
+    # Position relative to MA200: 10 points.
+    if a200 and price > a200:
+        distance = (price / a200 - 1) * 100
+        if 0 <= distance <= 20:
+            pts += 10
+            reasons.append("位於200日線上方合理區")
+        elif distance <= 40:
+            pts += 7
+            reasons.append("高於200日線")
+        elif distance <= 70:
+            pts += 4
+            risk = "中"
+            reasons.append("距200日線較遠")
+        else:
+            pts += 2
+            risk = "高"
+            reasons.append("價格遠離200日線")
+    elif a200 and price < a200 * 0.92:
+        risk = "高" if risk == "高" else "中"
+        reasons.append("跌破200日線較多")
+
+    # Avoid letting very sharp one-day moves look risk-free.
+    if abs(chg) >= 10:
+        risk = "高"
+
     pts = max(0, min(100, round(pts)))
-    label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
+    label = "進場候選" if pts >= 85 else "優先研究" if pts >= 78 else "值得觀察" if pts >= 68 else "中性" if pts >= 58 else "偏弱"
     return pts, label, risk, reasons[:5]
 
 def build_crypto_live():
