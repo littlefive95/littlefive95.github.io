@@ -887,6 +887,233 @@ def build_taiwan_live():
         "note": "依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。",
     }
 
+CRYPTO_API = "https://data-api.binance.vision/api/v3"
+
+CRYPTO_CATEGORY = {
+    "BTC": "比特幣／價值儲存",
+    "ETH": "Layer 1／智能合約",
+    "SOL": "Layer 1／智能合約",
+    "BNB": "Layer 1／交易所生態",
+    "XRP": "支付／跨境金融",
+    "ADA": "Layer 1／智能合約",
+    "AVAX": "Layer 1／智能合約",
+    "DOT": "Layer 1／互操作",
+    "LINK": "預言機",
+    "AAVE": "DeFi／借貸",
+    "UNI": "DeFi／DEX",
+    "LTC": "支付／價值儲存",
+    "DOGE": "Meme",
+    "SHIB": "Meme",
+    "PEPE": "Meme",
+    "TRX": "Layer 1／支付",
+    "SUI": "Layer 1／智能合約",
+    "TON": "Layer 1／智能合約",
+    "NEAR": "Layer 1／智能合約",
+    "APT": "Layer 1／智能合約",
+    "TAO": "AI／去中心化算力",
+    "FET": "AI／去中心化算力",
+    "RENDER": "AI／GPU算力",
+    "INJ": "DeFi／金融基礎設施",
+}
+
+CRYPTO_EXCLUDE = (
+    "UP", "DOWN", "BULL", "BEAR", "2L", "2S", "3L", "3S", "5L", "5S", "ETF",
+)
+
+def crypto_category(symbol):
+    base = symbol.replace("USDT", "")
+    if base in CRYPTO_CATEGORY:
+        return CRYPTO_CATEGORY[base]
+    if base in {"USDC","FDUSD","TUSD","USDE","DAI","USDD"}:
+        return "穩定幣"
+    return "加密貨幣"
+
+def crypto_get(path, params=None):
+    try:
+        r = S.get(CRYPTO_API + path, params=params or {}, timeout=20)
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f"Crypto API warning {path}: {e}", file=sys.stderr)
+        return None
+
+def crypto_klines(symbol, limit=210):
+    data = crypto_get("/klines", {
+        "symbol": symbol,
+        "interval": "1d",
+        "limit": limit,
+    })
+    if not isinstance(data, list) or len(data) < 20:
+        return None
+    closes = []
+    quote_vols = []
+    for k in data:
+        try:
+            closes.append(float(k[4]))
+            quote_vols.append(float(k[7]))
+        except Exception:
+            pass
+    if len(closes) < 20:
+        return None
+    return {"close": closes, "quoteVolume": quote_vols}
+
+def crypto_score(row):
+    price = row.get("price") or 0
+    chg = row.get("changePct") or 0
+    a20 = row.get("priceAvg20") or 0
+    a50 = row.get("priceAvg50") or 0
+    a200 = row.get("priceAvg200") or 0
+    vr = row.get("volumeRatio") or 0
+
+    pts = 0
+    reasons = []
+    risk = "低"
+
+    if a200 and price > a200:
+        pts += 20
+        reasons.append("站上200日均線")
+    if a50 and price > a50:
+        pts += 10
+        reasons.append("站上50日均線")
+    if a20 and price > a20:
+        pts += 5
+        reasons.append("站上20日均線")
+
+    if 0.5 <= chg < 6:
+        pts += 15
+        reasons.append("24H動能健康")
+    elif 0 <= chg < 0.5:
+        pts += 8
+        reasons.append("24H維持正向")
+    elif chg >= 6:
+        pts += 4
+        risk = "中"
+        reasons.append("24H漲幅偏大")
+    elif chg <= -3:
+        pts -= 8
+        risk = "中"
+        reasons.append("24H短線轉弱")
+
+    if vr >= 1.5:
+        pts += 20
+        reasons.append("24H成交量放大")
+    elif vr >= 1.15:
+        pts += 10
+        reasons.append("成交量增溫")
+    elif vr < 0.7:
+        pts -= 3
+        reasons.append("成交量偏低")
+
+    if a200 and price < a200 * 0.92:
+        pts -= 8
+        risk = "高" if risk == "高" else "中"
+        reasons.append("距200日均線偏遠")
+
+    if row.get("quoteVolume24h", 0) >= 1_000_000_000:
+        pts += 10
+        reasons.append("流動性高")
+    elif row.get("quoteVolume24h", 0) >= 250_000_000:
+        pts += 5
+        reasons.append("流動性佳")
+
+    # Crypto does not have a meaningful FPE/EPS valuation field.
+    pts = max(0, min(100, round(pts)))
+    label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
+    return pts, label, risk, reasons[:5]
+
+def build_crypto_live():
+    now = datetime.now(ZoneInfo("Asia/Taipei"))
+    tickers = crypto_get("/ticker/24hr")
+    if not isinstance(tickers, list):
+        return {
+            "status": "DATA_ERROR",
+            "asOf": now.isoformat(),
+            "date": now.date().isoformat(),
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "error": "Binance market-data endpoint unavailable",
+            "method": "Binance public spot market data",
+            "note": "加密貨幣為 24/7 市場；資料來自公開市場行情。",
+        }
+
+    candidates = []
+    for q in tickers:
+        sym = str(q.get("symbol") or "").upper()
+        if not sym.endswith("USDT"):
+            continue
+        base = sym[:-4]
+        if not base or base in {"USDT", "USDC", "FDUSD", "TUSD", "DAI", "USDE", "BUSD"}:
+            continue
+        if any(base.endswith(x) for x in CRYPTO_EXCLUDE):
+            continue
+        try:
+            price = float(q.get("lastPrice") or 0)
+            chg = float(q.get("priceChangePercent") or 0)
+            qv = float(q.get("quoteVolume") or 0)
+            count = int(float(q.get("count") or 0))
+        except Exception:
+            continue
+        if price <= 0 or qv < 50_000_000:
+            continue
+        candidates.append({
+            "ticker": base,
+            "symbol": sym,
+            "name": base,
+            "exchange": "Binance Spot",
+            "sector": crypto_category(sym),
+            "price": price,
+            "changePct": chg,
+            "quoteVolume24h": qv,
+            "trades24h": count,
+            "fpe": None,
+            "forwardEps": None,
+            "epsGrowthPct": None,
+            "analysts": None,
+            "risk": "中",
+        })
+
+    candidates.sort(key=lambda x: x["quoteVolume24h"], reverse=True)
+    shortlist = candidates[:60]
+
+    enriched = []
+    for row in shortlist:
+        h = crypto_klines(row["symbol"], limit=210)
+        if not h:
+            continue
+        close = h["close"]
+        qv = h["quoteVolume"]
+        row["priceAvg20"] = sum(close[-20:]) / 20 if len(close) >= 20 else None
+        row["priceAvg50"] = sum(close[-50:]) / 50 if len(close) >= 50 else None
+        row["priceAvg200"] = sum(close[-200:]) / 200 if len(close) >= 200 else None
+        avg20 = sum(qv[-20:]) / 20 if len(qv) >= 20 else None
+        row["volumeRatio"] = row["quoteVolume24h"] / avg20 if avg20 and avg20 > 0 else None
+        sc, label, risk, reasons = crypto_score(row)
+        row["score"] = sc
+        row["label"] = label
+        row["risk"] = risk
+        row["reasons"] = reasons
+        row.pop("symbol", None)
+        enriched.append(row)
+
+    enriched.sort(key=lambda r: (-r["score"], -(r.get("quoteVolume24h") or 0)))
+    rows = enriched[:10]
+
+    return {
+        "status": "LIVE",
+        "asOf": now.isoformat(),
+        "date": now.date().isoformat(),
+        "rows": rows,
+        "coverage": 100,
+        "universeCount": len(enriched),
+        "focusCount": len(rows),
+        "method": "Binance public spot market data",
+        "fpeFormula": "不適用；加密貨幣不使用 FPE / Forward EPS",
+        "holiday": [],
+        "note": "24/7 加密貨幣市場；依均線、24H動能、量能、流動性與波動風險排序，僅供研究與監控。",
+    }
+
 def main():
     try:
         payload = build_live()
@@ -925,3 +1152,19 @@ if __name__ == "__main__":
         }
     with open("taiwan_data.json", "w", encoding="utf-8") as f:
         json.dump(taiwan_payload, f, ensure_ascii=False, indent=2)
+    try:
+        crypto_payload = build_crypto_live()
+    except Exception as e:
+        crypto_payload = {
+            "status": "DATA_ERROR",
+            "asOf": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
+            "date": datetime.now(ZoneInfo("Asia/Taipei")).date().isoformat(),
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "error": str(e),
+            "note": "加密貨幣資料建置失敗。",
+        }
+    with open("crypto_data.json", "w", encoding="utf-8") as f:
+        json.dump(crypto_payload, f, ensure_ascii=False, indent=2)
