@@ -44,6 +44,44 @@ def holiday_names(day):
             print("holiday lookup warning", exch, e, file=sys.stderr)
     return sorted(names)
 
+def company_universe():
+    merged = {}
+    for exch in ("NASDAQ", "NYSE"):
+        try:
+            rows = api(
+                "company-screener",
+                exchange=exch,
+                country="US",
+                marketCapMoreThan=5_000_000_000,
+                volumeMoreThan=300_000,
+                isEtf="false",
+                isFund="false",
+                limit=200,
+            )
+        except Exception as e:
+            print("company screener warning", exch, e, file=sys.stderr)
+            rows = []
+        for x in rows or []:
+            sym = (x.get("symbol") or "").strip()
+            if sym and "." not in sym and "^" not in sym:
+                merged[sym] = x
+    return list(merged.values())
+
+def batch_quotes(symbols):
+    out = {}
+    for i in range(0, len(symbols), 80):
+        chunk = symbols[i:i+80]
+        try:
+            rows = api("batch-quote", symbols=",".join(chunk))
+        except Exception as e:
+            print("batch quote warning", e, file=sys.stderr)
+            rows = []
+        for q in rows or []:
+            sym = (q.get("symbol") or "").strip()
+            if sym:
+                out[sym] = q
+    return out
+
 def exchange_quotes(exchange):
     try:
         rows = api("batch-exchange-quote", exchange=exchange)
@@ -98,74 +136,49 @@ def score(q, fpe, eps_growth, nm, roe, de, earnings_flag):
     chg = num(q.get("changePercentage")) or 0
     a50 = num(q.get("priceAvg50")) or 0
     a200 = num(q.get("priceAvg200")) or 0
-
     pts = 45
     reasons = []
     risk = "低"
 
     if a200 and price > a200:
-        pts += 14
-        reasons.append("站上200日均線")
+        pts += 14; reasons.append("站上200日均線")
     if a50 and price > a50:
-        pts += 12
-        reasons.append("站上50日均線")
-
+        pts += 12; reasons.append("站上50日均線")
     if 0.5 < chg < 6:
-        pts += 11
-        reasons.append("短線動能健康")
+        pts += 11; reasons.append("短線動能健康")
     elif chg >= 6:
-        pts += 3
-        risk = "中"
-        reasons.append("單日漲幅偏大")
+        pts += 3; risk = "中"; reasons.append("單日漲幅偏大")
     elif chg <= -3:
-        pts -= 8
-        reasons.append("短線轉弱")
+        pts -= 8; reasons.append("短線轉弱")
 
     if fpe is not None:
         if fpe < 15:
-            pts += 18
-            reasons.append("FPE偏低")
+            pts += 18; reasons.append("FPE偏低")
         elif fpe < 22:
-            pts += 15
-            reasons.append("FPE合理")
+            pts += 15; reasons.append("FPE合理")
         elif fpe < 30:
-            pts += 10
-            reasons.append("FPE中性")
+            pts += 10; reasons.append("FPE中性")
         elif fpe < 45:
-            pts += 3
-            risk = "中"
-            reasons.append("FPE偏高")
+            pts += 3; risk = "中"; reasons.append("FPE偏高")
         else:
-            pts -= 10
-            risk = "高"
-            reasons.append("FPE很高")
+            pts -= 10; risk = "高"; reasons.append("FPE很高")
 
     if eps_growth is not None:
         if eps_growth >= 25:
-            pts += 15
-            reasons.append("預估EPS高成長")
+            pts += 15; reasons.append("預估EPS高成長")
         elif eps_growth >= 10:
-            pts += 9
-            reasons.append("預估EPS成長")
+            pts += 9; reasons.append("預估EPS成長")
         elif eps_growth < 0:
-            pts -= 8
-            risk = "高" if risk == "高" else "中"
-            reasons.append("預估EPS下滑")
+            pts -= 8; risk = "高" if risk == "高" else "中"; reasons.append("預估EPS下滑")
 
     if nm is not None and nm > 0.15:
-        pts += 4
-        reasons.append("獲利率佳")
+        pts += 4; reasons.append("獲利率佳")
     if roe is not None and roe > 0.15:
-        pts += 4
-        reasons.append("ROE佳")
+        pts += 4; reasons.append("ROE佳")
     if de is not None and de > 2.5:
-        pts -= 5
-        risk = "高" if risk == "高" else "中"
-        reasons.append("負債偏高")
+        pts -= 5; risk = "高" if risk == "高" else "中"; reasons.append("負債偏高")
     if earnings_flag:
-        pts -= 5
-        risk = "高"
-        reasons.append("今日財報事件")
+        pts -= 5; risk = "高"; reasons.append("今日財報事件")
 
     pts = max(0, min(100, round(pts)))
     label = "優先觀察" if pts >= 88 else "值得研究" if pts >= 80 else "觀察" if pts >= 70 else "暫不優先"
@@ -186,15 +199,35 @@ def main():
         json.dump(payload, open("data.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
         return
 
+    # Use exchange-wide quotes when available. If the account/time window does not return them,
+    # fall back to the screener + batch-quote pair, which also works outside regular hours.
     qrows = exchange_quotes("NASDAQ") + exchange_quotes("NYSE")
-    dedup = {}
+    quotes = {}
     for q in qrows:
         sym = (q.get("symbol") or "").strip()
         if sym and "." not in sym and "^" not in sym:
-            dedup[sym] = q
+            quotes[sym] = q
+
+    base = []
+    if quotes:
+        for sym, q in quotes.items():
+            price = num(q.get("price"))
+            cap = num(q.get("marketCap"))
+            vol = num(q.get("volume")) or 0
+            if price and price >= 10 and cap and cap >= 5_000_000_000 and vol >= 300_000:
+                base.append({"symbol":sym, "companyName":q.get("name") or sym, "exchange":q.get("exchange") or ""})
+    else:
+        base = company_universe()
+        symbols = [x.get("symbol") for x in base if x.get("symbol")]
+        quotes = batch_quotes(symbols)
+        base = [{"symbol":x.get("symbol"),"companyName":x.get("companyName") or x.get("name") or x.get("symbol"),"exchange":x.get("exchange") or ""} for x in base if x.get("symbol") in quotes]
 
     universe = []
-    for sym, q in dedup.items():
+    for x in base:
+        sym = x.get("symbol")
+        q = quotes.get(sym)
+        if not q:
+            continue
         price = num(q.get("price"))
         cap = num(q.get("marketCap"))
         vol = num(q.get("volume")) or 0
@@ -203,13 +236,9 @@ def main():
         a50 = num(q.get("priceAvg50")) or 0
         a200 = num(q.get("priceAvg200")) or 0
         chg = num(q.get("changePercentage")) or 0
-        pre = 0
-        if a200 and price > a200: pre += 20
-        if a50 and price > a50: pre += 15
-        if 0.5 < chg < 6: pre += 15
-        elif chg >= 6: pre += 5
-        elif chg <= -3: pre -= 10
-        universe.append((pre, cap, sym, q))
+        pre = (20 if a200 and price > a200 else 0) + (15 if a50 and price > a50 else 0)
+        pre += 15 if 0.5 < chg < 6 else 5 if chg >= 6 else -10 if chg <= -3 else 0
+        universe.append((pre, cap, sym, q, x))
 
     universe.sort(reverse=True, key=lambda z:(z[0], z[1]))
     focus = universe[:24]
@@ -217,26 +246,25 @@ def main():
     rows = []
     fpe_count = 0
 
-    for _, cap, sym, q in focus:
+    for _, cap, sym, q, meta in focus:
         eps, analysts, prev_eps, estimate_date = estimate(sym)
         fpe = (num(q.get("price")) / eps) if eps and eps > 0 else None
-        eps_growth = ((eps / prev_eps) - 1) * 100 if eps and prev_eps and prev_eps > 0 else None
+        growth = ((eps / prev_eps) - 1) * 100 if eps and prev_eps and prev_eps > 0 else None
         nm, roe, de = quality(sym)
-        sc, label, risk, reasons = score(q, fpe, eps_growth, nm, roe, de, sym in cal)
+        sc, label, risk, reasons = score(q, fpe, growth, nm, roe, de, sym in cal)
         if fpe is not None:
             fpe_count += 1
-
         rows.append({
             "ticker":sym,
-            "name":q.get("name") or q.get("companyName") or sym,
-            "exchange":q.get("exchange") or "",
+            "name":q.get("name") or q.get("companyName") or meta.get("companyName") or sym,
+            "exchange":q.get("exchange") or meta.get("exchange") or "",
             "price":num(q.get("price")),
             "changePct":num(q.get("changePercentage")),
             "marketCap":num(q.get("marketCap")),
             "volume":num(q.get("volume")),
             "fpe":round(fpe,2) if fpe is not None else None,
             "forwardEps":round(eps,2) if eps is not None else None,
-            "epsGrowthPct":round(eps_growth,1) if eps_growth is not None else None,
+            "epsGrowthPct":round(growth,1) if growth is not None else None,
             "analysts":analysts,
             "priceAvg50":num(q.get("priceAvg50")),
             "priceAvg200":num(q.get("priceAvg200")),
@@ -257,7 +285,7 @@ def main():
         "coverage":round(100*fpe_count/max(1,len(rows))),
         "universeCount":len(universe),
         "focusCount":len(rows),
-        "method":"FMP exchange quotes + analyst estimates + TTM ratios + earnings calendar",
+        "method":"FMP exchange quotes with company-screener/batch-quote fallback + analyst estimates + TTM ratios + earnings calendar",
         "fpeFormula":"latest price / next annual consensus EPS",
         "holiday":[],
         "note":"研究/監控工具，不構成投資建議。"
