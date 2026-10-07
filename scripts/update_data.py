@@ -172,7 +172,7 @@ def score(row):
             risk = "中"
             reasons.append("短線轉弱")
 
-    if fpe is not None:
+    if fpe is not None and fpe > 0:
         if fpe < 15:
             pts += 18
             reasons.append("FPE偏低")
@@ -190,6 +190,9 @@ def score(row):
             pts -= 10
             risk = "高"
             reasons.append("FPE很高")
+    elif fpe is not None and fpe <= 0:
+        risk = "高"
+        reasons.append("Forward EPS為負，FPE不具估值意義")
 
     if growth is not None:
         if growth >= 25:
