@@ -863,7 +863,7 @@ def taiwan_score(row):
         pts -= 6
         addn(-6, "距200日線偏遠")
         risk = "高" if risk == "高" else "中"
-        addr("A股距200日線偏遠")
+        addr("距200日線偏遠")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
@@ -873,8 +873,9 @@ def taiwan_score(row):
     summary = "、".join(pos_text + neg_text) if (pos_text or neg_text) else "量化優勢目前有限"
     if risk_text:
         summary += "；注意：" + risk_text[0]
-    reasons = ["摘要｜" + summary] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:7]
+    judgement = "趨勢、量能與估值條件偏多" if pts >= 78 and risk == "低" else "條件偏多，但仍需確認風險" if pts >= 68 else "目前量化優勢有限"
+    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
+    return pts, label, risk, reasons[:8]
 def build_taiwan_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     day = now.date().isoformat()
@@ -960,6 +961,8 @@ def build_taiwan_live():
         if fpe is None and fwd_eps and fwd_eps > 0:
             fpe = row["price"] / fwd_eps
         row["fpe"] = fpe
+        row["valuation"] = fpe if fpe is not None else row.get("pe")
+        row["valuationSource"] = "FPE" if fpe is not None else "PE" if row.get("pe") is not None else None
         row["forwardEps"] = fwd_eps
         row["epsGrowthPct"] = growth
         row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
