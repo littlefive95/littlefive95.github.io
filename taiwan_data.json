@@ -1,12 +1,15 @@
 {
-  "status": "DATA_ERROR",
-  "asOf": "2026-10-07T10:24:59.963945+08:00",
+  "status": "MARKET_CLOSED",
+  "asOf": "2026-10-07T10:26:24.147414+08:00",
   "date": "2026-10-07",
+  "snapshotDate": "2026-10-06",
+  "holiday": [
+    "No current TWSE/TPEx realtime quote"
+  ],
   "rows": [],
   "coverage": 0,
   "universeCount": 0,
   "focusCount": 0,
-  "error": "Response ended prematurely",
-  "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
-  "note": "研究/監控工具，不構成投資建議。"
+  "method": "TWSE/TPEx realtime quotes + daily snapshot + Yahoo Finance technical/valuation data",
+  "note": "休市或當日即時行情尚未提供時，不產生進場候選。"
 }
