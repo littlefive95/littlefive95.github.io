@@ -1326,6 +1326,17 @@ def yahoo_daily_quotes(symbols):
             continue
     return out
 
+def yahoo_history_one(symbol):
+    try:
+        raw = yf.Ticker(symbol).history(period="2y", interval="1d", auto_adjust=False)
+        if raw is None or "Close" not in raw:
+            return None
+        close = raw["Close"].dropna()
+        return close if len(close) >= 60 else None
+    except Exception as e:
+        print(f"A-share history warning {symbol}: {e}", file=sys.stderr)
+        return None
+
 def cn_adr_fx():
     q = yahoo_daily_quotes(["USDCNY=X"])
     if q.get("USDCNY=X", {}).get("price"):
