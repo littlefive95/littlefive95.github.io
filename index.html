@@ -34,7 +34,7 @@
 <section class="radar-grid" id="marketRadar">
   <div class="radar-card" id="radar-us"><div class="radar-top"><div class="radar-name">🇺🇸 美股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
   <div class="radar-card" id="radar-tw"><div class="radar-top"><div class="radar-name">🇹🇼 台股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
-  <div class="radar-card" id="radar-crypto"><div class="radar-top"><div class="radar-name">🪙 Crypto</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
+  <div class="radar-card" id="radar-crypto"><div class="radar-top"><div class="radar-name">🪙 加密貨幣</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
 </section>
 
 <section class="grid kpis">
@@ -99,6 +99,7 @@
 
 <script>
 var mode="us", data=[], tab="all", cryptoCategory="all";
+var payloadState={us:null,tw:null,crypto:null};
 var CFG={
   us:{file:"data.json",title:"美股 AI 監控",eyebrow:"ALPHA WATCH / US 24H",subtitle:"24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。",universeName:"NASDAQ + NYSE",tz:"America/New_York",tzLabel:"ET",currency:"$",closed:"MARKET CLOSED",source:"LIVE · YAHOO",csv:"us_alpha_watch.csv"},
   tw:{file:"taiwan_data.json",title:"台股 AI 監控",eyebrow:"ALPHA WATCH / TAIWAN",subtitle:"全天監看台股，從上市＋上櫃市場篩出當下趨勢、量能、估值與 EPS 成長較佳的進場候選。",universeName:"TWSE + TPEx",tz:"Asia/Taipei",tzLabel:"TWT",currency:"NT$",closed:"MARKET CLOSED",source:"LIVE · TWSE / TPEx",csv:"taiwan_alpha_watch.csv"},
@@ -255,14 +256,20 @@ function updatePageTime(){
   el.textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date());
 }
 function setClock(){
-  var c=CFG[mode], d=new Date();
+  var c=CFG[mode], d=new Date(), loaded=payloadState[mode];
   var parts=new Intl.DateTimeFormat("en-US",{timeZone:c.tz,weekday:"short",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(d), v={};
   parts.forEach(function(p){v[p.type]=p.value});
   var hh=Number(v.hour), mm=Number(v.minute), wd=v.weekday, mins=hh*60+mm, closed=(wd==="Sat"||wd==="Sun");
   var session;
-  if(mode==="us") session=closed?"市場休市":mins>=240&&mins<570?"盤前交易":mins>=570&&mins<960?"正常交易":mins>=960&&mins<1200?"盤後交易":"隔夜監控";
-  else if(mode==="crypto") session="市場開放（24/7）";
-  else session=closed?"市場休市":mins<510?"盤前":mins<810?"盤中":"收盤後監控";
+  if(mode==="crypto"){
+    session="市場開放（24/7）";
+  }else if(loaded && loaded.status==="MARKET_CLOSED"){
+    session="市場休市";
+  }else if(mode==="us"){
+    session=closed?"市場休市":mins>=240&&mins<570?"盤前交易":mins>=570&&mins<960?"正常交易":mins>=960&&mins<1200?"盤後交易":"隔夜監控";
+  }else{
+    session=closed?"市場休市":mins<510?"盤前":mins<810?"盤中":"收盤後監控";
+  }
   document.getElementById("market").textContent=session;
   var closedNow=(session==="市場休市" || session==="收盤後監控" || session==="隔夜監控");
   document.getElementById("dot").className="dot"+(mode==="crypto" || !closedNow?" on":"");
@@ -288,13 +295,14 @@ function renderRadarCard(key,label){
 function loadRadar(){
   var specs={us:"data.json",tw:"taiwan_data.json",crypto:"crypto_data.json"};
   Object.keys(specs).forEach(function(k){
-    fetch(specs[k]+"?radar="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("radar");return r.json()}).then(function(p){radarData[k]=p;renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 Crypto");}).catch(function(){radarData[k]={status:"DATA_ERROR",rows:[]};renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 Crypto");});
+    fetch(specs[k]+"?radar="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("radar");return r.json()}).then(function(p){radarData[k]=p;payloadState[k]=p;renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 加密貨幣");}).catch(function(){radarData[k]={status:"DATA_ERROR",rows:[]};payloadState[k]=radarData[k];renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 加密貨幣");});
   });
 }
 function loadData(){
   document.getElementById("sourceBadge").textContent="UPDATING";
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
-    data=Array.isArray(p.rows)?p.rows:[];
+    payloadState[mode]=p;
+    data=Array.isArray(p.rows)?p.rows:[ ];
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
     document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":(p.universeCount||0)+" symbols";
     if(p.asOf){
