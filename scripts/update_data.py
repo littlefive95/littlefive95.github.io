@@ -41,6 +41,62 @@ def first(d, keys, default=None):
             return v
     return default
 
+SECTOR_MAP = {
+    "Technology": "科技",
+    "Financial Services": "金融",
+    "Healthcare": "醫療保健",
+    "Consumer Cyclical": "非必需消費",
+    "Consumer Defensive": "必需消費",
+    "Industrials": "工業",
+    "Communication Services": "通訊服務",
+    "Energy": "能源",
+    "Basic Materials": "原物料",
+    "Real Estate": "房地產",
+    "Utilities": "公用事業",
+}
+
+INDUSTRY_MAP = {
+    "Semiconductors": "半導體",
+    "Semiconductor Equipment & Materials": "半導體設備",
+    "Electronic Components": "電子零組件",
+    "Consumer Electronics": "消費電子",
+    "Computer Hardware": "電腦硬體",
+    "Software - Application": "應用軟體",
+    "Software - Infrastructure": "基礎軟體",
+    "Information Technology Services": "IT服務",
+    "Banks - Diversified": "銀行",
+    "Banks - Regional": "區域銀行",
+    "Insurance - Diversified": "綜合保險",
+    "Biotechnology": "生技",
+    "Drug Manufacturers - General": "製藥",
+    "Medical Devices": "醫療器材",
+    "Oil & Gas Integrated": "石油能源",
+    "Oil & Gas E&P": "油氣探勘",
+    "Airlines": "航空",
+    "Auto Manufacturers": "汽車",
+    "Retail - Specialty": "零售",
+    "Internet Retail": "電商",
+    "Aerospace & Defense": "航太國防",
+    "Steel": "鋼鐵",
+    "Gold": "黃金礦業",
+    "Copper": "銅礦",
+    "Telecom Services": "電信",
+    "REIT - Diversified": "REIT",
+}
+
+def sector_label(sector=None, industry=None):
+    industry = str(industry or "").strip()
+    sector = str(sector or "").strip()
+    if industry in INDUSTRY_MAP:
+        return INDUSTRY_MAP[industry]
+    if sector in SECTOR_MAP:
+        return SECTOR_MAP[sector]
+    if industry and industry.lower() not in {"none", "nan", "null"}:
+        return industry
+    if sector and sector.lower() not in {"none", "nan", "null"}:
+        return sector
+    return "其他"
+
 def as_date(v):
     if v is None:
         return None
@@ -125,6 +181,7 @@ def normalize_quote(q):
         "ticker": sym,
         "name": first(q, ["longName", "shortName", "displayName", "companyName", "name"], sym),
         "exchange": first(q, ["fullExchangeName", "exchange"], ""),
+        "sector": sector_label(first(q, ["sectorDisp", "sector"]), first(q, ["industryDisp", "industry"])),
         "price": price,
         "changePct": change,
         "marketCap": market_cap,
@@ -271,6 +328,16 @@ def build_live():
         if row:
             normalized.append(row)
 
+    # Enrich only the strongest candidates with company sector/industry.
+    top_symbols = [r["ticker"] for r in normalized[:25]]
+    info = yahoo_info(top_symbols)
+    for row in normalized[:25]:
+        inf = info.get(row["ticker"], {})
+        row["sector"] = sector_label(
+            first(inf, ["sectorDisp", "sector"]),
+            first(inf, ["industryDisp", "industry"]),
+        )
+    
     today = day
     for row in normalized:
         row["_today"] = today
@@ -537,7 +604,7 @@ def yahoo_history(symbols):
             continue
     return out
 
-def taiwan_info(symbols):
+def yahoo_info(symbols):
     out = {}
     for sym in symbols:
         try:
@@ -721,7 +788,7 @@ def build_taiwan_live():
         enriched.append(row)
 
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
-    info = taiwan_info([x["yahoo"] for x in enriched[:20]])
+    info = yahoo_info([x["yahoo"] for x in enriched[:20]])
 
     for row in enriched[:20]:
         inf = info.get(row["yahoo"], {})
@@ -738,6 +805,10 @@ def build_taiwan_live():
         row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
         row["earningsDate"] = as_date(first(inf, ["earningsTimestampStart", "earningsTimestamp"]))
         row["quality"] = tw_num(first(inf, ["returnOnEquity", "profitMargins"]))
+        row["sector"] = sector_label(
+            first(inf, ["sectorDisp", "sector"]),
+            first(inf, ["industryDisp", "industry"]),
+        )
     
     for row in enriched:
         sc, label, risk, reasons = taiwan_score(row)
