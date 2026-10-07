@@ -144,7 +144,7 @@ function render(){
     : "";
   document.getElementById("cryptoGroups").style.display=mode==="crypto"?"flex":"none";
   if(mode!=="crypto"){ cryptoCategory="all"; }
-  else if(mode==="crypto"){
+  if(mode==="crypto"){
     document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>24H</th><th>CMC RANK</th><th>24H VOLUME</th><th>VOL RATIO</th><th>MA20</th><th>MA50</th><th>MA200</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
       arr.map(function(x){
         var reasons=reasonHtml(x.reasons);
