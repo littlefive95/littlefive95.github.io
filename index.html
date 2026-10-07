@@ -179,9 +179,6 @@ function render(){
     var meta;
     if(mode==="crypto"){
       meta="<span class='metric'>CMC #"+(x.cmcRank==null?"N/A":esc(x.cmcRank))+"</span><span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>";
-    } else if(mode==="cnadr"){
-      var p=x.adrPremiumPct;
-      meta="<span class='metric'>ADR "+esc(x.adr)+"</span><span class='metric'>溢折 "+(p==null?"N/A":(p>=0?"+":"")+Number(p).toFixed(2)+"%")+"</span><span class='metric'>A股 ¥"+(x.aPrice==null?"N/A":Number(x.aPrice).toFixed(2))+"</span>";
     } else {
       meta="<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
     }
