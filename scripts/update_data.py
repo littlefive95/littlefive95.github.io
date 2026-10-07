@@ -402,6 +402,46 @@ def taiwan_snapshot():
     snapshot_date = max(dates) if dates else None
     return rows, snapshot_date
 
+def taiwan_live_quotes(symbols):
+    out = {}
+    endpoint = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp"
+    for i in range(0, len(symbols), 40):
+        chunk = symbols[i:i+40]
+        ex = "|".join(
+            ("tse_" + sym.split(".")[0] + ".tw") if sym.endswith(".TW")
+            else ("otc_" + sym.split(".")[0] + ".tw")
+            for sym in chunk
+        )
+        try:
+            r = S.get(endpoint, params={"ex_ch": ex, "json": "1", "delay": "0"}, timeout=25)
+            r.raise_for_status()
+            data = r.json()
+            for q in data.get("msgArray", []) or []:
+                code = str(q.get("c") or "").strip()
+                if not code:
+                    continue
+                price = tw_num(q.get("z"))
+                prev = tw_num(q.get("y"))
+                volume = tw_num(q.get("v")) or 0
+                qdate = str(q.get("d") or "").strip()
+                if price is None or price <= 0:
+                    price = tw_num(q.get("pz"))
+                if prev is None:
+                    prev = tw_num(q.get("y"))
+                chg = ((price - prev) / prev * 100) if price is not None and prev and prev > 0 else None
+                if code:
+                    out[code] = {
+                        "price": price,
+                        "prevClose": prev,
+                        "changePct": chg,
+                        "volume": volume,
+                        "date": roc_date(qdate),
+                        "time": str(q.get("t") or "").strip(),
+                    }
+        except Exception as e:
+            print("Taiwan realtime warning", i, e, file=sys.stderr)
+    return out
+
 def yahoo_history(symbols):
     if not symbols:
         return {}
@@ -555,24 +595,50 @@ def build_taiwan_live():
             "note": "研究/監控工具，不構成投資建議。",
         }
 
-    if now.weekday() >= 5 or snapshot_date != day:
+    if now.weekday() >= 5:
         return {
             "status": "MARKET_CLOSED",
             "asOf": now.isoformat(),
             "date": day,
             "snapshotDate": snapshot_date,
-            "holiday": ["Weekend"] if now.weekday() >= 5 else ["TWSE/TPEx no current-session snapshot"],
+            "holiday": ["Weekend"],
             "rows": [],
             "coverage": 0,
             "universeCount": 0,
             "focusCount": 0,
-            "method": "TWSE + TPEx daily snapshot + Yahoo Finance valuation/technical data",
+            "method": "TWSE/TPEx realtime quotes + daily snapshot + Yahoo Finance technical/valuation data",
             "note": "台股休市時不產生進場候選。",
         }
 
     snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
     shortlist = snapshot[:160]
     symbols = [x["yahoo"] for x in shortlist]
+    live = taiwan_live_quotes(symbols)
+    live_today = sum(1 for q in live.values() if q.get("date") == day)
+    if live_today == 0:
+        return {
+            "status": "MARKET_CLOSED",
+            "asOf": now.isoformat(),
+            "date": day,
+            "snapshotDate": snapshot_date,
+            "holiday": ["No current TWSE/TPEx realtime quote"],
+            "rows": [],
+            "coverage": 0,
+            "universeCount": 0,
+            "focusCount": 0,
+            "method": "TWSE/TPEx realtime quotes + daily snapshot + Yahoo Finance technical/valuation data",
+            "note": "休市或當日即時行情尚未提供時，不產生進場候選。",
+        }
+
+    for row in shortlist:
+        q = live.get(row["ticker"], {})
+        if q.get("price") is not None:
+            row["price"] = q["price"]
+        if q.get("changePct") is not None:
+            row["changePct"] = q["changePct"]
+        if q.get("volume"):
+            row["volume"] = q["volume"]
+
     hist = yahoo_history(symbols)
 
     enriched = []
