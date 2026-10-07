@@ -920,6 +920,36 @@ CRYPTO_EXCLUDE = (
     "UP", "DOWN", "BULL", "BEAR", "2L", "2S", "3L", "3S", "5L", "5S", "ETF",
 )
 
+CRYPTO_GROUP = {
+    "BTC": "大型幣",
+    "ETH": "大型幣",
+    "BNB": "大型幣",
+    "XRP": "大型幣",
+    "SOL": "Layer 1",
+    "ADA": "Layer 1",
+    "AVAX": "Layer 1",
+    "DOT": "Layer 1",
+    "SUI": "Layer 1",
+    "TRX": "Layer 1",
+    "TON": "Layer 1",
+    "NEAR": "Layer 1",
+    "APT": "Layer 1",
+    "AAVE": "DeFi",
+    "UNI": "DeFi",
+    "LINK": "DeFi",
+    "INJ": "DeFi",
+    "TAO": "AI",
+    "FET": "AI",
+    "RENDER": "AI",
+    "DOGE": "Meme",
+    "SHIB": "Meme",
+    "PEPE": "Meme",
+}
+
+def crypto_group(symbol):
+    base = symbol.replace("USDT", "")
+    return CRYPTO_GROUP.get(base, "其他")
+
 def crypto_category(symbol):
     base = symbol.replace("USDT", "")
     if base in CRYPTO_CATEGORY:
@@ -1063,6 +1093,7 @@ def build_crypto_live():
             "name": base,
             "exchange": "Binance Spot",
             "sector": crypto_category(sym),
+            "category": crypto_group(sym),
             "price": price,
             "changePct": chg,
             "quoteVolume24h": qv,
@@ -1100,6 +1131,17 @@ def build_crypto_live():
     enriched.sort(key=lambda r: (-r["score"], -(r.get("quoteVolume24h") or 0)))
     rows = enriched[:10]
 
+    category_stats = {}
+    for row in enriched:
+        g = row.get("category") or "其他"
+        stat = category_stats.setdefault(g, {"count": 0, "scoreSum": 0, "bestScore": 0})
+        stat["count"] += 1
+        stat["scoreSum"] += float(row.get("score") or 0)
+        stat["bestScore"] = max(stat["bestScore"], int(row.get("score") or 0))
+    for stat in category_stats.values():
+        stat["avgScore"] = round(stat["scoreSum"] / max(1, stat["count"]), 1)
+        stat.pop("scoreSum", None)
+
     return {
         "status": "LIVE",
         "asOf": now.isoformat(),
@@ -1108,6 +1150,7 @@ def build_crypto_live():
         "coverage": 100,
         "universeCount": len(enriched),
         "focusCount": len(rows),
+        "categoryStats": category_stats,
         "method": "Binance public spot market data",
         "fpeFormula": "不適用；加密貨幣不使用 FPE / Forward EPS",
         "holiday": [],
