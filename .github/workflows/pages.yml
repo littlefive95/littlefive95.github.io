@@ -34,11 +34,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: python -m pip install --upgrade requests
+        run: python -m pip install --upgrade yfinance pandas_market_calendars
 
       - name: Build live market data
-        env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python scripts/update_data.py
 
       - name: Save latest data snapshot
