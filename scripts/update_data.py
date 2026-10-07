@@ -630,8 +630,10 @@ def build_live():
             row["eventSignals"] = historical_event_signals(
                 row["price"], close, row["volumeRatio"], row["changePct"], row["priceAvg50"], row["priceAvg200"]
             )
+            row.update(entry_plan(row, h, "stock"))
         else:
             row["eventSignals"] = []
+            row.update(entry_plan(row, None, "stock"))
         row["profiles"] = stock_profiles(row)
 
     rows = top_rows
@@ -1141,6 +1143,7 @@ def build_taiwan_live():
         if not row["profiles"]:
             row["profiles"] = ["momentum"]
         row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
+        row.update(entry_plan(row, hist.get(row["yahoo"], {}), "stock"))
         row.pop("_close_series", None)
         row.pop("yahoo", None)
         row.pop("turnover", None)
@@ -1320,16 +1323,20 @@ def crypto_klines(symbol, limit=210):
     if not isinstance(data, list) or len(data) < 20:
         return None
     closes = []
+    highs = []
+    lows = []
     quote_vols = []
     for k in data:
         try:
+            highs.append(float(k[2]))
+            lows.append(float(k[3]))
             closes.append(float(k[4]))
             quote_vols.append(float(k[7]))
         except Exception:
             pass
-    if len(closes) < 20:
+    if len(closes) < 20 or len(highs) != len(closes) or len(lows) != len(closes):
         return None
-    return {"close": closes, "quoteVolume": quote_vols}
+    return {"close": closes, "high": highs, "low": lows, "quoteVolume": quote_vols}
 
 def crypto_score(row):
     price = row.get("price") or 0
@@ -1569,6 +1576,7 @@ def build_crypto_live():
         row["risk"] = risk
         row["reasons"] = reasons
         row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
+        row.update(entry_plan(row, h, "crypto"))
         row.pop("_close_series", None)
         row.pop("symbol", None)
         enriched.append(row)
