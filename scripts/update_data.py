@@ -329,9 +329,9 @@ def build_live():
             normalized.append(row)
 
     # Enrich only the strongest candidates with company sector/industry.
-    top_symbols = [r["ticker"] for r in normalized[:25]]
+    top_symbols = [r["ticker"] for r in normalized[:10]]
     info = yahoo_info(top_symbols)
-    for row in normalized[:25]:
+    for row in normalized[:10]:
         inf = info.get(row["ticker"], {})
         row["sector"] = sector_label(
             first(inf, ["sectorDisp", "sector"]),
@@ -788,9 +788,9 @@ def build_taiwan_live():
         enriched.append(row)
 
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
-    info = yahoo_info([x["yahoo"] for x in enriched[:20]])
+    info = yahoo_info([x["yahoo"] for x in enriched[:10]])
 
-    for row in enriched[:20]:
+    for row in enriched[:10]:
         inf = info.get(row["yahoo"], {})
         fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio"]))
         fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
