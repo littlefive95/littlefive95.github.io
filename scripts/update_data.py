@@ -461,6 +461,46 @@ def taiwan_live_quotes(symbols):
             print("Taiwan realtime warning", i, e, file=sys.stderr)
     return out
 
+def yahoo_intraday(symbols):
+    if not symbols:
+        return {}
+    try:
+        raw = yf.download(
+            tickers=symbols,
+            period="1d",
+            interval="5m",
+            auto_adjust=False,
+            prepost=True,
+            progress=False,
+            threads=True,
+            group_by="ticker",
+        )
+    except Exception as e:
+        print("Taiwan intraday warning", e, file=sys.stderr)
+        return {}
+
+    out = {}
+    for sym in symbols:
+        try:
+            if len(symbols) == 1:
+                close = raw["Close"].dropna()
+                volume = raw["Volume"].fillna(0)
+            else:
+                close = raw[(sym, "Close")].dropna()
+                volume = raw[(sym, "Volume")].fillna(0)
+            if len(close) == 0:
+                continue
+            idx = close.index[-1]
+            out[sym] = {
+                "price": float(close.iloc[-1]),
+                "volume": float(volume.loc[close.index].sum()),
+                "date": idx.date().isoformat(),
+                "time": str(idx),
+            }
+        except Exception:
+            continue
+    return out
+
 def yahoo_history(symbols):
     if not symbols:
         return {}
@@ -632,7 +672,7 @@ def build_taiwan_live():
     snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
     shortlist = snapshot[:80]
     symbols = [x["yahoo"] for x in shortlist]
-    live = taiwan_live_quotes(symbols)
+    live = yahoo_intraday(symbols)
     live_today = sum(1 for q in live.values() if q.get("date") == day)
     if live_today == 0:
         return {
@@ -640,24 +680,29 @@ def build_taiwan_live():
             "asOf": now.isoformat(),
             "date": day,
             "snapshotDate": snapshot_date,
-            "holiday": ["No current TWSE/TPEx realtime quote"],
+            "holiday": ["No current Taiwan intraday data"],
             "rows": [],
             "coverage": 0,
             "universeCount": 0,
             "focusCount": 0,
-            "method": "TWSE/TPEx realtime quotes + daily snapshot + Yahoo Finance technical/valuation data",
-            "note": "休市或當日即時行情尚未提供時，不產生進場候選。",
+            "method": "TWSE/TPEx daily stock pool + Yahoo Finance 5-minute intraday/technical/valuation data",
+            "note": "休市或當日盤中行情尚未提供時，不產生進場候選。",
         }
 
+    current_rows = []
     for row in shortlist:
-        q = live.get(row["ticker"], {})
-        if q.get("price") is not None:
-            row["price"] = q["price"]
-        if q.get("changePct") is not None:
-            row["changePct"] = q["changePct"]
+        q = live.get(row["yahoo"], {})
+        if q.get("date") != day or q.get("price") is None:
+            continue
+        prev_close = row.get("price")
+        row["price"] = q["price"]
+        row["changePct"] = ((row["price"] - prev_close) / prev_close * 100) if prev_close else row.get("changePct")
         if q.get("volume"):
             row["volume"] = q["volume"]
+        current_rows.append(row)
 
+    shortlist = current_rows
+    symbols = [x["yahoo"] for x in shortlist]
     hist = yahoo_history(symbols)
 
     enriched = []
