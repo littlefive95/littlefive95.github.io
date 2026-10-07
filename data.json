@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-06T22:28:43.799309-04:00",
+  "asOf": "2026-10-06T22:35:37.094028-04:00",
   "date": "2026-10-06",
   "rows": [
     {
@@ -9,7 +9,7 @@
       "exchange": "NYSE",
       "price": 35.17,
       "changePct": 0.947181,
-      "marketCap": 15677818880.0,
+      "marketCap": 15677680640.0,
       "volume": 2693331.0,
       "fpe": 6.088978,
       "forwardEps": 5.77601,
@@ -241,7 +241,7 @@
       "exchange": "NasdaqGS",
       "price": 34.88,
       "changePct": 1.09112,
-      "marketCap": 7112793600.0,
+      "marketCap": 6990010880.0,
       "volume": 2381554.0,
       "fpe": 7.314799,
       "forwardEps": 4.68639,
@@ -270,7 +270,7 @@
       "exchange": "NasdaqGS",
       "price": 43.6454,
       "changePct": 0.625146,
-      "marketCap": 28113100800.0,
+      "marketCap": 28551714816.0,
       "volume": 27776128.0,
       "fpe": 8.160092,
       "forwardEps": 5.32592,
@@ -295,7 +295,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 389,
+  "universeCount": 386,
   "focusCount": 10,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
