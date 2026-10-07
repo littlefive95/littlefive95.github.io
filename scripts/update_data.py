@@ -285,7 +285,7 @@ def build_live():
             -(r["marketCap"] or 0),
         )
     )
-    rows = normalized[:32]
+    rows = normalized[:10]
     fpe_count = sum(1 for r in rows if r["fpe"] is not None)
 
     return {
@@ -612,7 +612,7 @@ def build_taiwan_live():
         row.pop("pe", None)
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("fpe") is None, r.get("fpe") or 999))
-    rows = enriched[:32]
+    rows = enriched[:10]
     fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
 
     return {
