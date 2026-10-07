@@ -1,4 +1,5 @@
 import json
+import re
 import sys
 import time
 from datetime import datetime
@@ -84,9 +85,23 @@ INDUSTRY_MAP = {
     "REIT - Diversified": "REIT",
 }
 
-def sector_label(sector=None, industry=None):
+def sector_label(sector=None, industry=None, ticker=None, name=None, quote_type=None):
     industry = str(industry or "").strip()
     sector = str(sector or "").strip()
+    ticker = str(ticker or "").strip().upper()
+    name = str(name or "").strip()
+    quote_type = str(quote_type or "").strip().upper()
+
+    # ETFs / funds are displayed separately from operating-company sectors.
+    if quote_type in {"ETF", "MUTUALFUND", "MUTUAL FUND"}:
+        return "ETF"
+    if (
+        re.search(r"\bETF\b|\bINDEX FUND\b|\bFUND\b", name, re.I)
+        or ticker.startswith("00")
+        or any(k in name for k in ["標普500", "S&P 500", "美國500大", "高股息", "國債ETF", "債券ETF"])
+    ):
+        return "ETF"
+
     if industry in INDUSTRY_MAP:
         return INDUSTRY_MAP[industry]
     if sector in SECTOR_MAP:
@@ -95,7 +110,7 @@ def sector_label(sector=None, industry=None):
         return industry
     if sector and sector.lower() not in {"none", "nan", "null"}:
         return sector
-    return "其他"
+    return "未分類"
 
 def as_date(v):
     if v is None:
@@ -181,7 +196,13 @@ def normalize_quote(q):
         "ticker": sym,
         "name": first(q, ["longName", "shortName", "displayName", "companyName", "name"], sym),
         "exchange": first(q, ["fullExchangeName", "exchange"], ""),
-        "sector": sector_label(first(q, ["sectorDisp", "sector"]), first(q, ["industryDisp", "industry"])),
+        "sector": sector_label(
+            first(q, ["sectorDisp", "sector"]),
+            first(q, ["industryDisp", "industry"]),
+            sym,
+            first(q, ["longName", "shortName", "displayName", "companyName", "name"], sym),
+            first(q, ["quoteType", "quoteTypeDisp"]),
+        ),
         "price": price,
         "changePct": change,
         "marketCap": market_cap,
@@ -328,16 +349,6 @@ def build_live():
         if row:
             normalized.append(row)
 
-    # Enrich only the strongest candidates with company sector/industry.
-    top_symbols = [r["ticker"] for r in normalized[:10]]
-    info = yahoo_info(top_symbols)
-    for row in normalized[:10]:
-        inf = info.get(row["ticker"], {})
-        row["sector"] = sector_label(
-            first(inf, ["sectorDisp", "sector"]),
-            first(inf, ["industryDisp", "industry"]),
-        )
-    
     today = day
     for row in normalized:
         row["_today"] = today
@@ -356,7 +367,19 @@ def build_live():
             -(r["marketCap"] or 0),
         )
     )
-    rows = normalized[:10]
+    # Enrich the final ranked TOP 10 only.
+    top_rows = normalized[:10]
+    info = yahoo_info([r["ticker"] for r in top_rows])
+    for row in top_rows:
+        inf = info.get(row["ticker"], {})
+        row["sector"] = sector_label(
+            first(inf, ["sectorDisp", "sector"]),
+            first(inf, ["industryDisp", "industry"]),
+            row["ticker"],
+            row["name"],
+            first(inf, ["quoteType", "quoteTypeDisp"]),
+        )
+    rows = top_rows
     fpe_count = sum(1 for r in rows if r["fpe"] is not None)
 
     return {
@@ -808,6 +831,9 @@ def build_taiwan_live():
         row["sector"] = sector_label(
             first(inf, ["sectorDisp", "sector"]),
             first(inf, ["industryDisp", "industry"]),
+            row["ticker"],
+            row["name"],
+            first(inf, ["quoteType", "quoteTypeDisp"]),
         )
     
     for row in enriched:
