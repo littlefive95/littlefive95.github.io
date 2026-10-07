@@ -428,8 +428,10 @@ def score(row):
     if risk_text:
         summary += "；注意：" + risk_text[0]
     judgement = "趨勢與基本面條件偏多" if pts >= 78 and risk == "低" else "條件偏多，但仍需確認風險" if pts >= 68 else "目前量化優勢有限"
-    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:8]
+    core_advantages = "、".join(pos_text) if pos_text else "目前量化優勢有限"
+    primary_risk = "、".join(risk_text) if risk_text else "目前未偵測到明顯風險"
+    reasons = ["摘要｜" + summary, "核心優勢｜" + core_advantages, "主要風險｜" + primary_risk, "判斷｜" + judgement] + positives[:3] + risks[:2]
+    return pts, label, risk, reasons[:10]
 def build_live():
     now = datetime.now(ET)
     day = now.date().isoformat()
@@ -874,8 +876,10 @@ def taiwan_score(row):
     if risk_text:
         summary += "；注意：" + risk_text[0]
     judgement = "趨勢、量能與估值條件偏多" if pts >= 78 and risk == "低" else "條件偏多，但仍需確認風險" if pts >= 68 else "目前量化優勢有限"
-    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:8]
+    core_advantages = "、".join(pos_text) if pos_text else "目前量化優勢有限"
+    primary_risk = "、".join(risk_text) if risk_text else "目前未偵測到明顯風險"
+    reasons = ["摘要｜" + summary, "核心優勢｜" + core_advantages, "主要風險｜" + primary_risk, "判斷｜" + judgement] + positives[:3] + risks[:2]
+    return pts, label, risk, reasons[:10]
 def build_taiwan_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     day = now.date().isoformat()
@@ -1318,8 +1322,10 @@ def crypto_score(row):
     if risk_text:
         summary += "；注意：" + risk_text[0]
     judgement = "趨勢與24H動能偏多" if pts >= 78 and risk == "低" else "動能尚可，但波動與量能需留意" if pts >= 68 else "目前量化優勢有限"
-    reasons = ["摘要｜" + summary, "判斷｜" + judgement] + positives[:4] + risks[:2]
-    return pts, label, risk, reasons[:8]
+    core_advantages = "、".join(pos_text) if pos_text else "目前量化優勢有限"
+    primary_risk = "、".join(risk_text) if risk_text else "目前未偵測到明顯風險"
+    reasons = ["摘要｜" + summary, "核心優勢｜" + core_advantages, "主要風險｜" + primary_risk, "判斷｜" + judgement] + positives[:3] + risks[:2]
+    return pts, label, risk, reasons[:10]
 def build_crypto_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     tickers = crypto_get("/ticker/24hr")
