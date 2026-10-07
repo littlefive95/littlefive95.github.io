@@ -103,7 +103,7 @@
 
 <script>
 var mode="us", data=[], tab="all", cryptoCategory="all";
-var payloadState={us:null,tw:null,crypto:null};
+var payloadState={us:null,tw:null,crypto:null}, marketData={us:null,tw:null,crypto:null};
 var CFG={
   us:{file:"data.json",title:"美股 AI 監控",eyebrow:"ALPHA WATCH / US 24H",subtitle:"24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。",universeName:"NASDAQ + NYSE",tz:"America/New_York",tzLabel:"ET",currency:"$",closed:"MARKET CLOSED",source:"LIVE · YAHOO",csv:"us_alpha_watch.csv"},
   tw:{file:"taiwan_data.json",title:"台股 AI 監控",eyebrow:"ALPHA WATCH / TAIWAN",subtitle:"全天監看台股，從上市＋上櫃市場篩出當下趨勢、量能、估值與 EPS 成長較佳的進場候選。",universeName:"TWSE + TPEx",tz:"Asia/Taipei",tzLabel:"TWT",currency:"NT$",closed:"MARKET CLOSED",source:"LIVE · TWSE / TPEx",csv:"taiwan_alpha_watch.csv"},
@@ -293,51 +293,63 @@ function setClock(){
   document.getElementById("clock").textContent=v.hour+":"+v.minute+":"+v.second+" "+c.tzLabel+" · "+wd;
 }
 var radarData={};
-function radarStatus(p,modeName){
-  if(!p) return {label:"DATA ERROR",cls:"warn"};
-  if(p.fallback) return {label:"沿用上次正常資料",cls:"warn"};
-  if(p.status==="MARKET_CLOSED") return {label:"休市／最新收盤",cls:"warn"};
-  if(p.dataMode==="INTRADAY") return {label:"盤中資料",cls:"live"};
-  return {label:modeName==="crypto"?"24/7 快照":"正常更新",cls:"live"};
-}
-function renderRadarCard(key,label){
-  var p=radarData[key], el=document.getElementById("radar-"+key);
-  if(!el || !p) return;
-  var threshold=key==="crypto"?85:78;
-  var rows=Array.isArray(p.rows)?p.rows:[];
-  var c=rows.filter(function(x){return Number(x.score||0)>=threshold}).length;
-  var st=radarStatus(p,key);
-  el.innerHTML="<div class='radar-top'><div class='radar-name'>"+label+"</div><span class='radar-status "+st.cls+"'>"+st.label+"</span></div><div class='radar-metrics'><div class='radar-metric'><b>"+c+"</b>進場候選</div><div class='radar-metric'><b>"+rows.length+"</b>TOP 10</div><div class='radar-metric'><b>"+(p.snapshotDate||p.date||"—")+"</b>"+(p.dataMode==="LATEST_CLOSE"?"資料日期":"資料快照")+"</div></div>";
-}
-function loadRadar(){
-  var specs={us:"data.json",tw:"taiwan_data.json",crypto:"crypto_data.json"};
-  Object.keys(specs).forEach(function(k){
-    fetch(specs[k]+"?radar="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("radar");return r.json()}).then(function(p){radarData[k]=p;payloadState[k]=p;renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 加密貨幣");}).catch(function(){radarData[k]={status:"DATA_ERROR",rows:[]};payloadState[k]=radarData[k];renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 加密貨幣");});
-  });
-}
-function loadData(){
-  document.getElementById("sourceBadge").textContent="UPDATING";
-  fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
-    payloadState[mode]=p;
-    data=Array.isArray(p.rows)?p.rows:[ ];
-    document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
-    document.getElementById("coverageHint").textContent=mode==="crypto"?"CMC 對應率 "+(p.cmcCoverage||0)+"%":(mode==="tw"?"FPE / PE 覆蓋率 "+(p.coverage||0)+"%":"Forward P/E 覆蓋率 "+(p.coverage||0)+"%");
-    var universeText=mode==="crypto"?(p.universeCount||0)+" 個監控幣種":(p.universeCount||0)+" 個監控標的";
-    document.getElementById("coverageHint").textContent=mode==="crypto"?(universeText+" · CMC "+(p.cmcCoverage||0)+"%"):(mode==="tw"?"FPE / PE "+(p.coverage||0)+"% · "+universeText:"FPE "+(p.coverage||0)+"% · "+universeText);
+
+function applyPayload(key,p){
+  payloadState[key]=p;
+  marketData[key]=p;
+  if(key===mode){
+    data=Array.isArray(p.rows)?p.rows:[];
+    document.getElementById("coverage").textContent=key==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
+    var universeText=key==="crypto"?(p.universeCount||0)+" 個監控幣種":(p.universeCount||0)+" 個監控標的";
+    document.getElementById("coverageHint").textContent=key==="crypto"?(universeText+" · CMC "+(p.cmcCoverage||0)+"%"):(key==="tw"?"FPE / PE "+(p.coverage||0)+"% · "+universeText:"FPE "+(p.coverage||0)+"% · "+universeText);
     if(p.asOf){
       document.getElementById("updated").textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(p.asOf));
     }else{
       document.getElementById("updated").textContent="—";
     }
-    if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
-    var badgeText=p.fallback?"STALE · LAST GOOD":p.dataMode==="INTRADAY"?"INTRADAY · "+(mode==="tw"?"TWSE / TPEx":"YAHOO"):p.dataMode==="LATEST_CLOSE"||p.status==="MARKET_CLOSED"?"LATEST CLOSE · "+(mode==="us"?"YAHOO":mode==="tw"?"TWSE / TPEx":"BINANCE + CMC"):p.status==="LIVE"?(mode==="crypto"?"SNAPSHOT · BINANCE + CMC":CFG[mode].source):"DATA ERROR";
+    if(key==="crypto") renderCategoryStrength(p.categoryStats||{});
+    var badgeText=p.fallback?"STALE · LAST GOOD":p.dataMode==="INTRADAY"?"INTRADAY · "+(key==="tw"?"TWSE / TPEx":"YAHOO"):p.dataMode==="LATEST_CLOSE"||p.status==="MARKET_CLOSED"?"LATEST CLOSE · "+(key==="us"?"YAHOO":key==="tw"?"TWSE / TPEx":"BINANCE + CMC"):p.status==="LIVE"?(key==="crypto"?"SNAPSHOT · BINANCE + CMC":CFG[key].source):"DATA ERROR";
     document.getElementById("sourceBadge").textContent=badgeText;
     document.getElementById("sourceBadge").className=(p.fallback||p.status==="MARKET_CLOSED")?"badge amber":"badge green";
     render();
-  }).catch(function(){
-    document.getElementById("sourceBadge").textContent="DATA OFFLINE";
-    document.getElementById("sourceBadge").className="badge amber";
-    data=[]; render();
+    setHeader();
+    setClock();
+  }
+  radarData[key]=p;
+  renderRadarCard(key,key==="us"?"🇺🇸 美股":key==="tw"?"🇹🇼 台股":"🪙 加密貨幣");
+}
+
+function loadAllData(){
+  var specs={us:"data.json",tw:"taiwan_data.json",crypto:"crypto_data.json"};
+  document.getElementById("sourceBadge").textContent="UPDATING";
+  document.getElementById("sourceBadge").className="badge amber";
+  Object.keys(specs).forEach(function(key){
+    fetch(specs[key]+"?v="+Date.now(),{cache:"no-store"})
+      .then(function(r){if(!r.ok) throw new Error("HTTP "+r.status);return r.json()})
+      .then(function(p){applyPayload(key,p)})
+      .catch(function(){
+        var fallback=marketData[key];
+        if(fallback){
+          fallback=Object.assign({},fallback,{fallback:true,refreshCheckedAt:new Date().toISOString(),refreshError:"前端重新讀取失敗，沿用已載入資料"});
+          applyPayload(key,fallback);
+        }else{
+          var err={status:"DATA_ERROR",rows:[],refreshCheckedAt:new Date().toISOString(),refreshError:"前端無法讀取資料檔"};
+          applyPayload(key,err);
+        }
+      });
+  });
+}
+
+function loadData(){
+  loadAllData();
+}
+
+function loadRadar(){
+  Object.keys(marketData).forEach(function(key){
+    if(marketData[key]){
+      radarData[key]=marketData[key];
+      renderRadarCard(key,key==="us"?"🇺🇸 美股":key==="tw"?"🇹🇼 台股":"🪙 加密貨幣");
+    }
   });
 }
 function switchMode(next){
@@ -349,7 +361,12 @@ function switchMode(next){
   document.getElementById("minscore").value="0";
   document.getElementById("fpe").value="all";
   document.getElementById("risk").value="all";
-  setHeader(); setClock(); loadData();
+  setHeader(); setClock();
+  if(marketData[mode]){
+    applyPayload(mode,marketData[mode]);
+  }else{
+    loadAllData();
+  }
 }
 document.querySelectorAll(".market-tab").forEach(function(el){el.addEventListener("click",function(){switchMode(el.getAttribute("data-market"))})});
 document.getElementById("refreshBtn").addEventListener("click",function(){
@@ -357,7 +374,7 @@ document.getElementById("refreshBtn").addEventListener("click",function(){
   if(btn.dataset.busy==="1") return;
   btn.dataset.busy="1";
   btn.textContent="↻ 讀取中";
-  loadData();
+  loadAllData();
   setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 重新載入";},1200);
 });
 ["search","minscore","fpe","risk"].forEach(function(id){document.getElementById(id).addEventListener("input",render);document.getElementById(id).addEventListener("change",render)});
@@ -381,7 +398,7 @@ document.getElementById("csvBtn").addEventListener("click",function(){
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });;
-setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);
+setHeader();setClock();updatePageTime();updateNextUpdate();loadAllData();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadAllData,300000);
 </script>
 </body>
 </html>
