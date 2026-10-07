@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080b12">
-<title>Alpha Watch｜美股＋台股＋加密貨幣 24H AI 監控</title>
+<title>Alpha Watch｜美股＋台股＋加密貨幣＋A股ADR AI 監控</title>
 <style>
 :root{--bg:#080b12;--panel:#101621;--line:#253043;--text:#f4f7fb;--muted:#8b97aa;--blue:#5f8fff;--green:#2bc99b;--red:#ff6478;--amber:#efbd59}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 500px at 82% -10%,#1b2c58 0%,transparent 58%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Arial,sans-serif}
@@ -29,6 +29,7 @@
   <button class="market-tab active" data-market="us">🇺🇸 美股 24H</button>
   <button class="market-tab" data-market="tw">🇹🇼 台股</button>
   <button class="market-tab" data-market="crypto">🪙 加密貨幣 24H</button>
+  <button class="market-tab" data-market="cnadr">🇨🇳 A股 × 🇺🇸 ADR</button>
 </div>
 
 <section class="grid kpis">
@@ -96,7 +97,8 @@ var mode="us", data=[], tab="all", cryptoCategory="all";
 var CFG={
   us:{file:"data.json",title:"美股 AI 監控",eyebrow:"ALPHA WATCH / US 24H",subtitle:"24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。",universeName:"NASDAQ + NYSE",tz:"America/New_York",tzLabel:"ET",currency:"$",closed:"MARKET CLOSED",source:"LIVE · YAHOO",csv:"us_alpha_watch.csv"},
   tw:{file:"taiwan_data.json",title:"台股 AI 監控",eyebrow:"ALPHA WATCH / TAIWAN",subtitle:"全天監看台股，從上市＋上櫃市場篩出當下趨勢、量能、估值與 EPS 成長較佳的進場候選。",universeName:"TWSE + TPEx",tz:"Asia/Taipei",tzLabel:"TWT",currency:"NT$",closed:"MARKET CLOSED",source:"LIVE · TWSE / TPEx",csv:"taiwan_alpha_watch.csv"},
-  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，採 100 分制評估趨勢、24H 動能、量能、流動性與相對位置，並參考 CoinMarketCap 全球市場資料，篩出 TOP 10。",universeName:"Binance Spot + CMC",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE + CMC",csv:"crypto_alpha_watch.csv"}
+  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，採 100 分制評估趨勢、24H 動能、量能、流動性與相對位置，並參考 CoinMarketCap 全球市場資料，篩出 TOP 10。",universeName:"Binance Spot + CMC",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE + CMC",csv:"crypto_alpha_watch.csv"},
+  cnadr:{file:"cn_adr_data.json",title:"A股 × 美股 ADR 監控",eyebrow:"ALPHA WATCH / CHINA A + US ADR",subtitle:"監看目前仍有效的 A 股＋美國 ADR／OTC DR，比較兩地價格、ADR 溢折價、趨勢與跨市場方向，篩出 TOP 10。",universeName:"SSE A-share + US ADR",tz:"Asia/Taipei",tzLabel:"TWT",currency:"",closed:"A股依交易時段",source:"LIVE · SSE + US ADR",csv:"china_a_adr_watch.csv"}
 };
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function clsScore(s){return s>=85?"hot":s>=75?"watch":"weak"}
@@ -111,7 +113,7 @@ function render(){
   var ms=Number(document.getElementById("minscore").value||0);
   var fb=document.getElementById("fpe").value, rf=document.getElementById("risk").value;
   var arr=data.filter(function(x){
-    var s=(x.ticker+" "+x.name).toLowerCase();
+    var s=((x.ticker||x.aCode||x.adr||"")+" "+(x.name||"")+" "+(x.adr||"")).toLowerCase();
     if(q && s.indexOf(q)<0) return false;
     if(Number(x.score||0)<ms) return false;
     if(rf!=="all" && x.risk!==rf) return false;
@@ -131,7 +133,25 @@ function render(){
     : "";
   document.getElementById("cryptoGroups").style.display=mode==="crypto"?"flex":"none";
   if(mode!=="crypto"){ cryptoCategory="all"; }
-  if(mode==="crypto"){
+  if(mode==="cnadr"){
+    document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>A股</th><th>A股價格</th><th>A股1D</th><th>美國ADR</th><th>ADR價格</th><th>換算A股價</th><th>溢價/折價</th><th>ADR1D</th><th>RATIO</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
+      arr.map(function(x){
+        var reasons=(x.reasons||[]).slice(0,3).map(function(t){return "<span class='pill'>"+esc(t)+"</span>"}).join("");
+        var prem=x.adrPremiumPct;
+        var premText=prem==null?"N/A":((prem>=0?"+":"")+Number(prem).toFixed(2)+"%");
+        var premClass=prem==null?"":prem>5?"warn":prem<-5?"good":"";
+        return "<tr><td><div class='sym'>"+esc(x.aCode)+"</div><div class='company'>"+esc(x.name)+" · SSE · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div></td>"+
+        "<td>¥"+(x.aPrice==null?"N/A":Number(x.aPrice).toFixed(2))+"</td>"+
+        "<td class='"+(Number(x.aChangePct||0)>=0?"up":"down")+"'>"+(Number(x.aChangePct||0)>=0?"+":"")+Number(x.aChangePct||0).toFixed(2)+"%</td>"+
+        "<td><div class='sym'>"+esc(x.adr)+"</div><div class='company'>"+esc(x.adrExchange||"US ADR")+"</div></td>"+
+        "<td>$"+(x.adrPrice==null?"N/A":Number(x.adrPrice).toFixed(2))+"</td>"+
+        "<td>¥"+(x.impliedAPriceCny==null?"N/A":Number(x.impliedAPriceCny).toFixed(2))+"</td>"+
+        "<td><span class='pill "+premClass+"'>"+premText+"</span></td>"+
+        "<td class='"+(Number(x.adrChangePct||0)>=0?"up":"down")+"'>"+(Number(x.adrChangePct||0)>=0?"+":"")+Number(x.adrChangePct||0).toFixed(2)+"%</td>"+
+        "<td>"+esc(x.ratio)+":1</td><td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span></td>"+
+        "<td class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</td><td>"+reasons+"</td></tr>";
+      }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有可用的 A股＋美國 ADR 配對。</div>";
+  } else if(mode==="crypto"){
     document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>24H</th><th>CMC RANK</th><th>24H VOLUME</th><th>VOL RATIO</th><th>MA20</th><th>MA50</th><th>MA200</th><th>RISK</th><th>SCORE</th><th>REASONS</th></tr></thead><tbody>"+
       arr.map(function(x){
         var reasons=(x.reasons||[]).slice(0,3).map(function(t){return "<span class='pill'>"+esc(t)+"</span>"}).join("");
@@ -163,13 +183,21 @@ function render(){
     }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有符合條件的標的。</div>";
   }
   document.getElementById("picks").innerHTML=data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).map(function(x){
-    var meta=mode==="crypto"
-      ? "<span class='metric'>CMC #"+(x.cmcRank==null?"N/A":esc(x.cmcRank))+"</span><span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>"
-      : "<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
-    return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name))+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
+    var meta;
+    if(mode==="crypto"){
+      meta="<span class='metric'>CMC #"+(x.cmcRank==null?"N/A":esc(x.cmcRank))+"</span><span class='metric'>24H "+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</span><span class='metric'>量比 "+(x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x")+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(4))+"</span>";
+    } else if(mode==="cnadr"){
+      var p=x.adrPremiumPct;
+      meta="<span class='metric'>ADR "+esc(x.adr)+"</span><span class='metric'>溢折 "+(p==null?"N/A":(p>=0?"+":"")+Number(p).toFixed(2)+"%")+"</span><span class='metric'>A股 ¥"+(x.aPrice==null?"N/A":Number(x.aPrice).toFixed(2))+"</span>";
+    } else {
+      meta="<span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span>";
+    }
+    var display=mode==="cnadr"?esc(x.aCode)+" · "+esc(x.name):esc(x.ticker)+(mode==="crypto"?"/USDT":" · "+esc(x.name));
+    return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+display+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
       "<div class='pickwhy'>"+esc((x.reasons||[]).join(" · ")||"量化條件符合")+"</div>"+
       "<div class='pickmeta'>"+meta+"</div></div>";
   }).join("")||"<div class='empty'>等待市場資料。</div>";
+
 }
 function setHeader(){
   var c=CFG[mode];
@@ -178,14 +206,14 @@ function setHeader(){
   document.getElementById("subtitle").textContent=c.subtitle;
   document.getElementById("universeName").textContent=c.universeName;
   document.getElementById("timeZoneLabel").textContent=c.tzLabel;
-  document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":"FPE 覆蓋率";
+  document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":mode==="cnadr"?"ADR 覆蓋率":"FPE 覆蓋率";
   document.getElementById("sessionHeading").textContent=mode==="us"?"24H Session":mode==="tw"?"台股交易時段":"24H Crypto Market";
   document.getElementById("sessionBadge").textContent=mode==="us"?"ET":mode==="tw"?"TWT":"24/7";
-  document.getElementById("fpe").disabled=mode==="crypto";
-  document.getElementById("standardTabs").style.display=mode==="crypto"?"none":"flex";
+  document.getElementById("fpe").disabled=mode==="crypto"||mode==="cnadr";
+  document.getElementById("standardTabs").style.display=(mode==="crypto"||mode==="cnadr")?"none":"flex";
   document.getElementById("categoryPanel").style.display=mode==="crypto"?"block":"none";
-  document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS。FPE 要和 EPS 成長、趨勢與風險一起看。":mode==="tw"?"FPE 優先；缺少 Forward P/E 時使用最新可得 PE 作為估值輔助，並搭配 EPS 成長、均線與量能判斷。":"FPE / Forward EPS 不適用於加密貨幣；改看均線、24H 動能、量能、流動性與波動風險。";
-  document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：TTM 利潤率 / ROE / 負債<br>事件：財報風險":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>風險：高估值／跌破長期均線":"100 分制：趨勢 35<br>動能：24H 25<br>量能：20<br>流動性：10<br>相對200日線位置：10<br>估值：FPE 不適用";
+  document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS。FPE 要和 EPS 成長、趨勢與風險一起看。":mode==="tw"?"FPE 優先；缺少 Forward P/E 時使用最新可得 PE 作為估值輔助，並搭配 EPS 成長、均線與量能判斷。":mode==="crypto"?"FPE / Forward EPS 不適用於加密貨幣；改看均線、24H 動能、量能、流動性與波動風險。":"ADR 換算A股價＝ADR價格 ÷ 換股比 × USD/CNY。溢折價僅作跨市場價格參考，還要搭配A股趨勢與ADR流動性。";
+  document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：TTM 利潤率 / ROE / 負債<br>事件：財報風險":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>風險：高估值／跌破長期均線":mode==="crypto"?"100 分制：趨勢 35<br>動能：24H 25<br>量能：20<br>流動性：5<br>CMC 市場地位：5<br>相對200日線位置：10<br>CMC：市值排名／24H成交量／分類標籤<br>估值：FPE 不適用":"A股趨勢：20/50/200 日均線<br>A股動能：1D 漲跌幅<br>ADR：最新價格／1D 漲跌<br>跨市場：ADR 溢折價／方向一致性<br>ADR流動性：成交量<br>只納入目前有效的美國 ADR／OTC DR"
   document.getElementById("sessionCards").innerHTML=mode==="us"?
     "<div class='notice'><b>Pre-market</b><br>04:00–09:30</div><div class='notice'><b>Regular</b><br>09:30–16:00</div><div class='notice'><b>After-hours</b><br>16:00–20:00</div><div class='notice'><b>Overnight</b><br>20:00–04:00</div>":
     mode==="tw"?
@@ -224,6 +252,7 @@ function setClock(){
   var session;
   if(mode==="us") session=closed?"MARKET CLOSED":mins>=240&&mins<570?"PRE-MARKET":mins>=570&&mins<960?"REGULAR":mins>=960&&mins<1200?"AFTER-HOURS":"OVERNIGHT MONITOR";
   else if(mode==="crypto") session="MARKET OPEN 24/7";
+  else if(mode==="cnadr") session="CROSS-MARKET MONITOR";
   else session=closed?"MARKET CLOSED":mins<510?"PRE-MARKET":mins<810?"REGULAR":"POST-MARKET MONITOR";
   document.getElementById("market").textContent=session;
   document.getElementById("clock").textContent=v.hour+":"+v.minute+":"+v.second+" "+c.tzLabel+" · "+wd;
@@ -233,7 +262,7 @@ function loadData(){
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
     data=Array.isArray(p.rows)?p.rows:[];
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
-    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":(p.universeCount||0)+" symbols";
+    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":mode==="cnadr"?(p.universeCount||0)+" 組有效 ADR 配對":(p.universeCount||0)+" symbols";
     document.getElementById("updated").textContent=p.asOf?new Date(p.asOf).toLocaleString("zh-TW",{timeZone:"Asia/Taipei",hour12:false}):"—";
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
     document.getElementById("sourceBadge").textContent=p.status==="LIVE"?CFG[mode].source:p.status==="MARKET_CLOSED"?"MARKET CLOSED":"DATA ERROR";
