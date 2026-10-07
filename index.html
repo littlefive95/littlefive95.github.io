@@ -128,7 +128,7 @@ function render(){
       "<td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span></td>"+
       "<td class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</td><td>"+reasons+"</td></tr>";
     }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有符合條件的標的。</div>";
-  document.getElementById("picks").innerHTML=data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,5).map(function(x){
+  document.getElementById("picks").innerHTML=data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).map(function(x){
     return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+esc(x.ticker)+" · "+esc(x.name)+"</div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
       "<div class='pickwhy'>"+esc((x.reasons||[]).join(" · ")||"量化條件符合")+"</div>"+
       "<div class='pickmeta'><span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span></div></div>";
