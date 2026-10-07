@@ -365,5 +365,8 @@
   "holiday": [
     "Outside Taiwan cash-session; latest completed trading day shown"
   ],
-  "note": "目前非台股即時交易時段；顯示最近交易日 2026-10-07 收盤 TOP 10，並維持量化排序，研究/監控工具，不構成投資建議。"
+  "note": "目前非台股即時交易時段；顯示最近交易日 2026-10-07 收盤 TOP 10，並維持量化排序，研究/監控工具，不構成投資建議。",
+  "fallback": true,
+  "refreshCheckedAt": "2026-10-08T02:28:07.907078+08:00",
+  "refreshError": "本次資料來源更新失敗"
 }
