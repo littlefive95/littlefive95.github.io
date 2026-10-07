@@ -1279,6 +1279,215 @@ def build_crypto_live():
         "note": "24/7 加密貨幣市場；依均線、24H動能、量能、流動性與波動風險排序，僅供研究與監控。",
     }
 
+CN_ADR_MAP = (
+    {"a_code":"601988","a_symbol":"601988.SS","name":"中國銀行","adr":"BACHY","ratio":25,"sector":"銀行"},
+    {"a_code":"601939","a_symbol":"601939.SS","name":"建設銀行","adr":"CICHY","ratio":20,"sector":"銀行"},
+    {"a_code":"601398","a_symbol":"601398.SS","name":"工商銀行","adr":"IDCBY","ratio":20,"sector":"銀行"},
+    {"a_code":"601328","a_symbol":"601328.SS","name":"交通銀行","adr":"BCMXY","ratio":25,"sector":"銀行"},
+    {"a_code":"600036","a_symbol":"600036.SS","name":"招商銀行","adr":"CIHKY","ratio":5,"sector":"銀行"},
+    {"a_code":"601088","a_symbol":"601088.SS","name":"中國神華","adr":"CSUAY","ratio":4,"sector":"能源／煤炭"},
+    {"a_code":"601857","a_symbol":"601857.SS","name":"中國石油","adr":"PTCCY","ratio":20,"sector":"能源"},
+)
+
+def yahoo_daily_quotes(symbols):
+    if not symbols:
+        return {}
+    try:
+        raw = yf.download(
+            tickers=symbols,
+            period="10d",
+            interval="1d",
+            auto_adjust=False,
+            progress=False,
+            threads=True,
+            group_by="ticker",
+        )
+    except Exception as e:
+        print("A-share ADR daily warning", e, file=sys.stderr)
+        return {}
+
+    out = {}
+    for sym in symbols:
+        try:
+            if len(symbols) == 1:
+                close = raw["Close"].dropna()
+            else:
+                close = raw[(sym, "Close")].dropna()
+            if len(close) == 0:
+                continue
+            latest = float(close.iloc[-1])
+            prev = float(close.iloc[-2]) if len(close) >= 2 else None
+            out[sym] = {
+                "price": latest,
+                "changePct": ((latest - prev) / prev * 100) if prev else None,
+                "date": close.index[-1].date().isoformat(),
+            }
+        except Exception:
+            continue
+    return out
+
+def cn_adr_fx():
+    q = yahoo_daily_quotes(["USDCNY=X"])
+    if q.get("USDCNY=X", {}).get("price"):
+        return q["USDCNY=X"]["price"]
+    return 7.1
+
+def cn_adr_score(row):
+    pts = 0
+    reasons = []
+    risk = "低"
+
+    if row.get("a200") and row["a_price"] > row["a200"]:
+        pts += 25
+        reasons.append("A股站上200日線")
+    if row.get("a50") and row["a_price"] > row["a50"]:
+        pts += 15
+        reasons.append("A股站上50日線")
+    if row.get("a20") and row["a_price"] > row["a20"]:
+        pts += 10
+        reasons.append("A股站上20日線")
+
+    achg = row.get("a_changePct")
+    if achg is not None:
+        if 0.5 <= achg < 4:
+            pts += 15
+            reasons.append("A股動能健康")
+        elif 0 <= achg < 0.5:
+            pts += 9
+            reasons.append("A股維持正向")
+        elif achg >= 4:
+            pts += 8
+            risk = "中"
+            reasons.append("A股單日漲幅偏大")
+        elif achg <= -3:
+            pts -= 6
+            risk = "中"
+            reasons.append("A股短線轉弱")
+
+    d = row.get("adrPremiumPct")
+    if d is not None:
+        ad = abs(d)
+        if ad <= 2:
+            pts += 20
+            reasons.append("ADR與A股價格接近")
+        elif ad <= 5:
+            pts += 15
+            reasons.append("ADR溢折價合理")
+        elif ad <= 10:
+            pts += 8
+            risk = "中"
+            reasons.append("ADR溢折價偏大")
+        else:
+            pts += 2
+            risk = "中" if risk != "高" else risk
+            reasons.append("ADR溢折價很大")
+
+    uschg = row.get("adr_changePct")
+    if uschg is not None and achg is not None:
+        if achg * uschg > 0:
+            pts += 5
+            reasons.append("A股與ADR方向一致")
+        elif achg * uschg < 0:
+            pts += 1
+            risk = "中" if risk == "低" else risk
+            reasons.append("A股與ADR方向分歧")
+
+    if row.get("adr_volume", 0) >= 50_000:
+        pts += 10
+        reasons.append("ADR成交量較佳")
+    elif row.get("adr_volume", 0) >= 10_000:
+        pts += 6
+    elif row.get("adr_volume", 0) >= 1_000:
+        pts += 3
+    else:
+        risk = "中" if risk == "低" else risk
+        reasons.append("ADR流動性偏低")
+
+    if row.get("a_price") and row.get("a200") and row["a_price"] < row["a200"] * 0.92:
+        pts -= 5
+        risk = "中" if risk == "低" else risk
+        reasons.append("A股距200日線偏遠")
+
+    pts = max(0, min(100, round(pts)))
+    label = "進場候選" if pts >= 85 else "優先研究" if pts >= 78 else "值得觀察" if pts >= 68 else "中性" if pts >= 58 else "偏弱"
+    return pts, label, risk, reasons[:5]
+
+def build_cn_adr_live():
+    now = datetime.now(ZoneInfo("Asia/Taipei"))
+    a_symbols = [x["a_symbol"] for x in CN_ADR_MAP]
+    adr_symbols = [x["adr"] for x in CN_ADR_MAP]
+    quotes = yahoo_daily_quotes(a_symbols + adr_symbols)
+    fx = cn_adr_fx()
+    rows = []
+
+    for m in CN_ADR_MAP:
+        aq = quotes.get(m["a_symbol"], {})
+        uq = quotes.get(m["adr"], {})
+        if not aq.get("price") or not uq.get("price"):
+            continue
+
+        a_hist = yahoo_history([m["a_symbol"]]).get(m["a_symbol"], {})
+        close = a_hist.get("close")
+        a20 = float(close.tail(20).mean()) if close is not None and len(close) >= 20 else None
+        a50 = float(close.tail(50).mean()) if close is not None and len(close) >= 50 else None
+        a200 = float(close.tail(200).mean()) if close is not None and len(close) >= 200 else None
+
+        # ORD:DR ratio means one ADR represents this many ordinary shares.
+        implied_a_cny = (float(uq["price"]) / float(m["ratio"])) * fx
+        premium = (implied_a_cny / float(aq["price"]) - 1) * 100
+
+        row = {
+            "aCode": m["a_code"],
+            "name": m["name"],
+            "sector": m["sector"],
+            "aExchange": "SSE",
+            "adr": m["adr"],
+            "adrExchange": "US OTC ADR",
+            "ratio": m["ratio"],
+            "aPrice": float(aq["price"]),
+            "aChangePct": aq.get("changePct"),
+            "aPriceDate": aq.get("date"),
+            "adrPrice": float(uq["price"]),
+            "adrChangePct": uq.get("changePct"),
+            "adrPriceDate": uq.get("date"),
+            "adrVolume": None,
+            "fxUsdcny": fx,
+            "impliedAPriceCny": implied_a_cny,
+            "adrPremiumPct": premium,
+            "a20": a20,
+            "a50": a50,
+            "a200": a200,
+        }
+        # Get latest ADR volume from a compact 10-day download when available.
+        try:
+            raw = yf.download(m["adr"], period="10d", interval="1d", auto_adjust=False, progress=False)
+            if raw is not None and "Volume" in raw and len(raw["Volume"].dropna()):
+                row["adrVolume"] = int(float(raw["Volume"].dropna().iloc[-1]))
+        except Exception:
+            row["adrVolume"] = 0
+
+        sc, label, risk, reasons = cn_adr_score(row)
+        row["score"] = sc
+        row["label"] = label
+        row["risk"] = risk
+        row["reasons"] = reasons
+        rows.append(row)
+
+    rows.sort(key=lambda r: (-r["score"], abs(r.get("adrPremiumPct") or 999)))
+    rows = rows[:10]
+
+    return {
+        "status": "LIVE" if rows else "DATA_ERROR",
+        "asOf": now.isoformat(),
+        "date": now.date().isoformat(),
+        "rows": rows,
+        "coverage": round(100 * len(rows) / max(1, len(CN_ADR_MAP))),
+        "universeCount": len(CN_ADR_MAP),
+        "focusCount": len(rows),
+        "method": "Shanghai A-shares + currently active US ADR/OTC DR cross-market reference",
+        "note": "只納入目前仍有效的美國 ADR/OTC DR；A股與ADR價格以當地貨幣與ADR換算比例比較，溢折價僅供研究參考。",
+    }
+
 def main():
     try:
         payload = build_live()
@@ -1333,3 +1542,19 @@ if __name__ == "__main__":
         }
     with open("crypto_data.json", "w", encoding="utf-8") as f:
         json.dump(crypto_payload, f, ensure_ascii=False, indent=2)
+    try:
+        cn_adr_payload = build_cn_adr_live()
+    except Exception as e:
+        cn_adr_payload = {
+            "status": "DATA_ERROR",
+            "asOf": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
+            "date": datetime.now(ZoneInfo("Asia/Taipei")).date().isoformat(),
+            "rows": [],
+            "coverage": 0,
+            "universeCount": len(CN_ADR_MAP),
+            "focusCount": 0,
+            "error": str(e),
+            "note": "A股＋美國 ADR 資料建置失敗。",
+        }
+    with open("cn_adr_data.json", "w", encoding="utf-8") as f:
+        json.dump(cn_adr_payload, f, ensure_ascii=False, indent=2)
