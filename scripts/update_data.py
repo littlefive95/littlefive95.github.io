@@ -877,8 +877,12 @@ def yahoo_history(symbols):
                 volume = raw[(sym, "Volume")].dropna()
             if len(close) < 60:
                 continue
-            high = raw["High"].reindex(close.index).dropna()
-            low = raw["Low"].reindex(close.index).dropna()
+            if len(symbols) == 1:
+                high = raw["High"].reindex(close.index).dropna()
+                low = raw["Low"].reindex(close.index).dropna()
+            else:
+                high = raw[(sym, "High")].reindex(close.index).dropna()
+                low = raw[(sym, "Low")].reindex(close.index).dropna()
             aligned = close.index.intersection(high.index).intersection(low.index)
             close = close.reindex(aligned).dropna()
             volume = volume.reindex(close.index).fillna(0)
