@@ -140,7 +140,7 @@ function render(){
         var prem=x.adrPremiumPct;
         var premText=prem==null?"N/A":((prem>=0?"+":"")+Number(prem).toFixed(2)+"%");
         var premClass=prem==null?"":prem>5?"warn":prem<-5?"good":"";
-        return "<tr><td><div class='sym'>"+esc(x.aCode)+"</div><div class='company'>"+esc(x.name)+" · SSE · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div></td>"+
+        return "<tr><td><div class='sym'>"+esc(x.aCode)+"</div><div class='company'>"+esc(x.name)+" · SSE · H股 "+esc(x.hCode||"—")+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div></td>"+
         "<td>¥"+(x.aPrice==null?"N/A":Number(x.aPrice).toFixed(2))+"</td>"+
         "<td class='"+(Number(x.aChangePct||0)>=0?"up":"down")+"'>"+(Number(x.aChangePct||0)>=0?"+":"")+Number(x.aChangePct||0).toFixed(2)+"%</td>"+
         "<td><div class='sym'>"+esc(x.adr)+"</div><div class='company'>"+esc(x.adrExchange||"US ADR")+"</div></td>"+
@@ -264,7 +264,7 @@ function loadData(){
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
     data=Array.isArray(p.rows)?p.rows:[];
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
-    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":mode==="cnadr"?(p.universeCount||0)+" 組有效 ADR 配對":(p.universeCount||0)+" symbols";
+    document.getElementById("universe").textContent=mode==="crypto"?(p.universeCount||0)+" 個監控幣種 · CMC 對應 "+(p.cmcCoverage||0)+"%":mode==="cnadr"?(p.focusCount||0)+" 組可用配對 · "+(p.universeCount||0)+" 組有效名單":(p.universeCount||0)+" symbols";
     document.getElementById("updated").textContent=p.asOf?new Date(p.asOf).toLocaleString("zh-TW",{timeZone:"Asia/Taipei",hour12:false}):"—";
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
     document.getElementById("sourceBadge").textContent=p.status==="LIVE"?CFG[mode].source:p.status==="MARKET_CLOSED"?"MARKET CLOSED":"DATA ERROR";
