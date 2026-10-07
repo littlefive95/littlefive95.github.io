@@ -83,6 +83,21 @@ jobs:
                   except Exception as exc:
                       print(f"{name}: restore warning: {exc}")
 
+      - name: Validate market snapshots
+        run: |
+          python - <<'PY'
+          import json
+          for name in ("data.json", "taiwan_data.json", "crypto_data.json"):
+              with open(name, encoding="utf-8") as f:
+                  payload = json.load(f)
+              rows = payload.get("rows")
+              if not isinstance(rows, list) or not rows:
+                  raise SystemExit(f"{name}: no usable rows after refresh/fallback")
+              if len(rows) > 10:
+                  raise SystemExit(f"{name}: more than TOP 10 rows")
+              print(f"{name}: {payload.get('status')} {len(rows)} rows")
+          PY
+
       - name: Save latest data snapshot
         run: |
           git config user.name "github-actions[bot]"
