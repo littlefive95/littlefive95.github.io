@@ -120,7 +120,7 @@ function render(){
     arr.map(function(x){
       var reasons=(x.reasons||[]).slice(0,3).map(function(t){return "<span class='pill'>"+esc(t)+"</span>"}).join("");
       var price=(x.price==null?"N/A":(CFG[mode].currency+Number(x.price).toFixed(2)));
-      return "<tr><td><div class='sym'>"+esc(x.ticker)+"</div><div class='company'>"+esc(x.name)+" · "+esc(x.exchange||"")+" · <span class='sector-tag'>"+esc(x.sector||"其他")+"</span></div></td>"+
+      return "<tr><td><div class='sym'>"+esc(x.ticker)+"</div><div class='company'>"+esc(x.name)+" · "+esc(x.exchange||"")+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div></td>"+
       "<td>"+price+"</td>"+
       "<td class='"+(Number(x.changePct||0)>=0?"up":"down")+"'>"+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</td>"+
       "<td>"+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</td>"+
@@ -131,7 +131,7 @@ function render(){
       "<td class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</td><td>"+reasons+"</td></tr>";
     }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有符合條件的標的。</div>";
   document.getElementById("picks").innerHTML=data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).map(function(x){
-    return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+esc(x.ticker)+" · "+esc(x.name)+" · <span class='sector-tag'>"+esc(x.sector||"其他")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
+    return "<div class='sidepick'><div class='picktop'><div class='pickname'>"+esc(x.ticker)+" · "+esc(x.name)+" · <span class='sector-tag'>"+esc(x.sector||"未分類")+"</span></div><div class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</div></div>"+
       "<div class='pickwhy'>"+esc((x.reasons||[]).join(" · ")||"量化條件符合")+"</div>"+
       "<div class='pickmeta'><span class='metric'>FPE "+(x.fpe==null?"N/A":Number(x.fpe).toFixed(1)+"x")+"</span><span class='metric'>Fwd EPS "+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</span><span class='metric'>"+CFG[mode].currency+(x.price==null?"N/A":Number(x.price).toFixed(2))+"</span></div></div>";
   }).join("")||"<div class='empty'>等待市場資料。</div>";
@@ -195,7 +195,7 @@ document.getElementById("refreshBtn").addEventListener("click",loadData);
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
 document.getElementById("csvBtn").addEventListener("click",function(){
   var rows=[["Code","Company","Sector","Exchange","Price","ChangePct","FPE","ForwardEPS","EPSGrowthPct","Analysts","Risk","Score"]];
-  data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"其他",x.exchange,x.price,x.changePct,x.fpe,x.forwardEps,x.epsGrowthPct,x.analysts,x.risk,x.score])});
+  data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.fpe,x.forwardEps,x.epsGrowthPct,x.analysts,x.risk,x.score])});
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
 });
