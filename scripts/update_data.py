@@ -150,6 +150,25 @@ def market_closed(day):
     schedule = cal.schedule(start_date=day, end_date=day)
     return schedule.empty
 
+def nyse_latest_session(day):
+    cal = mcal.get_calendar("NYSE")
+    d = datetime.fromisoformat(day).date()
+    start = datetime.fromordinal(max(1, d.toordinal() - 14)).date().isoformat()
+    schedule = cal.schedule(start_date=start, end_date=day)
+    return schedule.index[-1].date().isoformat() if not schedule.empty else day
+
+def us_market_session(now):
+    if now.weekday() >= 5 or market_closed(now.date().isoformat()):
+        return "closed"
+    mins = now.hour * 60 + now.minute
+    if 240 <= mins < 570:
+        return "pre"
+    if 570 <= mins < 960:
+        return "regular"
+    if 960 <= mins < 1200:
+        return "after"
+    return "overnight"
+
 def yahoo_screen(screen_name):
     try:
         result = yf.screen(screen_name, count=250)
@@ -171,9 +190,20 @@ def fallback_info():
             print(f"Fallback info warning {sym}: {e}", file=sys.stderr)
     return rows
 
-def normalize_quote(q):
+def normalize_quote(q, session="regular"):
     sym = str(first(q, ["symbol"], "")).strip().upper()
-    price = num(first(q, ["postMarketPrice", "preMarketPrice", "regularMarketPrice", "currentPrice", "price"]))
+    price_keys = {
+        "pre": ["preMarketPrice", "regularMarketPrice", "currentPrice", "price"],
+        "regular": ["regularMarketPrice", "currentPrice", "price"],
+        "after": ["postMarketPrice", "regularMarketPrice", "currentPrice", "price"],
+        "overnight": ["regularMarketPrice", "currentPrice", "price"],
+        "closed": ["regularMarketPrice", "currentPrice", "price"],
+    }.get(session, ["regularMarketPrice", "currentPrice", "price"])
+    change_keys = {
+        "pre": ["preMarketChangePercent", "regularMarketChangePercent", "percentchange", "changePercent"],
+        "after": ["postMarketChangePercent", "regularMarketChangePercent", "percentchange", "changePercent"],
+    }.get(session, ["regularMarketChangePercent", "percentchange", "changePercent"])
+    price = num(first(q, price_keys))
     if price is None or price <= 0:
         return None
 
@@ -190,7 +220,7 @@ def normalize_quote(q):
     if eps_growth is None and current_eps and next_eps and current_eps > 0:
         eps_growth = (next_eps / current_eps - 1) * 100
 
-    change = num(first(q, ["regularMarketChangePercent", "percentchange", "changePercent"]))
+    change = num(first(q, change_keys))
     market_cap = num(first(q, ["marketCap", "intradaymarketcap"]))
     volume = num(first(q, ["regularMarketVolume", "dayvolume", "volume"])) or 0
     avg_volume = num(first(q, ["averageDailyVolume3Month", "avgdailyvol3m"])) or 0
