@@ -124,10 +124,8 @@ function reasonHtml(arr){
 }
 function tabKind(x){
   var p=Array.isArray(x.profiles)?x.profiles:[];
-  if(tab==="value") return p.indexOf("value")>=0;
-  if(tab==="quality") return p.indexOf("quality")>=0;
-  if(tab==="momentum") return p.indexOf("momentum")>=0;
-  return true;
+  if(p.indexOf(tab)>=0) return tab;
+  return "";
 }
 function render(){
   var q=(document.getElementById("search").value||"").toLowerCase().trim();
