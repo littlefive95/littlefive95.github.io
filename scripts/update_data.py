@@ -271,6 +271,48 @@ def normalize_quote(q, session="regular"):
         "earningsDate": earnings_date,
     }
 
+def stock_profiles(row):
+    profiles = []
+    price = row.get("price") or 0
+    a50 = row.get("priceAvg50") or 0
+    a200 = row.get("priceAvg200") or 0
+    chg = row.get("changePct") or 0
+    fpe = row.get("fpe")
+    growth = row.get("epsGrowthPct")
+    margin = row.get("margin")
+    roe = row.get("roe")
+    debt = row.get("debt")
+    if (a200 and price > a200) or (a50 and price > a50) or chg > 0.5:
+        profiles.append("momentum")
+    if fpe is not None and 0 < fpe < 24:
+        profiles.append("value")
+    quality_ok = (
+        growth is not None and growth >= 10
+        and ((margin is not None and margin >= 0.12) or (roe is not None and roe >= 0.12) or row.get("analysts", 0) >= 8)
+        and (debt is None or debt <= 250)
+    )
+    if quality_ok:
+        profiles.append("quality")
+    return profiles or ["momentum"]
+
+def historical_event_signals(price, close=None, volume_ratio=None, chg=None, a50=None, a200=None):
+    signals = []
+    if close is not None and len(close) >= 21:
+        try:
+            if price > max(close[-21:-1]) * 1.005:
+                signals.append("突破20日高點")
+        except Exception:
+            pass
+    if a50 and price < a50 * 0.97:
+        signals.append("跌破50日線")
+    if a200 and price < a200 * 0.97:
+        signals.append("跌破200日線")
+    if volume_ratio is not None and volume_ratio >= 1.5:
+        signals.append("量能放大")
+    if chg is not None and abs(chg) >= 8:
+        signals.append("高波動")
+    return signals[:3]
+
 def score(row):
     price = row["price"] or 0
     chg = row["changePct"] or 0
