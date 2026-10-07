@@ -33,8 +33,44 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade yfinance pandas_market_calendars
 
+      - name: Backup last known good snapshots
+        run: |
+          mkdir -p .data-backup
+          for f in data.json taiwan_data.json crypto_data.json; do
+            if [ -f "$f" ]; then cp "$f" ".data-backup/$f"; fi
+          done
+
       - name: Build live market data
         run: python scripts/update_data.py
+
+      - name: Keep last known good data on provider failure
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          
+          for name in ("data.json", "taiwan_data.json", "crypto_data.json"):
+              current = pathlib.Path(name)
+              backup = pathlib.Path(".data-backup") / name
+              try:
+                  payload = json.loads(current.read_text(encoding="utf-8"))
+              except Exception:
+                  payload = {"status": "DATA_ERROR", "error": "invalid JSON"}
+              rows = payload.get("rows") if isinstance(payload, dict) else None
+              if payload.get("status") == "DATA_ERROR" or not isinstance(rows, list) or not rows:
+                  if not backup.exists():
+                      continue
+                  try:
+                      old = json.loads(backup.read_text(encoding="utf-8"))
+                      old_rows = old.get("rows") if isinstance(old, dict) else None
+                      if isinstance(old_rows, list) and old_rows:
+                          old["fallback"] = True
+                          old["refreshCheckedAt"] = payload.get("asOf")
+                          old["refreshError"] = payload.get("error", "本次資料來源更新失敗")
+                          current.write_text(json.dumps(old, ensure_ascii=False, indent=2), encoding="utf-8")
+                          print(f"{name}: restored last known good snapshot")
+                  except Exception as exc:
+                      print(f"{name}: restore warning: {exc}")
 
       - name: Save latest data snapshot
         run: |
