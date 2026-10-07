@@ -888,6 +888,7 @@ def build_taiwan_live():
     }
 
 CRYPTO_API = "https://data-api.binance.vision/api/v3"
+CMC_API = "https://pro-api.coinmarketcap.com/public-api/v3"
 
 CRYPTO_CATEGORY = {
     "BTC": "比特幣／價值儲存",
@@ -946,9 +947,26 @@ CRYPTO_GROUP = {
     "PEPE": "Meme",
 }
 
-def crypto_group(symbol):
+def crypto_group(symbol, tags=None, cmc_rank=None):
     base = symbol.replace("USDT", "")
-    return CRYPTO_GROUP.get(base, "其他")
+    if base in CRYPTO_GROUP:
+        return CRYPTO_GROUP[base]
+    tag_text = " ".join([str(t.get("slug") if isinstance(t, dict) else t or "") for t in (tags or [])]).lower()
+    if any(k in tag_text for k in ("meme", "memes", "dog-themed")):
+        return "Meme"
+    if any(k in tag_text for k in ("artificial-intelligence", "ai-big-data", "ai")):
+        return "AI"
+    if any(k in tag_text for k in ("decentralized-finance", "defi")):
+        return "DeFi"
+    if any(k in tag_text for k in ("layer-1", "smart-contract-platform")):
+        return "Layer 1"
+    if cmc_rank is not None:
+        try:
+            if int(cmc_rank) <= 20:
+                return "大型幣"
+        except Exception:
+            pass
+    return "其他"
 
 def crypto_category(symbol):
     base = symbol.replace("USDT", "")
@@ -966,6 +984,32 @@ def crypto_get(path, params=None):
     except Exception as e:
         print(f"Crypto API warning {path}: {e}", file=sys.stderr)
         return None
+
+def cmc_listings(limit=250):
+    try:
+        r = S.get(
+            CMC_API + "/cryptocurrency/listings/latest",
+            params={"start": 1, "limit": limit, "convert": "USD"},
+            timeout=20,
+        )
+        r.raise_for_status()
+        payload = r.json()
+        return payload.get("data", []) if isinstance(payload, dict) else []
+    except Exception as e:
+        print(f"CMC warning: {e}", file=sys.stderr)
+        return []
+
+def cmc_quote(item):
+    q = item.get("quote")
+    if isinstance(q, list):
+        return q[0] if q else {}
+    if isinstance(q, dict):
+        return q.get("USD") or q.get("usd") or (next(iter(q.values())) if q else {})
+    return {}
+
+def cmc_tags(item):
+    tags = item.get("tags") or []
+    return tags if isinstance(tags, list) else []
 
 def crypto_klines(symbol, limit=210):
     data = crypto_get("/klines", {
