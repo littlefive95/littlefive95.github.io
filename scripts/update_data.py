@@ -1431,14 +1431,23 @@ def build_cn_adr_live():
     fx = cn_adr_fx()
     rows = []
 
+    try:
+        snapshot, snapshot_date = taiwan_snapshot()
+        a_snapshot = {r["ticker"]: r for r in snapshot}
+    except Exception:
+        a_snapshot = {}
+        snapshot_date = None
+
     for m in CN_ADR_MAP:
         aq = quotes.get(m["a_symbol"], {})
+        if m["a_code"] in a_snapshot:
+            snap = a_snapshot[m["a_code"]]
+            aq = {"price": snap.get("price"), "changePct": snap.get("changePct"), "date": snapshot_date}
         uq = quotes.get(m["adr"], {})
         if not aq.get("price") or not uq.get("price"):
             continue
 
-        a_hist = yahoo_history([m["a_symbol"]]).get(m["a_symbol"], {})
-        close = a_hist.get("close")
+        close = yahoo_history_one(m["a_symbol"])
         a20 = float(close.tail(20).mean()) if close is not None and len(close) >= 20 else None
         a50 = float(close.tail(50).mean()) if close is not None and len(close) >= 50 else None
         a200 = float(close.tail(200).mean()) if close is not None and len(close) >= 200 else None
@@ -1450,7 +1459,9 @@ def build_cn_adr_live():
         row = {
             "aCode": m["a_code"],
             "name": m["name"],
+            "hCode": m.get("h_code"),
             "sector": m["sector"],
+            "adrUnderlying": "同公司H股／存託證券",
             "aExchange": "SSE",
             "adr": m["adr"],
             "adrExchange": "US OTC ADR",
@@ -1496,7 +1507,7 @@ def build_cn_adr_live():
         "universeCount": len(CN_ADR_MAP),
         "focusCount": len(rows),
         "method": "Shanghai A-shares + currently active US ADR/OTC DR cross-market reference",
-        "note": "只納入目前仍有效的美國 ADR/OTC DR；A股與ADR價格以當地貨幣與ADR換算比例比較，溢折價僅供研究參考。",
+        "note": "只納入目前仍有效的美國 ADR/OTC DR；ADR折算值是跨市場參考，不等同A股可直接換股價格。",
     }
 
 def main():
