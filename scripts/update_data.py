@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -9,7 +10,7 @@ import requests
 
 ET = ZoneInfo("America/New_York")
 S = requests.Session()
-S.headers.update({"User-Agent": "US-TW-Alpha-Watch/1.0"})
+S.headers.update({"User-Agent": "US-TW-Alpha-Watch/1.0", "Accept-Encoding": "identity", "Connection": "close"})
 
 SCREENS = (
     "most_actives",
@@ -324,14 +325,32 @@ def roc_date(v):
         return f"{int(x[:3]) + 1911:04d}-{x[3:5]}-{x[5:7]}"
     return x[:10] if len(x) >= 10 else x
 
-def fetch_json(url):
-    r = S.get(url, timeout=30)
-    r.raise_for_status()
-    return r.json()
+def fetch_json(url, retries=4):
+    last = None
+    for attempt in range(retries):
+        try:
+            r = S.get(url, timeout=35, headers={"Accept-Encoding": "identity", "Connection": "close"})
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            last = e
+            if attempt < retries - 1:
+                time.sleep(1.5 * (attempt + 1))
+    raise last
 
 def taiwan_snapshot():
-    twse = fetch_json(TWSE_URL)
-    tpex = fetch_json(TPEX_URL)
+    try:
+        twse = fetch_json(TWSE_URL)
+    except Exception as e:
+        print("TWSE daily snapshot warning", e, file=sys.stderr)
+        twse = []
+    try:
+        tpex = fetch_json(TPEX_URL)
+    except Exception as e:
+        print("TPEx daily snapshot warning", e, file=sys.stderr)
+        tpex = []
+    if not twse and not tpex:
+        raise RuntimeError("TWSE and TPEx daily snapshots unavailable")
     valuation = {}
     try:
         for x in fetch_json(TWSE_VAL_URL) or []:
