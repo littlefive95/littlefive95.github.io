@@ -9,7 +9,7 @@ on:
       - "crypto_data.json"
       - "cn_adr_data.json"
   schedule:
-    - cron: "0 * * * *"
+    - cron: "15 * * * *"
   workflow_dispatch:
 
 permissions:
