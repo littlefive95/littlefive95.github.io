@@ -1,4 +1,4 @@
-name: US Alpha Watch Live
+name: Alpha Watch Data Refresh
 
 on:
   push:
@@ -12,19 +12,14 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: data-refresh
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  refresh-data:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -47,15 +42,3 @@ jobs:
           git add data.json taiwan_data.json
           git diff --cached --quiet || git commit -m "Update live market data"
           git push
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: '.'
-
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
