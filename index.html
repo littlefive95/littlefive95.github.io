@@ -241,7 +241,7 @@ function render(){
       arr.map(function(x){
         var qv=Number(x.quoteVolume24h||0), qvText=qv>=1000000000?(qv/1000000000).toFixed(2)+"B":qv>=1000000?(qv/1000000).toFixed(1)+"M":(qv/1000).toFixed(0)+"K";
         var vr=x.volumeRatio==null?"N/A":Number(x.volumeRatio).toFixed(2)+"x";
-        return "<tr><td><div class='sym'>"+rankHtml(x)+esc(x.ticker)+rankMoveHtml(x)+"/USDT</div><div class='company'>"+esc(x.name)+" · <span class='sector-tag'>"+esc(x.category||"加密貨幣")+"</span></div></td>"+
+        return "<tr><td><div class='sym'>"+rankHtml(x)+esc(x.ticker)+"/USDT"+rankMoveHtml(x)+"</div><div class='company'>"+esc(x.name)+" · <span class='sector-tag'>"+esc(x.category||"加密貨幣")+"</span></div></td>"+
         "<td>"+(x.price==null?"N/A":CFG[mode].currency+Number(x.price).toFixed(4))+"</td>"+
         "<td class='"+(Number(x.changePct||0)>=0?"up":"down")+"'>"+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</td>"+
         "<td>"+(Array.isArray(x.eventSignals)&&x.eventSignals.length?x.eventSignals.map(function(s){return "<span class='signal'>"+esc(s)+"</span>"}).join(""):"—")+"</td>"+
