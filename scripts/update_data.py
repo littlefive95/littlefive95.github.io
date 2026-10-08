@@ -652,8 +652,8 @@ def build_live():
             -(r["marketCap"] or 0),
         )
     )
-    # Enrich the final ranked TOP 10 only.
-    top_rows = normalized[:10]
+    # Enrich the final ranked TOP 20 only.
+    top_rows = normalized[:20]
     info = yahoo_info([r["ticker"] for r in top_rows])
     for row in top_rows:
         inf = info.get(row["ticker"], {})
@@ -709,7 +709,7 @@ def build_live():
         "method": "Yahoo Finance screener via yfinance",
         "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
         "holiday": ["Weekend"] if now.weekday() >= 5 else ["NYSE market holiday"] if closed else [],
-        "note": "休市／隔夜顯示最近交易日 TOP 10；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。",
+        "note": "休市／隔夜顯示最近交易日 TOP 20；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。",
     }
 
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
@@ -1363,7 +1363,7 @@ def build_taiwan_live():
         data_mode = "INTRADAY"
     else:
         status = "MARKET_CLOSED"
-        note = f"目前非台股即時交易時段；顯示最近交易日 {snapshot_date} 收盤 TOP 10，並維持量化排序，研究/監控工具，不構成投資建議。"
+        note = f"目前非台股即時交易時段；顯示最近交易日 {snapshot_date} 收盤 TOP 20，並維持量化排序，研究/監控工具，不構成投資建議。"
         data_mode = "LATEST_CLOSE"
 
     return {
