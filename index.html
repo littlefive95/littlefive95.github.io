@@ -247,7 +247,7 @@ function setHeader(){
   document.getElementById("fpe").disabled=mode==="crypto";
   document.getElementById("standardTabs").style.display=mode==="crypto"?"none":"flex";
   document.getElementById("categoryPanel").style.display=mode==="crypto"?"block":"none";
-  document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS；搭配 EPS 成長、趨勢與風險一起看。":mode==="tw"?"估值優先使用 Forward P/E；缺少時依序 fallback 至 Forward EPS 推算、最新可得 PE／TTM EPS；EPS Growth 缺資料時以 Forward EPS 對 Current/TTM EPS 推算。":"FPE / Forward EPS 不適用於加密貨幣。";
+  document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS；搭配 EPS 成長、趨勢與風險一起看。":mode==="tw"?"估值優先使用 Forward P/E；缺少時用 +1Y 共識 Forward EPS 推算，再 fallback 至 PE；每筆估值另標示來源、分析師數與信心。":"FPE / Forward EPS 不適用於加密貨幣。";
   document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：利潤率 / ROE / 負債結構（獨立於動能與估值）<br>事件：突破 / 跌破 / 爆量":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>品質：利潤率 / ROE / 負債結構<br>事件：突破 / 跌破 / 爆量":"趨勢：20/50/200 日均線<br>動能：24H 漲跌幅<br>量能：24H 成交量 / 20日均量<br>流動性：Binance 24H Volume<br>市場地位：CMC Rank<br>事件：突破 / 跌破 / 爆量";
   document.getElementById("methodMarket").textContent=mode==="us"?"NYSE / NASDAQ · "+(payloadState.us?.dataMode||"—"):mode==="tw"?"TWSE / TPEx · "+(payloadState.tw?.dataMode||"—"):"Binance Spot + CMC · 24/7";
   document.getElementById("coverageHint").textContent=mode==="crypto"?"CMC 對應率":"估值資料覆蓋率";
