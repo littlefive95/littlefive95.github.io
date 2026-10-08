@@ -317,9 +317,9 @@ def entry_plan(row, history=None, market="stock"):
         price = None
     if price is None or price <= 0 or close is None or high is None or low is None or len(close) < 20:
         return {"atr": None, "atrPct": None, "support": None, "resistance": None, "entryLow": None, "entryPrice": None, "entryHigh": None, "stopLoss": None, "takeProfit1": None, "takeProfit2": None, "riskReward": None, "entryType": "資料不足", "entryStatus": "無法計算", "entryNote": "歷史高低點資料不足。"}
-    c = [float(x) for x in close.tolist()]
-    h = [float(x) for x in high.tolist()]
-    l = [float(x) for x in low.tolist()]
+    c = [float(x) for x in list(close)]
+    h = [float(x) for x in list(high)]
+    l = [float(x) for x in list(low)]
     n = min(len(c), len(h), len(l))
     c, h, l = c[-n:], h[-n:], l[-n:]
     trs = []
@@ -617,6 +617,17 @@ def build_live():
             row["name"],
             first(inf, ["quoteType", "quoteTypeDisp"]),
         )
+        # Persist quality fundamentals so the Quality profile is based on
+        # actual Yahoo metrics instead of remaining blank after enrichment.
+        row["margin"] = num(first(inf, ["profitMargins", "operatingMargins", "grossMargins", "netProfitMargin"]))
+        row["roe"] = num(first(inf, ["returnOnEquity"]))
+        row["debt"] = num(first(inf, ["debtToEquity", "debtToEquityRatio"]))
+        if row.get("margin") is None:
+            row["margin"] = num(row.get("margin"))
+        if row.get("roe") is None:
+            row["roe"] = num(row.get("roe"))
+        if row.get("debt") is None:
+            row["debt"] = num(row.get("debt"))
 
     hist = yahoo_history([r["ticker"] for r in top_rows])
     for row in top_rows:
@@ -1122,16 +1133,18 @@ def build_taiwan_live():
 
     for row in enriched[:10]:
         inf = info.get(row["yahoo"], {})
-        fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio"]))
+        fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
+        trailing_pe = tw_num(first(inf, ["trailingPE", "trailingPeRatio", "trailingPERatio"]))
         fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
         growth = tw_num(first(inf, ["earningsGrowth", "earningsQuarterlyGrowth", "epsGrowth"]))
         if growth is not None and abs(growth) < 2:
             growth *= 100
         if fpe is None and fwd_eps and fwd_eps > 0:
             fpe = row["price"] / fwd_eps
+        valuation = fpe if fpe is not None else trailing_pe if trailing_pe is not None and trailing_pe > 0 else row.get("pe")
         row["fpe"] = fpe
-        row["valuation"] = fpe if fpe is not None else row.get("pe")
-        row["valuationSource"] = "FPE" if fpe is not None else "PE" if row.get("pe") is not None else None
+        row["valuation"] = valuation
+        row["valuationSource"] = "FPE" if fpe is not None else "PE" if valuation is not None else None
         row["forwardEps"] = fwd_eps
         row["epsGrowthPct"] = growth
         row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
