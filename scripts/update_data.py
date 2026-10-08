@@ -305,7 +305,13 @@ def quality_profile(row):
 
 
 def entry_plan(row, history=None, market="stock"):
-    """Calculate a rule-based entry zone, stop and targets from ATR and levels."""
+    """Calculate a rule-based entry zone, stop and targets from ATR and levels.
+    
+    Entry invariants:
+      * entryLow <= entryPrice <= entryHigh
+      * "可考慮進場區" is emitted only when current price is inside the zone
+      * pullback anchors use the highest valid support below current price
+    """
     history = history or {}
     price = row.get("price")
     close = history.get("close")
@@ -329,12 +335,14 @@ def entry_plan(row, history=None, market="stock"):
     atr = sum(trs[-14:]) / max(1, min(14, len(trs))) if trs else None
     if not atr or atr <= 0:
         return {"atr": None, "atrPct": None, "support": None, "resistance": None, "entryLow": None, "entryPrice": None, "entryHigh": None, "stopLoss": None, "takeProfit1": None, "takeProfit2": None, "riskReward": None, "entryType": "資料不足", "entryStatus": "無法計算", "entryNote": "ATR 無法計算。"}
+
     def mv(key):
         try:
             v = float(row.get(key))
             return v if v > 0 else None
         except Exception:
             return None
+
     ma20, ma50, ma200 = mv("priceAvg20"), mv("priceAvg50"), mv("priceAvg200")
     prior20_high = max(h[-21:-1]) if len(h) >= 21 else max(h[:-1])
     prior20_low = min(l[-21:-1]) if len(l) >= 21 else min(l[:-1])
@@ -344,14 +352,28 @@ def entry_plan(row, history=None, market="stock"):
         vr = float(row.get("volumeRatio")) if row.get("volumeRatio") is not None else None
     except Exception:
         vr = None
-    supports = [x for x in [ma20, ma50, ma200, prior20_high, recent50_low, prior20_low] if x and x < price]
-    support = max(supports) if supports else max(price - atr, 0)
+
+    support_candidates = [
+        ("20日線", ma20),
+        ("50日線", ma50),
+        ("200日線", ma200),
+        ("近20日支撐", prior20_low),
+        ("近50日支撐", recent50_low),
+    ]
+    valid_supports = [(name, level) for name, level in support_candidates if level and level < price]
+    if valid_supports:
+        anchor_name, support = max(valid_supports, key=lambda x: x[1])
+    else:
+        anchor_name, support = "ATR支撐", max(price - atr, 0)
+
     resistances = [x for x in [prior20_high, recent50_high] if x and x > price]
     resistance = min(resistances) if resistances else price + 2 * atr
+
     trend_ok = bool(ma200 and price > ma200 and (not ma50 or ma50 >= ma200))
     near_ma20 = bool(ma20 and abs(price - ma20) <= 0.9 * atr)
     breakout = bool(prior20_high and price >= prior20_high * 0.998 and (vr is None or vr >= 1.15))
     overextended = bool(ma20 and price > ma20 + 1.2 * atr)
+
     if breakout:
         entry_type = "突破"
         entry_low = prior20_high * 1.002
@@ -360,44 +382,53 @@ def entry_plan(row, history=None, market="stock"):
         stop = min(prior20_high - 0.75 * atr, entry_price - 1.25 * atr)
         note = "20日高點突破後確認；突破後拉離區間過大不追。"
     elif trend_ok and (near_ma20 or overextended):
-        entry_type = "回踩20日線"
-        base = ma20 or support
-        entry_low = max(base - 0.20 * atr, support - 0.10 * atr, 0)
+        entry_type = "回踩20日線" if ma20 and abs(support - ma20) <= 0.25 * atr else "支撐回踩"
+        base = support
+        entry_low = max(base - 0.20 * atr, 0)
         entry_high = base + 0.35 * atr
         entry_price = base + 0.10 * atr
-        stop = min(support - 0.55 * atr, entry_price - 1.15 * atr)
+        stop = min(base - 0.55 * atr, entry_price - 1.15 * atr)
         note = "等待20日線／近端支撐回踩，不追高。"
     elif trend_ok:
-        entry_type = "回踩50日線"
-        base = ma50 or ma20 or support
-        entry_low = max(base - 0.20 * atr, support - 0.10 * atr, 0)
+        entry_type = "回踩50日線" if ma50 and abs(support - ma50) <= 0.25 * atr else "支撐回踩"
+        base = support
+        entry_low = max(base - 0.20 * atr, 0)
         entry_high = base + 0.30 * atr
         entry_price = base + 0.08 * atr
-        stop = min(support - 0.60 * atr, entry_price - 1.20 * atr)
-        note = "中期趨勢偏多但距短期均線較遠，等待50日線／支撐。"
+        stop = min(base - 0.60 * atr, entry_price - 1.20 * atr)
+        note = "中期趨勢偏多，等待主要支撐／50日線回踩。"
     elif ma200 and price > ma200:
         entry_type = "深度回調"
-        base = ma50 if ma50 and ma50 < price else ma200 if ma200 < price else support
-        entry_low = max(base - 0.20 * atr, support - 0.15 * atr, 0)
+        base = support
+        entry_low = max(base - 0.20 * atr, 0)
         entry_high = base + 0.25 * atr
         entry_price = base + 0.05 * atr
-        stop = min(support - 0.70 * atr, entry_price - 1.30 * atr)
+        stop = min(base - 0.70 * atr, entry_price - 1.30 * atr)
         note = "等待更深支撐區才評估。"
     else:
         entry_type = "暫無訊號"
         entry_low = entry_price = entry_high = None
         stop = None
         note = "尚未形成可接受的多頭趨勢／回踩結構。"
+
+    # Enforce a hard invariant so downstream UI and status logic can never
+    # receive an entry price outside its own entry zone.
+    if entry_price is not None:
+        entry_low = min(float(entry_low), float(entry_price))
+        entry_high = max(float(entry_high), float(entry_price))
+
     if entry_price is None or stop is None or stop <= 0 or entry_price <= stop:
         return {"atr": round(atr, 4), "atrPct": round(atr / price * 100, 2), "support": round(support, 4), "resistance": round(resistance, 4), "entryLow": None, "entryPrice": None, "entryHigh": None, "stopLoss": None, "takeProfit1": None, "takeProfit2": None, "riskReward": None, "entryType": entry_type, "entryStatus": "等待", "entryNote": note}
+
     risk_unit = entry_price - stop
     target_candidates = [x for x in [resistance, recent50_high] if x and x > entry_price + risk_unit * 1.5]
     target1 = min(target_candidates) if target_candidates else entry_price + risk_unit * 2.0
     target2 = max(entry_price + risk_unit * 3.0, target1 + risk_unit)
     rr = (target1 - entry_price) / risk_unit if risk_unit > 0 else None
+
     if price <= stop:
         status = "失效／跌破停損區"
-    elif price < entry_low * 0.985:
+    elif price < entry_low:
         status = "等待價格靠近"
     elif price <= entry_high:
         status = "可考慮進場區"
@@ -405,7 +436,23 @@ def entry_plan(row, history=None, market="stock"):
         status = "價格偏高／不追"
     else:
         status = "等待回踩"
-    return {"atr": round(atr, 4), "atrPct": round(atr / price * 100, 2), "support": round(support, 4), "resistance": round(resistance, 4), "entryLow": round(entry_low, 4), "entryPrice": round(entry_price, 4), "entryHigh": round(entry_high, 4), "stopLoss": round(stop, 4), "takeProfit1": round(target1, 4), "takeProfit2": round(target2, 4), "riskReward": round(rr, 2) if rr is not None else None, "entryType": entry_type, "entryStatus": status, "entryNote": note}
+
+    return {
+        "atr": round(atr, 4),
+        "atrPct": round(atr / price * 100, 2),
+        "support": round(support, 4),
+        "resistance": round(resistance, 4),
+        "entryLow": round(entry_low, 4),
+        "entryPrice": round(entry_price, 4),
+        "entryHigh": round(entry_high, 4),
+        "stopLoss": round(stop, 4),
+        "takeProfit1": round(target1, 4),
+        "takeProfit2": round(target2, 4),
+        "riskReward": round(rr, 2) if rr is not None else None,
+        "entryType": entry_type,
+        "entryStatus": status,
+        "entryNote": note,
+    }
 
 def stock_profiles(row):
     profiles = []
