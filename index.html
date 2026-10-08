@@ -228,7 +228,7 @@ function render(){
         "<td class='"+(Number(x.changePct||0)>=0?"up":"down")+"'>"+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</td>"+
         "<td>"+(Array.isArray(x.eventSignals)&&x.eventSignals.length?x.eventSignals.map(function(s){return "<span class='signal'>"+esc(s)+"</span>"}).join(""):"—")+"</td>"+
         "<td class='trade-plan'>"+entryHtml(x)+"</td>"+
-        "<td>"+(x.valuation!=null?("<div>"+Number(x.valuation).toFixed(1)+"x"+(x.valuationSource==="PE"?" · PE":" · FPE")+"</div><div class='company'>"+(x.valuationConfidence!=null?("信心 "+x.valuationConfidence+"%"):"")+(x.forwardEpsAnalysts!=null&&x.forwardEpsAnalysts>0?(" · "+x.forwardEpsAnalysts+" analysts"):"")+"</div>"):"N/A")+"</td>"+
+        "<td>"+(mode==="tw" && x.valuation!=null?("<div>"+Number(x.valuation).toFixed(1)+"x"+(x.valuationSource==="PE"?" · PE":" · FPE")+"</div><div class='company'>"+(x.valuationConfidence!=null?("信心 "+x.valuationConfidence+"%"):"")+(x.forwardEpsAnalysts!=null&&x.forwardEpsAnalysts>0?(" · "+x.forwardEpsAnalysts+" analysts"):"")+"</div>"):(x.fpe!=null?("<div>"+Number(x.fpe).toFixed(1)+"x · FPE</div><div class='company'>Yahoo Forward P/E</div>"):(x.valuation!=null?(Number(x.valuation).toFixed(1)+"x · PE"):"N/A")))+"</td>"+
         "<td>"+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</td>"+
         "<td>"+(x.epsGrowthPct==null?"N/A":(Number(x.epsGrowthPct)>=0?"+":"")+Number(x.epsGrowthPct).toFixed(1)+"%")+"</td>"+
         "<td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span> <span class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</span></td>"+
