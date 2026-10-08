@@ -93,8 +93,8 @@ jobs:
               rows = payload.get("rows")
               if not isinstance(rows, list) or not rows:
                   raise SystemExit(f"{name}: no usable rows after refresh/fallback")
-              if len(rows) > 10:
-                  raise SystemExit(f"{name}: more than TOP 10 rows")
+              if len(rows) > 20:
+                  raise SystemExit(f"{name}: more than TOP 20 rows")
               print(f"{name}: {payload.get('status')} {len(rows)} rows")
           PY
 
