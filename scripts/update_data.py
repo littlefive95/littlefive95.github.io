@@ -27,6 +27,35 @@ FALLBACK_SYMBOLS = (
     "AMD","QCOM","MU","CRM","ADBE","JPM","LLY","COST","WMT","XOM",
 )
 
+def load_previous_ranks(path, limit=20):
+    """Load the last published TOP-N ranks so the dashboard can show rank movement."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            payload = json.load(f)
+        rows = payload.get("rows") if isinstance(payload, dict) else None
+        if not isinstance(rows, list):
+            return {}
+        out = {}
+        for index, row in enumerate(rows[:limit], 1):
+            ticker = str(row.get("ticker") or "").strip().upper()
+            if ticker:
+                out[ticker] = int(row.get("rank") or index)
+        return out
+    except Exception:
+        return {}
+
+
+def apply_rank_history(rows, path, limit=20):
+    """Attach current rank and movement versus the previous published snapshot."""
+    previous = load_previous_ranks(path, limit=limit)
+    for rank, row in enumerate(rows[:limit], 1):
+        ticker = str(row.get("ticker") or "").strip().upper()
+        old = previous.get(ticker)
+        row["rank"] = rank
+        row["previousRank"] = old
+        row["rankChange"] = None if old is None else old - rank
+
+
 def num(v):
     try:
         if v is None or v == "" or v == "null":
@@ -594,6 +623,11 @@ def score(row):
         risk = "高" if risk == "高" else "中"
         addr("負債偏高")
 
+    quality_missing = sum(v is None for v in (margin, roe, debt))
+    if quality_missing >= 2 and risk == "低":
+        risk = "中"
+        addr("品質資料不足")
+
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 78 else "值得研究" if pts >= 68 else "觀察" if pts >= 55 else "暫不優先"
 
@@ -652,10 +686,11 @@ def build_live():
             -(r["marketCap"] or 0),
         )
     )
-    # Enrich the final ranked TOP 20 only.
-    top_rows = normalized[:20]
-    info = yahoo_info([r["ticker"] for r in top_rows])
-    for row in top_rows:
+    # Enrich a wider pool before final scoring so quality data can
+    # influence both Score and Risk instead of being attached after ranking.
+    ranked_pool = normalized[:50]
+    info = yahoo_info([r["ticker"] for r in ranked_pool])
+    for row in ranked_pool:
         inf = info.get(row["ticker"], {})
         row["sector"] = sector_label(
             first(inf, ["sectorDisp", "sector"]),
@@ -664,18 +699,27 @@ def build_live():
             row["name"],
             first(inf, ["quoteType", "quoteTypeDisp"]),
         )
-        # Persist quality fundamentals so the Quality profile is based on
-        # actual Yahoo metrics instead of remaining blank after enrichment.
         row["margin"] = num(first(inf, ["profitMargins", "operatingMargins", "grossMargins", "netProfitMargin"]))
         row["roe"] = num(first(inf, ["returnOnEquity"]))
         row["debt"] = num(first(inf, ["debtToEquity", "debtToEquityRatio"]))
-        if row.get("margin") is None:
-            row["margin"] = num(row.get("margin"))
-        if row.get("roe") is None:
-            row["roe"] = num(row.get("roe"))
-        if row.get("debt") is None:
-            row["debt"] = num(row.get("debt"))
 
+    # Recompute after quality enrichment; this is the definitive Score/Risk.
+    for row in ranked_pool:
+        sc, label, risk, reasons = score(row)
+        row["score"] = sc
+        row["label"] = label
+        row["risk"] = risk
+        row["reasons"] = reasons
+
+    ranked_pool.sort(
+        key=lambda r: (
+            -r["score"],
+            r["fpe"] is None,
+            r["fpe"] if r["fpe"] is not None else 999,
+            -(r["marketCap"] or 0),
+        )
+    )
+    top_rows = ranked_pool[:20]
     hist = yahoo_history([r["ticker"] for r in top_rows])
     for row in top_rows:
         h = hist.get(row["ticker"])
@@ -695,6 +739,7 @@ def build_live():
         row["profiles"] = stock_profiles(row)
 
     rows = top_rows
+    apply_rank_history(rows, "data.json", limit=20)
     fpe_count = sum(1 for r in rows if r["fpe"] is not None)
     return {
         "status": "MARKET_CLOSED" if closed else "LIVE",
@@ -719,9 +764,12 @@ TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes
 def tw_num(v):
     try:
         x = str(v).strip().replace(",", "")
-        if x in {"", "-", "--", "---", "N/A", "null"}:
+        if x in {"", "-", "--", "---", "N/A", "null", "nan", "NaN", "None"}:
             return None
-        return float(x)
+        value = float(x)
+        if value != value or value in (float("inf"), float("-inf")):
+            return None
+        return value
     except Exception:
         return None
 
@@ -1194,7 +1242,7 @@ def build_taiwan_live():
     # Yahoo has current-day bars. Outside the session, continue screening
     # the latest close instead of returning an empty table.
     snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
-    shortlist = snapshot[:80]
+    shortlist = snapshot[:160]
     using_intraday = False
 
     if now.weekday() < 5:
@@ -1245,8 +1293,9 @@ def build_taiwan_live():
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
     # Enrich a wider candidate pool before final scoring so valuation and EPS
     # coverage are not limited to the pre-existing TOP 10.
-    info = yahoo_info([x["yahoo"] for x in enriched[:40]])
-    estimates = yahoo_earnings_estimates([x["yahoo"] for x in enriched[:40]])
+    fundamental_pool = enriched[:60]
+    info = yahoo_info([x["yahoo"] for x in fundamental_pool])
+    estimates = yahoo_earnings_estimates([x["yahoo"] for x in fundamental_pool])
 
     for row in enriched:
         inf = info.get(row["yahoo"], {})
@@ -1352,6 +1401,7 @@ def build_taiwan_live():
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("valuation") is None, r.get("valuation") or 999))
     rows = enriched[:20]
+    apply_rank_history(rows, "taiwan_data.json", limit=20)
     valuation_count = sum(1 for r in rows if r.get("valuation") is not None)
     fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
     pe_count = sum(1 for r in rows if r.get("valuationSource") == "PE")
@@ -1815,6 +1865,7 @@ def build_crypto_live():
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("quoteVolume24h") or 0)))
     rows = enriched[:20]
+    apply_rank_history(rows, "crypto_data.json", limit=20)
 
     category_stats = {}
     for row in enriched:
