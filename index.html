@@ -173,12 +173,15 @@ function tabKind(x){
 }
 function rankHtml(x){
   if(x.rank==null) return "";
+  return "<span class='rank-badge'>#"+esc(x.rank)+"</span>";
+}
+function rankMoveHtml(x){
+  if(x.rank==null) return "";
   var move=x.rankChange;
-  var label="#"+esc(x.rank);
-  if(move==null) return "<span class='rank-badge'>"+label+"</span><span class='rank-new'>NEW</span>";
-  if(Number(move)>0) return "<span class='rank-badge'>"+label+"</span><span class='rank-up'>↑"+Number(move)+"</span>";
-  if(Number(move)<0) return "<span class='rank-badge'>"+label+"</span><span class='rank-down'>↓"+Math.abs(Number(move))+"</span>";
-  return "<span class='rank-badge'>"+label+"</span>";
+  if(move==null) return "<span class='rank-new'>NEW</span>";
+  if(Number(move)>0) return "<span class='rank-up'>↑"+Number(move)+"</span>";
+  if(Number(move)<0) return "<span class='rank-down'>↓"+Math.abs(Number(move))+"</span>";
+  return "";
 }
 function render(){
   var sortKey=document.getElementById("sort").value;
