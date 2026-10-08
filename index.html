@@ -22,7 +22,7 @@
     <div class="title" id="title">美股 AI 監控</div>
     <div class="sub" id="subtitle">24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。</div>
   </div>
-  <button class="btn primary" id="refreshBtn" title="重新讀取目前市場快照">↻ 重新載入</button>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><button class="btn primary" id="refreshBtn" title="重新抓取目前資料快照；不會強制後端立即重建資料">↻ 檢查最新資料</button><div id="refreshInfo" class="sub">頁面每 5 分鐘檢查；後端資料約每小時更新</div></div>
 </header>
 
 <div class="market-tabs">
@@ -42,7 +42,7 @@
   <div class="card kpi"><div class="label">進場候選</div><div class="value" id="count">—</div><div class="hint" id="countHint">達到進場門檻</div></div>
   <div class="card kpi"><div class="label" id="coverageLabel">估值 / 資料覆蓋</div><div class="value" id="coverage">—</div><div class="hint" id="coverageHint">—</div></div>
   <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div><div class="hint">目前時間 <span id="pageTime">—</span></div></div>
-  <div class="card kpi"><div class="label">下次更新</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端每小時更新</div></div>
+  <div class="card kpi"><div class="label">下次資料建置</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端約每小時執行；頁面每 5 分鐘檢查</div></div>
 </section>
 
 <main class="card panel main-panel">
@@ -100,7 +100,7 @@
   </details>
 </section>
 
-<div class="footer">美股資料：Yahoo Finance；台股資料：TWSE／TPEx 官方公開資料＋Yahoo Finance 技術與估值資料。資料在 GitHub Actions 後端更新，API Key 不放在網頁前端。此頁僅供投資研究與監控，不構成投資建議。</div>
+<div class="footer">美股資料：Yahoo Finance；台股資料：TWSE／TPEx 官方公開資料＋Yahoo Finance 技術與估值資料。資料由 GitHub Actions 後端建置，約每小時執行一次；本頁每 5 分鐘檢查最新快照。手動「檢查最新資料」只會重新抓取目前快照，不會強制後端立即建置。API Key 不放在網頁前端。此頁僅供投資研究與監控，不構成投資建議。</div>
 </div>
 
 <script>
@@ -192,7 +192,14 @@ function render(){
   document.getElementById("countHint").textContent="TOP 10 中達到 "+threshold+" 分門檻";
   arr=arr.slice(0,10);
 
-  var cats=["大型幣","Layer 1","DeFi","AI","Meme"];
+  var preferred=["大型幣","Layer 1","DeFi","AI","Meme","Stablecoin","其他"];
+  var cats=Array.from(new Set(data.map(function(x){return x.category||"其他";})));
+  cats.sort(function(a,b){
+    var ai=preferred.indexOf(a), bi=preferred.indexOf(b);
+    if(ai<0) ai=preferred.length;
+    if(bi<0) bi=preferred.length;
+    return ai-bi || a.localeCompare(b,"zh-Hant");
+  });
   document.getElementById("cryptoGroups").innerHTML=mode==="crypto"
     ? ["all"].concat(cats).map(function(g){return "<button class='crypto-group "+((cryptoCategory===g)?"active":"")+"' data-crypto-group='"+esc(g)+"'>"+(g==="all"?"全部":g)+"</button>"}).join("")
     : "";
@@ -246,15 +253,22 @@ function setHeader(){
   document.getElementById("coverageHint").textContent=mode==="crypto"?"CMC 對應率":"估值資料覆蓋率";
 }
 function renderCategoryStrength(stats){
-  var order=["大型幣","Layer 1","DeFi","AI","Meme"];
-  var rows=order.map(function(name){
+  var preferred=["大型幣","Layer 1","DeFi","AI","Meme","Stablecoin","其他"];
+  var names=Object.keys(stats||{});
+  names.sort(function(a,b){
+    var ai=preferred.indexOf(a), bi=preferred.indexOf(b);
+    if(ai<0) ai=preferred.length;
+    if(bi<0) bi=preferred.length;
+    return ai-bi || a.localeCompare(b,"zh-Hant");
+  });
+  var rows=names.map(function(name){
     var s=stats[name];
-    if(!s) return "<div class='cat-card'><div class='cat-name'>"+name+"</div><div class='cat-meta'>目前無符合流動性條件</div></div>";
+    if(!s) return "";
     var strength=s.avgScore>=68?"偏強":s.avgScore>=55?"中性":"偏弱";
-    return "<div class='cat-card'><div class='cat-name'>"+name+" · "+strength+"</div><div class='cat-meta'>"+s.count+" 幣種 · 平均分 "+s.avgScore+" · 最佳 "+s.bestScore+"</div></div>";
+    return "<div class='cat-card'><div class='cat-name'>"+esc(name)+" · "+strength+"</div><div class='cat-meta'>"+s.count+" 幣種 · 平均分 "+s.avgScore+" · 最佳 "+s.bestScore+"</div></div>";
   }).join("");
   var el=document.getElementById("categoryStrength");
-  if(el) el.innerHTML=rows;
+  if(el) el.innerHTML=rows || "<div class='cat-card'><div class='cat-name'>目前無分類資料</div></div>";
 }
 function updateNextUpdate(){
   var now=new Date();
@@ -326,7 +340,9 @@ function loadRadar(){
   });
 }
 function loadData(){
-  document.getElementById("sourceBadge").textContent="UPDATING";
+  document.getElementById("sourceBadge").textContent="CHECKING";
+  var refreshInfo=document.getElementById("refreshInfo");
+  if(refreshInfo) refreshInfo.textContent="正在檢查最新資料快照…";
   fetch(CFG[mode].file+"?v="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok) throw new Error("data");return r.json()}).then(function(p){
     payloadState[mode]=p;
     data=Array.isArray(p.rows)?p.rows:[ ];
@@ -341,6 +357,7 @@ function loadData(){
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
     var badgeText=p.fallback?"STALE · LAST GOOD":p.dataMode==="INTRADAY"?"INTRADAY · "+(mode==="tw"?"TWSE / TPEx":"YAHOO"):p.dataMode==="LATEST_CLOSE"||p.status==="MARKET_CLOSED"?"LATEST CLOSE · "+(mode==="us"?"YAHOO":mode==="tw"?"TWSE / TPEx":"BINANCE + CMC"):p.status==="LIVE"?(mode==="crypto"?"SNAPSHOT · BINANCE + CMC":CFG[mode].source):"DATA ERROR";
     document.getElementById("sourceBadge").textContent=badgeText;
+    if(refreshInfo) refreshInfo.textContent="最後檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())+" · 頁面每 5 分鐘檢查";
     document.getElementById("sourceBadge").className=(p.fallback||p.status==="MARKET_CLOSED")?"badge amber":"badge green";
     render();
     setHeader();
@@ -350,12 +367,14 @@ function loadData(){
     if(old && Array.isArray(old.rows)){
       data=old.rows;
       document.getElementById("sourceBadge").textContent="STALE · LAST LOADED";
+      if(refreshInfo) refreshInfo.textContent="最新快照抓取失敗，沿用已載入資料 · "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date());
       document.getElementById("sourceBadge").className="badge amber";
       render();
       setHeader();
       setClock();
     }else{
       document.getElementById("sourceBadge").textContent="DATA OFFLINE";
+      if(refreshInfo) refreshInfo.textContent="資料快照離線 · 最後檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date());
       document.getElementById("sourceBadge").className="badge amber";
       data=[]; render();
     }
@@ -377,10 +396,10 @@ document.getElementById("refreshBtn").addEventListener("click",function(){
   var btn=document.getElementById("refreshBtn");
   if(btn.dataset.busy==="1") return;
   btn.dataset.busy="1";
-  btn.textContent="↻ 讀取中";
+  btn.textContent="↻ 檢查中";
   loadData();
   loadRadar();
-  setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 重新載入";},1200);
+  setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 檢查最新資料";},1200);
 });
 ["search","minscore","fpe","risk"].forEach(function(id){document.getElementById(id).addEventListener("input",render);document.getElementById(id).addEventListener("change",render)});
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
