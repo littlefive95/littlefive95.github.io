@@ -32,9 +32,9 @@
 </div>
 
 <section class="radar-grid" id="marketRadar">
-  <div class="radar-card" id="radar-us"><div class="radar-top"><div class="radar-name">🇺🇸 美股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
-  <div class="radar-card" id="radar-tw"><div class="radar-top"><div class="radar-name">🇹🇼 台股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
-  <div class="radar-card" id="radar-crypto"><div class="radar-top"><div class="radar-name">🪙 加密貨幣</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 10</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
+  <div class="radar-card" id="radar-us"><div class="radar-top"><div class="radar-name">🇺🇸 美股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 20</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
+  <div class="radar-card" id="radar-tw"><div class="radar-top"><div class="radar-name">🇹🇼 台股</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 20</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
+  <div class="radar-card" id="radar-crypto"><div class="radar-top"><div class="radar-name">🪙 加密貨幣</div><span class="radar-status">載入中</span></div><div class="radar-metrics"><div class="radar-metric"><b>—</b>進場候選</div><div class="radar-metric"><b>—</b>TOP 20</div><div class="radar-metric"><b>—</b>資料狀態</div></div></div>
 </section>
 
 <section class="grid kpis">
@@ -110,7 +110,7 @@ var payloadState={us:null,tw:null,crypto:null};
 var CFG={
   us:{file:"data.json",title:"美股 AI 監控",eyebrow:"ALPHA WATCH / US 24H",subtitle:"24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。",universeName:"NASDAQ + NYSE",tz:"America/New_York",tzLabel:"ET",currency:"$",closed:"MARKET CLOSED",source:"LIVE · YAHOO",csv:"us_alpha_watch.csv"},
   tw:{file:"taiwan_data.json",title:"台股 AI 監控",eyebrow:"ALPHA WATCH / TAIWAN",subtitle:"全天監看台股，從上市＋上櫃市場篩出當下趨勢、量能、估值與 EPS 成長較佳的進場候選。",universeName:"TWSE + TPEx",tz:"Asia/Taipei",tzLabel:"TWT",currency:"NT$",closed:"MARKET CLOSED",source:"LIVE · TWSE / TPEx",csv:"taiwan_alpha_watch.csv"},
-  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，採 100 分制評估趨勢、24H 動能、量能、流動性與相對位置，並參考 CoinMarketCap 全球市場資料，篩出 TOP 10。",universeName:"Binance Spot + CMC",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE + CMC",csv:"crypto_alpha_watch.csv"},
+  crypto:{file:"crypto_data.json",title:"加密貨幣 24H 監控",eyebrow:"ALPHA WATCH / CRYPTO 24H",subtitle:"7×24 小時監看加密貨幣，採 100 分制評估趨勢、24H 動能、量能、流動性與相對位置，並參考 CoinMarketCap 全球市場資料，篩出 TOP 20。",universeName:"Binance Spot + CMC",tz:"Asia/Taipei",tzLabel:"TWT",currency:"USDT ",closed:"MARKET OPEN 24/7",source:"LIVE · BINANCE + CMC",csv:"crypto_alpha_watch.csv"},
 };
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function clsScore(s){return s>=85?"hot":s>=75?"watch":"weak"}
@@ -204,8 +204,8 @@ function render(){
   var threshold=mode==="crypto"?85:78;
   var candidateCount=data.filter(function(x){return Number(x.score||0)>=threshold}).length;
   document.getElementById("count").textContent=candidateCount;
-  document.getElementById("countHint").textContent="TOP 10 中達到 "+threshold+" 分門檻";
-  arr=arr.slice(0,10);
+  document.getElementById("countHint").textContent="TOP 20 中達到 "+threshold+" 分門檻";
+  arr=arr.slice(0,20);
 
   var preferred=["大型幣","Layer 1","DeFi","AI","Meme","Stablecoin","其他"];
   var cats=Array.from(new Set(data.map(function(x){return x.category||"其他";})));
@@ -256,7 +256,7 @@ function setHeader(){
   document.getElementById("eyebrow").textContent=c.eyebrow;
   document.getElementById("title").textContent=c.title;
   document.getElementById("subtitle").textContent=c.subtitle;
-  document.getElementById("mainHeading").textContent=mode==="tw"?"最近交易日 TOP 10":mode==="crypto"?"24H TOP 10":"即時 / 最新 TOP 10";
+  document.getElementById("mainHeading").textContent=mode==="tw"?"最近交易日 TOP 20":mode==="crypto"?"24H TOP 20":"即時 / 最新 TOP 20";
   document.getElementById("mainSubline").textContent=mode==="crypto"?"依 24H 動能、量能、趨勢與流動性排序；分數 ≠ 現在買點，Entry Status 另行判斷。":"依趨勢、動能、估值、成長與品質排序；分數 ≠ 現在買點，Entry Status 另行判斷。";
   document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":mode==="tw"?"估值覆蓋率":"FPE 覆蓋率";
   document.getElementById("fpe").disabled=mode==="crypto";
@@ -338,7 +338,7 @@ function renderRadarCard(key,label){
   var rows=Array.isArray(p.rows)?p.rows:[];
   var c=rows.filter(function(x){return Number(x.score||0)>=threshold}).length;
   var st=radarStatus(p,key);
-  el.innerHTML="<div class='radar-top'><div class='radar-name'>"+label+"</div><span class='radar-status "+st.cls+"'>"+st.label+"</span></div><div class='radar-metrics'><div class='radar-metric'><b>"+c+"</b>進場候選</div><div class='radar-metric'><b>"+rows.length+"</b>TOP 10</div><div class='radar-metric'><b>"+(p.snapshotDate||p.date||"—")+"</b>"+(p.dataMode==="LATEST_CLOSE"?"資料日期":"資料快照")+"</div></div>";
+  el.innerHTML="<div class='radar-top'><div class='radar-name'>"+label+"</div><span class='radar-status "+st.cls+"'>"+st.label+"</span></div><div class='radar-metrics'><div class='radar-metric'><b>"+c+"</b>進場候選</div><div class='radar-metric'><b>"+rows.length+"</b>TOP 20</div><div class='radar-metric'><b>"+(p.snapshotDate||p.date||"—")+"</b>"+(p.dataMode==="LATEST_CLOSE"?"資料日期":"資料快照")+"</div></div>";
 }
 function loadRadar(){
   var specs={us:"data.json",tw:"taiwan_data.json",crypto:"crypto_data.json"};
@@ -434,10 +434,10 @@ document.getElementById("csvBtn").addEventListener("click",function(){
   var rows;
   if(mode==="crypto"){
     rows=[["Code","Pair","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","24HVolumeUSDT","VolumeRatio","MA20","MA50","MA200","Risk","Score"]];
-    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.ticker+"/USDT",x.sector||"加密貨幣",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.quoteVolume24h,x.volumeRatio,x.priceAvg20,x.priceAvg50,x.priceAvg200,x.risk,x.score])});
+    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,20).forEach(function(x){rows.push([x.ticker,x.ticker+"/USDT",x.sector||"加密貨幣",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.quoteVolume24h,x.volumeRatio,x.priceAvg20,x.priceAvg50,x.priceAvg200,x.risk,x.score])});
 } else {
     rows=[["Code","Company","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","Valuation","ValuationSource","ValuationConfidence","FPE","FPESource","ForwardEPS","ForwardEPSSource","ForwardEPSAnalysts","ForwardEPSLow","ForwardEPSHigh","EPSGrowthPct","Analysts","Risk","Score"]];
-    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.valuation,x.valuationSource,x.valuationConfidence,x.fpe,x.fpeSource,x.forwardEps,x.forwardEpsSource,x.forwardEpsAnalysts,x.forwardEpsLow,x.forwardEpsHigh,x.epsGrowthPct,x.analysts,x.risk,x.score])});
+    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,20).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.valuation,x.valuationSource,x.valuationConfidence,x.fpe,x.fpeSource,x.forwardEps,x.forwardEpsSource,x.forwardEpsAnalysts,x.forwardEpsLow,x.forwardEpsHigh,x.epsGrowthPct,x.analysts,x.risk,x.score])});
   }
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
