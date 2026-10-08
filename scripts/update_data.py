@@ -1176,19 +1176,29 @@ def build_taiwan_live():
         enriched.append(row)
 
     enriched.sort(key=lambda x: ((x.get("volumeRatio") or 0), (x.get("turnover") or 0)), reverse=True)
-    info = yahoo_info([x["yahoo"] for x in enriched[:10]])
+    # Enrich a wider candidate pool before final scoring so valuation and EPS
+    # coverage are not limited to the pre-existing TOP 10.
+    info = yahoo_info([x["yahoo"] for x in enriched[:40]])
 
-    for row in enriched[:10]:
+    for row in enriched:
         inf = info.get(row["yahoo"], {})
         fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
         trailing_pe = tw_num(first(inf, ["trailingPE", "trailingPeRatio", "trailingPERatio"]))
         fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
+        trailing_eps = tw_num(first(inf, ["trailingEps", "epsTrailingTwelveMonths"]))
+        current_eps = tw_num(first(inf, ["epsCurrentYear", "currentYearEps"]))
         growth = tw_num(first(inf, ["earningsGrowth", "earningsQuarterlyGrowth", "epsGrowth"]))
         if growth is not None and abs(growth) < 2:
             growth *= 100
         if fpe is None and fwd_eps and fwd_eps > 0:
             fpe = row["price"] / fwd_eps
         valuation = fpe if fpe is not None else trailing_pe if trailing_pe is not None and trailing_pe > 0 else row.get("pe")
+        if valuation is None and trailing_eps and trailing_eps > 0:
+            valuation = row["price"] / trailing_eps
+        if growth is None:
+            baseline_eps = current_eps if current_eps and current_eps > 0 else trailing_eps
+            if fwd_eps and fwd_eps > 0 and baseline_eps and baseline_eps > 0:
+                growth = (fwd_eps / baseline_eps - 1) * 100
         row["fpe"] = fpe
         row["valuation"] = valuation
         row["valuationSource"] = "FPE" if fpe is not None else "PE" if valuation is not None else None
@@ -1231,9 +1241,12 @@ def build_taiwan_live():
         row.pop("yahoo", None)
         row.pop("turnover", None)
 
-    enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("fpe") is None, r.get("fpe") or 999))
+    enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("valuation") is None, r.get("valuation") or 999))
     rows = enriched[:10]
     valuation_count = sum(1 for r in rows if r.get("valuation") is not None)
+    fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
+    pe_count = sum(1 for r in rows if r.get("valuationSource") == "PE")
+    eps_growth_count = sum(1 for r in rows if r.get("epsGrowthPct") is not None)
 
     if using_intraday:
         status = "LIVE"
@@ -1253,6 +1266,9 @@ def build_taiwan_live():
         "rows": rows,
         "coverage": round(100 * valuation_count / max(1, len(rows))),
         "valuationCoverage": round(100 * valuation_count / max(1, len(rows))),
+        "fpeCoverage": round(100 * fpe_count / max(1, len(rows))),
+        "peCoverage": round(100 * pe_count / max(1, len(rows))),
+        "epsGrowthCoverage": round(100 * eps_growth_count / max(1, len(rows))),
         "universeCount": len(enriched),
         "focusCount": len(rows),
         "method": "TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data",
@@ -1294,6 +1310,10 @@ CRYPTO_CATEGORY = {
 CRYPTO_EXCLUDE = (
     "UP", "DOWN", "BULL", "BEAR", "2L", "2S", "3L", "3S", "5L", "5S", "ETF",
 )
+CRYPTO_STABLECOINS = {
+    "USDT", "USDC", "FDUSD", "TUSD", "DAI", "USDE", "BUSD", "RLUSD",
+    "USDS", "USDP", "GUSD", "PYUSD", "USD1",
+}
 
 CRYPTO_GROUP = {
     "BTC": "大型幣",
@@ -1322,17 +1342,29 @@ CRYPTO_GROUP = {
 }
 
 def crypto_group(symbol, tags=None, cmc_rank=None):
-    base = symbol.replace("USDT", "")
+    """Map coins into stable, mutually intelligible dashboard groups.
+    
+    Explicit symbol mappings win first; CMC tags are matched by exact slug
+    instead of substring matching so coins like ZEC cannot be misclassified
+    as AI just because a tag happens to contain an 'ai' substring.
+    """
+    base = symbol.replace("USDT", "").upper()
+    if base in CRYPTO_STABLECOINS:
+        return "Stablecoin"
     if base in CRYPTO_GROUP:
         return CRYPTO_GROUP[base]
-    tag_text = " ".join([str(t.get("slug") if isinstance(t, dict) else t or "") for t in (tags or [])]).lower()
-    if any(k in tag_text for k in ("meme", "memes", "dog-themed")):
+
+    slugs = {
+        str(t.get("slug") if isinstance(t, dict) else t or "").strip().lower()
+        for t in (tags or [])
+    }
+    if slugs.intersection({"memes", "meme", "dog-themed-coins", "dog-themed"}):
         return "Meme"
-    if any(k in tag_text for k in ("artificial-intelligence", "ai-big-data", "ai")):
+    if slugs.intersection({"artificial-intelligence", "ai-big-data", "ai-agents"}):
         return "AI"
-    if any(k in tag_text for k in ("decentralized-finance", "defi")):
+    if slugs.intersection({"decentralized-finance", "defi", "decentralized-exchange"}):
         return "DeFi"
-    if any(k in tag_text for k in ("layer-1", "smart-contract-platform")):
+    if slugs.intersection({"smart-contract-platform", "layer-1", "layer-2"}):
         return "Layer 1"
     if cmc_rank is not None:
         try:
@@ -1605,7 +1637,7 @@ def build_crypto_live():
         if not sym.endswith("USDT"):
             continue
         base = sym[:-4]
-        if not base or base in {"USDT", "USDC", "FDUSD", "TUSD", "DAI", "USDE", "BUSD"}:
+        if not base or base in CRYPTO_STABLECOINS:
             continue
         if any(base.endswith(x) for x in CRYPTO_EXCLUDE):
             continue
