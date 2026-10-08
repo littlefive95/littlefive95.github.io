@@ -987,6 +987,59 @@ def yahoo_info(symbols):
             print("Taiwan Yahoo info warning", sym, e, file=sys.stderr)
     return out
 
+def yahoo_earnings_estimates(symbols):
+    """Fetch forward EPS consensus estimates for a batch of symbols.
+    
+    yfinance exposes 0y/+1y consensus EPS, analyst count, low/high and growth.
+    We keep this separate from get_info() because analyst-estimate coverage is
+    materially different from quote/info coverage.
+    """
+    out = {}
+    for sym in symbols:
+        try:
+            ticker = yf.Ticker(sym)
+            df = ticker.get_earnings_estimate()
+            if df is None or getattr(df, "empty", True):
+                continue
+            row = None
+            for key in ("+1y", "+1Y", 1):
+                try:
+                    if key in df.index:
+                        row = df.loc[key]
+                        break
+                except Exception:
+                    pass
+            if row is None:
+                # Defensive fallback for index representations such as strings.
+                for idx in getattr(df, "index", []):
+                    if str(idx).strip().lower() == "+1y":
+                        row = df.loc[idx]
+                        break
+            if row is None:
+                continue
+
+            def cell(name):
+                try:
+                    v = row.get(name)
+                except Exception:
+                    try:
+                        v = row[name]
+                    except Exception:
+                        v = None
+                return v
+
+            out[sym] = {
+                "numberOfAnalysts": int(tw_num(cell("numberOfAnalysts")) or 0),
+                "avg": tw_num(cell("avg")),
+                "low": tw_num(cell("low")),
+                "high": tw_num(cell("high")),
+                "yearAgoEps": tw_num(cell("yearAgoEps")),
+                "growth": tw_num(cell("growth")),
+            }
+        except Exception as e:
+            print("Taiwan Yahoo earnings estimate warning", sym, e, file=sys.stderr)
+    return out
+
 def taiwan_score(row):
     price = row["price"] or 0
     chg = row["changePct"] or 0
@@ -1179,32 +1232,74 @@ def build_taiwan_live():
     # Enrich a wider candidate pool before final scoring so valuation and EPS
     # coverage are not limited to the pre-existing TOP 10.
     info = yahoo_info([x["yahoo"] for x in enriched[:40]])
+    estimates = yahoo_earnings_estimates([x["yahoo"] for x in enriched[:40]])
 
     for row in enriched:
         inf = info.get(row["yahoo"], {})
-        fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
+        est = estimates.get(row["yahoo"], {})
+
+        # Prefer direct Yahoo Forward P/E. Otherwise derive FPE from the
+        # strongest available forward EPS estimate, starting with +1y consensus.
+        direct_fpe = tw_num(first(inf, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
         trailing_pe = tw_num(first(inf, ["trailingPE", "trailingPeRatio", "trailingPERatio"]))
-        fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
+        info_fwd_eps = tw_num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
+        consensus_fwd_eps = tw_num(est.get("avg"))
+        fwd_eps = info_fwd_eps or consensus_fwd_eps
         trailing_eps = tw_num(first(inf, ["trailingEps", "epsTrailingTwelveMonths"]))
         current_eps = tw_num(first(inf, ["epsCurrentYear", "currentYearEps"]))
         growth = tw_num(first(inf, ["earningsGrowth", "earningsQuarterlyGrowth", "epsGrowth"]))
+
         if growth is not None and abs(growth) < 2:
             growth *= 100
-        if fpe is None and fwd_eps and fwd_eps > 0:
-            fpe = row["price"] / fwd_eps
+
+        fpe = direct_fpe
+        fpe_source = "YAHOO_FORWARD_PE" if direct_fpe is not None else None
+        forward_eps_source = "YAHOO_INFO" if info_fwd_eps is not None else None
+        forward_eps_analysts = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
+
+        if fpe is None and consensus_fwd_eps and consensus_fwd_eps > 0:
+            fpe = row["price"] / consensus_fwd_eps
+            fpe_source = "CONSENSUS_1Y_EPS"
+            forward_eps_source = "YAHOO_EARNINGS_ESTIMATE_1Y"
+            forward_eps_analysts = int(est.get("numberOfAnalysts") or 0)
+
         valuation = fpe if fpe is not None else trailing_pe if trailing_pe is not None and trailing_pe > 0 else row.get("pe")
+        valuation_source = "FPE" if fpe is not None else "PE" if valuation is not None else None
         if valuation is None and trailing_eps and trailing_eps > 0:
             valuation = row["price"] / trailing_eps
+            valuation_source = "PE"
+
+        if growth is None:
+            est_growth = tw_num(est.get("growth"))
+            if est_growth is not None:
+                growth = est_growth * 100 if abs(est_growth) < 2 else est_growth
         if growth is None:
             baseline_eps = current_eps if current_eps and current_eps > 0 else trailing_eps
             if fwd_eps and fwd_eps > 0 and baseline_eps and baseline_eps > 0:
                 growth = (fwd_eps / baseline_eps - 1) * 100
+
+        # Estimate-quality metadata used by the dashboard.
+        valuation_confidence = 0
+        if direct_fpe is not None:
+            valuation_confidence = 100
+        elif consensus_fwd_eps and consensus_fwd_eps > 0:
+            n_analysts = int(est.get("numberOfAnalysts") or 0)
+            valuation_confidence = 95 if n_analysts >= 5 else 85 if n_analysts >= 3 else 75 if n_analysts >= 1 else 65
+        elif trailing_pe is not None or row.get("pe") is not None:
+            valuation_confidence = 50
+
         row["fpe"] = fpe
         row["valuation"] = valuation
-        row["valuationSource"] = "FPE" if fpe is not None else "PE" if valuation is not None else None
+        row["valuationSource"] = valuation_source
+        row["fpeSource"] = fpe_source
+        row["valuationConfidence"] = valuation_confidence
         row["forwardEps"] = fwd_eps
+        row["forwardEpsSource"] = forward_eps_source
+        row["forwardEpsAnalysts"] = forward_eps_analysts
+        row["forwardEpsLow"] = tw_num(est.get("low"))
+        row["forwardEpsHigh"] = tw_num(est.get("high"))
         row["epsGrowthPct"] = growth
-        row["analysts"] = int(tw_num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"])) or 0)
+        row["analysts"] = forward_eps_analysts
         row["earningsDate"] = as_date(first(inf, ["earningsTimestampStart", "earningsTimestamp"]))
         row["margin"] = tw_num(first(inf, ["profitMargins", "operatingMargins", "grossMargins"]))
         row["roe"] = tw_num(first(inf, ["returnOnEquity"]))
@@ -1269,6 +1364,9 @@ def build_taiwan_live():
         "fpeCoverage": round(100 * fpe_count / max(1, len(rows))),
         "peCoverage": round(100 * pe_count / max(1, len(rows))),
         "epsGrowthCoverage": round(100 * eps_growth_count / max(1, len(rows))),
+        "directFpeCoverage": round(100 * sum(1 for r in rows if r.get("fpeSource") == "YAHOO_FORWARD_PE") / max(1, len(rows))),
+        "derivedFpeCoverage": round(100 * sum(1 for r in rows if r.get("fpeSource") == "CONSENSUS_1Y_EPS") / max(1, len(rows))),
+        "valuationFallbackCoverage": round(100 * sum(1 for r in rows if r.get("valuationSource") == "PE") / max(1, len(rows))),
         "universeCount": len(enriched),
         "focusCount": len(rows),
         "method": "TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data",
