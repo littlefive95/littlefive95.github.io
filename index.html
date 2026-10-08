@@ -216,10 +216,26 @@ function yahooSymbolCandidates(input){
 }
 function fetchYahooChart(symbol){
   var url="https://query1.finance.yahoo.com/v8/finance/chart/"+encodeURIComponent(symbol)+"?range=1y&interval=1d&events=div%2Csplits";
-  return fetch(url,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("Yahoo "+r.status);return r.json()}).then(function(j){
-    var res=j&&j.chart&&j.chart.result&&j.chart.result[0];
-    if(!res || !res.timestamp || !res.indicators || !res.indicators.quote) throw new Error("No chart data");
-    return {symbol:symbol,res:res};
+  function parseResponse(r){
+    if(!r.ok) throw new Error("Yahoo "+r.status);
+    return r.json().then(function(j){
+      var res=j&&j.chart&&j.chart.result&&j.chart.result[0];
+      if(!res || !res.timestamp || !res.indicators || !res.indicators.quote) throw new Error("No chart data");
+      return {symbol:symbol,res:res,proxied:false};
+    });
+  }
+  // Yahoo's chart endpoint does not expose browser CORS headers, so try the
+  // direct request first and transparently fall back to a CORS relay.
+  return fetch(url,{cache:"no-store"}).then(parseResponse).catch(function(){
+    var proxy="https://corsproxy.io/?url="+encodeURIComponent(url);
+    return fetch(proxy,{cache:"no-store"}).then(function(r){
+      if(!r.ok) throw new Error("Proxy "+r.status);
+      return r.json();
+    }).then(function(j){
+      var res=j&&j.chart&&j.chart.result&&j.chart.result[0];
+      if(!res || !res.timestamp || !res.indicators || !res.indicators.quote) throw new Error("No chart data");
+      return {symbol:symbol,res:res,proxied:true};
+    });
   });
 }
 function atr14FromChart(res){
@@ -306,7 +322,7 @@ function evaluateCustom(){
     var c=candidates[idx++];
     fetchYahooChart(c.symbol).then(function(payload){
       var x=evaluateChartPayload(payload);
-      badge.textContent="YAHOO · TECHNICAL";
+      badge.textContent=payload.proxied?"YAHOO · TECHNICAL · PROXY":"YAHOO · TECHNICAL";
       result.innerHTML=customResultHtml(x);
       saveCustomHistory(raw);
     }).catch(function(){tryNext()});
