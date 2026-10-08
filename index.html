@@ -228,7 +228,7 @@ function render(){
         "<td class='"+(Number(x.changePct||0)>=0?"up":"down")+"'>"+(Number(x.changePct||0)>=0?"+":"")+Number(x.changePct||0).toFixed(2)+"%</td>"+
         "<td>"+(Array.isArray(x.eventSignals)&&x.eventSignals.length?x.eventSignals.map(function(s){return "<span class='signal'>"+esc(s)+"</span>"}).join(""):"—")+"</td>"+
         "<td class='trade-plan'>"+entryHtml(x)+"</td>"+
-        "<td>"+(x.valuation!=null?(Number(x.valuation).toFixed(1)+"x"+(x.valuationSource==="PE"?" · PE":" · FPE")):(x.fpe!=null?Number(x.fpe).toFixed(1)+"x · FPE":"N/A"))+"</td>"+
+        "<td>"+(x.valuation!=null?("<div>"+Number(x.valuation).toFixed(1)+"x"+(x.valuationSource==="PE"?" · PE":" · FPE")+"</div><div class='company'>"+(x.valuationConfidence!=null?("信心 "+x.valuationConfidence+"%"):"")+(x.forwardEpsAnalysts!=null&&x.forwardEpsAnalysts>0?(" · "+x.forwardEpsAnalysts+" analysts"):"")+"</div>"):"N/A")+"</td>"+
         "<td>"+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</td>"+
         "<td>"+(x.epsGrowthPct==null?"N/A":(Number(x.epsGrowthPct)>=0?"+":"")+Number(x.epsGrowthPct).toFixed(1)+"%")+"</td>"+
         "<td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span> <span class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</span></td>"+
@@ -349,7 +349,7 @@ function loadData(){
     document.getElementById("coverage").textContent=mode==="crypto"?((p.cmcCoverage||0)+"%"):(p.coverage||0)+"%";
     var universeText=mode==="crypto"?(p.universeCount||0)+" 個監控幣種":(p.universeCount||0)+" 個監控標的";
     if(mode==="tw"){
-      document.getElementById("coverageHint").textContent="估值 "+(p.valuationCoverage||p.coverage||0)+"% · FPE "+(p.fpeCoverage||0)+"% · PE "+(p.peCoverage||0)+"% · EPS Growth "+(p.epsGrowthCoverage||0)+"% · "+universeText;
+      document.getElementById("coverageHint").textContent="估值 "+(p.valuationCoverage||p.coverage||0)+"% · FPE "+(p.fpeCoverage||0)+"%（直供 "+(p.directFpeCoverage||0)+"%／推算 "+(p.derivedFpeCoverage||0)+"%） · PE fallback "+(p.valuationFallbackCoverage||p.peCoverage||0)+"% · EPS Growth "+(p.epsGrowthCoverage||0)+"% · "+universeText;
     }else{
       document.getElementById("coverageHint").textContent=mode==="crypto"?(universeText+" · CMC "+(p.cmcCoverage||0)+"%"):"FPE "+(p.coverage||0)+"% · "+universeText;
     }
@@ -420,8 +420,8 @@ document.getElementById("csvBtn").addEventListener("click",function(){
     rows=[["Code","Pair","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","24HVolumeUSDT","VolumeRatio","MA20","MA50","MA200","Risk","Score"]];
     data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.ticker+"/USDT",x.sector||"加密貨幣",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.quoteVolume24h,x.volumeRatio,x.priceAvg20,x.priceAvg50,x.priceAvg200,x.risk,x.score])});
 } else {
-    rows=[["Code","Company","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","FPE","ForwardEPS","EPSGrowthPct","Analysts","Risk","Score"]];
-    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.fpe,x.forwardEps,x.epsGrowthPct,x.analysts,x.risk,x.score])});
+    rows=[["Code","Company","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","Valuation","ValuationSource","ValuationConfidence","FPE","FPESource","ForwardEPS","ForwardEPSSource","ForwardEPSAnalysts","ForwardEPSLow","ForwardEPSHigh","EPSGrowthPct","Analysts","Risk","Score"]];
+    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,10).forEach(function(x){rows.push([x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.valuation,x.valuationSource,x.valuationConfidence,x.fpe,x.fpeSource,x.forwardEps,x.forwardEpsSource,x.forwardEpsAnalysts,x.forwardEpsLow,x.forwardEpsHigh,x.epsGrowthPct,x.analysts,x.risk,x.score])});
   }
   var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
