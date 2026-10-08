@@ -678,5 +678,8 @@
   "method": "TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data",
   "fpeFormula": "Yahoo Forward P/E, fallback to latest price / forward EPS",
   "holiday": [],
-  "note": "盤中使用當日即時行情；依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。"
+  "note": "盤中使用當日即時行情；依趨勢、動能、量能、FPE/PE、EPS成長篩選進場候選；研究/監控工具，不構成投資建議。",
+  "fallback": true,
+  "refreshCheckedAt": "2026-10-08T16:24:03.430956+08:00",
+  "refreshError": "本次資料來源更新失敗"
 }
