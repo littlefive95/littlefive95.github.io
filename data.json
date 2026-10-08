@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-07T22:12:04.758142-04:00",
+  "asOf": "2026-10-07T22:55:17.107833-04:00",
   "date": "2026-10-07",
   "snapshotDate": "2026-10-07",
   "dataMode": "LATEST_CLOSE",
@@ -20,9 +20,9 @@
       "analysts": 0,
       "priceAvg50": 73.4312,
       "priceAvg200": 66.80435,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.45126,
+      "margin": 0.45289,
+      "debt": 182.77,
       "earningsDate": "2026-11-05",
       "score": 86,
       "label": "進場候選",
@@ -55,10 +55,11 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 82,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -76,9 +77,9 @@
       "analysts": 0,
       "priceAvg50": 961.8132,
       "priceAvg200": 689.87177,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.8826,
+      "margin": 0.63796,
+      "debt": 3.743,
       "earningsDate": "2026-12-23",
       "score": 82,
       "label": "進場候選",
@@ -109,10 +110,11 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 100,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -130,9 +132,9 @@
       "analysts": 0,
       "priceAvg50": 1552.6646,
       "priceAvg200": 1160.5952,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.9164,
+      "margin": 0.56465,
+      "debt": 1.277,
       "earningsDate": "2026-10-29",
       "score": 82,
       "label": "進場候選",
@@ -163,10 +165,11 @@
       "entryType": "回踩20日線",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 100,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -184,9 +187,9 @@
       "analysts": 0,
       "priceAvg50": 37.051,
       "priceAvg200": 32.12885,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.21465999,
+      "margin": 0.0571,
+      "debt": 63.951,
       "earningsDate": "2026-11-03",
       "score": 82,
       "label": "進場候選",
@@ -219,10 +222,11 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 75,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -241,7 +245,7 @@
       "priceAvg50": 40.4844,
       "priceAvg200": 35.56415,
       "roe": null,
-      "margin": null,
+      "margin": 0.20169,
       "debt": null,
       "earningsDate": "2026-11-03",
       "score": 82,
@@ -294,9 +298,9 @@
       "analysts": 0,
       "priceAvg50": 257.4276,
       "priceAvg200": 241.6822,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.30558002,
+      "margin": 0.1744,
+      "debt": 45.617,
       "earningsDate": "2026-10-29",
       "score": 80,
       "label": "進場候選",
@@ -329,9 +333,10 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 100,
       "profiles": [
-        "momentum"
+        "momentum",
+        "quality"
       ]
     },
     {
@@ -349,9 +354,9 @@
       "analysts": 0,
       "priceAvg50": 41.9572,
       "priceAvg200": 31.9312,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": -0.17381,
+      "margin": -0.28966,
+      "debt": 70.183,
       "earningsDate": "2026-11-04",
       "score": 80,
       "label": "進場候選",
@@ -382,7 +387,7 @@
       "entryType": "回踩50日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多但距短期均線較遠，等待50日線／支撐。",
-      "qualityScore": 0,
+      "qualityScore": 32,
       "profiles": [
         "momentum"
       ]
@@ -402,9 +407,9 @@
       "analysts": 0,
       "priceAvg50": 257.3262,
       "priceAvg200": 203.45335,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.31569,
+      "margin": 0.2206,
+      "debt": 6.924,
       "earningsDate": "2026-10-29",
       "score": 79,
       "label": "進場候選",
@@ -435,10 +440,11 @@
       "entryType": "回踩50日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多但距短期均線較遠，等待50日線／支撐。",
-      "qualityScore": 0,
+      "qualityScore": 100,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -456,9 +462,9 @@
       "analysts": 0,
       "priceAvg50": 372.6862,
       "priceAvg200": 367.8522,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.44245,
+      "margin": 0.42944,
+      "debt": 59.604,
       "earningsDate": "2026-12-09",
       "score": 79,
       "label": "進場候選",
@@ -489,10 +495,11 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 0,
+      "qualityScore": 92,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ]
     },
     {
@@ -510,9 +517,9 @@
       "analysts": 0,
       "priceAvg50": 56.5852,
       "priceAvg200": 37.35555,
-      "roe": null,
-      "margin": null,
-      "debt": null,
+      "roe": 0.10936,
+      "margin": 0.06666,
+      "debt": 76.464,
       "earningsDate": "2026-09-02",
       "score": 78,
       "label": "進場候選",
@@ -545,7 +552,7 @@
       "entryType": "突破",
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "qualityScore": 0,
+      "qualityScore": 52,
       "profiles": [
         "momentum",
         "value"
