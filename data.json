@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-08T05:51:28.008960-04:00",
+  "asOf": "2026-10-08T06:08:08.826572-04:00",
   "date": "2026-10-08",
   "snapshotDate": "2026-10-08",
   "dataMode": "INTRADAY",
@@ -60,8 +60,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "UTHR",
@@ -118,8 +118,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "NTAP",
@@ -178,8 +178,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -236,16 +236,16 @@
         "value"
       ],
       "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "SKHY",
       "name": "SK hynix Inc.",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 177.25,
-      "changePct": -0.5610098,
+      "price": 176.57,
+      "changePct": -0.94249237,
       "marketCap": 1267492061184.0,
       "volume": 20499826.0,
       "fpe": 5.1702666,
@@ -274,7 +274,7 @@
       "volumeRatio": 1.0765168973889518,
       "eventSignals": [],
       "atr": 7.6621,
-      "atrPct": 4.32,
+      "atrPct": 4.34,
       "support": 172.23,
       "resistance": 199.87,
       "entryLow": 170.6976,
@@ -294,16 +294,16 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 6,
-      "rankChange": 1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "NU",
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 15.44,
-      "changePct": -0.9621589,
+      "price": 15.45,
+      "changePct": -0.8980137,
       "marketCap": 75262132224.0,
       "volume": 82363718.0,
       "fpe": 13.789441,
@@ -332,7 +332,7 @@
       "volumeRatio": 0.973348898806951,
       "eventSignals": [],
       "atr": 0.6216,
-      "atrPct": 4.03,
+      "atrPct": 4.02,
       "support": 14.6954,
       "resistance": 15.69,
       "entryLow": 14.5711,
@@ -352,16 +352,16 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 7,
-      "rankChange": 1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 235.89,
-      "changePct": -0.665348,
+      "price": 235.68,
+      "changePct": -0.75378305,
       "marketCap": 5734188187648.0,
       "volume": 81027431.0,
       "fpe": 14.921518,
@@ -410,8 +410,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "ASX",
@@ -468,8 +468,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "KSPI",
@@ -528,8 +528,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "SWKS",
@@ -585,8 +585,8 @@
         "value"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AFRM",
@@ -643,8 +643,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "SIMO",
@@ -701,16 +701,16 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 1,
-      "rankChange": -11
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 467.2,
-      "changePct": -1.0483918,
+      "price": 467.3,
+      "changePct": -1.0272173,
       "marketCap": 2449053057024.0,
       "volume": 7260136.0,
       "fpe": 21.53696,
@@ -759,8 +759,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "TS",
@@ -817,16 +817,74 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
+    },
+    {
+      "ticker": "U",
+      "name": "Unity Software Inc.",
+      "exchange": "NYSE",
+      "sector": "應用軟體",
+      "price": 46.68,
+      "changePct": 2.7062695,
+      "marketCap": 19997640704.0,
+      "volume": 12798386.0,
+      "fpe": 26.10069,
+      "forwardEps": 1.74095,
+      "epsGrowthPct": 43.726935746187955,
+      "analysts": 0,
+      "priceAvg50": 41.9572,
+      "priceAvg200": 31.9312,
+      "roe": -0.17381,
+      "margin": -0.28966,
+      "debt": 70.183,
+      "earningsDate": "2026-11-04",
+      "score": 80,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 42.752499961853026,
+      "volumeRatio": 1.2177127234201872,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 2.2686,
+      "atrPct": 4.86,
+      "support": 42.7525,
+      "resistance": 48.46,
+      "entryLow": 46.4327,
+      "entryPrice": 46.773,
+      "entryHigh": 47.4536,
+      "stopLoss": 43.9372,
+      "takeProfit1": 52.4446,
+      "takeProfit2": 55.2804,
+      "riskReward": 2.0,
+      "entryType": "突破",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "qualityScore": 32,
+      "profiles": [
+        "momentum"
+      ],
+      "rank": 15,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "PLTR",
       "name": "Palantir Technologies Inc.",
       "exchange": "NasdaqGS",
       "sector": "基礎軟體",
-      "price": 198.03,
-      "changePct": 2.01422,
+      "price": 198.1,
+      "changePct": 2.050284,
       "marketCap": 466481676288.0,
       "volume": 15675589.0,
       "fpe": 82.81004,
@@ -860,7 +918,7 @@
       "atr": 5.5023,
       "atrPct": 2.78,
       "support": 183.2595,
-      "resistance": 209.0346,
+      "resistance": 209.1046,
       "entryLow": 182.159,
       "entryPrice": 183.8097,
       "entryHigh": 185.1853,
@@ -876,17 +934,17 @@
         "momentum",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "rank": 16,
+      "previousRank": 15,
+      "rankChange": -1
     },
     {
       "ticker": "MU",
       "name": "Micron Technology, Inc.",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 1074.87,
-      "changePct": -1.2068019,
+      "price": 1074.1,
+      "changePct": -1.2775757,
       "marketCap": 1228779814912.0,
       "volume": 30214899.0,
       "fpe": 5.273044,
@@ -934,17 +992,17 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "rank": 17,
+      "previousRank": 16,
+      "rankChange": -1
     },
     {
       "ticker": "SNDK",
       "name": "Sandisk Corporation",
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
-      "price": 1675.0,
-      "changePct": -1.029298,
+      "price": 1673.02,
+      "changePct": -1.146289,
       "marketCap": 247802462208.0,
       "volume": 9095556.0,
       "fpe": 6.423199,
@@ -992,17 +1050,17 @@
         "value",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "rank": 18,
+      "previousRank": 17,
+      "rankChange": -1
     },
     {
       "ticker": "CLS",
       "name": "Celestica Inc.",
       "exchange": "NYSE",
       "sector": "電子零組件",
-      "price": 367.5,
-      "changePct": -1.0953541,
+      "price": 368.0,
+      "changePct": -1.0034194,
       "marketCap": 46859108352.0,
       "volume": 1565139.0,
       "fpe": 18.905893,
@@ -1031,7 +1089,7 @@
       "volumeRatio": 0.7444995171885629,
       "eventSignals": [],
       "atr": 18.395,
-      "atrPct": 5.01,
+      "atrPct": 5.0,
       "support": 353.9865,
       "resistance": 393.72,
       "entryLow": 350.3075,
@@ -1050,9 +1108,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "rank": 19,
+      "previousRank": 18,
+      "rankChange": -1
     },
     {
       "ticker": "CRBG",
@@ -1107,73 +1165,13 @@
         "momentum",
         "value"
       ],
-      "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
-    },
-    {
-      "ticker": "LYFT",
-      "name": "Lyft, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "應用軟體",
-      "price": 15.57,
-      "changePct": -0.19231209,
-      "marketCap": 5905228288.0,
-      "volume": 9741129.0,
-      "fpe": 7.240122,
-      "forwardEps": 2.15466,
-      "epsGrowthPct": 42.729579162830134,
-      "analysts": 0,
-      "priceAvg50": 16.2383,
-      "priceAvg200": 15.3726,
-      "roe": 1.52579,
-      "margin": 0.42317,
-      "debt": 42.738,
-      "earningsDate": "2026-11-04",
-      "score": 75,
-      "label": "值得研究",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、FPE偏低",
-        "核心優勢｜站上200日均線、FPE偏低",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋20｜FPE偏低",
-        "＋20｜預估EPS高成長"
-      ],
-      "priceAvg20": 15.274749994277954,
-      "volumeRatio": 1.0884459876586319,
-      "eventSignals": [
-        "跌破50日線"
-      ],
-      "atr": 0.4284,
-      "atrPct": 2.75,
-      "support": 15.3726,
-      "resistance": 15.965,
-      "entryLow": 15.2869,
-      "entryPrice": 15.4154,
-      "entryHigh": 15.5225,
-      "stopLoss": 14.9228,
-      "takeProfit1": 17.98,
-      "takeProfit2": 18.4726,
-      "riskReward": 5.21,
-      "entryType": "回踩20日線",
-      "entryStatus": "等待回踩",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
-  "universeCount": 325,
+  "universeCount": 324,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
