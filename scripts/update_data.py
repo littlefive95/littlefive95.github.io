@@ -1104,22 +1104,36 @@ def taiwan_score(row):
     valuation = fpe if fpe is not None and fpe > 0 else pe if pe is not None and pe > 0 else None
     if valuation is not None:
         if valuation < 15:
-            pts += 20
-            addp(20, "估值偏低")
+            raw_points = 20
+            valuation_label = "估值偏低"
         elif valuation < 22:
-            pts += 15
-            addp(15, "估值合理")
+            raw_points = 15
+            valuation_label = "估值合理"
         elif valuation < 30:
-            pts += 8
-            addp(8, "估值中性")
+            raw_points = 8
+            valuation_label = "估值中性"
         elif valuation < 45:
-            pts += 3
-            addp(3, "估值偏高但仍有估值分")
+            raw_points = 3
+            valuation_label = "估值偏高但仍有估值分"
             risk = "中"
             addr("估值偏高")
         else:
+            raw_points = 0
+            valuation_label = "估值很高"
             risk = "高"
             addr("估值很高")
+
+        # Do not give a low-confidence PE fallback the same weight as
+        # consensus/direct Forward P/E. Confidence is produced by the
+        # valuation enrichment layer (100 direct FPE, 65-95 consensus FPE,
+        # 50 trailing/official PE fallback).
+        confidence = int(row.get("valuationConfidence") or 50)
+        adjusted_points = round(raw_points * max(0, min(100, confidence)) / 100)
+        if adjusted_points:
+            pts += adjusted_points
+            addp(adjusted_points, valuation_label + (f" · 信心{confidence}%" if confidence < 100 else ""))
+        elif raw_points and confidence < 100:
+            addr(f"估值資料信心偏低（{confidence}%）")
 
     if growth is not None:
         if growth >= 25:
