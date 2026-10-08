@@ -1351,7 +1351,7 @@ def build_taiwan_live():
         row.pop("turnover", None)
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("volumeRatio") or 0), r.get("valuation") is None, r.get("valuation") or 999))
-    rows = enriched[:10]
+    rows = enriched[:20]
     valuation_count = sum(1 for r in rows if r.get("valuation") is not None)
     fpe_count = sum(1 for r in rows if r.get("fpe") is not None)
     pe_count = sum(1 for r in rows if r.get("valuationSource") == "PE")
@@ -1814,7 +1814,7 @@ def build_crypto_live():
         enriched.append(row)
 
     enriched.sort(key=lambda r: (-r["score"], -(r.get("quoteVolume24h") or 0)))
-    rows = enriched[:10]
+    rows = enriched[:20]
 
     category_stats = {}
     for row in enriched:
