@@ -223,7 +223,7 @@ function render(){
         "<td>"+(x.forwardEps==null?"N/A":Number(x.forwardEps).toFixed(2))+"</td>"+
         "<td>"+(x.epsGrowthPct==null?"N/A":(Number(x.epsGrowthPct)>=0?"+":"")+Number(x.epsGrowthPct).toFixed(1)+"%")+"</td>"+
         "<td><span class='pill "+riskClass(x.risk)+"'>"+esc(x.risk||"N/A")+"</span> <span class='score "+clsScore(Number(x.score||0))+"'>"+esc(x.score)+"</span></td>"+
-        "<td>"+reasonHtml(x.reasons)+"</td></tr>";
+        "<td>"+coreDriverHtml(x.reasons)+"</td></tr>";
       }).join("")+"</tbody></table>"):"<div class='empty'>目前沒有符合條件的標的。</div>";
   }
 }
