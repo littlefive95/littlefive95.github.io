@@ -419,6 +419,6 @@
   "holiday": [],
   "note": "24/7 加密貨幣市場；依均線、24H動能、量能、流動性與波動風險排序，僅供研究與監控。",
   "fallback": true,
-  "refreshCheckedAt": "2026-10-08T09:54:50.091740+08:00",
+  "refreshCheckedAt": "2026-10-08T10:08:03.647360+08:00",
   "refreshError": "'list' object has no attribute 'tolist'"
 }
