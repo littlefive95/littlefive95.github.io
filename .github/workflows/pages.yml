@@ -8,9 +8,10 @@ on:
     paths:
       - "scripts/update_data.py"
       - ".github/workflows/pages.yml"
-  # Run every 15 minutes, offset from common quarter-hour boundaries.
+  # Re-register the scheduler on an off-peak minute cadence (UTC).
+  # GitHub schedule events are best-effort; freshness validation below guards stale snapshots.
   schedule:
-    - cron: "7,22,37,52 * * * *"
+    - cron: "11,26,41,56 * * * *"
   workflow_dispatch:
 
 permissions:
