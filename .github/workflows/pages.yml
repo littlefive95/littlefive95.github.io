@@ -14,14 +14,18 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
+# Never cancel a running refresh. A concurrent trigger may wait pending until
+# the running build finishes, rather than cutting off data publication.
 concurrency:
   group: data-refresh
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -106,3 +110,102 @@ jobs:
           git add data.json taiwan_data.json crypto_data.json
           git diff --cached --quiet || git commit -m "Update live market data"
           git push
+
+      # Keep fallback snapshots published, but mark the run as failed so an
+      # alert is emitted whenever a provider failure leaves stale data behind.
+      - name: Verify snapshot freshness
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          problems = []
+          for name in ("data.json", "taiwan_data.json", "crypto_data.json"):
+              payload = json.loads(Path(name).read_text(encoding="utf-8"))
+              raw = payload.get("asOf")
+              try:
+                  as_of = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+                  if as_of.tzinfo is None:
+                      as_of = as_of.replace(tzinfo=timezone.utc)
+                  age_minutes = (now - as_of.astimezone(timezone.utc)).total_seconds() / 60
+              except Exception:
+                  problems.append(f"{name}: invalid or missing asOf")
+                  continue
+              if payload.get("fallback"):
+                  problems.append(f"{name}: fallback snapshot was used")
+              if age_minutes > 60:
+                  problems.append(f"{name}: snapshot is {age_minutes:.0f} minutes old")
+              elif age_minutes < -5:
+                  problems.append(f"{name}: asOf timestamp is unexpectedly in the future")
+              else:
+                  print(f"{name}: freshness OK ({age_minutes:.1f} minutes old)")
+          if problems:
+              print("Freshness problems:")
+              for item in problems:
+                  print(f" - {item}")
+              raise SystemExit(1)
+          PY
+
+      - name: Alert on refresh failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const title = "[Alpha Watch] Data refresh failed or snapshots stale";
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const body = [
+              "Alpha Watch 的資料更新工作失敗，或至少一份資料快照超過 60 分鐘／使用了 last-good fallback。",
+              "",
+              `- Workflow run: ${runUrl}`,
+              `- Event: ${context.eventName}`,
+              `- Commit: ${context.sha}`,
+              `- Time (UTC): ${new Date().toISOString()}`,
+              "",
+              "請查看 workflow 的 Build live market data、Validate market snapshots 與 Verify snapshot freshness 日誌。"
+            ].join("\n");
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner, repo, state: "open", per_page: 100
+            });
+            const existing = openIssues.find(issue => !issue.pull_request && issue.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: existing.number, body
+              });
+              const assignees = (existing.assignees || []).map(user => user.login);
+              if (!assignees.includes(owner)) {
+                await github.rest.issues.addAssignees({
+                  owner, repo, issue_number: existing.number, assignees: [owner]
+                });
+              }
+            } else {
+              await github.rest.issues.create({
+                owner, repo, title, assignees: [owner], body
+              });
+            }
+
+      - name: Resolve refresh alert after recovery
+        if: success()
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const title = "[Alpha Watch] Data refresh failed or snapshots stale";
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner, repo, state: "open", per_page: 100
+            });
+            const existing = openIssues.find(issue => !issue.pull_request && issue.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: existing.number,
+                body: `資料更新已恢復正常。最新成功的 workflow run：${runUrl}\n時間 (UTC)：${new Date().toISOString()}`
+              });
+              await github.rest.issues.update({
+                owner, repo, issue_number: existing.number, state: "closed"
+              });
+            }
