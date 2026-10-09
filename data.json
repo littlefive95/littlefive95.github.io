@@ -1184,5 +1184,8 @@
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
   "holiday": [],
-  "note": "休市／隔夜顯示最近交易日 TOP 20；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。"
+  "note": "休市／隔夜顯示最近交易日 TOP 20；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。",
+  "fallback": true,
+  "refreshCheckedAt": "2026-10-09T09:51:12.240523-04:00",
+  "refreshError": "float() argument must be a string or a real number, not 'Series'"
 }
