@@ -7,9 +7,9 @@ on:
       - "data.json"
       - "taiwan_data.json"
       - "crypto_data.json"
-  # Run twice per hour to reduce missed scheduled refreshes during GitHub Actions load.
+  # Run every 15 minutes, offset from common quarter-hour boundaries.
   schedule:
-    - cron: "15,45 * * * *"
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
