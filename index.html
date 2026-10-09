@@ -22,7 +22,7 @@
     <div class="title" id="title">美股 AI 監控</div>
     <div class="sub" id="subtitle">24 小時系統監看市場狀態；用 FPE、Forward EPS、成長、趨勢、品質與事件風險找出值得研究的標的。</div>
   </div>
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><button class="btn primary" id="refreshBtn" title="重新抓取目前資料快照；不會強制後端立即重建資料">↻ 檢查最新資料</button><div id="refreshInfo" class="sub">頁面每 5 分鐘檢查；後端資料約每 30 分鐘更新</div></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><button class="btn primary" id="refreshBtn" title="重新抓取目前資料快照；不會強制後端立即重建資料">↻ 檢查最新資料</button><div id="refreshInfo" class="sub">頁面每 5 分鐘檢查；後端目標每 15 分鐘更新</div></div>
 </header>
 
 <div class="market-tabs">
@@ -45,7 +45,7 @@
   <div class="card kpi"><div class="label">進場候選</div><div class="value" id="count">—</div><div class="hint" id="countHint">達到進場門檻</div></div>
   <div class="card kpi"><div class="label" id="coverageLabel">估值 / 資料覆蓋</div><div class="value" id="coverage">—</div><div class="hint" id="coverageHint">—</div></div>
   <div class="card kpi"><div class="label">最新資料</div><div class="value" id="updated">—</div><div class="hint">目前時間 <span id="pageTime">—</span></div></div>
-  <div class="card kpi"><div class="label">下次資料建置</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端約每 30 分鐘執行；頁面每 5 分鐘檢查</div></div>
+  <div class="card kpi"><div class="label">下次資料建置</div><div class="value" id="nextUpdate">—</div><div class="hint" id="nextUpdateHint">後端目標每 15 分鐘執行；頁面每 5 分鐘檢查</div></div>
 </section>
 
 <main class="card panel main-panel">
@@ -104,7 +104,7 @@
   </details>
 </section>
 
-<div class="footer">美股資料：Yahoo Finance；台股資料：TWSE／TPEx 官方公開資料＋Yahoo Finance 技術與估值資料。資料由 GitHub Actions 後端建置，約每 30 分鐘執行一次；本頁每 5 分鐘檢查最新快照。手動「檢查最新資料」只會重新抓取目前快照，不會強制後端立即建置。API Key 不放在網頁前端。此頁僅供投資研究與監控，不構成投資建議。</div>
+<div class="footer">美股資料：Yahoo Finance；台股資料：TWSE／TPEx 官方公開資料＋Yahoo Finance 技術與估值資料。資料由 GitHub Actions 後端建置，目標每 15 分鐘執行一次；本頁每 5 分鐘檢查最新快照。手動「檢查最新資料」只會重新抓取目前快照，不會強制後端立即建置。API Key 不放在網頁前端。此頁僅供投資研究與監控，不構成投資建議。</div>
 </div>
 
 <script>
@@ -305,7 +305,7 @@ function updateNextUpdate(){
   var now=new Date();
   var next=new Date(now);
   var m=now.getMinutes();
-  var target=m<15?15:m<45?45:75;
+  var target=m<7?7:m<22?22:m<37?37:m<52?52:67;
   next.setMinutes(target,0,0);
   var remain=Math.max(0,next-now);
   var totalSec=Math.floor(remain/1000);
@@ -313,7 +313,7 @@ function updateNextUpdate(){
   var el=document.getElementById("nextUpdate");
   if(!el) return;
   el.textContent=new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",hour12:false}).format(next);
-  document.getElementById("nextUpdateHint").textContent="倒數 "+String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0")+" · GitHub Actions 約每 30 分鐘 :15 / :45";
+  document.getElementById("nextUpdateHint").textContent="倒數 "+String(hh).padStart(2,"0")+":"+String(mm).padStart(2,"0")+":"+String(ss).padStart(2,"0")+" · GitHub Actions 目標每 15 分鐘 :07 / :22 / :37 / :52";
 }
 function updatePageTime(){
   var el=document.getElementById("pageTime");
@@ -343,6 +343,8 @@ function setClock(){
 var radarData={};
 function radarStatus(p,modeName){
   if(!p) return {label:"DATA ERROR",cls:"warn"};
+  var asOfTime=p.asOf?Date.parse(p.asOf):NaN;
+  if(isFinite(asOfTime) && Date.now()-asOfTime>60*60*1000) return {label:"資料超過 60 分鐘",cls:"warn"};
   if(p.fallback) return {label:"沿用上次正常資料",cls:"warn"};
   if(p.status==="MARKET_CLOSED") return {label:"休市／最新收盤",cls:"warn"};
   if(p.dataMode==="INTRADAY") return {label:"盤中資料",cls:"live"};
@@ -390,10 +392,12 @@ function loadData(){
       document.getElementById("updated").textContent="—";
     }
     if(mode==="crypto") renderCategoryStrength(p.categoryStats||{});
-    var badgeText=p.fallback?"STALE · LAST GOOD":p.dataMode==="INTRADAY"?"INTRADAY · "+(mode==="tw"?"TWSE / TPEx":"YAHOO"):p.dataMode==="LATEST_CLOSE"||p.status==="MARKET_CLOSED"?"LATEST CLOSE · "+(mode==="us"?"YAHOO":mode==="tw"?"TWSE / TPEx":"BINANCE + CMC"):p.status==="LIVE"?(mode==="crypto"?"SNAPSHOT · BINANCE + CMC":CFG[mode].source):"DATA ERROR";
+    var snapshotTime=p.asOf?Date.parse(p.asOf):NaN;
+    var snapshotStale=isFinite(snapshotTime) && Date.now()-snapshotTime>60*60*1000;
+    var badgeText=snapshotStale?"STALE · DATA > 60M":p.fallback?"STALE · LAST GOOD":p.dataMode==="INTRADAY"?"INTRADAY · "+(mode==="tw"?"TWSE / TPEx":"YAHOO"):p.dataMode==="LATEST_CLOSE"||p.status==="MARKET_CLOSED"?"LATEST CLOSE · "+(mode==="us"?"YAHOO":mode==="tw"?"TWSE / TPEx":"BINANCE + CMC"):p.status==="LIVE"?(mode==="crypto"?"SNAPSHOT · BINANCE + CMC":CFG[mode].source):"DATA ERROR";
     document.getElementById("sourceBadge").textContent=badgeText;
-    if(refreshInfo) refreshInfo.textContent="最後檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())+" · 頁面每 5 分鐘檢查";
-    document.getElementById("sourceBadge").className=(p.fallback||p.status==="MARKET_CLOSED")?"badge amber":"badge green";
+    if(refreshInfo) refreshInfo.textContent="最後檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())+" · "+(snapshotStale?"資料快照已超過 60 分鐘，等待後端更新":"頁面每 5 分鐘檢查");
+    document.getElementById("sourceBadge").className=(p.fallback||snapshotStale||p.status==="MARKET_CLOSED")?"badge amber":"badge green";
     render();
     setHeader();
     setClock();
