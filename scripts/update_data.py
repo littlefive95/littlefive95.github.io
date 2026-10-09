@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+import pandas as pd
 import pandas_market_calendars as mcal
 import yfinance as yf
 import requests
@@ -63,6 +64,28 @@ def num(v):
         return float(v)
     except Exception:
         return None
+
+def as_series(value, symbol=None):
+    """Normalize yfinance field output to one Series across pandas/yfinance shapes."""
+    if not isinstance(value, pd.DataFrame):
+        return value
+    if value.empty or value.shape[1] == 0:
+        return pd.Series(index=value.index, dtype="float64")
+    if symbol is not None:
+        wanted = str(symbol).upper()
+        for column in value.columns:
+            if str(column).upper() == wanted:
+                return value[column]
+    if value.shape[1] == 1:
+        return value.iloc[:, 0]
+    for column in value.columns:
+        try:
+            candidate = value[column]
+            if candidate.notna().any():
+                return candidate
+        except Exception:
+            continue
+    return value.iloc[:, 0]
 
 def first(d, keys, default=None):
     for key in keys:
@@ -937,11 +960,11 @@ def yahoo_intraday(symbols):
     for sym in symbols:
         try:
             if len(symbols) == 1:
-                close = raw["Close"].dropna()
-                volume = raw["Volume"].fillna(0)
+                close = as_series(raw["Close"], sym).dropna()
+                volume = as_series(raw["Volume"], sym).fillna(0)
             else:
-                close = raw[(sym, "Close")].dropna()
-                volume = raw[(sym, "Volume")].fillna(0)
+                close = as_series(raw[(sym, "Close")], sym).dropna()
+                volume = as_series(raw[(sym, "Volume")], sym).fillna(0)
             if len(close) == 0:
                 continue
             idx = close.index[-1]
@@ -972,15 +995,15 @@ def yahoo_history(symbols):
         for sym in symbols:
             try:
                 if len(symbols) == 1:
-                    close = raw["Close"].dropna()
-                    volume = raw["Volume"].fillna(0)
-                    high = raw["High"].reindex(close.index).dropna()
-                    low = raw["Low"].reindex(close.index).dropna()
+                    close = as_series(raw["Close"], sym).dropna()
+                    volume = as_series(raw["Volume"], sym).fillna(0)
+                    high = as_series(raw["High"], sym).reindex(close.index).dropna()
+                    low = as_series(raw["Low"], sym).reindex(close.index).dropna()
                 else:
-                    close = raw[(sym, "Close")].dropna()
-                    volume = raw[(sym, "Volume")].fillna(0)
-                    high = raw[(sym, "High")].reindex(close.index).dropna()
-                    low = raw[(sym, "Low")].reindex(close.index).dropna()
+                    close = as_series(raw[(sym, "Close")], sym).dropna()
+                    volume = as_series(raw[(sym, "Volume")], sym).fillna(0)
+                    high = as_series(raw[(sym, "High")], sym).reindex(close.index).dropna()
+                    low = as_series(raw[(sym, "Low")], sym).reindex(close.index).dropna()
                 aligned = close.index.intersection(high.index).intersection(low.index)
                 close = close.reindex(aligned).dropna()
                 volume = volume.reindex(close.index).fillna(0)
@@ -1010,10 +1033,10 @@ def yahoo_history(symbols):
             )
             if raw is None or len(raw) == 0:
                 continue
-            close = raw["Close"].dropna()
-            volume = raw["Volume"].fillna(0)
-            high = raw["High"].reindex(close.index).dropna()
-            low = raw["Low"].reindex(close.index).dropna()
+            close = as_series(raw["Close"], sym).dropna()
+            volume = as_series(raw["Volume"], sym).fillna(0)
+            high = as_series(raw["High"], sym).reindex(close.index).dropna()
+            low = as_series(raw["Low"], sym).reindex(close.index).dropna()
             aligned = close.index.intersection(high.index).intersection(low.index)
             close = close.reindex(aligned).dropna()
             volume = volume.reindex(close.index).fillna(0)
