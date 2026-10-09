@@ -137,6 +137,7 @@ jobs:
                           print(f"{name}: restored last known good snapshot")
                   except Exception as exc:
                       print(f"{name}: restore warning: {exc}")
+          PY
 
       - name: Validate market snapshots
         run: |
