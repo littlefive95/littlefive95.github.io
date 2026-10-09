@@ -3,10 +3,11 @@ name: Alpha Watch Data Refresh
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "data.json"
-      - "taiwan_data.json"
-      - "crypto_data.json"
+    # Only pipeline/workflow changes trigger an immediate rebuild. UI/docs edits
+    # should not start unnecessary market-data jobs or race with publication.
+    paths:
+      - "scripts/update_data.py"
+      - ".github/workflows/pages.yml"
   # Run every 15 minutes, offset from common quarter-hour boundaries.
   schedule:
     - cron: "7,22,37,52 * * * *"
@@ -56,8 +57,56 @@ jobs:
             if [ -f "$f" ]; then cp "$f" ".data-backup/$f"; fi
           done
 
-      - name: Build live market data
-        run: python scripts/update_data.py
+      - name: Build live market data (retry transient provider failures)
+        run: |
+          # Yahoo Finance and crypto APIs occasionally return transient errors.
+          # Retry the full build before falling back to the last good snapshots.
+          for attempt in 1 2 3; do
+            echo "Market data build attempt ${attempt}/3"
+            if ! python scripts/update_data.py; then
+              echo "Build command returned non-zero on attempt ${attempt}."
+            fi
+
+            if python - <<'PY'
+          import json
+          from pathlib import Path
+          problems = []
+          for name in ("data.json", "taiwan_data.json", "crypto_data.json"):
+              try:
+                  payload = json.loads(Path(name).read_text(encoding="utf-8"))
+                  rows = payload.get("rows")
+                  if payload.get("status") == "DATA_ERROR" or not isinstance(rows, list) or not rows:
+                      problems.append(f"{name}: DATA_ERROR or empty rows")
+                  if payload.get("fallback"):
+                      problems.append(f"{name}: fallback snapshot still present")
+                  backup_path = Path(".data-backup") / name
+                  if backup_path.exists():
+                      previous = json.loads(backup_path.read_text(encoding="utf-8"))
+                      if payload.get("asOf") == previous.get("asOf"):
+                          problems.append(f"{name}: asOf did not advance")
+              except Exception as exc:
+                  problems.append(f"{name}: invalid snapshot ({exc})")
+          if problems:
+              print("Build validation failed:")
+              for problem in problems:
+                  print(f" - {problem}")
+              raise SystemExit(1)
+          print("All three snapshots rebuilt successfully.")
+          PY
+            then
+              echo "Market data build succeeded on attempt ${attempt}."
+              exit 0
+            fi
+
+            if [ "${attempt}" -lt 3 ]; then
+              echo "Transient or incomplete build; waiting 15 seconds before retry."
+              sleep 15
+            fi
+          done
+
+          echo "::warning::All build retries exhausted; the next step will restore last-good snapshots and freshness validation will raise an alert if data is stale."
+          # Allow the fallback step to run; stale data remains a visible failure
+          # in the Verify snapshot freshness step rather than losing the snapshot.
 
       - name: Keep last known good data on provider failure
         run: |
