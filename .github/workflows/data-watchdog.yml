@@ -1,0 +1,149 @@
+name: Alpha Watch Data Watchdog
+
+on:
+  # Run immediately when this watchdog is installed or modified.
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/data-watchdog.yml"
+  # Independent schedule offset from the primary data workflow.
+  schedule:
+    - cron: "3,13,23,33,43,53 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+concurrency:
+  group: alpha-watch-data-watchdog
+  cancel-in-progress: true
+
+jobs:
+  check-and-recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check snapshot freshness and trigger recovery
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const files = ["data.json", "taiwan_data.json", "crypto_data.json"];
+            const staleAfterMinutes = 35;
+            const alertAfterMinutes = 50;
+            const snapshots = [];
+
+            for (const path of files) {
+              try {
+                const response = await github.rest.repos.getContent({
+                  owner, repo, path, ref: "main"
+                });
+                if (Array.isArray(response.data) || !response.data.content) {
+                  throw new Error("Expected a JSON file");
+                }
+                const payload = JSON.parse(
+                  Buffer.from(response.data.content, "base64").toString("utf8")
+                );
+                const timestamp = Date.parse(payload.asOf || "");
+                const ageMinutes = Number.isFinite(timestamp)
+                  ? (Date.now() - timestamp) / 60000
+                  : Infinity;
+                const invalid = payload.status === "DATA_ERROR"
+                  || !Array.isArray(payload.rows)
+                  || payload.rows.length === 0
+                  || !Number.isFinite(timestamp);
+                const stale = invalid || Boolean(payload.fallback)
+                  || ageMinutes > staleAfterMinutes;
+                snapshots.push({
+                  path, asOf: payload.asOf || "missing",
+                  status: payload.status || "unknown",
+                  fallback: Boolean(payload.fallback),
+                  ageMinutes, invalid, stale
+                });
+              } catch (error) {
+                snapshots.push({
+                  path, asOf: "unreadable", status: "error",
+                  fallback: false, ageMinutes: Infinity,
+                  invalid: true, stale: true, error: String(error)
+                });
+              }
+            }
+
+            for (const item of snapshots) {
+              const age = Number.isFinite(item.ageMinutes)
+                ? item.ageMinutes.toFixed(1) + " min"
+                : "unknown";
+              core.info(`${item.path}: ${age}; status=${item.status}; fallback=${item.fallback}; stale=${item.stale}`);
+            }
+
+            if (!snapshots.some(item => item.stale)) {
+              core.info("All Alpha Watch snapshots are fresh.");
+              return;
+            }
+
+            const report = snapshots.map(item => {
+              const age = Number.isFinite(item.ageMinutes)
+                ? item.ageMinutes.toFixed(1) + " minutes"
+                : "unknown age";
+              return `- ${item.path}: asOf=${item.asOf}, age=${age}, status=${item.status}, fallback=${item.fallback}`;
+            }).join("\n");
+
+            const oldestAge = Math.max(...snapshots.map(item => item.ageMinutes));
+            const needsAlert = snapshots.some(item =>
+              item.invalid || item.fallback || item.ageMinutes > alertAfterMinutes
+            );
+            const title = "[Alpha Watch] Data refresh failed or snapshots stale";
+
+            if (needsAlert) {
+              const { data: openIssues } = await github.rest.issues.listForRepo({
+                owner, repo, state: "open", per_page: 100
+              });
+              const existing = openIssues.find(issue =>
+                !issue.pull_request && issue.title === title
+              );
+              if (!existing) {
+                const body = [
+                  "資料看門狗發現 Alpha Watch 快照過期、無效或使用備援資料。",
+                  "",
+                  report,
+                  "",
+                  `Watchdog run: ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+                  "看門狗會嘗試自動重新觸發主更新工作流。"
+                ].join("\n");
+                await github.rest.issues.create({
+                  owner, repo, title, assignees: [owner], body
+                });
+              }
+            }
+
+            const { data: runs } = await github.rest.actions.listWorkflowRuns({
+              owner, repo, workflow_id: "pages.yml", branch: "main", per_page: 20
+            });
+            const activeStatuses = new Set([
+              "queued", "in_progress", "waiting", "requested", "pending"
+            ]);
+            const activeRun = runs.workflow_runs.find(run =>
+              activeStatuses.has(run.status)
+            );
+            const recentDispatch = runs.workflow_runs.find(run =>
+              run.event === "workflow_dispatch"
+              && (Date.now() - Date.parse(run.created_at)) < 15 * 60000
+            );
+
+            if (activeRun) {
+              core.info(`Primary data workflow #${activeRun.id} is already ${activeRun.status}; not dispatching a duplicate.`);
+              return;
+            }
+            if (recentDispatch) {
+              core.info(`A recovery dispatch was already started at ${recentDispatch.created_at}; waiting before retrying.`);
+              return;
+            }
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner, repo, workflow_id: "pages.yml", ref: "main"
+            });
+            core.warning(
+              `Stale Alpha Watch snapshots detected (oldest age ${Number.isFinite(oldestAge) ? oldestAge.toFixed(1) : "unknown"} minutes). Dispatched a recovery refresh.\n${report}`
+            );
