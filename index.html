@@ -52,19 +52,13 @@
   <div class="ph"><div><h2 id="mainHeading">即時 / 最新候選</h2><div class="subline" id="mainSubline">分數代表標的強度；Entry Status 代表目前價格是否接近計畫區。</div></div><span id="sourceBadge" class="badge amber">LOADING</span></div>
 
   <div class="toolbar-top">
-    <div class="tabs" id="standardTabs">
-      <button class="tab active" data-tab="all">全部</button>
-      <button class="tab" data-tab="momentum">動能</button>
-      <button class="tab" data-tab="value">估值</button>
-      <button class="tab" data-tab="quality" title="依獲利率、ROE、負債結構評估；不使用股價趨勢或估值">品質</button>
-    </div>
-    <div class="crypto-groups" id="cryptoGroups" style="display:none"></div>
+
   </div>
 
   <div class="entry-legend">評分＝標的強度，不代表立即買入；請以交易計畫中的 <b>Entry Status</b> 判斷目前是否接近入場區。</div>
 
 <div class="filters">
-    <div class="entry-status-label">Entry Status</div>
+    <select class="select" id="entryStatus"><option value="all">Entry Status：全部</option><option value="可考慮進場區">可考慮進場區</option><option value="等待回踩">等待回踩</option><option value="等待價格靠近">等待價格靠近</option><option value="價格偏高／不追">價格偏高／不追</option><option value="失效／跌破停損區">失效／跌破停損區</option></select>
   </div>
 
   <section class="compact-category" id="categoryPanel" style="display:none">
@@ -179,7 +173,7 @@ function rankMoveHtml(x){
   return "";
 }
 function render(){
-  var es="all";
+  var es=document.getElementById("entryStatus").value;
   var arr=data.filter(function(x){
     if(es!=="all" && String(x.entryStatus||"")!==es) return false;
     if(mode==="crypto" && cryptoCategory!=="all" && x.category!==cryptoCategory) return false;
@@ -418,7 +412,7 @@ document.getElementById("cryptoGroups").addEventListener("click",function(e){
   document.querySelectorAll(".crypto-group").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-crypto-group")===cryptoCategory)});
   render();
 });
-/* CSV export removed. */
+document.getElementById("entryStatus").addEventListener("input",render);document.getElementById("entryStatus").addEventListener("change",render);
 setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);
 </script>
 </body>
