@@ -1489,6 +1489,7 @@ CRYPTO_CATEGORY = {
     "TAO": "AI／去中心化算力",
     "FET": "AI／去中心化算力",
     "RENDER": "AI／GPU算力",
+    "WLD": "數位身分／AI",
     "INJ": "DeFi／金融基礎設施",
 }
 
@@ -1521,6 +1522,7 @@ CRYPTO_GROUP = {
     "TAO": "AI",
     "FET": "AI",
     "RENDER": "AI",
+    "WLD": "AI",
     "DOGE": "Meme",
     "SHIB": "Meme",
     "PEPE": "Meme",
