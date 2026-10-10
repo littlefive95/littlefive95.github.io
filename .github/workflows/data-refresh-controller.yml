@@ -1,13 +1,12 @@
 name: Alpha Watch Continuous Refresh Controller
 
 on:
-  # Bootstrap the controller when this workflow is installed or changed.
   push:
     branches: [main]
     paths:
       - ".github/workflows/data-refresh-controller.yml"
   workflow_dispatch:
-  # Backup bootstrap. The controller normally renews itself before this is needed.
+  # Backup only; the live controller renews itself before reaching the runner time limit.
   schedule:
     - cron: "7 */6 * * *"
 
@@ -15,8 +14,6 @@ permissions:
   contents: read
   actions: write
 
-# Only one controller should be active. A continuation is queued while its
-# predecessor finishes, then starts immediately afterward.
 concurrency:
   group: alpha-watch-refresh-controller
   cancel-in-progress: false
@@ -24,35 +21,79 @@ concurrency:
 jobs:
   keep-refreshing:
     runs-on: ubuntu-latest
-    # GitHub-hosted jobs have a 6-hour maximum; leave a wide safety margin.
     timeout-minutes: 350
     steps:
-      - name: Trigger data refresh every 15 minutes and renew controller
+      - name: Trigger refresh, retry transient API failures, and renew controller
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
 
           interval_seconds=900
           controller_runtime_seconds=$((5 * 60 * 60))
           deadline=$((SECONDS + controller_runtime_seconds))
           next_tick=$SECONDS
 
-          echo "Controller active. Main data workflow will be checked every 15 minutes."
+          retry() {
+            local attempts="$1"
+            shift
+            local attempt=1
+            while (( attempt <= attempts )); do
+              if "$@"; then
+                return 0
+              fi
+              echo "::warning::GitHub API command failed (attempt ${attempt}/${attempts}): $*" >&2
+              if (( attempt < attempts )); then
+                sleep $((attempt * 5))
+              fi
+              attempt=$((attempt + 1))
+            done
+            return 1
+          }
+
+          main_workflow="repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml"
+          controller_workflow="repos/${GITHUB_REPOSITORY}/actions/workflows/data-refresh-controller.yml"
+
+          echo "Controller active. Main data workflow is checked every 15 minutes."
 
           while (( SECONDS < deadline )); do
-            echo "Checking the main data workflow at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            echo "Checking data workflow at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            active_runs=""
 
-            active_count=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/runs?branch=main&per_page=20" \
-              --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "requested" or .status == "pending")] | length')
+            if active_runs=$(retry 3 gh api "${main_workflow}/runs?branch=main&per_page=20" \
+              --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "requested" or .status == "pending") | [.id, .status, .created_at, (.run_started_at // "")] | @tsv] | .[]'); then
+              active_count=0
+              while IFS=$'\t' read -r run_id run_status created_at started_at; do
+                [[ -z "${run_id:-}" ]] && continue
+                timestamp="${started_at:-$created_at}"
+                run_epoch=$(date -u -d "$timestamp" +%s 2>/dev/null || echo 0)
+                now_epoch=$(date -u +%s)
+                age_seconds=$((now_epoch - run_epoch))
 
-            if [[ "$active_count" =~ ^[0-9]+$ ]] && (( active_count > 0 )); then
-              echo "A main data refresh is already queued/running; avoid duplicate dispatch."
+                # A stuck queued/running job should not block refresh recovery indefinitely.
+                if (( run_epoch > 0 && age_seconds > 2100 )); then
+                  echo "::warning::Main refresh #${run_id} has been active for ${age_seconds}s; requesting cancellation before recovery."
+                  retry 3 gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/cancel" \
+                    || echo "::warning::Could not cancel stale run #${run_id}; a recovery dispatch will still be attempted."
+                  continue
+                fi
+                active_count=$((active_count + 1))
+              done <<< "$active_runs"
+
+              if (( active_count > 0 )); then
+                echo "${active_count} main refresh run(s) are already queued/running; skipping duplicate dispatch."
+              else
+                echo "No fresh active refresh found; dispatching pages.yml."
+                if ! retry 4 gh api --method POST "${main_workflow}/dispatches" -f ref=main; then
+                  echo "::warning::Main refresh dispatch failed after retries; the next controller check will retry."
+                fi
+              fi
             else
-              echo "No active main data refresh found; dispatching pages.yml."
-              gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" \
-                -f ref=main
+              echo "::warning::Could not query active runs after retries; attempting a best-effort refresh dispatch."
+              if ! retry 4 gh api --method POST "${main_workflow}/dispatches" -f ref=main; then
+                echo "::warning::Best-effort refresh dispatch also failed; will try again at the next interval."
+              fi
             fi
 
             next_tick=$((next_tick + interval_seconds))
@@ -61,12 +102,16 @@ jobs:
               echo "Next controller check in ${remaining} seconds."
               sleep "$remaining"
             else
-              echo "Controller overran the 15-minute cadence; checking again immediately."
+              echo "::warning::Refresh loop overran the 15-minute interval; checking again immediately."
               next_tick=$SECONDS
             fi
           done
 
-          echo "Renewing controller via workflow_dispatch before this job reaches its time limit."
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/data-refresh-controller.yml/dispatches" \
-            -f ref=main
-          echo "Continuation requested. The next controller run will take over after this run exits."
+          echo "Controller reached its renewal point; dispatching the next controller run."
+          if retry 8 gh api --method POST "${controller_workflow}/dispatches" -f ref=main; then
+            echo "Continuation successfully requested. The next controller should start after this run exits."
+            exit 0
+          fi
+
+          echo "::error::Controller continuation could not be dispatched after retries. Controller rescue workflow will attempt recovery."
+          exit 1
