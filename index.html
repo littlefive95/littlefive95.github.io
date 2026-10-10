@@ -418,19 +418,7 @@ document.getElementById("cryptoGroups").addEventListener("click",function(e){
   document.querySelectorAll(".crypto-group").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-crypto-group")===cryptoCategory)});
   render();
 });
-/* CSV export removed: the page now keeps Entry Status as a display-only label. */
-function legacyCsvExportDisabled(){
-  var rows;
-  if(mode==="crypto"){
-    rows=[["Rank","PreviousRank","RankChange","Code","Pair","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","24HVolumeUSDT","VolumeRatio","MA20","MA50","MA200","Risk","Score"]];
-    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,20).forEach(function(x){rows.push([x.rank,x.previousRank,x.rankChange,x.ticker,x.ticker+"/USDT",x.sector||"加密貨幣",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.quoteVolume24h,x.volumeRatio,x.priceAvg20,x.priceAvg50,x.priceAvg200,x.risk,x.score])});
-} else {
-    rows=[["Rank","PreviousRank","RankChange","Code","Company","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","Valuation","ValuationSource","ValuationConfidence","FPE","FPESource","ForwardEPS","ForwardEPSSource","ForwardEPSAnalysts","ForwardEPSLow","ForwardEPSHigh","EPSGrowthPct","Analysts","Risk","Score"]];
-    data.slice().sort(function(a,b){return Number(b.score||0)-Number(a.score||0)}).slice(0,20).forEach(function(x){rows.push([x.rank,x.previousRank,x.rankChange,x.ticker,x.name,x.sector||"未分類",x.exchange,x.price,x.changePct,x.entryLow,x.entryPrice,x.entryHigh,x.stopLoss,x.takeProfit1,x.takeProfit2,x.riskReward,x.entryType,x.entryStatus,x.valuation,x.valuationSource,x.valuationConfidence,x.fpe,x.fpeSource,x.forwardEps,x.forwardEpsSource,x.forwardEpsAnalysts,x.forwardEpsLow,x.forwardEpsHigh,x.epsGrowthPct,x.analysts,x.risk,x.score])});
-  }
-  var csv="\ufeff"+rows.map(function(r){return r.map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")}).join("\n");
-  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=CFG[mode].csv;a.click();
-});;
+/* CSV export removed. */
 setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);
 </script>
 </body>
