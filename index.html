@@ -64,8 +64,7 @@
   <div class="entry-legend">評分＝標的強度，不代表立即買入；請以交易計畫中的 <b>Entry Status</b> 判斷目前是否接近入場區。</div>
 
 <div class="filters">
-    <select class="select" id="entryStatus"><option value="all">Entry Status：全部</option><option value="可考慮進場區">可考慮進場區</option><option value="等待回踩">等待回踩</option><option value="等待價格靠近">等待價格靠近</option><option value="價格偏高／不追">價格偏高／不追</option><option value="失效／跌破停損區">失效／跌破停損區</option></select>
-    <button class="btn" id="csvBtn">CSV</button>
+    <div class="entry-status-label">Entry Status</div>
   </div>
 
   <section class="compact-category" id="categoryPanel" style="display:none">
@@ -180,7 +179,7 @@ function rankMoveHtml(x){
   return "";
 }
 function render(){
-  var es=document.getElementById("entryStatus").value;
+  var es="all";
   var arr=data.filter(function(x){
     if(es!=="all" && String(x.entryStatus||"")!==es) return false;
     if(mode==="crypto" && cryptoCategory!=="all" && x.category!==cryptoCategory) return false;
@@ -397,7 +396,7 @@ function switchMode(next){
   mode=next; tab="all"; cryptoCategory="all";
   document.querySelectorAll(".market-tab").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-market")===mode)});
   document.querySelectorAll(".tab").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-tab")==="all")});
-  document.getElementById("entryStatus").value="all";
+  
   setHeader(); setClock(); loadData();
 }
 document.querySelectorAll(".market-tab").forEach(function(el){el.addEventListener("click",function(){switchMode(el.getAttribute("data-market"))})});
@@ -410,7 +409,7 @@ document.getElementById("refreshBtn").addEventListener("click",function(){
   loadRadar();
   setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 檢查最新資料";},1200);
 });
-["entryStatus"].forEach(function(id){document.getElementById(id).addEventListener("input",render);document.getElementById(id).addEventListener("change",render)});
+
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
 document.getElementById("cryptoGroups").addEventListener("click",function(e){
   var el=e.target.closest(".crypto-group");
@@ -419,7 +418,8 @@ document.getElementById("cryptoGroups").addEventListener("click",function(e){
   document.querySelectorAll(".crypto-group").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-crypto-group")===cryptoCategory)});
   render();
 });
-document.getElementById("csvBtn").addEventListener("click",function(){
+/* CSV export removed: the page now keeps Entry Status as a display-only label. */
+function legacyCsvExportDisabled(){
   var rows;
   if(mode==="crypto"){
     rows=[["Rank","PreviousRank","RankChange","Code","Pair","Sector","Exchange","Price","ChangePct","EntryLow","EntryPrice","EntryHigh","StopLoss","TakeProfit1","TakeProfit2","RiskReward","EntryType","EntryStatus","24HVolumeUSDT","VolumeRatio","MA20","MA50","MA200","Risk","Score"]];
