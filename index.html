@@ -198,10 +198,6 @@ function render(){
     if(bi<0) bi=preferred.length;
     return ai-bi || a.localeCompare(b,"zh-Hant");
   });
-  document.getElementById("cryptoGroups").innerHTML=mode==="crypto"
-    ? ["all"].concat(cats).map(function(g){return "<button class='crypto-group "+((cryptoCategory===g)?"active":"")+"' data-crypto-group='"+esc(g)+"'>"+(g==="all"?"全部":g)+"</button>"}).join("")
-    : "";
-  document.getElementById("cryptoGroups").style.display=mode==="crypto"?"flex":"none";
 
   if(mode==="crypto"){
     document.getElementById("table").innerHTML=arr.length?("<table><thead><tr><th>CODE</th><th>PRICE</th><th>24H</th><th>SIGNAL</th><th>交易計畫</th><th>CMC</th><th>量能</th><th>RISK / SCORE</th><th>核心驅動</th></tr></thead><tbody>"+
@@ -242,7 +238,6 @@ function setHeader(){
   document.getElementById("mainHeading").textContent=mode==="tw"?"最近交易日 TOP 20":mode==="crypto"?"24H TOP 20":"即時 / 最新 TOP 20";
   document.getElementById("mainSubline").textContent=mode==="crypto"?"依 24H 動能、量能、趨勢與流動性排序；分數 ≠ 現在買點，Entry Status 另行判斷。":"依趨勢、動能、估值、成長與品質排序；分數 ≠ 現在買點，Entry Status 另行判斷。";
   document.getElementById("coverageLabel").textContent=mode==="crypto"?"CMC 覆蓋率":mode==="tw"?"估值覆蓋率":"FPE 覆蓋率";
-  document.getElementById("standardTabs").style.display=mode==="crypto"?"none":"flex";
   document.getElementById("categoryPanel").style.display=mode==="crypto"?"block":"none";
   document.getElementById("valuationHint").textContent=mode==="us"?"FPE = 最新股價 ÷ 下一年度共識 EPS；搭配 EPS 成長、趨勢與風險一起看。":mode==="tw"?"估值優先使用 Forward P/E；缺少時用 +1Y 共識 Forward EPS 推算，再 fallback 至 PE；每筆估值另標示來源、分析師數與信心。":"FPE / Forward EPS 不適用於加密貨幣。";
   document.getElementById("rulesText").innerHTML=mode==="us"?"趨勢：50/200 日均線<br>動能：日內漲跌幅<br>估值：FPE<br>成長：Forward EPS 年增<br>品質：利潤率 / ROE / 負債結構（獨立於動能與估值）<br>事件：突破 / 跌破 / 爆量":mode==="tw"?"趨勢：20/50/200 日均線<br>動能：當日漲跌幅<br>量能：成交量 / 20日均量<br>估值：FPE / PE<br>成長：Forward EPS 成長<br>品質：利潤率 / ROE / 負債結構<br>事件：突破 / 跌破 / 爆量":"趨勢：20/50/200 日均線<br>動能：24H 漲跌幅<br>量能：24H 成交量 / 20日均量<br>流動性：Binance 24H Volume<br>市場地位：CMC Rank<br>事件：突破 / 跌破 / 爆量";
@@ -405,13 +400,7 @@ document.getElementById("refreshBtn").addEventListener("click",function(){
 });
 
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
-document.getElementById("cryptoGroups").addEventListener("click",function(e){
-  var el=e.target.closest(".crypto-group");
-  if(!el) return;
-  cryptoCategory=el.getAttribute("data-crypto-group")||"all";
-  document.querySelectorAll(".crypto-group").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-crypto-group")===cryptoCategory)});
-  render();
-});
+
 document.getElementById("entryStatus").addEventListener("input",render);document.getElementById("entryStatus").addEventListener("change",render);
 setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);
 </script>
