@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: alpha-watch-controller-rescue
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   ensure-controller:
@@ -32,6 +32,8 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const controllerWorkflow = "data-refresh-controller.yml";
+            const forceRestart = context.eventName === "push"
+              && String(context.payload.head_commit?.message || "").includes("[force-controller-restart]");
             const staleAfterMinutes = 330;
             const activeStatuses = new Set([
               "queued", "in_progress", "waiting", "requested", "pending"
@@ -45,6 +47,38 @@ jobs:
             const active = data.workflow_runs.filter(run =>
               activeStatuses.has(run.status)
             );
+
+            if (forceRestart) {
+              core.warning("Force-restart marker detected; replacing the active controller with the updated retry-enabled version.");
+              await Promise.all(active.map(async run => {
+                try {
+                  await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
+                  core.info(`Cancellation requested for controller #${run.id} (${run.status}).`);
+                } catch (error) {
+                  core.warning(`Could not cancel controller #${run.id}: ${error.message}`);
+                }
+              }));
+
+              let remaining = active;
+              for (let attempt = 1; attempt <= 12; attempt++) {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                const latest = await github.rest.actions.listWorkflowRuns({
+                  owner, repo, workflow_id: controllerWorkflow, branch: "main", per_page: 20
+                });
+                remaining = latest.data.workflow_runs.filter(run => activeStatuses.has(run.status));
+                if (remaining.length === 0) break;
+              }
+
+              if (remaining.length > 0) {
+                core.warning("A controller is still transitioning; dispatching the new version into the controller concurrency queue.");
+              }
+              await github.rest.actions.createWorkflowDispatch({
+                owner, repo, workflow_id: controllerWorkflow, ref: "main"
+              });
+              core.info("Updated controller dispatch requested.");
+              return;
+            }
+
             const stale = active.filter(run => {
               const startedAt = run.run_started_at || run.created_at;
               return now - Date.parse(startedAt) > staleAfterMinutes * 60 * 1000;
