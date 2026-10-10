@@ -9,6 +9,10 @@ on:
   # Independent schedule offset from the primary data workflow.
   schedule:
     - cron: "3,13,23,33,43,53 * * * *"
+  # React immediately when the main refresh workflow finishes unsuccessfully.
+  workflow_run:
+    workflows: ["Alpha Watch Data Refresh"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -78,7 +82,18 @@ jobs:
               core.info(`${item.path}: ${age}; status=${item.status}; fallback=${item.fallback}; stale=${item.stale}`);
             }
 
-            if (!snapshots.some(item => item.stale)) {
+            const sourceRun = context.payload.workflow_run;
+            const failedRefreshEvent = context.eventName === "workflow_run"
+              && sourceRun?.name === "Alpha Watch Data Refresh"
+              && sourceRun?.conclusion !== "success";
+
+            if (failedRefreshEvent) {
+              core.warning(
+                `Primary refresh run #${sourceRun.id} ended with conclusion=${sourceRun.conclusion}; starting immediate failure recovery even if snapshots are not yet stale.`
+              );
+            }
+
+            if (!snapshots.some(item => item.stale) && !failedRefreshEvent) {
               core.info("All Alpha Watch snapshots are fresh.");
               return;
             }
@@ -91,7 +106,7 @@ jobs:
             }).join("\n");
 
             const oldestAge = Math.max(...snapshots.map(item => item.ageMinutes));
-            const needsAlert = snapshots.some(item =>
+            const needsAlert = failedRefreshEvent || snapshots.some(item =>
               item.invalid || item.fallback || item.ageMinutes > alertAfterMinutes
             );
             const title = "[Alpha Watch] Data refresh failed or snapshots stale";
@@ -130,14 +145,26 @@ jobs:
             const recentDispatch = runs.workflow_runs.find(run =>
               run.event === "workflow_dispatch"
               && (Date.now() - Date.parse(run.created_at)) < 15 * 60000
+              && (run.status !== "completed" || run.conclusion === "success")
             );
+            const recentFailures = runs.workflow_runs.filter(run =>
+              run.name === "Alpha Watch Data Refresh"
+              && run.conclusion === "failure"
+              && (Date.now() - Date.parse(run.updated_at || run.created_at)) < 30 * 60000
+            ).length;
 
             if (activeRun) {
               core.info(`Primary data workflow #${activeRun.id} is already ${activeRun.status}; not dispatching a duplicate.`);
               return;
             }
             if (recentDispatch) {
-              core.info(`A recovery dispatch was already started at ${recentDispatch.created_at}; waiting before retrying.`);
+              core.info(`A recent successful/active recovery dispatch was started at ${recentDispatch.created_at}; waiting before retrying.`);
+              return;
+            }
+            if (failedRefreshEvent && recentFailures >= 3) {
+              core.error(
+                `Automatic recovery cooldown: ${recentFailures} main refresh runs failed in the last 30 minutes. A recovery was not dispatched to avoid an infinite retry loop; inspect the linked run logs.`
+              );
               return;
             }
 
