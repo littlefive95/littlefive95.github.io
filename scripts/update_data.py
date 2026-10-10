@@ -1117,7 +1117,7 @@ def taiwan_score(row):
     a20 = row.get("priceAvg20") or 0
     a50 = row.get("priceAvg50") or 0
     a200 = row.get("priceAvg200") or 0
-    vr = row.get("volumeRatio") or 0
+    vr = row.get("volumeRatio")
     fpe = row.get("fpe")
     growth = row.get("epsGrowthPct")
     pe = row.get("pe")
@@ -1620,12 +1620,23 @@ def cmc_tags(item):
     return tags if isinstance(tags, list) else []
 
 def crypto_klines(symbol, limit=210):
-    data = crypto_get("/klines", {
+    params = {
         "symbol": symbol,
         "interval": "1d",
         "limit": limit,
-    })
-    if not isinstance(data, list) or len(data) < 20:
+    }
+    data = crypto_get("/klines", params)
+    # Retry one short candle response once; some public API edges temporarily
+    # return a partial payload even for established spot pairs.
+    if isinstance(data, list) and len(data) < 20:
+        time.sleep(1)
+        data = crypto_get("/klines", params)
+    if not isinstance(data, list):
+        kind = type(data).__name__
+        print(f"Crypto kline invalid response {symbol}: {kind}", file=sys.stderr)
+        return None
+    if len(data) < 20:
+        print(f"Crypto kline history too short {symbol}: {len(data)} candles; need at least 20", file=sys.stderr)
         return None
     closes = []
     highs = []
@@ -1640,6 +1651,10 @@ def crypto_klines(symbol, limit=210):
         except Exception:
             pass
     if len(closes) < 20 or len(highs) != len(closes) or len(lows) != len(closes):
+        print(
+            f"Crypto kline parse incomplete {symbol}: closes={len(closes)}, highs={len(highs)}, lows={len(lows)}",
+            file=sys.stderr,
+        )
         return None
     return {"close": closes, "high": highs, "low": lows, "quoteVolume": quote_vols}
 
@@ -1703,7 +1718,9 @@ def crypto_score(row):
         risk = "中"
         addr("24H漲幅偏大")
 
-    if vr >= 2:
+    if vr is None:
+        addr("歷史量能資料不足")
+    elif vr >= 2:
         pts += 20
         addp(20, "成交量明顯放大")
     elif vr >= 1.5:
@@ -1769,6 +1786,11 @@ def crypto_score(row):
     if abs(chg) >= 10:
         risk = "高"
         addr("單日波動達兩位數")
+
+    if row.get("historyAvailable") is False:
+        pts -= 10
+        addn(10, "歷史K線缺失，評分信心降低")
+        addr("歷史K線資料不足，均線與入場區無法完整計算")
 
     pts = max(0, min(100, round(pts)))
     label = "進場候選" if pts >= 85 else "優先研究" if pts >= 78 else "值得觀察" if pts >= 68 else "中性" if pts >= 58 else "偏弱"
@@ -1861,31 +1883,62 @@ def build_crypto_live():
 
     candidates.sort(key=lambda x: x["quoteVolume24h"], reverse=True)
     shortlist = candidates[:60]
+    print(
+        f"Crypto candidate diagnostics: ticker_pairs={len(tickers)}, "
+        f"eligible_spot_pairs={len(candidates)}, shortlist={len(shortlist)}"
+    )
 
     enriched = []
+    history_count = 0
+    history_missing = 0
     for row in shortlist:
         h = crypto_klines(row["symbol"], limit=210)
-        if not h:
-            continue
-        close = h["close"]
-        qv = h["quoteVolume"]
-        row["priceAvg20"] = sum(close[-20:]) / 20 if len(close) >= 20 else None
-        row["priceAvg50"] = sum(close[-50:]) / 50 if len(close) >= 50 else None
-        row["priceAvg200"] = sum(close[-200:]) / 200 if len(close) >= 200 else None
-        avg20 = sum(qv[-20:]) / 20 if len(qv) >= 20 else None
-        row["volumeRatio"] = row["quoteVolume24h"] / avg20 if avg20 and avg20 > 0 else None
-        row["_close_series"] = close
+        if h:
+            history_count += 1
+            close = h["close"]
+            qv = h["quoteVolume"]
+            row["priceAvg20"] = sum(close[-20:]) / 20 if len(close) >= 20 else None
+            row["priceAvg50"] = sum(close[-50:]) / 50 if len(close) >= 50 else None
+            row["priceAvg200"] = sum(close[-200:]) / 200 if len(close) >= 200 else None
+            avg20 = sum(qv[-20:]) / 20 if len(qv) >= 20 else None
+            row["volumeRatio"] = row["quoteVolume24h"] / avg20 if avg20 and avg20 > 0 else None
+            row["historyAvailable"] = True
+            row["historyNote"] = None
+            row["_close_series"] = close
+            row.update(entry_plan(row, h, "crypto"))
+            row["eventSignals"] = historical_event_signals(
+                row["price"], row.get("_close_series"), row.get("volumeRatio"),
+                row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200")
+            )
+        else:
+            # Do not silently drop a liquid, live-priced coin because historical
+            # candles are temporarily missing. Include it transparently, with a
+            # lower-confidence score and no fabricated MA/ATR/entry price.
+            history_missing += 1
+            row["historyAvailable"] = False
+            row["historyNote"] = "歷史K線不足；暫無法計算均線、ATR 與進場區"
+            row["priceAvg20"] = None
+            row["priceAvg50"] = None
+            row["priceAvg200"] = None
+            row["volumeRatio"] = None
+            row["eventSignals"] = ["歷史K線資料不足"]
+            row.update(entry_plan(row, None, "crypto"))
+
         sc, label, risk, reasons = crypto_score(row)
         row["score"] = sc
         row["label"] = label
         row["risk"] = risk
-        row["reasons"] = reasons
-        row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
-        row.update(entry_plan(row, h, "crypto"))
+        if not h:
+            reasons.append("資料品質｜" + row["historyNote"])
+        row["reasons"] = reasons[:10]
         row.pop("_close_series", None)
         row.pop("symbol", None)
         enriched.append(row)
 
+    print(
+        f"Crypto history diagnostics: valid_history={history_count}, "
+        f"missing_history={history_missing}, ranked_rows={len(enriched)}"
+    )
     enriched.sort(key=lambda r: (-r["score"], -(r.get("quoteVolume24h") or 0)))
     rows = enriched[:20]
     apply_rank_history(rows, "crypto_data.json", limit=20)
@@ -1907,14 +1960,19 @@ def build_crypto_live():
         "date": now.date().isoformat(),
         "rows": rows,
         "coverage": 100,
-        "universeCount": len(enriched),
+        "universeCount": len(candidates),
+        "candidateCount": len(candidates),
+        "shortlistCount": len(shortlist),
+        "historyCount": history_count,
+        "historyMissingCount": history_missing,
+        "historyCoverage": round(100 * history_count / max(1, len(enriched))),
         "focusCount": len(rows),
         "categoryStats": category_stats,
         "cmcCoverage": round(100 * sum(1 for r in enriched if r.get("cmcRank") is not None) / max(1, len(enriched))),
         "method": "Binance public spot market data + CoinMarketCap market reference",
         "fpeFormula": "不適用；加密貨幣不使用 FPE / Forward EPS",
         "holiday": [],
-        "note": "24/7 加密貨幣市場；依均線、24H動能、量能、流動性與波動風險排序，僅供研究與監控。",
+        "note": "24/7 加密貨幣市場；候選池依 Binance 現貨 USDT 對與 24H 成交額篩選，缺歷史 K 線的幣種會保留並明確標示資料不足，不會靜默消失。",
     }
 
 def main():
