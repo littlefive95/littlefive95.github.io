@@ -1855,7 +1855,7 @@ def build_crypto_live():
             count = int(float(q.get("count") or 0))
         except Exception:
             continue
-        if price <= 0 or qv < 10_000_000:
+        if price <= 0 or qv < 25_000_000:
             continue
         cmc = cmc_map.get(base, {})
         cmc_rank = cmc.get("rank")
@@ -1972,7 +1972,7 @@ def build_crypto_live():
         "method": "Binance public spot market data + CoinMarketCap market reference",
         "fpeFormula": "不適用；加密貨幣不使用 FPE / Forward EPS",
         "holiday": [],
-        "note": "24/7 加密貨幣市場；候選池使用 Binance 現貨 USDT 對且 24H 成交額至少 1,000 萬 USDT，缺歷史 K 線的幣種會保留並明確標示資料不足，不會靜默消失。",
+        "note": "24/7 加密貨幣市場；候選池使用 Binance 現貨 USDT 對且 24H 成交額至少 2,500 萬 USDT，缺歷史 K 線的幣種會保留並明確標示資料不足，不會靜默消失。",
     }
 
 def main():
