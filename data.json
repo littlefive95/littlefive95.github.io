@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-10T15:50:37.881957-04:00",
+  "asOf": "2026-10-10T16:05:36.126527-04:00",
   "date": "2026-10-10",
   "snapshotDate": "2026-10-09",
   "dataMode": "LATEST_CLOSE",
@@ -1189,7 +1189,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 406,
+  "universeCount": 405,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
