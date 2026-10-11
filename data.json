@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-11T12:55:20.364974-04:00",
+  "asOf": "2026-10-11T13:10:24.935654-04:00",
   "date": "2026-10-11",
   "snapshotDate": "2026-10-09",
   "dataMode": "LATEST_CLOSE",
@@ -120,8 +120,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AFRM",
@@ -180,8 +180,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "TGTX",
