@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-11T16:55:29.255778-04:00",
+  "asOf": "2026-10-11T17:10:32.306195-04:00",
   "date": "2026-10-11",
   "snapshotDate": "2026-10-09",
   "dataMode": "LATEST_CLOSE",
@@ -122,8 +122,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "SIMO",
@@ -180,8 +180,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "TGTX",
