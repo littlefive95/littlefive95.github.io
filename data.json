@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-12T02:40:44.747852-04:00",
+  "asOf": "2026-10-12T02:53:19.506269-04:00",
   "date": "2026-10-12",
   "snapshotDate": "2026-10-12",
   "dataMode": "LATEST_CLOSE",
@@ -1189,7 +1189,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 403,
+  "universeCount": 371,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
