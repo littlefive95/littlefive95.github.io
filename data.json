@@ -1,8 +1,8 @@
 {
-  "status": "MARKET_CLOSED",
-  "asOf": "2026-10-11T23:55:38.341627-04:00",
-  "date": "2026-10-11",
-  "snapshotDate": "2026-10-09",
+  "status": "LIVE",
+  "asOf": "2026-10-12T00:10:38.042611-04:00",
+  "date": "2026-10-12",
+  "snapshotDate": "2026-10-12",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -1193,8 +1193,6 @@
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
-  "holiday": [
-    "Weekend"
-  ],
+  "holiday": [],
   "note": "休市／隔夜顯示最近交易日 TOP 20；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。"
 }
