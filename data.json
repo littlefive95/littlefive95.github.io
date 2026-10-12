@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-12T18:56:05.512298-04:00",
+  "asOf": "2026-10-12T19:11:06.013920-04:00",
   "date": "2026-10-12",
   "snapshotDate": "2026-10-12",
   "dataMode": "INTRADAY",
@@ -68,8 +68,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 445.78,
-      "changePct": 0.32181674,
+      "price": 444.8,
+      "changePct": 0.1012674,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 20.190624,
@@ -299,8 +299,8 @@
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 225.833,
-      "changePct": -0.21518856,
+      "price": 225.6,
+      "changePct": -0.31813416,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -350,64 +350,6 @@
       ],
       "rank": 6,
       "previousRank": 6,
-      "rankChange": 0
-    },
-    {
-      "ticker": "CLS",
-      "name": "Celestica Inc.",
-      "exchange": "NYSE",
-      "sector": "電子零組件",
-      "price": 348.25,
-      "changePct": 0.21582733,
-      "marketCap": 43823616000.0,
-      "volume": 1402639.0,
-      "fpe": 17.681274,
-      "forwardEps": 19.65356,
-      "epsGrowthPct": 75.39317991366686,
-      "analysts": 0,
-      "priceAvg50": 334.328,
-      "priceAvg200": 332.8305,
-      "roe": 0.52691,
-      "margin": 0.07159,
-      "debt": 39.571,
-      "earningsDate": "2026-10-26",
-      "score": 84,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 357.903498840332,
-      "volumeRatio": 0.690165748591162,
-      "eventSignals": [],
-      "atr": 19.3029,
-      "atrPct": 5.54,
-      "support": 334.328,
-      "resistance": 393.72,
-      "entryLow": 330.4674,
-      "entryPrice": 336.2583,
-      "entryHigh": 341.084,
-      "stopLoss": 314.06,
-      "takeProfit1": 393.72,
-      "takeProfit2": 415.9183,
-      "riskReward": 2.59,
-      "entryType": "支撐回踩",
-      "entryStatus": "等待回踩",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 83,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 7,
-      "previousRank": 7,
       "rankChange": 0
     },
     {
@@ -463,9 +405,9 @@
         "momentum",
         "value"
       ],
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "HBM",
@@ -523,8 +465,8 @@
         "value",
         "quality"
       ],
-      "rank": 9,
-      "previousRank": 10,
+      "rank": 8,
+      "previousRank": 9,
       "rankChange": 1
     },
     {
@@ -580,8 +522,8 @@
         "momentum",
         "value"
       ],
-      "rank": 10,
-      "previousRank": 11,
+      "rank": 9,
+      "previousRank": 10,
       "rankChange": 1
     },
     {
@@ -589,8 +531,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.65,
-      "changePct": 0.19485706,
+      "price": 349.42,
+      "changePct": 0.12895441,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -638,8 +580,8 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 12,
+      "rank": 10,
+      "previousRank": 11,
       "rankChange": 1
     },
     {
@@ -647,8 +589,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.19,
-      "changePct": 0.13325052,
+      "price": 353.01,
+      "changePct": 0.082220614,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -688,7 +630,7 @@
       "takeProfit2": 374.9931,
       "riskReward": 1.84,
       "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
+      "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
       "profiles": [
@@ -696,65 +638,8 @@
         "value",
         "quality"
       ],
-      "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
-    },
-    {
-      "ticker": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "電商",
-      "price": 259.57,
-      "changePct": 0.015415769,
-      "marketCap": 2799371812864.0,
-      "volume": 25322105.0,
-      "fpe": 24.767809,
-      "forwardEps": 10.47852,
-      "epsGrowthPct": 26.133253084562156,
-      "analysts": 0,
-      "priceAvg50": 259.0956,
-      "priceAvg200": 242.15155,
-      "roe": 0.30558002,
-      "margin": 0.1744,
-      "debt": 45.617,
-      "earningsDate": "2026-10-29",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 252.3190010070801,
-      "volumeRatio": 0.6916972182418528,
-      "eventSignals": [],
-      "atr": 5.5729,
-      "atrPct": 2.15,
-      "support": 259.0956,
-      "resistance": 262.8,
-      "entryLow": 257.981,
-      "entryPrice": 259.6529,
-      "entryHigh": 261.0461,
-      "stopLoss": 253.2441,
-      "takeProfit1": 287.2,
-      "takeProfit2": 293.6088,
-      "riskReward": 4.3,
-      "entryType": "支撐回踩",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
-      "rank": 13,
-      "previousRank": 14,
+      "rank": 11,
+      "previousRank": 12,
       "rankChange": 1
     },
     {
@@ -762,8 +647,8 @@
       "name": "IAMGOLD Corporation",
       "exchange": "NYSE",
       "sector": "黃金礦業",
-      "price": 18.9,
-      "changePct": 1.7770594,
+      "price": 18.8,
+      "changePct": 1.2385544,
       "marketCap": 10603469824.0,
       "volume": 1475341.0,
       "fpe": 7.887896,
@@ -792,7 +677,7 @@
       "volumeRatio": 0.27959342791204655,
       "eventSignals": [],
       "atr": 0.6707,
-      "atrPct": 3.55,
+      "atrPct": 3.57,
       "support": 18.3351,
       "resistance": 21.04,
       "entryLow": 18.201,
@@ -811,9 +696,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "rank": 12,
+      "previousRank": 14,
+      "rankChange": 2
     },
     {
       "ticker": "BF-B",
@@ -872,9 +757,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "rank": 13,
+      "previousRank": 15,
+      "rankChange": 2
     },
     {
       "ticker": "UTHR",
@@ -930,9 +815,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "rank": 14,
+      "previousRank": 16,
+      "rankChange": 2
     },
     {
       "ticker": "LAUR",
@@ -988,9 +873,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "rank": 15,
+      "previousRank": 17,
+      "rankChange": 2
     },
     {
       "ticker": "MTCH",
@@ -1046,9 +931,9 @@
         "momentum",
         "value"
       ],
-      "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "rank": 16,
+      "previousRank": 18,
+      "rankChange": 2
     },
     {
       "ticker": "GDDY",
@@ -1105,9 +990,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "rank": 17,
+      "previousRank": 19,
+      "rankChange": 2
     },
     {
       "ticker": "TS",
@@ -1162,6 +1047,123 @@
         "momentum",
         "value",
         "quality"
+      ],
+      "rank": 18,
+      "previousRank": 20,
+      "rankChange": 2
+    },
+    {
+      "ticker": "SIMO",
+      "name": "Silicon Motion Technology Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 246.95,
+      "changePct": 0.0,
+      "marketCap": 8373638656.0,
+      "volume": 643933.0,
+      "fpe": 15.558121,
+      "forwardEps": 15.87274,
+      "epsGrowthPct": 42.54293286012818,
+      "analysts": 0,
+      "priceAvg50": 259.8336,
+      "priceAvg200": 206.1869,
+      "roe": 0.31569,
+      "margin": 0.2206,
+      "debt": 6.924,
+      "earningsDate": "2026-10-28",
+      "score": 79,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、短線維持正向",
+        "核心優勢｜站上200日均線、短線維持正向",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋8｜短線維持正向",
+        "＋16｜FPE合理"
+      ],
+      "priceAvg20": 270.0885009765625,
+      "volumeRatio": 0.9389767136522245,
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "atr": 13.3214,
+      "atrPct": 5.39,
+      "support": 233.86,
+      "resistance": 294.98,
+      "entryLow": 231.1957,
+      "entryPrice": 234.9257,
+      "entryHigh": 237.8564,
+      "stopLoss": 218.94,
+      "takeProfit1": 294.98,
+      "takeProfit2": 310.9657,
+      "riskReward": 3.76,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 19,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
+      "ticker": "MRK",
+      "name": "Merck & Co., Inc.",
+      "exchange": "NYSE",
+      "sector": "製藥",
+      "price": 145.45,
+      "changePct": 0.0,
+      "marketCap": 358850101248.0,
+      "volume": 6624466.0,
+      "fpe": 15.630204,
+      "forwardEps": 9.3057,
+      "epsGrowthPct": 246.12080027672704,
+      "analysts": 0,
+      "priceAvg50": 143.458,
+      "priceAvg200": 123.8981,
+      "roe": 0.06961,
+      "margin": 0.047659997,
+      "debt": 128.408,
+      "earningsDate": "2026-10-29",
+      "score": 79,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "priceAvg20": 145.85299911499024,
+      "volumeRatio": 0.6723060829992176,
+      "eventSignals": [],
+      "atr": 3.4179,
+      "atrPct": 2.35,
+      "support": 143.458,
+      "resistance": 153.57,
+      "entryLow": 142.7744,
+      "entryPrice": 143.7998,
+      "entryHigh": 144.6542,
+      "stopLoss": 139.8693,
+      "takeProfit1": 153.57,
+      "takeProfit2": 157.5005,
+      "riskReward": 2.49,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 42,
+      "profiles": [
+        "momentum",
+        "value"
       ],
       "rank": 20,
       "previousRank": null,
