@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-12T06:40:49.427541-04:00",
+  "asOf": "2026-10-12T06:55:54.685674-04:00",
   "date": "2026-10-12",
   "snapshotDate": "2026-10-12",
   "dataMode": "INTRADAY",
@@ -244,8 +244,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 455.58,
-      "changePct": 0.5085197,
+      "price": 456.04,
+      "changePct": 0.6100082,
       "marketCap": 2351080407040.0,
       "volume": 9207499.0,
       "fpe": 20.67539,
@@ -294,8 +294,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 9,
-      "rankChange": 4
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "NU",
@@ -354,16 +354,16 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 229.5874,
-      "changePct": 0.13407344,
+      "price": 229.55,
+      "changePct": 0.117761806,
       "marketCap": 5536424132608.0,
       "volume": 84645559.0,
       "fpe": 14.406897,
@@ -412,8 +412,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "HBM",
@@ -472,8 +472,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "BIIB",
@@ -531,8 +531,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "LAUR",
@@ -718,8 +718,8 @@
       "name": "Meta Platforms, Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 730.8,
-      "changePct": 1.6878407,
+      "price": 730.07,
+      "changePct": 1.586267,
       "marketCap": 1830816186368.0,
       "volume": 12619919.0,
       "fpe": 20.80368,
@@ -832,64 +832,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "CART",
-      "name": "Maplebear Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "電商",
-      "price": 48.25,
-      "changePct": 1.0259666,
-      "marketCap": 11335043072.0,
-      "volume": 2733229.0,
-      "fpe": 9.75293,
-      "forwardEps": 4.89699,
-      "epsGrowthPct": 17.94746425681144,
-      "analysts": 0,
-      "priceAvg50": 47.5106,
-      "priceAvg200": 42.609726,
-      "roe": 0.16001,
-      "margin": 0.120459996,
-      "debt": 1.348,
-      "earningsDate": "2026-11-09",
-      "score": 87,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 45.10199966430664,
-      "volumeRatio": 0.6807807026174111,
-      "eventSignals": [],
-      "atr": 1.5111,
-      "atrPct": 3.13,
-      "support": 47.5106,
-      "resistance": 50.22,
-      "entryLow": 47.2084,
-      "entryPrice": 47.6617,
-      "entryHigh": 48.0395,
-      "stopLoss": 45.924,
-      "takeProfit1": 52.68,
-      "takeProfit2": 54.4177,
-      "riskReward": 2.89,
-      "entryType": "支撐回踩",
-      "entryStatus": "等待回踩",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 86,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 15,
-      "previousRank": 15,
-      "rankChange": 0
-    },
-    {
       "ticker": "TS",
       "name": "Tenaris S.A.",
       "exchange": "NYSE",
@@ -943,9 +885,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "IX",
@@ -1003,9 +945,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 16,
+      "previousRank": 17,
+      "rankChange": 1
     },
     {
       "ticker": "AMG",
@@ -1061,9 +1003,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "rank": 17,
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "AUGO",
@@ -1119,9 +1061,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "rank": 18,
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
       "ticker": "TLN",
@@ -1177,9 +1119,67 @@
         "momentum",
         "value"
       ],
+      "rank": 19,
+      "previousRank": 20,
+      "rankChange": 1
+    },
+    {
+      "ticker": "ASX",
+      "name": "ASE Technology Holding Co., Ltd.",
+      "exchange": "NYSE",
+      "sector": "半導體",
+      "price": 47.1,
+      "changePct": 1.4430286,
+      "marketCap": 102091014144.0,
+      "volume": 5370435.0,
+      "fpe": 23.771126,
+      "forwardEps": 1.95321,
+      "epsGrowthPct": 70.4818015187222,
+      "analysts": 0,
+      "priceAvg50": 40.1518,
+      "priceAvg200": 31.4528,
+      "roe": 0.17009,
+      "margin": 0.08545999,
+      "debt": 70.562,
+      "earningsDate": "2026-10-29",
+      "score": 85,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 43.59700012207031,
+      "volumeRatio": 0.7961844062791179,
+      "eventSignals": [],
+      "atr": 1.6557,
+      "atrPct": 3.52,
+      "support": 43.597,
+      "resistance": 47.93,
+      "entryLow": 43.2659,
+      "entryPrice": 43.7626,
+      "entryHigh": 44.1765,
+      "stopLoss": 41.8585,
+      "takeProfit1": 47.93,
+      "takeProfit2": 49.8341,
+      "riskReward": 2.19,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 68,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
