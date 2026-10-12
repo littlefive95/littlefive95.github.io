@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-11T20:40:34.029811-04:00",
+  "asOf": "2026-10-11T20:44:07.605456-04:00",
   "date": "2026-10-11",
   "snapshotDate": "2026-10-09",
   "dataMode": "LATEST_CLOSE",
@@ -120,8 +120,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AFRM",
@@ -180,8 +180,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "TGTX",
@@ -779,7 +779,7 @@
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
       "price": 347.86,
-      "changePct": 0.869918,
+      "changePct": 0.8699182,
       "marketCap": 4254305091584.0,
       "volume": 11142888.0,
       "fpe": 22.865774,
@@ -837,7 +837,7 @@
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
       "price": 351.66,
-      "changePct": 0.967583,
+      "changePct": 0.96758306,
       "marketCap": 4300779028480.0,
       "volume": 17281499.0,
       "fpe": 23.115559,
@@ -954,7 +954,7 @@
       "exchange": "NasdaqGS",
       "sector": "必需消費",
       "price": 39.47,
-      "changePct": 0.688777,
+      "changePct": 0.6887767,
       "marketCap": 5436967424.0,
       "volume": 847471.0,
       "fpe": 16.241663,
