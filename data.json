@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-12T23:11:09.690573-04:00",
+  "asOf": "2026-10-12T23:28:56.594156-04:00",
   "date": "2026-10-12",
   "snapshotDate": "2026-10-12",
   "dataMode": "LATEST_CLOSE",
@@ -1003,7 +1003,7 @@
       "volume": 287634.0,
       "fpe": 6.215796,
       "forwardEps": 59.93279,
-      "epsGrowthPct": 10.82461845135676,
+      "epsGrowthPct": 10.294346872731253,
       "analysts": 0,
       "priceAvg50": 371.8834,
       "priceAvg200": 349.37714,
