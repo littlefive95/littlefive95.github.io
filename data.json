@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T05:41:25.292995-04:00",
+  "asOf": "2026-10-13T05:56:24.266149-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -60,8 +60,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "CRBG",
@@ -117,8 +117,8 @@
         "value"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AFRM",
@@ -175,8 +175,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "NTAP",
@@ -235,8 +235,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -293,8 +293,8 @@
         "value"
       ],
       "rank": 5,
-      "previousRank": 6,
-      "rankChange": 1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TS",
@@ -351,16 +351,16 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 7,
-      "rankChange": 1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 146.78,
-      "changePct": 0.91440487,
+      "price": 146.74,
+      "changePct": 0.8869086,
       "marketCap": 358850101248.0,
       "volume": 6624466.0,
       "fpe": 15.633968,
@@ -408,8 +408,8 @@
         "value"
       ],
       "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MOH",
@@ -465,8 +465,8 @@
         "value"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "DAL",
@@ -525,8 +525,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "VAL",
@@ -583,16 +583,16 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 1,
-      "rankChange": -9
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 225.08,
-      "changePct": -0.5478992,
+      "price": 225.0,
+      "changePct": -0.5832482,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -649,8 +649,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.68,
-      "changePct": 0.20345344,
+      "price": 349.54,
+      "changePct": 0.16333993,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -679,7 +679,7 @@
       "volumeRatio": 0.6894225436415281,
       "eventSignals": [],
       "atr": 7.8849,
-      "atrPct": 2.25,
+      "atrPct": 2.26,
       "support": 343.2372,
       "resistance": 359.98,
       "entryLow": 341.6602,
@@ -707,8 +707,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.3,
-      "changePct": 0.16443257,
+      "price": 353.19,
+      "changePct": 0.13325052,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -877,6 +877,64 @@
       "rankChange": 0
     },
     {
+      "ticker": "SSRM",
+      "name": "SSR Mining Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "黃金礦業",
+      "price": 35.8,
+      "changePct": 1.0158031,
+      "marketCap": 7226545664.0,
+      "volume": 1209113.0,
+      "fpe": 7.795864,
+      "forwardEps": 4.546,
+      "epsGrowthPct": 13.355841591071194,
+      "analysts": 0,
+      "priceAvg50": 34.7534,
+      "priceAvg200": 29.7967,
+      "roe": 0.14272,
+      "margin": 0.122980006,
+      "debt": 0.068,
+      "earningsDate": "2026-11-03",
+      "score": 82,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 34.94749984741211,
+      "volumeRatio": 0.5268902436367281,
+      "eventSignals": [],
+      "atr": 1.45,
+      "atrPct": 4.05,
+      "support": 34.9475,
+      "resistance": 38.67,
+      "entryLow": 34.6575,
+      "entryPrice": 35.0925,
+      "entryHigh": 35.455,
+      "stopLoss": 33.425,
+      "takeProfit1": 38.67,
+      "takeProfit2": 40.3375,
+      "riskReward": 2.15,
+      "entryType": "回踩20日線",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 70,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 16,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "UTHR",
       "name": "United Therapeutics Corporation",
       "exchange": "NasdaqGS",
@@ -930,9 +988,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "LAUR",
@@ -988,17 +1046,17 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 442.664,
-      "changePct": -0.43320698,
+      "price": 441.81,
+      "changePct": -0.6252949,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 19.910519,
@@ -1027,7 +1085,7 @@
       "volumeRatio": 0.9034195712276153,
       "eventSignals": [],
       "atr": 11.1293,
-      "atrPct": 2.51,
+      "atrPct": 2.52,
       "support": 433.2738,
       "resistance": 487.47,
       "entryLow": 431.0479,
@@ -1046,9 +1104,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "PG",
@@ -1106,67 +1164,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "M",
-      "name": "Macy's, Inc.",
-      "exchange": "NYSE",
-      "sector": "非必需消費",
-      "price": 22.99,
-      "changePct": 1.41156,
-      "marketCap": 6004450816.0,
-      "volume": 5530783.0,
-      "fpe": 9.614661,
-      "forwardEps": 2.39114,
-      "epsGrowthPct": 2.955435952637253,
-      "analysts": 0,
-      "priceAvg50": 22.967,
-      "priceAvg200": 21.57015,
-      "roe": 0.15993,
-      "margin": 0.03292,
-      "debt": 103.267,
-      "earningsDate": "2026-12-02",
-      "score": 80,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 22.51900005340576,
-      "volumeRatio": 0.8626260515178431,
-      "eventSignals": [],
-      "atr": 0.7721,
-      "atrPct": 3.36,
-      "support": 22.967,
-      "resistance": 23.63,
-      "entryLow": 22.8126,
-      "entryPrice": 23.0442,
-      "entryHigh": 23.2372,
-      "stopLoss": 22.1563,
-      "takeProfit1": 26.59,
-      "takeProfit2": 27.478,
-      "riskReward": 3.99,
-      "entryType": "支撐回踩",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 58,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
