@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-12T20:11:03.752364-04:00",
+  "asOf": "2026-10-12T20:26:15.448883-04:00",
   "date": "2026-10-12",
   "snapshotDate": "2026-10-12",
   "dataMode": "LATEST_CLOSE",
@@ -60,8 +60,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "CRBG",
@@ -117,8 +117,8 @@
         "value"
       ],
       "rank": 2,
-      "previousRank": 5,
-      "rankChange": 3
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "NTAP",
@@ -177,8 +177,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -235,8 +235,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -293,8 +293,8 @@
         "value"
       ],
       "rank": 5,
-      "previousRank": 16,
-      "rankChange": 11
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TS",
@@ -351,8 +351,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 18,
-      "rankChange": 12
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "CHYM",
@@ -408,8 +408,8 @@
         "value"
       ],
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MOH",
@@ -465,8 +465,8 @@
         "value"
       ],
       "rank": 8,
-      "previousRank": 1,
-      "rankChange": -7
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "JBL",
@@ -522,8 +522,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "NU",
@@ -582,8 +582,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 3,
-      "rankChange": -7
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -640,8 +640,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 4,
-      "rankChange": -7
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "GME",
@@ -700,8 +700,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "ASX",
@@ -757,8 +757,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "TEVA",
@@ -816,8 +816,8 @@
         "value"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "OSCR",
@@ -876,8 +876,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
@@ -934,8 +934,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 7,
-      "rankChange": -9
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
@@ -992,8 +992,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 8,
-      "rankChange": -9
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "KSPI",
@@ -1050,8 +1050,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "EG",
@@ -1108,8 +1108,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "KDP",
@@ -1167,8 +1167,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
