@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T06:26:29.513065-04:00",
+  "asOf": "2026-10-13T06:41:30.344526-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -68,8 +68,8 @@
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 16.04,
-      "changePct": 0.18738717,
+      "price": 16.01,
+      "changePct": 0.06250143,
       "marketCap": 77339328512.0,
       "volume": 65430168.0,
       "fpe": 14.170022,
@@ -98,7 +98,7 @@
       "volumeRatio": 0.7582359650222695,
       "eventSignals": [],
       "atr": 0.6541,
-      "atrPct": 4.08,
+      "atrPct": 4.09,
       "support": 14.6809,
       "resistance": 16.14,
       "entryLow": 14.5501,
@@ -359,8 +359,8 @@
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 146.98,
-      "changePct": 1.0519071,
+      "price": 146.99,
+      "changePct": 1.058789,
       "marketCap": 358850101248.0,
       "volume": 6624466.0,
       "fpe": 15.607395,
@@ -466,8 +466,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "MOH",
@@ -523,8 +523,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "VAL",
@@ -581,16 +581,16 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 224.24,
-      "changePct": -0.91905344,
+      "price": 223.99,
+      "changePct": -1.0295165,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -639,76 +639,16 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
-    },
-    {
-      "ticker": "OSCR",
-      "name": "Oscar Health, Inc.",
-      "exchange": "NYSE",
-      "sector": "醫療保健",
-      "price": 34.54,
-      "changePct": 1.588238,
-      "marketCap": 10497015808.0,
-      "volume": 5780807.0,
-      "fpe": 15.313334,
-      "forwardEps": 2.22094,
-      "epsGrowthPct": 14.264105901661296,
-      "analysts": 0,
-      "priceAvg50": 31.1068,
-      "priceAvg200": 22.46435,
-      "roe": 0.34257,
-      "margin": 0.03595,
-      "debt": 23.458,
-      "earningsDate": "2026-11-05",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 31.45499982833862,
-      "volumeRatio": 1.052821687284582,
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "atr": 1.3552,
-      "atrPct": 3.92,
-      "support": 31.455,
-      "resistance": 37.2504,
-      "entryLow": 31.184,
-      "entryPrice": 31.5905,
-      "entryHigh": 31.9293,
-      "stopLoss": 30.032,
-      "takeProfit1": 34.48,
-      "takeProfit2": 36.266,
-      "riskReward": 1.85,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 83,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 12,
       "previousRank": 11,
-      "rankChange": -1
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.5,
-      "changePct": 0.15187517,
+      "price": 349.0767,
+      "changePct": 0.030572671,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -756,17 +696,17 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "rank": 12,
+      "previousRank": 13,
+      "rankChange": 1
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.047,
-      "changePct": 0.09270692,
+      "price": 352.75,
+      "changePct": 0.008504984,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -795,7 +735,7 @@
       "volumeRatio": 0.711722068540016,
       "eventSignals": [],
       "atr": 8.0964,
-      "atrPct": 2.29,
+      "atrPct": 2.3,
       "support": 346.1826,
       "resistance": 364.17,
       "entryLow": 344.5633,
@@ -814,9 +754,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "rank": 13,
+      "previousRank": 14,
+      "rankChange": 1
     },
     {
       "ticker": "KSPI",
@@ -872,9 +812,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "rank": 14,
+      "previousRank": 15,
+      "rankChange": 1
     },
     {
       "ticker": "EG",
@@ -930,9 +870,68 @@
         "value",
         "quality"
       ],
+      "rank": 15,
+      "previousRank": 16,
+      "rankChange": 1
+    },
+    {
+      "ticker": "PINS",
+      "name": "Pinterest, Inc.",
+      "exchange": "NYSE",
+      "sector": "通訊服務",
+      "price": 21.53,
+      "changePct": 0.5135416,
+      "marketCap": 11998569472.0,
+      "volume": 10407909.0,
+      "fpe": 8.917569,
+      "forwardEps": 2.402,
+      "epsGrowthPct": 18.82441985287935,
+      "analysts": 0,
+      "priceAvg50": 21.1798,
+      "priceAvg200": 21.06205,
+      "roe": 0.06461,
+      "margin": 0.054640003,
+      "debt": 41.35,
+      "earningsDate": "2026-11-09",
+      "score": 82,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 19.32249994277954,
+      "volumeRatio": 0.7164946665152157,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 0.6516,
+      "atrPct": 3.03,
+      "support": 21.1798,
+      "resistance": 25.725,
+      "entryLow": 21.0495,
+      "entryPrice": 21.245,
+      "entryHigh": 21.4079,
+      "stopLoss": 20.4956,
+      "takeProfit1": 25.725,
+      "takeProfit2": 26.4744,
+      "riskReward": 5.98,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 60,
+      "profiles": [
+        "momentum",
+        "value"
+      ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "LAUR",
@@ -989,8 +988,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "UTHR",
@@ -1047,16 +1046,16 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 441.4,
-      "changePct": -0.7175156,
+      "price": 442.0,
+      "changePct": -0.5825584,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 19.910519,
@@ -1089,15 +1088,15 @@
       "support": 433.2738,
       "resistance": 487.47,
       "entryLow": 431.0479,
-      "entryPrice": 434.1641,
-      "entryHigh": 436.6126,
-      "stopLoss": 420.809,
+      "entryPrice": 434.3867,
+      "entryHigh": 437.169,
+      "stopLoss": 421.5881,
       "takeProfit1": 487.47,
-      "takeProfit2": 500.8251,
-      "riskReward": 3.99,
-      "entryType": "回踩50日線",
+      "takeProfit2": 500.2687,
+      "riskReward": 4.15,
+      "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
       "profiles": [
         "momentum",
@@ -1105,8 +1104,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1165,8 +1164,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
