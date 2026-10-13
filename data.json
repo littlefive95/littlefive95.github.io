@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T04:41:17.880708-04:00",
+  "asOf": "2026-10-13T04:56:21.346960-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -64,6 +64,64 @@
       "rankChange": 0
     },
     {
+      "ticker": "NU",
+      "name": "Nu Holdings Ltd.",
+      "exchange": "NYSE",
+      "sector": "區域銀行",
+      "price": 16.01,
+      "changePct": 0.0,
+      "marketCap": 77339328512.0,
+      "volume": 65430168.0,
+      "fpe": 14.170022,
+      "forwardEps": 1.12985,
+      "epsGrowthPct": 27.188094514425963,
+      "analysts": 0,
+      "priceAvg50": 14.4078,
+      "priceAvg200": 14.68095,
+      "roe": 0.31628,
+      "margin": 0.42728,
+      "debt": null,
+      "earningsDate": "2026-11-12",
+      "score": 93,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "priceAvg20": 14.118500089645385,
+      "volumeRatio": 0.7582359650222695,
+      "eventSignals": [],
+      "atr": 0.6541,
+      "atrPct": 4.09,
+      "support": 14.6809,
+      "resistance": 16.14,
+      "entryLow": 14.5501,
+      "entryPrice": 14.7137,
+      "entryHigh": 14.8445,
+      "stopLoss": 13.8634,
+      "takeProfit1": 16.14,
+      "takeProfit2": 17.2645,
+      "riskReward": 1.68,
+      "entryType": "深度回調",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待更深支撐區才評估。",
+      "qualityScore": 70,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 2,
+      "previousRank": 9,
+      "rankChange": 7
+    },
+    {
       "ticker": "CRBG",
       "name": "Corebridge Financial, Inc.",
       "exchange": "NYSE",
@@ -116,9 +174,9 @@
         "momentum",
         "value"
       ],
-      "rank": 2,
+      "rank": 3,
       "previousRank": 2,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AFRM",
@@ -174,9 +232,9 @@
         "value",
         "quality"
       ],
-      "rank": 3,
+      "rank": 4,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "NTAP",
@@ -234,9 +292,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 5,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MTCH",
@@ -292,9 +350,9 @@
         "momentum",
         "value"
       ],
-      "rank": 5,
+      "rank": 6,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TS",
@@ -350,17 +408,17 @@
         "value",
         "quality"
       ],
-      "rank": 6,
+      "rank": 7,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 147.08,
-      "changePct": 1.1206634,
+      "price": 147.24,
+      "changePct": 1.2306694,
       "marketCap": 358850101248.0,
       "volume": 6624466.0,
       "fpe": 15.607395,
@@ -407,9 +465,9 @@
         "momentum",
         "value"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MOH",
@@ -464,75 +522,17 @@
         "momentum",
         "value"
       ],
-      "rank": 8,
-      "previousRank": 8,
-      "rankChange": 0
-    },
-    {
-      "ticker": "NU",
-      "name": "Nu Holdings Ltd.",
-      "exchange": "NYSE",
-      "sector": "區域銀行",
-      "price": 15.99,
-      "changePct": -0.06250143,
-      "marketCap": 77339328512.0,
-      "volume": 65430168.0,
-      "fpe": 14.170022,
-      "forwardEps": 1.12985,
-      "epsGrowthPct": 27.188094514425963,
-      "analysts": 0,
-      "priceAvg50": 14.4078,
-      "priceAvg200": 14.68095,
-      "roe": 0.31628,
-      "margin": 0.42728,
-      "debt": null,
-      "earningsDate": "2026-11-12",
-      "score": 85,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋20｜FPE偏低"
-      ],
-      "priceAvg20": 14.118500089645385,
-      "volumeRatio": 0.7582359650222695,
-      "eventSignals": [],
-      "atr": 0.6541,
-      "atrPct": 4.09,
-      "support": 14.6809,
-      "resistance": 16.14,
-      "entryLow": 14.5501,
-      "entryPrice": 14.7137,
-      "entryHigh": 14.8445,
-      "stopLoss": 13.8634,
-      "takeProfit1": 16.14,
-      "takeProfit2": 17.2645,
-      "riskReward": 1.68,
-      "entryType": "深度回調",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待更深支撐區才評估。",
-      "qualityScore": 70,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 9,
-      "previousRank": 9,
-      "rankChange": 0
+      "previousRank": 8,
+      "rankChange": -1
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 224.84,
-      "changePct": -0.65394616,
+      "price": 224.8,
+      "changePct": -0.67161727,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -589,8 +589,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.48,
-      "changePct": 0.14614716,
+      "price": 349.4094,
+      "changePct": 0.12591113,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -647,8 +647,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.17,
-      "changePct": 0.12758341,
+      "price": 353.06,
+      "changePct": 0.0963927,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -688,7 +688,7 @@
       "takeProfit2": 374.9249,
       "riskReward": 1.84,
       "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
+      "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
       "profiles": [
@@ -937,8 +937,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 442.5,
-      "changePct": -0.47009522,
+      "price": 442.16,
+      "changePct": -0.54656935,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 20.266726,
@@ -1047,8 +1047,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "M",
@@ -1105,8 +1105,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "MO",
@@ -1165,8 +1165,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
