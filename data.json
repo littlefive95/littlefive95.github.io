@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T18:11:48.984080-04:00",
+  "asOf": "2026-10-13T18:26:45.818315-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -10,8 +10,8 @@
       "name": "Lyft, Inc.",
       "exchange": "NasdaqGS",
       "sector": "應用軟體",
-      "price": 16.4887,
-      "changePct": 0.6636246,
+      "price": 16.47,
+      "changePct": 0.54945153,
       "marketCap": 6200488960.0,
       "volume": 12306511.0,
       "fpe": 7.602127,
@@ -62,8 +62,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 8,
-      "rankChange": 7
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "VAL",
@@ -120,16 +120,16 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 1,
-      "rankChange": -1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "NU",
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 15.6,
-      "changePct": 0.12837264,
+      "price": 15.63,
+      "changePct": 0.32092547,
       "marketCap": 75262132224.0,
       "volume": 60110997.0,
       "fpe": 13.789441,
@@ -158,7 +158,7 @@
       "volumeRatio": 0.6963520619829106,
       "eventSignals": [],
       "atr": 0.6362,
-      "atrPct": 4.08,
+      "atrPct": 4.07,
       "support": 14.6809,
       "resistance": 16.19,
       "entryLow": 14.5537,
@@ -178,16 +178,16 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 228.93,
-      "changePct": 0.1794103,
+      "price": 229.17,
+      "changePct": 0.28443632,
       "marketCap": 5518072479744.0,
       "volume": 83671511.0,
       "fpe": 14.359142,
@@ -236,16 +236,16 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 446.2,
-      "changePct": 0.24263504,
+      "price": 446.89,
+      "changePct": 0.39764997,
       "marketCap": 2308603379712.0,
       "volume": 8528421.0,
       "fpe": 19.94502,
@@ -274,7 +274,7 @@
       "volumeRatio": 0.878086557279416,
       "eventSignals": [],
       "atr": 11.0554,
-      "atrPct": 2.48,
+      "atrPct": 2.47,
       "support": 433.2738,
       "resistance": 487.47,
       "entryLow": 431.0627,
@@ -294,8 +294,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "JBL",
@@ -351,8 +351,8 @@
         "value"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "CART",
@@ -411,16 +411,16 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "GME",
       "name": "GameStop Corp.",
       "exchange": "NYSE",
       "sector": "非必需消費",
-      "price": 27.8455,
-      "changePct": 2.2979488,
+      "price": 27.79,
+      "changePct": 2.0940545,
       "marketCap": 13732516864.0,
       "volume": 12479523.0,
       "fpe": 14.634408,
@@ -451,9 +451,9 @@
         "突破20日高點"
       ],
       "atr": 1.1391,
-      "atrPct": 4.09,
+      "atrPct": 4.1,
       "support": 24.442,
-      "resistance": 30.1238,
+      "resistance": 30.0683,
       "entryLow": 24.2142,
       "entryPrice": 24.499,
       "entryHigh": 24.7268,
@@ -471,8 +471,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "SMTC",
@@ -528,8 +528,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "CVI",
@@ -649,13 +649,71 @@
       "rankChange": 0
     },
     {
+      "ticker": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 270.3813,
+      "changePct": 0.61634773,
+      "marketCap": 241504403456.0,
+      "volume": 18287907.0,
+      "fpe": 36.898735,
+      "forwardEps": 7.28277,
+      "epsGrowthPct": 72.57667025274763,
+      "analysts": 0,
+      "priceAvg50": 238.059,
+      "priceAvg200": 172.67274,
+      "roe": 0.16523,
+      "margin": 0.27934998,
+      "debt": 28.525,
+      "earningsDate": "2026-12-01",
+      "score": 84,
+      "label": "進場候選",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線；注意：FPE偏高",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜FPE偏高",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康",
+        "⚠｜FPE偏高"
+      ],
+      "priceAvg20": 263.1732482910156,
+      "volumeRatio": 0.9318208494890042,
+      "eventSignals": [],
+      "atr": 14.9007,
+      "atrPct": 5.51,
+      "support": 263.1732,
+      "resistance": 301.27,
+      "entryLow": 260.1931,
+      "entryPrice": 264.6633,
+      "entryHigh": 268.3885,
+      "stopLoss": 247.5275,
+      "takeProfit1": 301.27,
+      "takeProfit2": 318.4058,
+      "riskReward": 2.14,
+      "entryType": "回踩20日線",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 93,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 12,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "CRBG",
       "name": "Corebridge Financial, Inc.",
       "exchange": "NYSE",
       "sector": "金融",
       "price": 34.4,
       "changePct": 0.1455693,
-      "marketCap": 15334575104.0,
+      "marketCap": 15334440960.0,
       "volume": 7149662.0,
       "fpe": 6.006132,
       "forwardEps": 5.72748,
@@ -701,9 +759,9 @@
         "momentum",
         "value"
       ],
-      "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "rank": 13,
+      "previousRank": 12,
+      "rankChange": -1
     },
     {
       "ticker": "HBM",
@@ -761,9 +819,69 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "rank": 14,
+      "previousRank": 13,
+      "rankChange": -1
+    },
+    {
+      "ticker": "STX",
+      "name": "Seagate Technology Holdings plc",
+      "exchange": "NasdaqGS",
+      "sector": "電腦硬體",
+      "price": 747.25,
+      "changePct": 0.006690015,
+      "marketCap": 169908060160.0,
+      "volume": 6791866.0,
+      "fpe": 13.2435665,
+      "forwardEps": 56.41985,
+      "epsGrowthPct": 55.678629009004375,
+      "analysts": 0,
+      "priceAvg50": 853.179,
+      "priceAvg200": 666.1646,
+      "roe": 3.7152898,
+      "margin": 0.26108998,
+      "debt": 179.88,
+      "earningsDate": "2026-10-27",
+      "score": 83,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、短線維持正向",
+        "核心優勢｜站上200日均線、短線維持正向",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋8｜短線維持正向",
+        "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 854.9655059814453,
+      "volumeRatio": 1.4072517536242266,
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "atr": 50.585,
+      "atrPct": 6.77,
+      "support": 666.1646,
+      "resistance": 946.36,
+      "entryLow": 656.0476,
+      "entryPrice": 670.2114,
+      "entryHigh": 681.3401,
+      "stopLoss": 609.5094,
+      "takeProfit1": 946.36,
+      "takeProfit2": 1007.062,
+      "riskReward": 4.55,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "qualityScore": 82,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 15,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "TEVA",
@@ -774,9 +892,9 @@
       "changePct": 0.0,
       "marketCap": 48109572096.0,
       "volume": 6710640.0,
-      "fpe": 13.339715,
-      "forwardEps": 3.09227,
-      "epsGrowthPct": 46.783342589559936,
+      "fpe": 13.378783,
+      "forwardEps": 3.08324,
+      "epsGrowthPct": 46.35470809658755,
       "analysts": 0,
       "priceAvg50": 37.743,
       "priceAvg200": 33.95945,
@@ -818,17 +936,17 @@
         "momentum",
         "value"
       ],
-      "rank": 14,
-      "previousRank": 16,
-      "rankChange": 2
+      "rank": 16,
+      "previousRank": 14,
+      "rankChange": -2
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.65,
-      "changePct": 0.037195265,
+      "price": 349.82,
+      "changePct": 0.08583724,
       "marketCap": 4274606833664.0,
       "volume": 14394061.0,
       "fpe": 22.92841,
@@ -861,32 +979,32 @@
       "support": 343.2372,
       "resistance": 359.98,
       "entryLow": 341.7499,
-      "entryPrice": 343.9808,
-      "entryHigh": 345.8399,
-      "stopLoss": 335.429,
+      "entryPrice": 343.8321,
+      "entryHigh": 345.4681,
+      "stopLoss": 334.9085,
       "takeProfit1": 359.98,
-      "takeProfit2": 369.6363,
-      "riskReward": 1.87,
-      "entryType": "回踩20日線",
+      "takeProfit2": 370.603,
+      "riskReward": 1.81,
+      "entryType": "回踩50日線",
       "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "qualityScore": 100,
       "profiles": [
         "momentum",
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 17,
-      "rankChange": 2
+      "rank": 17,
+      "previousRank": 15,
+      "rankChange": -2
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 354.0,
-      "changePct": 0.062185884,
+      "price": 354.0801,
+      "changePct": 0.08482952,
       "marketCap": 4326706380800.0,
       "volume": 22270289.0,
       "fpe": 23.207865,
@@ -934,9 +1052,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "rank": 18,
+      "previousRank": 16,
+      "rankChange": -2
     },
     {
       "ticker": "AFRM",
@@ -992,9 +1110,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": 19,
-      "rankChange": 2
+      "rank": 19,
+      "previousRank": 17,
+      "rankChange": -2
     },
     {
       "ticker": "LAUR",
@@ -1050,129 +1168,13 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": 20,
-      "rankChange": 2
-    },
-    {
-      "ticker": "NTAP",
-      "name": "NetApp, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "基礎軟體",
-      "price": 239.67,
-      "changePct": 0.2761406,
-      "marketCap": 46946107392.0,
-      "volume": 2358705.0,
-      "fpe": 21.424961,
-      "forwardEps": 11.15568,
-      "epsGrowthPct": 11.49336027800183,
-      "analysts": 0,
-      "priceAvg50": 199.481,
-      "priceAvg200": 142.4007,
-      "roe": 1.14818,
-      "margin": 0.19184999,
-      "debt": 169.498,
-      "earningsDate": "2026-12-01",
-      "score": 81,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 213.56749954223633,
-      "volumeRatio": 0.9026341059078362,
-      "eventSignals": [],
-      "atr": 8.4255,
-      "atrPct": 3.52,
-      "support": 213.5675,
-      "resistance": 239.8,
-      "entryLow": 211.8824,
-      "entryPrice": 214.4101,
-      "entryHigh": 216.5164,
-      "stopLoss": 204.7207,
-      "takeProfit1": 239.8,
-      "takeProfit2": 249.4893,
-      "riskReward": 2.62,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 82,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 19,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
-      "ticker": "SMCI",
-      "name": "Super Micro Computer, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "電腦硬體",
-      "price": 39.1001,
-      "changePct": 0.07704575,
-      "marketCap": 25273329664.0,
-      "volume": 24555322.0,
-      "fpe": 7.3358216,
-      "forwardEps": 5.32592,
-      "epsGrowthPct": 22.783534863347654,
-      "analysts": 0,
-      "priceAvg50": 38.2364,
-      "priceAvg200": 32.36505,
-      "roe": 0.21465999,
-      "margin": 0.0571,
-      "debt": 63.951,
-      "earningsDate": "2026-11-03",
-      "score": 80,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 41.49949932098389,
-      "volumeRatio": 0.6917498532026335,
-      "eventSignals": [],
-      "atr": 2.2757,
-      "atrPct": 5.82,
-      "support": 38.2364,
-      "resistance": 45.77,
-      "entryLow": 37.7813,
-      "entryPrice": 38.4185,
-      "entryHigh": 38.9191,
-      "stopLoss": 35.6876,
-      "takeProfit1": 45.77,
-      "takeProfit2": 48.5009,
-      "riskReward": 2.69,
-      "entryType": "回踩50日線",
-      "entryStatus": "等待回踩",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "qualityScore": 75,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": -2
     }
   ],
   "coverage": 100,
-  "universeCount": 345,
+  "universeCount": 342,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
