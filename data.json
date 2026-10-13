@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T05:11:20.811477-04:00",
+  "asOf": "2026-10-13T05:26:21.218362-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -68,8 +68,8 @@
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 16.04,
-      "changePct": 0.18738717,
+      "price": 16.045,
+      "changePct": 0.28125048,
       "marketCap": 77339328512.0,
       "volume": 65430168.0,
       "fpe": 14.170022,
@@ -531,8 +531,8 @@
       "name": "Delta Air Lines, Inc.",
       "exchange": "NYSE",
       "sector": "航空",
-      "price": 80.53,
-      "changePct": 0.52427685,
+      "price": 80.7,
+      "changePct": 0.73648274,
       "marketCap": 52682182656.0,
       "volume": 6156624.0,
       "fpe": 10.517968,
@@ -583,16 +583,16 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 225.17,
-      "changePct": -0.5081341,
+      "price": 225.05,
+      "changePct": -0.56115425,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -641,16 +641,16 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.37,
-      "changePct": 0.11462128,
+      "price": 349.58,
+      "changePct": 0.17479593,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -699,16 +699,16 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.05,
-      "changePct": 0.093554825,
+      "price": 353.25,
+      "changePct": 0.15026048,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -748,7 +748,7 @@
       "takeProfit2": 374.9249,
       "riskReward": 1.84,
       "entryType": "回踩20日線",
-      "entryStatus": "等待回踩",
+      "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
       "profiles": [
@@ -757,8 +757,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "KSPI",
@@ -815,8 +815,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "EG",
@@ -873,8 +873,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "UTHR",
@@ -989,16 +989,16 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 15,
-      "rankChange": -2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 442.0,
-      "changePct": -0.5825584,
+      "price": 442.5,
+      "changePct": -0.47009522,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 19.910519,
@@ -1047,8 +1047,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1107,8 +1107,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "M",
@@ -1165,12 +1165,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 339,
+  "universeCount": 338,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
