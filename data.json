@@ -1,75 +1,17 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T05:26:21.218362-04:00",
+  "asOf": "2026-10-13T05:41:25.292995-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
   "rows": [
     {
-      "ticker": "VAL",
-      "name": "Valaris Limited",
-      "exchange": "NYSE",
-      "sector": "能源",
-      "price": 84.94,
-      "changePct": 1.54214,
-      "marketCap": 5897877504.0,
-      "volume": 429053.0,
-      "fpe": 12.027925,
-      "forwardEps": 7.0619,
-      "epsGrowthPct": 92.03931123753168,
-      "analysts": 0,
-      "priceAvg50": 83.7532,
-      "priceAvg200": 83.24085,
-      "roe": 0.33619,
-      "margin": 0.43954,
-      "debt": 36.22,
-      "earningsDate": "2026-10-28",
-      "score": 100,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 82.14249992370605,
-      "volumeRatio": 0.40022294048235363,
-      "eventSignals": [],
-      "atr": 2.6168,
-      "atrPct": 3.08,
-      "support": 83.7532,
-      "resistance": 88.25,
-      "entryLow": 83.2298,
-      "entryPrice": 83.9625,
-      "entryHigh": 84.5382,
-      "stopLoss": 80.8224,
-      "takeProfit1": 93.16,
-      "takeProfit2": 96.3001,
-      "riskReward": 2.93,
-      "entryType": "回踩50日線",
-      "entryStatus": "等待回踩",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 1,
-      "previousRank": 1,
-      "rankChange": 0
-    },
-    {
       "ticker": "NU",
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 16.045,
-      "changePct": 0.28125048,
+      "price": 16.04,
+      "changePct": 0.25000572,
       "marketCap": 77339328512.0,
       "volume": 65430168.0,
       "fpe": 14.170022,
@@ -117,9 +59,9 @@
         "value",
         "quality"
       ],
-      "rank": 2,
+      "rank": 1,
       "previousRank": 2,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "CRBG",
@@ -174,9 +116,9 @@
         "momentum",
         "value"
       ],
-      "rank": 3,
+      "rank": 2,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AFRM",
@@ -232,9 +174,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 3,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "NTAP",
@@ -292,9 +234,9 @@
         "value",
         "quality"
       ],
-      "rank": 5,
+      "rank": 4,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MTCH",
@@ -350,9 +292,9 @@
         "momentum",
         "value"
       ],
-      "rank": 6,
+      "rank": 5,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "TS",
@@ -408,17 +350,17 @@
         "value",
         "quality"
       ],
-      "rank": 7,
+      "rank": 6,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 147.6,
-      "changePct": 1.4781775,
+      "price": 146.78,
+      "changePct": 0.91440487,
       "marketCap": 358850101248.0,
       "volume": 6624466.0,
       "fpe": 15.633968,
@@ -447,7 +389,7 @@
       "volumeRatio": 0.6675823107163408,
       "eventSignals": [],
       "atr": 3.4179,
-      "atrPct": 2.32,
+      "atrPct": 2.33,
       "support": 145.853,
       "resistance": 153.57,
       "entryLow": 145.1694,
@@ -458,16 +400,16 @@
       "takeProfit2": 157.9864,
       "riskReward": 1.88,
       "entryType": "回踩20日線",
-      "entryStatus": "等待回踩",
+      "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 42,
       "profiles": [
         "momentum",
         "value"
       ],
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MOH",
@@ -522,9 +464,9 @@
         "momentum",
         "value"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "DAL",
@@ -582,17 +524,75 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 9,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "VAL",
+      "name": "Valaris Limited",
+      "exchange": "NYSE",
+      "sector": "能源",
+      "price": 84.8,
+      "changePct": -0.1648215,
+      "marketCap": 5897877504.0,
+      "volume": 429053.0,
+      "fpe": 12.027925,
+      "forwardEps": 7.0619,
+      "epsGrowthPct": 92.03931123753168,
+      "analysts": 0,
+      "priceAvg50": 83.7532,
+      "priceAvg200": 83.24085,
+      "roe": 0.33619,
+      "margin": 0.43954,
+      "debt": 36.22,
+      "earningsDate": "2026-10-28",
+      "score": 85,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 82.14249992370605,
+      "volumeRatio": 0.40022294048235363,
+      "eventSignals": [],
+      "atr": 2.6168,
+      "atrPct": 3.09,
+      "support": 83.7532,
+      "resistance": 88.25,
+      "entryLow": 83.2298,
+      "entryPrice": 83.9625,
+      "entryHigh": 84.5382,
+      "stopLoss": 80.8224,
+      "takeProfit1": 93.16,
+      "takeProfit2": 96.3001,
+      "riskReward": 2.93,
+      "entryType": "回踩50日線",
+      "entryStatus": "等待回踩",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 10,
+      "previousRank": 1,
+      "rankChange": -9
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 225.05,
-      "changePct": -0.56115425,
+      "price": 225.08,
+      "changePct": -0.5478992,
       "marketCap": 5464948998144.0,
       "volume": 69908781.0,
       "fpe": 14.220904,
@@ -649,8 +649,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 349.58,
-      "changePct": 0.17479593,
+      "price": 349.68,
+      "changePct": 0.20345344,
       "marketCap": 4267880480768.0,
       "volume": 11454890.0,
       "fpe": 22.938738,
@@ -679,7 +679,7 @@
       "volumeRatio": 0.6894225436415281,
       "eventSignals": [],
       "atr": 7.8849,
-      "atrPct": 2.26,
+      "atrPct": 2.25,
       "support": 343.2372,
       "resistance": 359.98,
       "entryLow": 341.6602,
@@ -707,8 +707,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.25,
-      "changePct": 0.15026048,
+      "price": 353.3,
+      "changePct": 0.16443257,
       "marketCap": 4313742835712.0,
       "volume": 18116718.0,
       "fpe": 23.185236,
@@ -997,8 +997,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 442.5,
-      "changePct": -0.47009522,
+      "price": 442.664,
+      "changePct": -0.43320698,
       "marketCap": 2304609615872.0,
       "volume": 8814597.0,
       "fpe": 19.910519,
@@ -1027,7 +1027,7 @@
       "volumeRatio": 0.9034195712276153,
       "eventSignals": [],
       "atr": 11.1293,
-      "atrPct": 2.52,
+      "atrPct": 2.51,
       "support": 433.2738,
       "resistance": 487.47,
       "entryLow": 431.0479,
