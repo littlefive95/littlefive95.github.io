@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T17:41:56.254890-04:00",
+  "asOf": "2026-10-13T17:56:46.770917-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -126,8 +126,8 @@
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 229.15,
-      "changePct": 0.27568248,
+      "price": 229.1,
+      "changePct": 0.2538079,
       "marketCap": 5518072479744.0,
       "volume": 83671511.0,
       "fpe": 14.359142,
@@ -184,8 +184,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 446.878,
-      "changePct": 0.3949487,
+      "price": 446.7,
+      "changePct": 0.35496432,
       "marketCap": 2308603379712.0,
       "volume": 8528421.0,
       "fpe": 19.94502,
@@ -351,16 +351,16 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "CRDO",
       "name": "Credo Technology Group Holding Ltd",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 199.33,
-      "changePct": 0.5143484,
+      "price": 199.3384,
+      "changePct": 0.5185803,
       "marketCap": 37272743936.0,
       "volume": 11028929.0,
       "fpe": 20.464098,
@@ -411,8 +411,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "LYFT",
@@ -471,16 +471,16 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 6,
-      "rankChange": -2
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "GME",
       "name": "GameStop Corp.",
       "exchange": "NYSE",
       "sector": "非必需消費",
-      "price": 27.9155,
-      "changePct": 2.5551114,
+      "price": 27.8101,
+      "changePct": 2.1678958,
       "marketCap": 13732516864.0,
       "volume": 12479523.0,
       "fpe": 14.634408,
@@ -511,9 +511,9 @@
         "突破20日高點"
       ],
       "atr": 1.1391,
-      "atrPct": 4.08,
+      "atrPct": 4.1,
       "support": 24.442,
-      "resistance": 30.1938,
+      "resistance": 30.0884,
       "entryLow": 24.2142,
       "entryPrice": 24.499,
       "entryHigh": 24.7268,
@@ -531,8 +531,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 7,
-      "rankChange": -2
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "CVI",
@@ -590,16 +590,16 @@
         "value"
       ],
       "rank": 10,
-      "previousRank": 8,
-      "rankChange": -2
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "CLS",
       "name": "Celestica Inc.",
       "exchange": "NYSE",
       "sector": "電子零組件",
-      "price": 357.44,
-      "changePct": 0.0,
+      "price": 357.6779,
+      "changePct": 0.0665523,
       "marketCap": 45077159936.0,
       "volume": 2011053.0,
       "fpe": 18.187035,
@@ -628,7 +628,7 @@
       "volumeRatio": 0.9772366473133395,
       "eventSignals": [],
       "atr": 20.6525,
-      "atrPct": 5.78,
+      "atrPct": 5.77,
       "support": 334.6492,
       "resistance": 393.72,
       "entryLow": 330.5187,
@@ -648,16 +648,16 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
       "name": "Marvell Technology, Inc.",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 271.17,
-      "changePct": 0.90985477,
+      "price": 270.9,
+      "changePct": 0.8093731,
       "marketCap": 241504403456.0,
       "volume": 18287907.0,
       "fpe": 36.898735,
@@ -687,7 +687,7 @@
       "volumeRatio": 0.9318208494890042,
       "eventSignals": [],
       "atr": 14.9007,
-      "atrPct": 5.49,
+      "atrPct": 5.5,
       "support": 263.1732,
       "resistance": 301.27,
       "entryLow": 260.1931,
@@ -706,8 +706,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 9,
-      "rankChange": -3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "CRBG",
@@ -763,8 +763,8 @@
         "value"
       ],
       "rank": 13,
-      "previousRank": 10,
-      "rankChange": -3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "HBM",
@@ -823,16 +823,16 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 11,
-      "rankChange": -3
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
       "name": "Seagate Technology Holdings plc",
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
-      "price": 747.33,
-      "changePct": 0.01739894,
+      "price": 747.5,
+      "changePct": 0.04014826,
       "marketCap": 169908060160.0,
       "volume": 6791866.0,
       "fpe": 13.2435665,
@@ -883,8 +883,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 12,
-      "rankChange": -3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "TEVA",
@@ -940,16 +940,16 @@
         "value"
       ],
       "rank": 16,
-      "previousRank": 13,
-      "rankChange": -3
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 350.0,
-      "changePct": 0.13733435,
+      "price": 349.9877,
+      "changePct": 0.13381563,
       "marketCap": 4274606833664.0,
       "volume": 14394061.0,
       "fpe": 22.92841,
@@ -998,16 +998,16 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 14,
-      "rankChange": -3
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 354.0347,
-      "changePct": 0.07199381,
+      "price": 353.9994,
+      "changePct": 0.06201336,
       "marketCap": 4326706380800.0,
       "volume": 22270289.0,
       "fpe": 23.207865,
@@ -1056,8 +1056,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 15,
-      "rankChange": -3
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "AFRM",
@@ -1114,8 +1114,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 16,
-      "rankChange": -3
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "LAUR",
@@ -1172,12 +1172,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 17,
-      "rankChange": -3
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 344,
+  "universeCount": 345,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
