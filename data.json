@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T03:05:43.086007-04:00",
+  "asOf": "2026-10-13T03:26:20.465739-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "LATEST_CLOSE",
@@ -653,9 +653,9 @@
       "changePct": 2.36915,
       "marketCap": 104509710336.0,
       "volume": 7871455.0,
-      "fpe": 24.334301,
-      "forwardEps": 1.95321,
-      "epsGrowthPct": 58.78465165433704,
+      "fpe": 22.1488,
+      "forwardEps": 2.14594,
+      "epsGrowthPct": 74.45248353792375,
       "analysts": 0,
       "priceAvg50": 40.399,
       "priceAvg200": 31.6128,
@@ -695,6 +695,7 @@
       "qualityScore": 68,
       "profiles": [
         "momentum",
+        "value",
         "quality"
       ],
       "rank": 12,
@@ -1171,7 +1172,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 338,
+  "universeCount": 337,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
