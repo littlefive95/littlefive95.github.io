@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T20:12:10.770470-04:00",
+  "asOf": "2026-10-13T20:26:44.944610-04:00",
   "date": "2026-10-13",
   "snapshotDate": "2026-10-13",
   "dataMode": "LATEST_CLOSE",
@@ -178,8 +178,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "JBL",
@@ -235,8 +235,8 @@
         "value"
       ],
       "rank": 4,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "CLS",
@@ -293,8 +293,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 12,
-      "rankChange": 7
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -351,8 +351,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -409,8 +409,8 @@
         "value"
       ],
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "GDDY",
@@ -468,8 +468,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "CART",
@@ -526,8 +526,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 6,
-      "rankChange": -3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "TS",
@@ -584,8 +584,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NU",
@@ -642,8 +642,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 3,
-      "rankChange": -8
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -699,8 +699,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "SMTC",
@@ -756,8 +756,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 10,
-      "rankChange": -3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -814,8 +814,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -872,8 +872,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 13,
-      "rankChange": -2
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "VICR",
@@ -930,8 +930,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 14,
-      "rankChange": -2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "TEVA",
@@ -987,8 +987,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
@@ -1045,8 +1045,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 16,
-      "rankChange": -2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
@@ -1103,8 +1103,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 17,
-      "rankChange": -2
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "EG",
@@ -1161,8 +1161,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 18,
-      "rankChange": -2
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
