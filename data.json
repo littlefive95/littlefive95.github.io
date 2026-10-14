@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T17:39:40.764742-04:00",
+  "asOf": "2026-10-14T17:42:20.825369-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -66,6 +66,64 @@
       "rankChange": 0
     },
     {
+      "ticker": "NU",
+      "name": "Nu Holdings Ltd.",
+      "exchange": "NYSE",
+      "sector": "區域銀行",
+      "price": 14.93,
+      "changePct": 0.0,
+      "marketCap": 72122187776.0,
+      "volume": 78866491.0,
+      "fpe": 13.214144,
+      "forwardEps": 1.12985,
+      "epsGrowthPct": 27.188094514425963,
+      "analysts": 0,
+      "priceAvg50": 14.4306,
+      "priceAvg200": 14.67515,
+      "roe": 0.31628,
+      "margin": 0.42728,
+      "debt": null,
+      "earningsDate": "2026-11-12",
+      "score": 93,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "priceAvg20": 14.244000101089478,
+      "volumeRatio": 0.9241233273347851,
+      "eventSignals": [],
+      "atr": 0.6712,
+      "atrPct": 4.5,
+      "support": 14.6752,
+      "resistance": 16.19,
+      "entryLow": 14.5409,
+      "entryPrice": 14.7087,
+      "entryHigh": 14.843,
+      "stopLoss": 13.8361,
+      "takeProfit1": 16.19,
+      "takeProfit2": 17.3264,
+      "riskReward": 1.7,
+      "entryType": "深度回調",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待更深支撐區才評估。",
+      "qualityScore": 70,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 2,
+      "previousRank": 6,
+      "rankChange": 4
+    },
+    {
       "ticker": "COKE",
       "name": "Coca-Cola Consolidated, Inc.",
       "exchange": "NasdaqGS",
@@ -120,9 +178,9 @@
         "momentum",
         "value"
       ],
-      "rank": 2,
+      "rank": 3,
       "previousRank": 2,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "LYFT",
@@ -178,9 +236,9 @@
         "value",
         "quality"
       ],
-      "rank": 3,
+      "rank": 4,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMG",
@@ -236,9 +294,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 5,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "LKNCY",
@@ -294,67 +352,9 @@
         "value",
         "quality"
       ],
-      "rank": 5,
-      "previousRank": 5,
-      "rankChange": 0
-    },
-    {
-      "ticker": "NU",
-      "name": "Nu Holdings Ltd.",
-      "exchange": "NYSE",
-      "sector": "區域銀行",
-      "price": 14.84,
-      "changePct": -0.60281414,
-      "marketCap": 72122187776.0,
-      "volume": 78866491.0,
-      "fpe": 13.214144,
-      "forwardEps": 1.12985,
-      "epsGrowthPct": 27.188094514425963,
-      "analysts": 0,
-      "priceAvg50": 14.4306,
-      "priceAvg200": 14.67515,
-      "roe": 0.31628,
-      "margin": 0.42728,
-      "debt": null,
-      "earningsDate": "2026-11-12",
-      "score": 85,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋20｜FPE偏低"
-      ],
-      "priceAvg20": 14.244000101089478,
-      "volumeRatio": 0.9241233273347851,
-      "eventSignals": [],
-      "atr": 0.6712,
-      "atrPct": 4.52,
-      "support": 14.6752,
-      "resistance": 16.19,
-      "entryLow": 14.5409,
-      "entryPrice": 14.7087,
-      "entryHigh": 14.843,
-      "stopLoss": 13.8361,
-      "takeProfit1": 16.19,
-      "takeProfit2": 17.3264,
-      "riskReward": 1.7,
-      "entryType": "深度回調",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待更深支撐區才評估。",
-      "qualityScore": 70,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 6,
-      "previousRank": 6,
-      "rankChange": 0
+      "previousRank": 5,
+      "rankChange": -1
     },
     {
       "ticker": "CRBG",
@@ -586,8 +586,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "UTHR",
@@ -644,8 +644,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -702,8 +702,8 @@
         "value"
       ],
       "rank": 12,
-      "previousRank": 14,
-      "rankChange": 2
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "GDDY",
@@ -761,8 +761,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 15,
-      "rankChange": 2
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "HALO",
@@ -822,8 +822,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 16,
-      "rankChange": 2
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "TS",
@@ -880,8 +880,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 17,
-      "rankChange": 2
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
@@ -937,8 +937,8 @@
         "value"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "IX",
@@ -997,8 +997,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "MFG",
@@ -1056,8 +1056,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "ACGL",
@@ -1114,8 +1114,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -1173,8 +1173,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
