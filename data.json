@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T01:11:52.465443-04:00",
+  "asOf": "2026-10-14T01:26:51.209172-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "LATEST_CLOSE",
@@ -355,13 +355,74 @@
       "rankChange": 0
     },
     {
+      "ticker": "OTEX",
+      "name": "Open Text Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "應用軟體",
+      "price": 24.95,
+      "changePct": 3.18445,
+      "marketCap": 6054426112.0,
+      "volume": 1820095.0,
+      "fpe": 5.7896423,
+      "forwardEps": 4.30942,
+      "epsGrowthPct": 10.289812047008716,
+      "analysts": 0,
+      "priceAvg50": 23.8312,
+      "priceAvg200": 24.3027,
+      "roe": 0.1619,
+      "margin": 0.122559994,
+      "debt": 148.724,
+      "earningsDate": "2026-11-05",
+      "score": 87,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 22.990499877929686,
+      "volumeRatio": 1.510577641298033,
+      "eventSignals": [
+        "突破20日高點",
+        "量能放大"
+      ],
+      "atr": 0.7129,
+      "atrPct": 2.86,
+      "support": 24.3027,
+      "resistance": 26.83,
+      "entryLow": 24.6893,
+      "entryPrice": 24.7962,
+      "entryHigh": 25.0101,
+      "stopLoss": 23.9051,
+      "takeProfit1": 26.83,
+      "takeProfit2": 27.7211,
+      "riskReward": 2.28,
+      "entryType": "突破",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "qualityScore": 68,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 7,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "MTCH",
       "name": "Match Group, Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
       "price": 42.36,
       "changePct": 2.02312,
-      "marketCap": 9723780096.0,
+      "marketCap": 9881169920.0,
       "volume": 4140020.0,
       "fpe": 9.253879,
       "forwardEps": 4.57754,
@@ -408,9 +469,9 @@
         "momentum",
         "value"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "GDDY",
@@ -467,9 +528,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
+      "rank": 9,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CART",
@@ -527,9 +588,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TS",
@@ -585,9 +646,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "NU",
@@ -643,9 +704,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "ADI",
@@ -700,9 +761,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "SMTC",
@@ -757,9 +818,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "HOOD",
@@ -815,9 +876,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MRVL",
@@ -873,9 +934,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "VICR",
@@ -931,9 +992,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TEVA",
@@ -944,9 +1005,9 @@
       "changePct": 0.194321,
       "marketCap": 48109572096.0,
       "volume": 6818475.0,
-      "fpe": 13.339715,
-      "forwardEps": 3.09227,
-      "epsGrowthPct": 46.783342589559936,
+      "fpe": 13.378783,
+      "forwardEps": 3.08324,
+      "epsGrowthPct": 46.35470809658755,
       "analysts": 0,
       "priceAvg50": 37.743,
       "priceAvg200": 33.95945,
@@ -988,9 +1049,9 @@
         "momentum",
         "value"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "GOOG",
@@ -1046,9 +1107,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "GOOGL",
@@ -1104,71 +1165,13 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "EG",
-      "name": "Everest Group, Ltd.",
-      "exchange": "NYSE",
-      "sector": "金融",
-      "price": 374.72,
-      "changePct": 0.587873,
-      "marketCap": 14367790080.0,
-      "volume": 238978.0,
-      "fpe": 6.2308507,
-      "forwardEps": 60.13946,
-      "epsGrowthPct": 10.851488637896889,
-      "analysts": 0,
-      "priceAvg50": 371.8834,
-      "priceAvg200": 349.37714,
-      "roe": 0.12572,
-      "margin": 0.11376,
-      "debt": 23.26,
-      "earningsDate": "2026-10-28",
-      "score": 82,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 370.6654968261719,
-      "volumeRatio": 0.5616404230317273,
-      "eventSignals": [],
-      "atr": 6.6321,
-      "atrPct": 1.77,
-      "support": 371.8834,
-      "resistance": 383.04,
-      "entryLow": 370.557,
-      "entryPrice": 372.5466,
-      "entryHigh": 374.2046,
-      "stopLoss": 364.9197,
-      "takeProfit1": 388.03,
-      "takeProfit2": 395.657,
-      "riskReward": 2.03,
-      "entryType": "回踩20日線",
-      "entryStatus": "等待回踩",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 70,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
-  "universeCount": 344,
+  "universeCount": 342,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
