@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T18:57:15.966206-04:00",
+  "asOf": "2026-10-14T19:12:28.036684-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -244,8 +244,8 @@
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 14.78,
-      "changePct": -1.0046923,
+      "price": 14.7476,
+      "changePct": -1.2217059,
       "marketCap": 72122187776.0,
       "volume": 81811728.0,
       "fpe": 13.214144,
@@ -274,7 +274,7 @@
       "volumeRatio": 0.9569830142927828,
       "eventSignals": [],
       "atr": 0.6712,
-      "atrPct": 4.54,
+      "atrPct": 4.55,
       "support": 14.6752,
       "resistance": 16.19,
       "entryLow": 14.5409,
@@ -414,65 +414,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "LLY",
-      "name": "Eli Lilly and Company",
-      "exchange": "NYSE",
-      "sector": "製藥",
-      "price": 1209.1,
-      "changePct": 0.029781869,
-      "marketCap": 1077883437056.0,
-      "volume": 3162617.0,
-      "fpe": 25.460129,
-      "forwardEps": 47.4758,
-      "epsGrowthPct": 34.81567975774196,
-      "analysts": 0,
-      "priceAvg50": 1175.5479,
-      "priceAvg200": 1077.5038,
-      "roe": 1.02286,
-      "margin": 0.33528998,
-      "debt": 162.071,
-      "earningsDate": "2026-10-29",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 1168.5999938964844,
-      "volumeRatio": 1.3668197325683287,
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "atr": 34.366,
-      "atrPct": 2.84,
-      "support": 1175.5479,
-      "resistance": 1215.0,
-      "entryLow": 1168.6747,
-      "entryPrice": 1178.2972,
-      "entryHigh": 1185.8577,
-      "stopLoss": 1137.058,
-      "takeProfit1": 1292.65,
-      "takeProfit2": 1333.8892,
-      "riskReward": 2.77,
-      "entryType": "回踩50日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "qualityScore": 82,
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
-      "rank": 8,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
       "ticker": "UTHR",
       "name": "United Therapeutics Corporation",
       "exchange": "NasdaqGS",
@@ -526,9 +467,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "LAUR",
@@ -584,9 +525,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
-      "previousRank": 8,
-      "rankChange": -2
+      "rank": 9,
+      "previousRank": 10,
+      "rankChange": 1
     },
     {
       "ticker": "COKE",
@@ -641,9 +582,9 @@
         "momentum",
         "value"
       ],
-      "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "rank": 10,
+      "previousRank": 11,
+      "rankChange": 1
     },
     {
       "ticker": "MTCH",
@@ -699,9 +640,9 @@
         "momentum",
         "value"
       ],
-      "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "rank": 11,
+      "previousRank": 12,
+      "rankChange": 1
     },
     {
       "ticker": "GDDY",
@@ -758,9 +699,9 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "rank": 12,
+      "previousRank": 13,
+      "rankChange": 1
     },
     {
       "ticker": "RPRX",
@@ -818,9 +759,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "rank": 13,
+      "previousRank": 14,
+      "rankChange": 1
     },
     {
       "ticker": "HALO",
@@ -879,9 +820,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "rank": 14,
+      "previousRank": 15,
+      "rankChange": 1
     },
     {
       "ticker": "TS",
@@ -937,9 +878,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "rank": 15,
+      "previousRank": 16,
+      "rankChange": 1
     },
     {
       "ticker": "ACGL",
@@ -995,17 +936,17 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "ABBV",
       "name": "AbbVie Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 285.2176,
-      "changePct": 0.612946,
+      "price": 285.8,
+      "changePct": 0.8183917,
       "marketCap": 500942438400.0,
       "volume": 5623920.0,
       "fpe": 17.47968,
@@ -1037,16 +978,16 @@
         "突破20日高點"
       ],
       "atr": 6.5778,
-      "atrPct": 2.31,
+      "atrPct": 2.3,
       "support": 267.889,
-      "resistance": 298.3733,
+      "resistance": 298.9557,
       "entryLow": 283.9969,
       "entryPrice": 284.9835,
       "entryHigh": 286.9569,
       "stopLoss": 276.7612,
-      "takeProfit1": 298.3733,
+      "takeProfit1": 298.9557,
       "takeProfit2": 309.6505,
-      "riskReward": 1.63,
+      "riskReward": 1.7,
       "entryType": "突破",
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
@@ -1055,17 +996,17 @@
         "momentum",
         "value"
       ],
-      "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 17,
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "CSX",
       "name": "CSX Corporation",
       "exchange": "NasdaqGS",
       "sector": "工業",
-      "price": 48.6522,
-      "changePct": 0.7709197,
+      "price": 48.54,
+      "changePct": 0.5385297,
       "marketCap": 89437487104.0,
       "volume": 8818236.0,
       "fpe": 21.139927,
@@ -1096,16 +1037,16 @@
         "突破20日高點"
       ],
       "atr": 0.6675,
-      "atrPct": 1.37,
+      "atrPct": 1.38,
       "support": 47.14,
-      "resistance": 52.15,
+      "resistance": 48.6,
       "entryLow": 47.0065,
       "entryPrice": 47.2067,
       "entryHigh": 47.3736,
       "stopLoss": 46.4391,
-      "takeProfit1": 52.15,
-      "takeProfit2": 52.9176,
-      "riskReward": 6.44,
+      "takeProfit1": 48.6,
+      "takeProfit2": 49.5096,
+      "riskReward": 1.82,
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
@@ -1115,17 +1056,17 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "rank": 18,
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
       "ticker": "ASX",
       "name": "ASE Technology Holding Co., Ltd.",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 43.0202,
-      "changePct": -2.954665,
+      "price": 43.19,
+      "changePct": -2.571629,
       "marketCap": 97473503232.0,
       "volume": 10535888.0,
       "fpe": 20.657614,
@@ -1156,7 +1097,7 @@
         "量能放大"
       ],
       "atr": 1.8179,
-      "atrPct": 4.23,
+      "atrPct": 4.21,
       "support": 40.6174,
       "resistance": 47.93,
       "entryLow": 40.2538,
@@ -1175,9 +1116,69 @@
         "value",
         "quality"
       ],
+      "rank": 19,
+      "previousRank": 20,
+      "rankChange": 1
+    },
+    {
+      "ticker": "KSPI",
+      "name": "Joint Stock Company Kaspi.kz",
+      "exchange": "NasdaqGS",
+      "sector": "基礎軟體",
+      "price": 94.91,
+      "changePct": 0.0,
+      "marketCap": 18035488768.0,
+      "volume": 462780.0,
+      "fpe": 0.013950297,
+      "forwardEps": 6803.44,
+      "epsGrowthPct": 16.39845114357117,
+      "analysts": 0,
+      "priceAvg50": 98.5596,
+      "priceAvg200": 85.677,
+      "roe": 0.44781,
+      "margin": 0.24152,
+      "debt": 22.171,
+      "earningsDate": "2026-11-09",
+      "score": 75,
+      "label": "值得研究",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、短線維持正向",
+        "核心優勢｜站上200日均線、短線維持正向",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋8｜短線維持正向",
+        "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 94.74300003051758,
+      "volumeRatio": 0.9650116044115531,
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "atr": 2.6896,
+      "atrPct": 2.83,
+      "support": 94.743,
+      "resistance": 99.47,
+      "entryLow": 94.2051,
+      "entryPrice": 95.012,
+      "entryHigh": 95.6844,
+      "stopLoss": 91.9189,
+      "takeProfit1": 109.94,
+      "takeProfit2": 113.0331,
+      "riskReward": 4.83,
+      "entryType": "回踩20日線",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
