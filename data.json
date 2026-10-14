@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T07:12:00.102875-04:00",
+  "asOf": "2026-10-14T07:27:15.401571-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -10,8 +10,8 @@
       "name": "Valaris Limited",
       "exchange": "NYSE",
       "sector": "能源",
-      "price": 86.2993,
-      "changePct": 0.8758598,
+      "price": 86.3098,
+      "changePct": 0.82920647,
       "marketCap": 5940233728.0,
       "volume": 742554.0,
       "fpe": 12.114304,
@@ -68,8 +68,8 @@
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 15.6763,
-      "changePct": 0.5535593,
+      "price": 15.68,
+      "changePct": 0.5772941,
       "marketCap": 75262132224.0,
       "volume": 60119584.0,
       "fpe": 13.789441,
@@ -126,8 +126,8 @@
       "name": "CVR Energy, Inc.",
       "exchange": "NYSE",
       "sector": "能源",
-      "price": 63.63,
-      "changePct": 0.80798817,
+      "price": 63.9,
+      "changePct": 1.2357455,
       "marketCap": 6345491456.0,
       "volume": 812839.0,
       "fpe": 16.361105,
@@ -158,9 +158,9 @@
         "突破20日高點"
       ],
       "atr": 2.8464,
-      "atrPct": 4.47,
+      "atrPct": 4.45,
       "support": 54.6805,
-      "resistance": 69.3229,
+      "resistance": 69.5929,
       "entryLow": 54.1112,
       "entryPrice": 54.9651,
       "entryHigh": 55.6768,
@@ -177,8 +177,8 @@
         "value"
       ],
       "rank": 3,
-      "previousRank": 14,
-      "rankChange": 11
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "CRBG",
@@ -242,8 +242,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 353.09,
-      "changePct": 1.021403,
+      "price": 353.8118,
+      "changePct": 1.2279152,
       "marketCap": 4274606833664.0,
       "volume": 14394061.0,
       "fpe": 22.92841,
@@ -274,7 +274,7 @@
         "突破20日高點"
       ],
       "atr": 7.4364,
-      "atrPct": 2.11,
+      "atrPct": 2.1,
       "support": 343.2372,
       "resistance": 359.98,
       "entryLow": 341.7499,
@@ -302,8 +302,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 357.52,
-      "changePct": 1.0571514,
+      "price": 358.065,
+      "changePct": 1.2112057,
       "marketCap": 4326706380800.0,
       "volume": 22270289.0,
       "fpe": 23.207865,
@@ -411,8 +411,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 15,
-      "rankChange": 8
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "OTEX",
@@ -472,8 +472,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -530,67 +530,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
-    },
-    {
-      "ticker": "GDDY",
-      "name": "GoDaddy Inc.",
-      "exchange": "NYSE",
-      "sector": "基礎軟體",
-      "price": 103.6,
-      "changePct": 0.5825228,
-      "marketCap": 13048512512.0,
-      "volume": 1123303.0,
-      "fpe": 9.343006,
-      "forwardEps": 11.0275,
-      "epsGrowthPct": 14.601195115614441,
-      "analysts": 0,
-      "priceAvg50": 97.17,
-      "priceAvg200": 92.65885,
-      "roe": 4.42861,
-      "margin": 0.17834999,
-      "debt": 57334.33,
-      "earningsDate": "2026-10-29",
-      "score": 87,
-      "label": "進場候選",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線、負債偏高；注意：負債偏高",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜負債偏高",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康",
-        "⚠｜負債偏高"
-      ],
-      "priceAvg20": 98.87649917602539,
-      "volumeRatio": 0.4317274432333543,
-      "eventSignals": [],
-      "atr": 4.1045,
-      "atrPct": 3.96,
-      "support": 98.8765,
-      "resistance": 110.35,
-      "entryLow": 98.0556,
-      "entryPrice": 99.2049,
-      "entryHigh": 100.1078,
-      "stopLoss": 94.2795,
-      "takeProfit1": 110.35,
-      "takeProfit2": 115.2754,
-      "riskReward": 2.26,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "qualityScore": 65,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 10,
       "previousRank": 9,
-      "rankChange": -1
+      "rankChange": 0
     },
     {
       "ticker": "CART",
@@ -648,9 +589,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "rank": 10,
+      "previousRank": 11,
+      "rankChange": 1
     },
     {
       "ticker": "TS",
@@ -708,9 +649,9 @@
         "value",
         "quality"
       ],
-      "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "rank": 11,
+      "previousRank": 12,
+      "rankChange": 1
     },
     {
       "ticker": "LYFT",
@@ -768,17 +709,17 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "rank": 12,
+      "previousRank": 13,
+      "rankChange": 1
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 227.6,
-      "changePct": -0.40258977,
+      "price": 227.62,
+      "changePct": -0.3938426,
       "marketCap": 5518072479744.0,
       "volume": 83671511.0,
       "fpe": 14.359142,
@@ -826,9 +767,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 3,
-      "rankChange": -11
+      "rank": 13,
+      "previousRank": 14,
+      "rankChange": 1
     },
     {
       "ticker": "GME",
@@ -886,9 +827,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 13,
-      "rankChange": -2
+      "rank": 14,
+      "previousRank": 15,
+      "rankChange": 1
     },
     {
       "ticker": "SYF",
@@ -944,17 +885,17 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AMP",
       "name": "Ameriprise Financial, Inc.",
       "exchange": "NYSE",
       "sector": "金融",
-      "price": 516.6912,
-      "changePct": 4.7375364,
+      "price": 497.01,
+      "changePct": 0.7765962,
       "marketCap": 43576541184.0,
       "volume": 420779.0,
       "fpe": 9.563887,
@@ -985,28 +926,28 @@
         "跌破50日線"
       ],
       "atr": 11.2414,
-      "atrPct": 2.18,
-      "support": 505.326,
+      "atrPct": 2.26,
+      "support": 493.3029,
       "resistance": 560.18,
-      "entryLow": 503.0777,
-      "entryPrice": 506.2253,
-      "entryHigh": 508.6984,
-      "stopLoss": 492.7356,
+      "entryLow": 491.0546,
+      "entryPrice": 494.427,
+      "entryHigh": 497.2374,
+      "stopLoss": 481.4994,
       "takeProfit1": 560.18,
-      "takeProfit2": 573.6697,
-      "riskReward": 4.0,
+      "takeProfit2": 573.1076,
+      "riskReward": 5.09,
       "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 92,
       "profiles": [
         "momentum",
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "DVA",
@@ -1014,7 +955,7 @@
       "exchange": "NYSE",
       "sector": "醫療保健",
       "price": 184.6542,
-      "changePct": 1.291389,
+      "changePct": 1.413776,
       "marketCap": 11616704512.0,
       "volume": 400903.0,
       "fpe": 10.620886,
@@ -1062,29 +1003,29 @@
         "momentum",
         "value"
       ],
-      "rank": 18,
+      "rank": 17,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
-      "ticker": "KEYS",
-      "name": "Keysight Technologies, Inc.",
-      "exchange": "NYSE",
-      "sector": "科技",
-      "price": 372.07,
-      "changePct": 0.58120507,
-      "marketCap": 63028011008.0,
-      "volume": 1168526.0,
-      "fpe": 26.56941,
-      "forwardEps": 13.93407,
-      "epsGrowthPct": 21.440175282943553,
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "基礎軟體",
+      "price": 547.11,
+      "changePct": 0.6734701,
+      "marketCap": 4035413016576.0,
+      "volume": 23799223.0,
+      "fpe": 22.955486,
+      "forwardEps": 23.67408,
+      "epsGrowthPct": 19.804216867469894,
       "analysts": 0,
-      "priceAvg50": 342.5606,
-      "priceAvg200": 307.9027,
-      "roe": 0.20897,
-      "margin": 0.19143,
-      "debt": 42.094,
-      "earningsDate": "2026-11-24",
+      "priceAvg50": 501.9754,
+      "priceAvg200": 434.2754,
+      "roe": 0.34039003,
+      "margin": 0.40305,
+      "debt": 29.118,
+      "earningsDate": "2026-10-28",
       "score": 82,
       "label": "進場候選",
       "risk": "低",
@@ -1097,31 +1038,93 @@
         "＋10｜站上50日均線",
         "＋15｜短線動能健康"
       ],
-      "priceAvg20": 362.6395034790039,
-      "volumeRatio": 1.0138834298605237,
-      "eventSignals": [],
-      "atr": 10.4391,
-      "atrPct": 2.81,
-      "support": 362.6395,
-      "resistance": 389.93,
-      "entryLow": 360.5517,
-      "entryPrice": 363.4746,
-      "entryHigh": 365.7712,
-      "stopLoss": 350.9477,
-      "takeProfit1": 389.93,
-      "takeProfit2": 402.4569,
-      "riskReward": 2.11,
-      "entryType": "支撐回踩",
+      "priceAvg20": 514.2029998779296,
+      "volumeRatio": 1.0597199754386293,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 11.9521,
+      "atrPct": 2.18,
+      "support": 514.203,
+      "resistance": 571.0143,
+      "entryLow": 511.8126,
+      "entryPrice": 515.3982,
+      "entryHigh": 518.3862,
+      "stopLoss": 501.6533,
+      "takeProfit1": 542.74,
+      "takeProfit2": 556.6331,
+      "riskReward": 1.99,
+      "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 18,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "exchange": "NYSE",
+      "sector": "金融",
+      "price": 398.68,
+      "changePct": 0.6488115,
+      "marketCap": 743545307136.0,
+      "volume": 7478804.0,
+      "fpe": 26.397295,
+      "forwardEps": 15.00381,
+      "epsGrowthPct": 13.413740894244363,
+      "analysts": 0,
+      "priceAvg50": 370.1928,
+      "priceAvg200": 338.3282,
+      "roe": 0.6119,
+      "margin": 0.50782,
+      "debt": 67.821,
+      "earningsDate": "2026-10-27",
+      "score": 82,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 370.4905014038086,
+      "volumeRatio": 1.174523833454783,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 6.53,
+      "atrPct": 1.64,
+      "support": 370.4905,
+      "resistance": 411.74,
+      "entryLow": 392.5936,
+      "entryPrice": 393.5731,
+      "entryHigh": 395.5321,
+      "stopLoss": 385.4106,
+      "takeProfit1": 411.74,
+      "takeProfit2": 419.9025,
+      "riskReward": 2.23,
+      "entryType": "突破",
+      "entryStatus": "等待回踩",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "qualityScore": 92,
       "profiles": [
         "momentum",
         "quality"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "AFRM",
@@ -1178,8 +1181,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
