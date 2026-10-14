@@ -1,8 +1,8 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-13T23:56:56.067377-04:00",
-  "date": "2026-10-13",
-  "snapshotDate": "2026-10-13",
+  "asOf": "2026-10-14T00:11:53.413465-04:00",
+  "date": "2026-10-14",
+  "snapshotDate": "2026-10-14",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -361,7 +361,7 @@
       "sector": "通訊服務",
       "price": 42.36,
       "changePct": 2.02312,
-      "marketCap": 9881169920.0,
+      "marketCap": 9723780096.0,
       "volume": 4140020.0,
       "fpe": 9.253879,
       "forwardEps": 4.57754,
@@ -944,9 +944,9 @@
       "changePct": 0.194321,
       "marketCap": 48109572096.0,
       "volume": 6818475.0,
-      "fpe": 13.378783,
-      "forwardEps": 3.08324,
-      "epsGrowthPct": 46.35470809658755,
+      "fpe": 13.339715,
+      "forwardEps": 3.09227,
+      "epsGrowthPct": 46.783342589559936,
       "analysts": 0,
       "priceAvg50": 37.743,
       "priceAvg200": 33.95945,
@@ -1168,7 +1168,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 342,
+  "universeCount": 344,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
