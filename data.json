@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T04:41:58.330300-04:00",
+  "asOf": "2026-10-14T04:57:01.453380-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -127,7 +127,7 @@
       "exchange": "NYSE",
       "sector": "電子零組件",
       "price": 319.6327,
-      "changePct": 0.570349,
+      "changePct": 0.5577,
       "marketCap": 33307621376.0,
       "volume": 1264382.0,
       "fpe": 14.338627,
@@ -175,16 +175,16 @@
         "value"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 229.4,
-      "changePct": 0.3850821,
+      "price": 229.05,
+      "changePct": 0.23192665,
       "marketCap": 5518072479744.0,
       "volume": 83671511.0,
       "fpe": 14.359142,
@@ -213,7 +213,7 @@
       "volumeRatio": 0.7925628221622782,
       "eventSignals": [],
       "atr": 5.31,
-      "atrPct": 2.31,
+      "atrPct": 2.32,
       "support": 228.3195,
       "resistance": 243.37,
       "entryLow": 227.2575,
@@ -233,8 +233,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "CVI",
@@ -292,8 +292,8 @@
         "value"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "CRBG",
@@ -349,16 +349,16 @@
         "value"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 351.98,
-      "changePct": 0.7038287,
+      "price": 352.0888,
+      "changePct": 0.7349557,
       "marketCap": 4274606833664.0,
       "volume": 14394061.0,
       "fpe": 22.92841,
@@ -407,16 +407,16 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 356.14,
-      "changePct": 0.6670857,
+      "price": 356.35,
+      "changePct": 0.7264422,
       "marketCap": 4326706380800.0,
       "volume": 22270289.0,
       "fpe": 23.207865,
@@ -465,8 +465,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "OTEX",
@@ -526,8 +526,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -584,8 +584,8 @@
         "value"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "GDDY",
@@ -643,8 +643,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "CART",
@@ -889,8 +889,8 @@
       "name": "GameStop Corp.",
       "exchange": "NYSE",
       "sector": "非必需消費",
-      "price": 27.68,
-      "changePct": 1.6899376,
+      "price": 27.66,
+      "changePct": 1.6164604,
       "marketCap": 13732516864.0,
       "volume": 12710661.0,
       "fpe": 14.634408,
@@ -923,7 +923,7 @@
       "atr": 1.1393,
       "atrPct": 4.12,
       "support": 24.442,
-      "resistance": 29.9586,
+      "resistance": 29.9386,
       "entryLow": 24.2141,
       "entryPrice": 24.499,
       "entryHigh": 24.7268,
@@ -942,63 +942,6 @@
       ],
       "rank": 16,
       "previousRank": 16,
-      "rankChange": 0
-    },
-    {
-      "ticker": "ADI",
-      "name": "Analog Devices, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "半導體",
-      "price": 417.1,
-      "changePct": 0.5787301,
-      "marketCap": 200949301248.0,
-      "volume": 2696563.0,
-      "fpe": 25.38444,
-      "forwardEps": 16.33678,
-      "epsGrowthPct": 27.184160660429214,
-      "analysts": 0,
-      "priceAvg50": 380.8994,
-      "priceAvg200": 363.61734,
-      "roe": 0.12227,
-      "margin": 0.29787,
-      "debt": 27.314,
-      "earningsDate": "2026-11-24",
-      "score": 85,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 396.5064987182617,
-      "volumeRatio": 0.8937998949275182,
-      "eventSignals": [],
-      "atr": 10.9607,
-      "atrPct": 2.63,
-      "support": 396.5065,
-      "resistance": 422.67,
-      "entryLow": 394.3144,
-      "entryPrice": 397.6026,
-      "entryHigh": 400.3427,
-      "stopLoss": 384.9977,
-      "takeProfit1": 422.67,
-      "takeProfit2": 435.417,
-      "riskReward": 1.99,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 77,
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
-      "rank": 17,
-      "previousRank": 17,
       "rankChange": 0
     },
     {
@@ -1054,17 +997,17 @@
         "momentum",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 17,
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "HOOD",
       "name": "Robinhood Markets, Inc.",
       "exchange": "NasdaqGS",
       "sector": "金融",
-      "price": 111.3,
-      "changePct": 0.7057604,
+      "price": 111.12,
+      "changePct": 0.5428937,
       "marketCap": 99366576128.0,
       "volume": 14977713.0,
       "fpe": 32.244324,
@@ -1112,29 +1055,29 @@
         "momentum",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "rank": 18,
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
-      "ticker": "ANET",
-      "name": "Arista Networks, Inc.",
-      "exchange": "NYSE",
-      "sector": "電腦硬體",
-      "price": 205.8605,
-      "changePct": 0.6603636,
-      "marketCap": 257945681920.0,
-      "volume": 7982499.0,
-      "fpe": 39.203663,
-      "forwardEps": 5.21686,
-      "epsGrowthPct": 26.74402219598353,
+      "ticker": "VICR",
+      "name": "Vicor Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "電子零組件",
+      "price": 268.97,
+      "changePct": 0.6473623,
+      "marketCap": 12321562624.0,
+      "volume": 1052269.0,
+      "fpe": 43.666664,
+      "forwardEps": 6.12,
+      "epsGrowthPct": 48.663847235751234,
       "analysts": 0,
-      "priceAvg50": 198.4744,
-      "priceAvg200": 161.46996,
-      "roe": 0.31476,
-      "margin": 0.38371,
-      "debt": null,
-      "earningsDate": "2026-11-03",
+      "priceAvg50": 228.9884,
+      "priceAvg200": 221.7446,
+      "roe": 0.20131999,
+      "margin": 0.30645,
+      "debt": 0.912,
+      "earningsDate": "2026-10-20",
       "score": 84,
       "label": "進場候選",
       "risk": "中",
@@ -1148,26 +1091,81 @@
         "＋15｜短線動能健康",
         "⚠｜FPE偏高"
       ],
-      "priceAvg20": 206.36000061035156,
-      "volumeRatio": 1.5786687366198784,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 6.8119,
-      "atrPct": 3.31,
-      "support": 198.4744,
-      "resistance": 217.41,
-      "entryLow": 197.112,
-      "entryPrice": 199.1556,
-      "entryHigh": 200.8586,
-      "stopLoss": 191.3219,
-      "takeProfit1": 217.41,
-      "takeProfit2": 225.2437,
-      "riskReward": 2.33,
+      "priceAvg20": 269.0679985046387,
+      "volumeRatio": 1.027922651987672,
+      "eventSignals": [],
+      "atr": 19.3864,
+      "atrPct": 7.21,
+      "support": 228.9884,
+      "resistance": 331.0,
+      "entryLow": 225.1111,
+      "entryPrice": 230.927,
+      "entryHigh": 235.7736,
+      "stopLoss": 208.6327,
+      "takeProfit1": 331.0,
+      "takeProfit2": 353.2944,
+      "riskReward": 4.49,
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 70,
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 19,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "電商",
+      "price": 259.48,
+      "changePct": 0.3480642,
+      "marketCap": 2789124603904.0,
+      "volume": 25175766.0,
+      "fpe": 24.735573,
+      "forwardEps": 10.45377,
+      "epsGrowthPct": 25.835329521516726,
+      "analysts": 0,
+      "priceAvg50": 258.8546,
+      "priceAvg200": 242.2885,
+      "roe": 0.30558002,
+      "margin": 0.1744,
+      "debt": 45.617,
+      "earningsDate": "2026-10-29",
+      "score": 83,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "priceAvg20": 252.8270004272461,
+      "volumeRatio": 0.696964510844078,
+      "eventSignals": [],
+      "atr": 5.3729,
+      "atrPct": 2.07,
+      "support": 258.8546,
+      "resistance": 263.7,
+      "entryLow": 257.78,
+      "entryPrice": 259.3919,
+      "entryHigh": 260.7351,
+      "stopLoss": 253.2131,
+      "takeProfit1": 287.2,
+      "takeProfit2": 293.3788,
+      "riskReward": 4.5,
+      "entryType": "支撐回踩",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 100,
       "profiles": [
         "momentum",
         "quality"
