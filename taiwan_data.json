@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T14:12:12.960459+08:00",
+  "asOf": "2026-10-14T14:27:19.480280+08:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-13",
   "dataMode": "INTRADAY",
@@ -140,8 +140,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 2,
-      "previousRank": 5,
-      "rankChange": 3
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "3264",
@@ -278,8 +278,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 4,
-      "previousRank": 2,
-      "rankChange": -2
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "5009",
@@ -347,8 +347,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "3580",
@@ -417,8 +417,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 6,
-      "previousRank": 8,
-      "rankChange": 2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "5210",
@@ -486,8 +486,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 7,
-      "previousRank": 9,
-      "rankChange": 2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "4577",
@@ -554,8 +554,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 8,
-      "previousRank": 17,
-      "rankChange": 9
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3290",
@@ -623,8 +623,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 9,
-      "previousRank": 11,
-      "rankChange": 2
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "3689",
@@ -763,8 +763,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 11,
-      "previousRank": 13,
-      "rankChange": 2
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "5340",
@@ -831,8 +831,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 12,
-      "previousRank": 14,
-      "rankChange": 2
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "4707",
@@ -899,8 +899,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "3624",
@@ -966,8 +966,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "3529",
@@ -1033,8 +1033,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "4542",
@@ -1098,8 +1098,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "3693",
@@ -1168,8 +1168,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "5309",
@@ -1303,8 +1303,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "4903",
@@ -1371,8 +1371,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
