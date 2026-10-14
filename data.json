@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T06:12:01.907950-04:00",
+  "asOf": "2026-10-14T06:27:04.904597-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -68,8 +68,8 @@
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 15.65,
-      "changePct": 0.38485867,
+      "price": 15.6839,
+      "changePct": 0.60230744,
       "marketCap": 75262132224.0,
       "volume": 60119584.0,
       "fpe": 13.789441,
@@ -82,7 +82,7 @@
       "margin": 0.42728,
       "debt": null,
       "earningsDate": "2026-11-12",
-      "score": 93,
+      "score": 100,
       "label": "進場候選",
       "risk": "低",
       "reasons": [
@@ -92,13 +92,13 @@
         "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
+        "＋15｜短線動能健康"
       ],
       "priceAvg20": 14.188000106811524,
       "volumeRatio": 0.6964493983206672,
       "eventSignals": [],
       "atr": 0.6362,
-      "atrPct": 4.07,
+      "atrPct": 4.06,
       "support": 14.6809,
       "resistance": 16.19,
       "entryLow": 14.5537,
@@ -126,8 +126,8 @@
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 228.93,
-      "changePct": 0.1794103,
+      "price": 228.99,
+      "changePct": 0.2056718,
       "marketCap": 5518072479744.0,
       "volume": 83671511.0,
       "fpe": 14.359142,
@@ -186,7 +186,7 @@
       "sector": "金融",
       "price": 34.7992,
       "changePct": 1.1604552,
-      "marketCap": 15334575104.0,
+      "marketCap": 15334440960.0,
       "volume": 7149662.0,
       "fpe": 6.006132,
       "forwardEps": 5.72748,
@@ -241,8 +241,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 352.6128,
-      "changePct": 0.88487184,
+      "price": 352.7,
+      "changePct": 0.90982586,
       "marketCap": 4274606833664.0,
       "volume": 14394061.0,
       "fpe": 22.92841,
@@ -269,7 +269,9 @@
       ],
       "priceAvg20": 343.01499633789064,
       "volumeRatio": 0.8635416757280965,
-      "eventSignals": [],
+      "eventSignals": [
+        "突破20日高點"
+      ],
       "atr": 7.4364,
       "atrPct": 2.11,
       "support": 343.2372,
@@ -299,8 +301,8 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 356.91,
-      "changePct": 0.884732,
+      "price": 357.0,
+      "changePct": 0.9101705,
       "marketCap": 4326706380800.0,
       "volume": 22270289.0,
       "fpe": 23.207865,
@@ -355,13 +357,70 @@
       "rankChange": 0
     },
     {
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "電商",
+      "price": 259.89,
+      "changePct": 0.5066239,
+      "marketCap": 2789124603904.0,
+      "volume": 25175766.0,
+      "fpe": 24.735573,
+      "forwardEps": 10.45377,
+      "epsGrowthPct": 25.835329521516726,
+      "analysts": 0,
+      "priceAvg50": 258.8546,
+      "priceAvg200": 242.2885,
+      "roe": 0.30558002,
+      "margin": 0.1744,
+      "debt": 45.617,
+      "earningsDate": "2026-10-29",
+      "score": 90,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 252.8270004272461,
+      "volumeRatio": 0.696964510844078,
+      "eventSignals": [],
+      "atr": 5.3729,
+      "atrPct": 2.07,
+      "support": 258.8546,
+      "resistance": 263.7,
+      "entryLow": 257.78,
+      "entryPrice": 259.3919,
+      "entryHigh": 260.7351,
+      "stopLoss": 253.2131,
+      "takeProfit1": 287.2,
+      "takeProfit2": 293.3788,
+      "riskReward": 4.5,
+      "entryType": "支撐回踩",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 7,
+      "previousRank": 15,
+      "rankChange": 8
+    },
+    {
       "ticker": "OTEX",
       "name": "Open Text Corporation",
       "exchange": "NasdaqGS",
       "sector": "應用軟體",
       "price": 24.95,
       "changePct": 3.18445,
-      "marketCap": 6041062400.0,
+      "marketCap": 6054426112.0,
       "volume": 1820095.0,
       "fpe": 5.7896423,
       "forwardEps": 4.30942,
@@ -411,9 +470,9 @@
         "value",
         "quality"
       ],
-      "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "rank": 8,
+      "previousRank": 7,
+      "rankChange": -1
     },
     {
       "ticker": "MTCH",
@@ -422,7 +481,7 @@
       "sector": "通訊服務",
       "price": 42.59,
       "changePct": 0.542964,
-      "marketCap": 9723780096.0,
+      "marketCap": 9881169920.0,
       "volume": 4140020.0,
       "fpe": 9.253879,
       "forwardEps": 4.57754,
@@ -469,9 +528,9 @@
         "momentum",
         "value"
       ],
-      "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "rank": 9,
+      "previousRank": 8,
+      "rankChange": -1
     },
     {
       "ticker": "GDDY",
@@ -528,9 +587,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "rank": 10,
+      "previousRank": 9,
+      "rankChange": -1
     },
     {
       "ticker": "CART",
@@ -588,9 +647,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "rank": 11,
+      "previousRank": 10,
+      "rankChange": -1
     },
     {
       "ticker": "TS",
@@ -601,9 +660,9 @@
       "changePct": 0.8057717,
       "marketCap": 29552156672.0,
       "volume": 802043.0,
-      "fpe": 14.031068,
-      "forwardEps": 4.17217,
-      "epsGrowthPct": 10.714626897356982,
+      "fpe": 13.94334,
+      "forwardEps": 4.19842,
+      "epsGrowthPct": 11.411209001167588,
       "analysts": 0,
       "priceAvg50": 55.4184,
       "priceAvg200": 54.8253,
@@ -648,9 +707,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "rank": 12,
+      "previousRank": 11,
+      "rankChange": -1
     },
     {
       "ticker": "LYFT",
@@ -708,17 +767,17 @@
         "value",
         "quality"
       ],
-      "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "rank": 13,
+      "previousRank": 12,
+      "rankChange": -1
     },
     {
       "ticker": "GME",
       "name": "GameStop Corp.",
       "exchange": "NYSE",
       "sector": "非必需消費",
-      "price": 27.7758,
-      "changePct": 2.041886,
+      "price": 27.71,
+      "changePct": 1.8001461,
       "marketCap": 13732516864.0,
       "volume": 12710661.0,
       "fpe": 14.634408,
@@ -749,9 +808,9 @@
         "突破20日高點"
       ],
       "atr": 1.1393,
-      "atrPct": 4.1,
+      "atrPct": 4.11,
       "support": 24.442,
-      "resistance": 30.0544,
+      "resistance": 29.9886,
       "entryLow": 24.2141,
       "entryPrice": 24.499,
       "entryHigh": 24.7268,
@@ -768,9 +827,9 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "rank": 14,
+      "previousRank": 13,
+      "rankChange": -1
     },
     {
       "ticker": "CVI",
@@ -827,66 +886,9 @@
         "momentum",
         "value"
       ],
-      "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
-    },
-    {
-      "ticker": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "電商",
-      "price": 259.78,
-      "changePct": 0.46407777,
-      "marketCap": 2789124603904.0,
-      "volume": 25175766.0,
-      "fpe": 24.735573,
-      "forwardEps": 10.45377,
-      "epsGrowthPct": 25.835329521516726,
-      "analysts": 0,
-      "priceAvg50": 258.8546,
-      "priceAvg200": 242.2885,
-      "roe": 0.30558002,
-      "margin": 0.1744,
-      "debt": 45.617,
-      "earningsDate": "2026-10-29",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 252.8270004272461,
-      "volumeRatio": 0.696964510844078,
-      "eventSignals": [],
-      "atr": 5.3729,
-      "atrPct": 2.07,
-      "support": 258.8546,
-      "resistance": 263.7,
-      "entryLow": 257.78,
-      "entryPrice": 259.3919,
-      "entryHigh": 260.7351,
-      "stopLoss": 253.2131,
-      "takeProfit1": 287.2,
-      "takeProfit2": 293.3788,
-      "riskReward": 4.5,
-      "entryType": "支撐回踩",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
       "rank": 15,
-      "previousRank": 7,
-      "rankChange": -8
+      "previousRank": 14,
+      "rankChange": -1
     },
     {
       "ticker": "SYF",
@@ -943,8 +945,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "IAG",
@@ -955,9 +957,9 @@
       "changePct": 0.5473474,
       "marketCap": 10432169984.0,
       "volume": 2784290.0,
-      "fpe": 7.6977854,
-      "forwardEps": 2.37341,
-      "epsGrowthPct": 18.918444957736867,
+      "fpe": 7.796331,
+      "forwardEps": 2.34341,
+      "epsGrowthPct": 17.41531092327502,
       "analysts": 0,
       "priceAvg50": 19.2374,
       "priceAvg200": 18.33945,
@@ -1003,8 +1005,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "AMP",
@@ -1013,7 +1015,7 @@
       "sector": "金融",
       "price": 516.6912,
       "changePct": 4.7375364,
-      "marketCap": 43609489408.0,
+      "marketCap": 43576541184.0,
       "volume": 420779.0,
       "fpe": 9.563887,
       "forwardEps": 51.58154,
@@ -1063,8 +1065,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "DVA",
@@ -1073,7 +1075,7 @@
       "sector": "醫療保健",
       "price": 183.51,
       "changePct": 0.78536505,
-      "marketCap": 11686804480.0,
+      "marketCap": 11616704512.0,
       "volume": 400903.0,
       "fpe": 10.620886,
       "forwardEps": 17.14358,
@@ -1121,8 +1123,8 @@
         "value"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "ETSY",
@@ -1181,12 +1183,12 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 344,
+  "universeCount": 343,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
