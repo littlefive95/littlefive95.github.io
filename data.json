@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T19:27:27.901046-04:00",
+  "asOf": "2026-10-14T19:42:22.288605-04:00",
   "date": "2026-10-14",
   "snapshotDate": "2026-10-14",
   "dataMode": "INTRADAY",
@@ -70,8 +70,8 @@
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 148.2,
-      "changePct": 0.56320953,
+      "price": 148.4921,
+      "changePct": 0.76141745,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
       "fpe": 15.813419,
@@ -119,66 +119,8 @@
         "value"
       ],
       "rank": 2,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
-      "ticker": "LYFT",
-      "name": "Lyft, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "應用軟體",
-      "price": 16.39,
-      "changePct": -0.5461174,
-      "marketCap": 6238343168.0,
-      "volume": 12746078.0,
-      "fpe": 7.6485386,
-      "forwardEps": 2.15466,
-      "epsGrowthPct": 42.729579162830134,
-      "analysts": 0,
-      "priceAvg50": 16.2735,
-      "priceAvg200": 15.2826,
-      "roe": 1.52579,
-      "margin": 0.42317,
-      "debt": 42.738,
-      "earningsDate": "2026-11-04",
-      "score": 85,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋20｜FPE偏低"
-      ],
-      "priceAvg20": 15.459749937057495,
-      "volumeRatio": 1.3465899118635567,
-      "eventSignals": [],
-      "atr": 0.4639,
-      "atrPct": 2.83,
-      "support": 16.2735,
-      "resistance": 16.515,
-      "entryLow": 16.1807,
-      "entryPrice": 16.3199,
-      "entryHigh": 16.4359,
-      "stopLoss": 15.7864,
-      "takeProfit1": 17.98,
-      "takeProfit2": 18.5135,
-      "riskReward": 3.11,
-      "entryType": "支撐回踩",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 3,
       "previousRank": 2,
-      "rankChange": -1
+      "rankChange": 0
     },
     {
       "ticker": "AMG",
@@ -234,9 +176,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "rank": 3,
+      "previousRank": 4,
+      "rankChange": 1
     },
     {
       "ticker": "LKNCY",
@@ -292,17 +234,17 @@
         "value",
         "quality"
       ],
-      "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "rank": 4,
+      "previousRank": 5,
+      "rankChange": 1
     },
     {
       "ticker": "NU",
       "name": "Nu Holdings Ltd.",
       "exchange": "NYSE",
       "sector": "區域銀行",
-      "price": 14.7501,
-      "changePct": -1.2049576,
+      "price": 14.7,
+      "changePct": -1.5405257,
       "marketCap": 72122187776.0,
       "volume": 81811728.0,
       "fpe": 13.214144,
@@ -331,7 +273,7 @@
       "volumeRatio": 0.9569830142927828,
       "eventSignals": [],
       "atr": 0.6712,
-      "atrPct": 4.55,
+      "atrPct": 4.57,
       "support": 14.6752,
       "resistance": 16.19,
       "entryLow": 14.5409,
@@ -350,9 +292,9 @@
         "value",
         "quality"
       ],
-      "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "rank": 5,
+      "previousRank": 6,
+      "rankChange": 1
     },
     {
       "ticker": "CRBG",
@@ -407,9 +349,9 @@
         "momentum",
         "value"
       ],
-      "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "rank": 6,
+      "previousRank": 7,
+      "rankChange": 1
     },
     {
       "ticker": "TEVA",
@@ -466,30 +408,30 @@
         "momentum",
         "value"
       ],
-      "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "rank": 7,
+      "previousRank": 8,
+      "rankChange": 1
     },
     {
-      "ticker": "LLY",
-      "name": "Eli Lilly and Company",
-      "exchange": "NYSE",
-      "sector": "製藥",
-      "price": 1210.0,
-      "changePct": 0.10424159,
-      "marketCap": 1077418917888.0,
-      "volume": 3162617.0,
-      "fpe": 25.460129,
-      "forwardEps": 47.4758,
-      "epsGrowthPct": 34.81567975774196,
+      "ticker": "KDP",
+      "name": "Keurig Dr Pepper Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "必需消費",
+      "price": 33.31,
+      "changePct": 0.5736789,
+      "marketCap": 45070557184.0,
+      "volume": 9868301.0,
+      "fpe": 13.087339,
+      "forwardEps": 2.53069,
+      "epsGrowthPct": 10.39526433111293,
       "analysts": 0,
-      "priceAvg50": 1175.5479,
-      "priceAvg200": 1077.5038,
-      "roe": 1.02286,
-      "margin": 0.33528998,
-      "debt": 162.071,
-      "earningsDate": "2026-10-29",
-      "score": 83,
+      "priceAvg50": 31.3486,
+      "priceAvg200": 29.54765,
+      "roe": 0.051,
+      "margin": 0.07103,
+      "debt": 99.649,
+      "earningsDate": "2026-11-03",
+      "score": 82,
       "label": "進場候選",
       "risk": "低",
       "reasons": [
@@ -499,33 +441,33 @@
         "判斷｜趨勢與基本面條件偏多",
         "＋25｜站上200日均線",
         "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
+        "＋15｜短線動能健康"
       ],
-      "priceAvg20": 1168.5999938964844,
-      "volumeRatio": 1.3668197325683287,
+      "priceAvg20": 31.35550003051758,
+      "volumeRatio": 0.8738720797889944,
       "eventSignals": [
         "突破20日高點"
       ],
-      "atr": 34.366,
-      "atrPct": 2.84,
-      "support": 1175.5479,
-      "resistance": 1215.0,
-      "entryLow": 1168.6747,
-      "entryPrice": 1178.9845,
-      "entryHigh": 1187.576,
-      "stopLoss": 1139.4636,
-      "takeProfit1": 1292.65,
-      "takeProfit2": 1332.1709,
-      "riskReward": 2.88,
+      "atr": 0.8782,
+      "atrPct": 2.64,
+      "support": 31.3555,
+      "resistance": 35.0664,
+      "entryLow": 31.1799,
+      "entryPrice": 31.4433,
+      "entryHigh": 31.6629,
+      "stopLoss": 30.4334,
+      "takeProfit1": 33.17,
+      "takeProfit2": 34.4732,
+      "riskReward": 1.71,
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 82,
+      "qualityScore": 52,
       "profiles": [
         "momentum",
-        "quality"
+        "value"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": null,
       "rankChange": null
     },
@@ -583,9 +525,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "rank": 9,
+      "previousRank": 10,
+      "rankChange": 1
     },
     {
       "ticker": "UTHR",
@@ -641,9 +583,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 8,
-      "rankChange": -3
+      "rank": 10,
+      "previousRank": 11,
+      "rankChange": 1
     },
     {
       "ticker": "COKE",
@@ -698,9 +640,9 @@
         "momentum",
         "value"
       ],
-      "rank": 12,
-      "previousRank": 10,
-      "rankChange": -2
+      "rank": 11,
+      "previousRank": 12,
+      "rankChange": 1
     },
     {
       "ticker": "MTCH",
@@ -756,9 +698,9 @@
         "momentum",
         "value"
       ],
-      "rank": 13,
-      "previousRank": 11,
-      "rankChange": -2
+      "rank": 12,
+      "previousRank": 13,
+      "rankChange": 1
     },
     {
       "ticker": "GDDY",
@@ -815,9 +757,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 12,
-      "rankChange": -2
+      "rank": 13,
+      "previousRank": 14,
+      "rankChange": 1
     },
     {
       "ticker": "RPRX",
@@ -875,17 +817,17 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 13,
-      "rankChange": -2
+      "rank": 14,
+      "previousRank": 15,
+      "rankChange": 1
     },
     {
       "ticker": "HALO",
       "name": "Halozyme Therapeutics, Inc.",
       "exchange": "NasdaqGS",
       "sector": "生技",
-      "price": 117.3,
-      "changePct": 0.4108914,
+      "price": 117.4,
+      "changePct": 0.4964919,
       "marketCap": 13258835968.0,
       "volume": 3769034.0,
       "fpe": 10.986965,
@@ -919,14 +861,14 @@
       "atr": 3.4736,
       "atrPct": 2.96,
       "support": 111.426,
-      "resistance": 124.2471,
+      "resistance": 124.3471,
       "entryLow": 117.0837,
       "entryPrice": 117.6047,
       "entryHigh": 118.6468,
       "stopLoss": 113.2628,
-      "takeProfit1": 124.2471,
+      "takeProfit1": 124.3471,
       "takeProfit2": 130.6306,
-      "riskReward": 1.53,
+      "riskReward": 1.55,
       "entryType": "突破",
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
@@ -936,9 +878,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 14,
-      "rankChange": -2
+      "rank": 15,
+      "previousRank": 16,
+      "rankChange": 1
     },
     {
       "ticker": "TS",
@@ -994,9 +936,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": 15,
-      "rankChange": -2
+      "rank": 16,
+      "previousRank": 17,
+      "rankChange": 1
     },
     {
       "ticker": "IX",
@@ -1054,9 +996,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 17,
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "ACGL",
@@ -1112,9 +1054,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 16,
-      "rankChange": -3
+      "rank": 18,
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
       "ticker": "CSX",
@@ -1172,9 +1114,70 @@
         "value",
         "quality"
       ],
+      "rank": 19,
+      "previousRank": 20,
+      "rankChange": 1
+    },
+    {
+      "ticker": "AMGN",
+      "name": "Amgen Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "製藥",
+      "price": 429.12,
+      "changePct": 0.7063927,
+      "marketCap": 230368690176.0,
+      "volume": 3079105.0,
+      "fpe": 17.38468,
+      "forwardEps": 24.51066,
+      "epsGrowthPct": 6.459729466660247,
+      "analysts": 0,
+      "priceAvg50": 413.2156,
+      "priceAvg200": 367.3929,
+      "roe": 0.91473,
+      "margin": 0.22951001,
+      "debt": 490.281,
+      "earningsDate": "2026-11-03",
+      "score": 76,
+      "label": "值得研究",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線、負債偏高；注意：負債偏高",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜負債偏高",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康",
+        "⚠｜負債偏高"
+      ],
+      "priceAvg20": 408.3324996948242,
+      "volumeRatio": 1.0070496797231705,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 10.3243,
+      "atrPct": 2.41,
+      "support": 413.2156,
+      "resistance": 447.03,
+      "entryLow": 411.1507,
+      "entryPrice": 414.248,
+      "entryHigh": 416.8291,
+      "stopLoss": 402.3751,
+      "takeProfit1": 447.03,
+      "takeProfit2": 458.9029,
+      "riskReward": 2.76,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 65,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 20,
-      "previousRank": 18,
-      "rankChange": -2
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
