@@ -1,8 +1,8 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-14T23:57:27.276935-04:00",
-  "date": "2026-10-14",
-  "snapshotDate": "2026-10-14",
+  "asOf": "2026-10-15T00:12:27.529994-04:00",
+  "date": "2026-10-15",
+  "snapshotDate": "2026-10-15",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -390,7 +390,7 @@
         "＋20｜FPE偏低"
       ],
       "priceAvg20": 33.38049945831299,
-      "volumeRatio": 0.41412336864618365,
+      "volumeRatio": 0.3976329266134004,
       "eventSignals": [],
       "atr": 1.0241,
       "atrPct": 3.04,
