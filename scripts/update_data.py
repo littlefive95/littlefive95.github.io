@@ -33,6 +33,14 @@ FALLBACK_SYMBOLS = (
 # Credentials are supplied as GitHub Actions Secrets. Never commit API keys.
 MASSIVE_API_KEY = os.environ.get("MASSIVE_API_KEY", "").strip()
 FMP_API_KEY = os.environ.get("FMP_API_KEY", "").strip()
+# Public website display needs the provider's applicable data-display license.
+# These flags must only be set to "true" after the account has the required rights.
+if MASSIVE_API_KEY and os.environ.get("MASSIVE_DISPLAY_LICENSE_CONFIRMED", "").strip().lower() != "true":
+    print("Massive API key present but display-license flag is not confirmed; provider disabled.")
+    MASSIVE_API_KEY = ""
+if FMP_API_KEY and os.environ.get("FMP_DISPLAY_LICENSE_CONFIRMED", "").strip().lower() != "true":
+    print("FMP API key present but display-license flag is not confirmed; provider disabled.")
+    FMP_API_KEY = ""
 SEVEN_MAGNIFICENT = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
 FMP_CACHE_PATH = ".cache/us_fundamentals_cache.json"
 FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
