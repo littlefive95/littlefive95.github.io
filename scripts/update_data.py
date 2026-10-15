@@ -865,24 +865,33 @@ def score(row):
             risk = "中"
             addr("短線轉弱")
 
-    if fpe is not None and fpe > 0:
-        if fpe < 15:
-            pts += 20
-            addp(20, "FPE偏低")
-        elif fpe < 22:
-            pts += 16
-            addp(16, "FPE合理")
-        elif fpe < 30:
-            pts += 10
-            addp(10, "FPE中性")
-        elif fpe < 45:
-            pts += 4
-            addp(4, "FPE偏高但仍有估值分")
-            risk = "中"
-            addr("FPE偏高")
-        else:
-            risk = "高"
-            addr("FPE很高")
+    if fpe is not None and 0 < fpe < 3:
+        flags = row.setdefault("dataQualityFlags", [])
+        flag = "Forward PE 低於3倍，需核對預估EPS"
+        if flag not in flags:
+            flags.append(flag)
+        risk = "高" if risk == "高" else "中"
+        addr("Forward PE 異常偏低，未給予低估值加分")
+    elif fpe is not None and 3 <= fpe < 15:
+        pts += 20
+        addp(20, "FPE偏低")
+    elif fpe is not None and 15 <= fpe < 22:
+        pts += 16
+        addp(16, "FPE合理")
+    elif fpe is not None and 22 <= fpe < 30:
+        pts += 10
+        addp(10, "FPE中性")
+    elif fpe is not None and 30 <= fpe < 45:
+        pts += 4
+        addp(4, "FPE偏高但仍有估值分")
+        risk = "中"
+        addr("FPE偏高")
+    elif fpe is not None and fpe >= 100:
+        risk = "高"
+        addr("Forward PE 極高，需核對估值資料")
+    elif fpe is not None and fpe >= 45:
+        risk = "高"
+        addr("FPE很高")
     elif fpe is not None and fpe <= 0:
         pts -= 10
         addn(-10, "Forward EPS為負")
@@ -1680,7 +1689,7 @@ def yahoo_intraday(symbols):
             continue
     return out
 
-def yahoo_history(symbols):
+def yahoo_history(symbols, retry_missing=True):
     if not symbols:
         return {}
     out = {}
@@ -1719,35 +1728,37 @@ def yahoo_history(symbols):
         print("Yahoo history bulk warning", e, file=sys.stderr)
 
     # Retry missing symbols one-by-one. Bulk yfinance occasionally fails
-    # individual tickers with transient cache/database-lock errors.
-    for sym in symbols:
-        if sym in out:
-            continue
-        try:
-            raw = yf.download(
-                tickers=sym,
-                period="1y",
-                interval="1d",
-                auto_adjust=False,
-                progress=False,
-                threads=False,
-                group_by="column",
-            )
-            if raw is None or len(raw) == 0:
+    if retry_missing:
+        # individual tickers with transient cache/database-lock errors.
+        for sym in symbols:
+            if sym in out:
                 continue
-            close = as_series(raw["Close"], sym).dropna()
-            volume = as_series(raw["Volume"], sym).fillna(0)
-            high = as_series(raw["High"], sym).reindex(close.index).dropna()
-            low = as_series(raw["Low"], sym).reindex(close.index).dropna()
-            aligned = close.index.intersection(high.index).intersection(low.index)
-            close = close.reindex(aligned).dropna()
-            volume = volume.reindex(close.index).fillna(0)
-            high = high.reindex(close.index).dropna()
-            low = low.reindex(close.index).dropna()
-            if len(close) >= 60 and len(high) == len(close) and len(low) == len(close):
-                out[sym] = {"close": close, "high": high, "low": low, "volume": volume}
-        except Exception as e:
-            print(f"Yahoo history retry warning {sym}: {e}", file=sys.stderr)
+            try:
+                raw = yf.download(
+                    tickers=sym,
+                    period="1y",
+                    interval="1d",
+                    auto_adjust=False,
+                    progress=False,
+                    threads=False,
+                    group_by="column",
+                )
+                if raw is None or len(raw) == 0:
+                    continue
+                close = as_series(raw["Close"], sym).dropna()
+                volume = as_series(raw["Volume"], sym).fillna(0)
+                high = as_series(raw["High"], sym).reindex(close.index).dropna()
+                low = as_series(raw["Low"], sym).reindex(close.index).dropna()
+                aligned = close.index.intersection(high.index).intersection(low.index)
+                close = close.reindex(aligned).dropna()
+                volume = volume.reindex(close.index).fillna(0)
+                high = high.reindex(close.index).dropna()
+                low = low.reindex(close.index).dropna()
+                if len(close) >= 60 and len(high) == len(close) and len(low) == len(close):
+                    out[sym] = {"close": close, "high": high, "low": low, "volume": volume}
+            except Exception as e:
+                print(f"Yahoo history retry warning {sym}: {e}", file=sys.stderr)
+
     return out
 
 def yahoo_info(symbols):
@@ -2708,6 +2719,196 @@ def build_crypto_live():
         "note": "24/7 加密貨幣市場；候選池使用 Binance 現貨 USDT 對且 24H 成交額至少 2,500 萬 USDT，缺歷史 K 線的幣種會保留並明確標示資料不足，不會靜默消失。",
     }
 
+
+def update_us_signal_history(payload):
+    """Archive one end-of-day TOP20 cohort and evaluate forward close-to-close returns."""
+    archive_path = "us_signal_history.json"
+    summary_path = "us_backtest.json"
+    try:
+        try:
+            with open(archive_path, encoding="utf-8") as handle:
+                archive = json.load(handle)
+        except Exception:
+            archive = {"records": []}
+        if not isinstance(archive, dict) or not isinstance(archive.get("records"), list):
+            archive = {"records": []}
+        records = archive["records"]
+        new_record = False
+        snapshot_date = str(payload.get("snapshotDate") or "")[:10]
+        if (
+            payload.get("dataMode") == "LATEST_CLOSE"
+            and payload.get("status") != "DATA_ERROR"
+            and snapshot_date
+            and isinstance(payload.get("rows"), list)
+            and payload.get("rows")
+            and not any(str(record.get("date") or "")[:10] == snapshot_date for record in records if isinstance(record, dict))
+        ):
+            signals = []
+            for row in payload.get("rows", [])[:20]:
+                if not isinstance(row, dict) or not row.get("ticker") or row.get("price") is None:
+                    continue
+                signals.append({
+                    "ticker": str(row["ticker"]).upper(),
+                    "score": row.get("score"),
+                    "label": row.get("label"),
+                    "risk": row.get("risk"),
+                    "entryStatus": row.get("entryStatus"),
+                    "entryType": row.get("entryType"),
+                    "signalPrice": row.get("price"),
+                    "entryLow": row.get("entryLow"),
+                    "entryPrice": row.get("entryPrice"),
+                    "entryHigh": row.get("entryHigh"),
+                    "stopLoss": row.get("stopLoss"),
+                    "takeProfit1": row.get("takeProfit1"),
+                    "dataQualityFlags": row.get("dataQualityFlags") or [],
+                    "returnsPct": {},
+                })
+            records.append({
+                "date": snapshot_date,
+                "asOf": payload.get("asOf"),
+                "sourceMode": payload.get("sourceMode"),
+                "signals": signals,
+            })
+            records.sort(key=lambda record: str(record.get("date") or ""))
+            records[:] = records[-180:]
+            new_record = True
+
+        archive["updatedAt"] = datetime.now(ET).isoformat()
+        archive["records"] = records
+
+        if new_record:
+            unresolved_symbols = set()
+            for record in records[-35:]:
+                date = str(record.get("date") or "")[:10]
+                if not date:
+                    continue
+                for signal in record.get("signals") or []:
+                    returns = signal.setdefault("returnsPct", {})
+                    if any(str(horizon) not in returns for horizon in (1, 5, 20)):
+                        unresolved_symbols.add(signal.get("ticker"))
+            unresolved_symbols = sorted(symbol for symbol in unresolved_symbols if symbol)
+            histories = yahoo_history(unresolved_symbols, retry_missing=False) if unresolved_symbols else {}
+
+            for record in records[-35:]:
+                record_date = str(record.get("date") or "")[:10]
+                for signal in record.get("signals") or []:
+                    ticker = signal.get("ticker")
+                    history = histories.get(ticker)
+                    if not history or not record_date:
+                        continue
+                    close = history.get("close")
+                    high = history.get("high")
+                    low = history.get("low")
+                    if close is None or len(close) < 2:
+                        continue
+                    date_values = [
+                        (index.date().isoformat() if hasattr(index, "date") else str(index)[:10])
+                        for index in close.index
+                    ]
+                    candidates = [i for i, value in enumerate(date_values) if value <= record_date]
+                    if not candidates:
+                        continue
+                    index0 = candidates[-1]
+                    base_price = float(close.iloc[index0])
+                    if base_price <= 0:
+                        continue
+                    signal["referenceClose"] = round(base_price, 6)
+                    returns = signal.setdefault("returnsPct", {})
+                    for horizon in (1, 5, 20):
+                        target_idx = index0 + horizon
+                        key = str(horizon)
+                        if key not in returns and target_idx < len(close):
+                            target_close = float(close.iloc[target_idx])
+                            returns[key] = round((target_close / base_price - 1) * 100, 4) if base_price > 0 else None
+                    future_end = min(index0 + 21, len(close))
+                    if future_end > index0 + 1:
+                        future_high = high.iloc[index0 + 1:future_end]
+                        future_low = low.iloc[index0 + 1:future_end]
+                        if len(future_high) and len(future_low):
+                            signal["maxRunup20dPct"] = round((float(future_high.max()) / base_price - 1) * 100, 4)
+                            signal["maxDrawdown20dPct"] = round((float(future_low.min()) / base_price - 1) * 100, 4)
+                            stop = num(signal.get("stopLoss"))
+                            target = num(signal.get("takeProfit1"))
+                            signal["stopHitWithin20d"] = bool(stop is not None and float(future_low.min()) <= stop)
+                            signal["targetHitWithin20d"] = bool(target is not None and float(future_high.max()) >= target)
+
+            archive["records"] = records
+            summaries = {}
+            for horizon in (1, 5, 20):
+                all_returns = []
+                entry_returns = []
+                for record in records:
+                    for signal in record.get("signals") or []:
+                        value = num((signal.get("returnsPct") or {}).get(str(horizon)))
+                        if value is None:
+                            continue
+                        all_returns.append(value)
+                        if signal.get("entryStatus") == "可考慮進場區" and signal.get("label") == "進場候選":
+                            entry_returns.append(value)
+                def pack(values):
+                    return {
+                        "samples": len(values),
+                        "averageReturnPct": round(sum(values) / len(values), 4) if values else None,
+                        "positiveRatePct": round(sum(1 for value in values if value > 0) / len(values) * 100, 2) if values else None,
+                    }
+                summaries[f"{horizon}d"] = {
+                    "allTop20": pack(all_returns),
+                    "actionableEntrySignals": pack(entry_returns),
+                }
+            completed_entry_signals = [
+                signal
+                for record in records
+                for signal in (record.get("signals") or [])
+                if signal.get("entryStatus") == "可考慮進場區"
+                and signal.get("label") == "進場候選"
+                and signal.get("returnsPct", {}).get("20") is not None
+            ]
+            summaries["entrySignals20d"] = {
+                "samples": len(completed_entry_signals),
+                "stopHitRatePct": round(sum(bool(signal.get("stopHitWithin20d")) for signal in completed_entry_signals) / len(completed_entry_signals) * 100, 2) if completed_entry_signals else None,
+                "targetHitRatePct": round(sum(bool(signal.get("targetHitWithin20d")) for signal in completed_entry_signals) / len(completed_entry_signals) * 100, 2) if completed_entry_signals else None,
+            }
+            summary = {
+                "asOf": datetime.now(ET).isoformat(),
+                "source": "Yahoo historical daily bars used for forward outcome measurement",
+                "records": len(records),
+                "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
+                "results": summaries,
+            }
+            with open(summary_path, "w", encoding="utf-8") as handle:
+                json.dump(summary, handle, ensure_ascii=False, indent=2)
+        else:
+            # Always create a valid summary artifact before the first full close.
+            try:
+                with open(summary_path, encoding="utf-8") as handle:
+                    json.load(handle)
+            except Exception:
+                with open(summary_path, "w", encoding="utf-8") as handle:
+                    json.dump({
+                        "asOf": datetime.now(ET).isoformat(),
+                        "source": "Yahoo historical daily bars used for forward outcome measurement",
+                        "records": len(records),
+                        "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
+                        "results": {},
+                    }, handle, ensure_ascii=False, indent=2)
+        with open(archive_path, "w", encoding="utf-8") as handle:
+            json.dump(archive, handle, ensure_ascii=False, indent=2)
+    except Exception as exc:
+        print(f"US signal history update warning: {exc}", file=sys.stderr)
+        for path, default in (
+            (archive_path, {"updatedAt": datetime.now(ET).isoformat(), "records": []}),
+            (summary_path, {
+                "asOf": datetime.now(ET).isoformat(), "source": "Yahoo historical daily bars",
+                "records": 0, "method": "Forward returns require daily signal history.", "results": {},
+            }),
+        ):
+            try:
+                with open(path, "w", encoding="utf-8") as handle:
+                    json.dump(default, handle, ensure_ascii=False, indent=2)
+            except Exception:
+                pass
+
+
 def main():
     try:
         payload = build_live()
@@ -2725,6 +2926,7 @@ def main():
             "note": "研究/監控工具，不構成投資建議。",
         }
 
+    update_us_signal_history(payload)
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
