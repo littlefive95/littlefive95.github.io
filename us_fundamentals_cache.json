@@ -1,0 +1,1102 @@
+{
+  "updatedAt": "2026-10-15T08:34:59.304436-04:00",
+  "items": {
+    "MSFT": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "marketCap": 3962941779500.0,
+        "fpe": null,
+        "forwardEps": 19.74321,
+        "epsGrowthPct": 9.990027855153215,
+        "analysts": 30,
+        "margin": 0.4030538905915218,
+        "roe": 0.33215020751782603,
+        "debt": 29.116655778763846,
+        "fpeEstimateDate": "2027-06-30",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "AAPL": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Consumer Electronics",
+        "marketCap": 5005219972800.0,
+        "fpe": null,
+        "forwardEps": 9.61543,
+        "epsGrowthPct": 28.89316353887399,
+        "analysts": 30,
+        "margin": 0.27618604910212224,
+        "roe": 1.3718365457766524,
+        "debt": 78.41052827380952,
+        "fpeEstimateDate": "2027-09-27",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "META": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Communication Services",
+        "industry": "Internet Content & Information",
+        "marketCap": 1878887655632.0,
+        "fpe": null,
+        "forwardEps": 30.91177,
+        "epsGrowthPct": 31.59544487015753,
+        "analysts": 42,
+        "margin": 0.29835091654691387,
+        "roe": 0.2973026955581193,
+        "debt": 42.99730879217215,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "MU": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 1034264964600.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "NVDA": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 5333330000000.0,
+        "fpe": null,
+        "forwardEps": 9.27796,
+        "epsGrowthPct": 89.3461224489796,
+        "analysts": 33,
+        "margin": 0.6366294901458565,
+        "roe": 1.1011463673627842,
+        "debt": 16.97061803444782,
+        "fpeEstimateDate": "2027-01-25",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "AMD": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 930779092000.0,
+        "fpe": null,
+        "forwardEps": 7.63989,
+        "epsGrowthPct": 188.29773584905664,
+        "analysts": 31,
+        "margin": 0.15576806681999758,
+        "roe": 0.10073784127605441,
+        "debt": 6.3608235154111625,
+        "fpeEstimateDate": "2026-12-27",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "SPCX": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Industrials",
+        "industry": "Aerospace & Defense",
+        "marketCap": 2632462594677.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "TSLA": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto - Manufacturers",
+        "marketCap": 1450115821181.0,
+        "fpe": null,
+        "forwardEps": 1.71234,
+        "epsGrowthPct": 58.54999999999999,
+        "analysts": 23,
+        "margin": 0.03684652428608653,
+        "roe": 0.04585070898670293,
+        "debt": 10.755485965599023,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "PLTR": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "marketCap": 462373688700.0,
+        "fpe": null,
+        "forwardEps": 1.59841,
+        "epsGrowthPct": 153.71587301587303,
+        "analysts": 19,
+        "margin": 0.49004563234118065,
+        "roe": 0.37472593737785925,
+        "debt": 2.1628381838952655,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "AMZN": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Consumer Cyclical",
+        "industry": "Specialty Retail",
+        "marketCap": 2733163968000.0,
+        "fpe": null,
+        "forwardEps": 12.78334,
+        "epsGrowthPct": 78.28926080892609,
+        "analysts": 39,
+        "margin": 0.1744031043729373,
+        "roe": 0.3049908974597431,
+        "debt": 40.46843841775135,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "AVGO": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 1652869340756.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "GOOGL": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Communication Services",
+        "industry": "Internet Content & Information",
+        "marketCap": 4231924887732.0,
+        "fpe": null,
+        "forwardEps": 20.58465,
+        "epsGrowthPct": 90.42229417206289,
+        "analysts": 41,
+        "margin": 0.5477094014793682,
+        "roe": 0.5084008289969907,
+        "debt": 17.604921309018238,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "MRVL": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 214807884480.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "INTC": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 518672623679.0,
+        "fpe": null,
+        "forwardEps": 1.54947,
+        "epsGrowthPct": null,
+        "analysts": 26,
+        "margin": -0.19794150652265394,
+        "roe": -0.10761857323644579,
+        "debt": 57.72886157501542,
+        "fpeEstimateDate": "2026-12-27",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "GOOG": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Communication Services",
+        "industry": "Internet Content & Information",
+        "marketCap": 4202817139724.9995,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "TSM": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 2230186400000.0,
+        "fpe": null,
+        "forwardEps": 539.87417,
+        "epsGrowthPct": 62.100036030626036,
+        "analysts": 11,
+        "margin": 0.5037928229574561,
+        "roe": 0.39348322826206245,
+        "debt": 15.273132543119194,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "MRNA": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Biotechnology",
+        "marketCap": 90347079644.0,
+        "fpe": null,
+        "forwardEps": 0.50137,
+        "epsGrowthPct": null,
+        "analysts": 9,
+        "margin": -1.4142728904847397,
+        "roe": -0.3920495194251765,
+        "debt": 19.03564561455406,
+        "fpeEstimateDate": "2029-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "ORCL": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "marketCap": 376030956150.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "DELL": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Computer Hardware",
+        "marketCap": 336967860874.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "BE": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "marketCap": 70492092180.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "SKHY": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 1047390891671.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "NBIS": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Application",
+        "marketCap": 44642400000.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "STX": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Computer Hardware",
+        "marketCap": 162254001220.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "MSTR": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Application",
+        "marketCap": 54303798763.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "LLY": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - General",
+        "marketCap": 1140825047400.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "AMAT": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 354444425967.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "WMT": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Consumer Defensive",
+        "industry": "Discount Stores",
+        "marketCap": 924410474645.0,
+        "fpe": null,
+        "forwardEps": 2.88892,
+        "epsGrowthPct": 5.8212454212454245,
+        "analysts": 25,
+        "margin": 0.030001087192868016,
+        "roe": 0.2274240945299643,
+        "debt": 75.07787210651684,
+        "fpeEstimateDate": "2027-01-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "WDC": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Computer Hardware",
+        "marketCap": 136291004300.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "NFLX": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Communication Services",
+        "industry": "Entertainment",
+        "marketCap": 293849245800.0,
+        "fpe": null,
+        "forwardEps": 3.59711,
+        "epsGrowthPct": 42.17826086956522,
+        "analysts": 32,
+        "margin": 0.2821878521496993,
+        "roe": 0.47957434885929545,
+        "debt": 47.457154823160955,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "XOM": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Integrated",
+        "marketCap": 733818087600.0,
+        "fpe": null,
+        "forwardEps": 12.36617,
+        "epsGrowthPct": 84.5697014925373,
+        "analysts": 11,
+        "margin": 0.090724533318562,
+        "roe": 0.12675533129278288,
+        "debt": 16.334335723648703,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "JPM": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Financial Services",
+        "industry": "Banks - Diversified",
+        "marketCap": 891237943200.0,
+        "fpe": null,
+        "forwardEps": 24.74552,
+        "epsGrowthPct": 23.419052369077285,
+        "analysts": 11,
+        "margin": 0.21852995144441278,
+        "roe": 0.1791152960211532,
+        "debt": 142.73487517724402,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "LRCX": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 359057426400.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "NOW": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Application",
+        "marketCap": 144720002760.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "CRWD": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "marketCap": 255256716762.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "CSCO": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Communication Equipment",
+        "marketCap": 448035567134.0,
+        "fpe": null,
+        "forwardEps": 5.10008,
+        "epsGrowthPct": 53.15555555555556,
+        "analysts": 17,
+        "margin": 0.20950651401500198,
+        "roe": 0.27391066469841335,
+        "debt": 58.731231977726964,
+        "fpeEstimateDate": "2027-07-25",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "UNH": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Medical - Healthcare Plans",
+        "marketCap": 355106533900.0,
+        "fpe": null,
+        "forwardEps": 20.27124,
+        "epsGrowthPct": 53.22176870748299,
+        "analysts": 16,
+        "margin": 0.03532431025970618,
+        "roe": 0.16102715128229173,
+        "debt": 71.38357229974359,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "HOOD": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Financial Services",
+        "industry": "Financial - Capital Markets",
+        "marketCap": 90879239187.0,
+        "fpe": null,
+        "forwardEps": 2.19762,
+        "epsGrowthPct": 7.200975609756122,
+        "analysts": 19,
+        "margin": 0.42011354420113545,
+        "roe": 0.22703117295786993,
+        "debt": 239.51476793248946,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "CRWV": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Infrastructure",
+        "marketCap": 35887620123.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "CVX": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Integrated",
+        "marketCap": 438858032400.0,
+        "fpe": null,
+        "forwardEps": 17.02752,
+        "epsGrowthPct": 156.8253393665158,
+        "analysts": 14,
+        "margin": 0.09865795286304986,
+        "roe": 0.10983462929945818,
+        "debt": 19.5251812958506,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "JNJ": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - General",
+        "marketCap": 611897352764.0,
+        "fpe": null,
+        "forwardEps": 11.18516,
+        "epsGrowthPct": 1.4067089755213091,
+        "analysts": 9,
+        "margin": 0.16202748276035636,
+        "roe": 0.19689398063478278,
+        "debt": 57.70910075202128,
+        "fpeEstimateDate": "2026-12-28",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "BAC": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Financial Services",
+        "industry": "Banks - Diversified",
+        "marketCap": 359357422500.0,
+        "fpe": null,
+        "forwardEps": 4.50563,
+        "epsGrowthPct": 17.948429319371726,
+        "analysts": 9,
+        "margin": 0.3442993739816482,
+        "roe": 0.106907070831468,
+        "debt": 128.36336432473234,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "KLAC": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 233348838100.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "QCOM": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 184330442752.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "SMCI": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Computer Hardware",
+        "marketCap": 23506207700.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "SHOP": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Software - Application",
+        "marketCap": 223845428850.0,
+        "fpe": null,
+        "forwardEps": 1.88816,
+        "epsGrowthPct": 100.868085106383,
+        "analysts": 27,
+        "margin": 0.14530107769990203,
+        "roe": 0.15063112633266074,
+        "debt": 1.4033427940712708,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "KO": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Consumer Defensive",
+        "industry": "Beverages - Non-Alcoholic",
+        "marketCap": 394887969523.0,
+        "fpe": null,
+        "forwardEps": 3.30689,
+        "epsGrowthPct": 8.779276315789474,
+        "analysts": 13,
+        "margin": 0.2855831953559816,
+        "roe": 0.42991313748601717,
+        "debt": 120.4508990318119,
+        "fpeEstimateDate": "2026-12-31",
+        "source": "FMP",
+        "errors": []
+      }
+    },
+    "MRK": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - General",
+        "marketCap": 363965024300.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "ADI": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Semiconductors",
+        "marketCap": 195556089149.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "MDT": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Medical - Devices",
+        "marketCap": 120536189100.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "ABBV": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - General",
+        "marketCap": 500929923790.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": 0.09806479669493368,
+        "roe": -1.3649678430524779,
+        "debt": -1193.2940185341197,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "GLW": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Technology",
+        "industry": "Hardware, Equipment & Parts",
+        "marketCap": 121373876140.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "PG": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "marketCap": 372199620677.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    },
+    "VLO": {
+      "fetchedAt": 1792067694.5226038,
+      "data": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "marketCap": 132383288019.0,
+        "fpe": null,
+        "forwardEps": null,
+        "epsGrowthPct": null,
+        "analysts": null,
+        "margin": null,
+        "roe": null,
+        "debt": null,
+        "fpeEstimateDate": null,
+        "source": "FMP",
+        "errors": [
+          "ratios-ttm:HTTPError",
+          "key-metrics-ttm:HTTPError",
+          "analyst-estimates:HTTPError",
+          "income-statement:HTTPError"
+        ]
+      }
+    }
+  }
+}
