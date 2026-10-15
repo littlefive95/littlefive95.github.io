@@ -2999,7 +2999,9 @@ def update_us_signal_history(payload):
         with open(archive_path, "w", encoding="utf-8") as handle:
             json.dump(archive, handle, ensure_ascii=False, indent=2)
     except Exception as exc:
-        print(f"US signal history update warning: {exc}", file=sys.stderr)
+        print(f"US signal history update warning: {type(exc).__name__}", file=sys.stderr)
+        # A transient provider or parsing failure must never erase accumulated
+        # daily cohorts. Only create defaults if the files do not yet exist.
         for path, default in (
             (archive_path, {"updatedAt": datetime.now(ET).isoformat(), "records": []}),
             (summary_path, {
@@ -3008,6 +3010,8 @@ def update_us_signal_history(payload):
             }),
         ):
             try:
+                if os.path.exists(path):
+                    continue
                 with open(path, "w", encoding="utf-8") as handle:
                     json.dump(default, handle, ensure_ascii=False, indent=2)
             except Exception:
