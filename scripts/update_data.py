@@ -971,49 +971,167 @@ def build_live():
     closed = session == "closed"
 
     merged = {}
-    for screen_name in SCREENS:
-        for q in yahoo_screen(screen_name):
+    fmp_universe_ok = False
+    massive_ok = False
+    provider_warnings = []
+
+    # Preferred path: a broad NYSE/Nasdaq universe from FMP.
+    if FMP_API_KEY:
+        try:
+            for q in fmp_us_universe():
+                sym = str(first(q, ["symbol"], "")).strip().upper()
+                if sym:
+                    merged[sym] = q
+            fmp_universe_ok = bool(merged)
+        except Exception as exc:
+            provider_warnings.append("FMP screener: " + str(exc))
+            print("FMP screener unavailable; switching universe source", exc, file=sys.stderr)
+
+    # Yahoo is a universe fallback, not the preferred source when FMP works.
+    if not merged:
+        for screen_name in SCREENS:
+            for q in yahoo_screen(screen_name):
+                sym = str(first(q, ["symbol"], "")).strip().upper()
+                if sym:
+                    quote = dict(q)
+                    quote["_quoteSource"] = "YAHOO"
+                    merged[sym] = quote
+
+    # Massive full-market snapshots take precedence for live price/change/volume.
+    massive_quotes = {}
+    if MASSIVE_API_KEY:
+        try:
+            massive_quotes = massive_us_snapshot(session)
+            massive_ok = bool(massive_quotes)
+            for sym, q in list(merged.items()):
+                market = massive_quotes.get(sym)
+                if not market:
+                    continue
+                for key in (
+                    "regularMarketPrice", "preMarketPrice", "postMarketPrice",
+                    "regularMarketChangePercent", "preMarketChangePercent",
+                    "postMarketChangePercent", "regularMarketVolume",
+                ):
+                    if market.get(key) is not None:
+                        q[key] = market[key]
+                if market.get("marketCap") and not q.get("marketCap"):
+                    q["marketCap"] = market["marketCap"]
+                if market.get("fullExchangeName") and not q.get("fullExchangeName"):
+                    q["fullExchangeName"] = market["fullExchangeName"]
+                q["_quoteSource"] = "MASSIVE"
+        except Exception as exc:
+            provider_warnings.append("Massive snapshot: " + str(exc))
+            print("Massive snapshot unavailable; retaining current quote source", exc, file=sys.stderr)
+
+    # These seven names must always be evaluated; they are not forced into TOP20.
+    missing_magnificent = [sym for sym in SEVEN_MAGNIFICENT if sym not in merged]
+    if missing_magnificent:
+        for q in fallback_info(missing_magnificent):
             sym = str(first(q, ["symbol"], "")).strip().upper()
-            if sym:
+            if sym and sym not in merged:
+                q["_quoteSource"] = "YAHOO_BACKUP"
                 merged[sym] = q
 
-    if not merged:
-        print("Yahoo screener returned no rows; using fallback watch universe.")
-        for q in fallback_info():
-            sym = str(first(q, ["symbol"], "")).strip().upper()
-            if sym:
-                merged[sym] = q
+    # When Massive is configured, add snapshot names with market-cap metadata if
+    # provided by the API response; do not accept unknown-cap microcaps blindly.
+    if massive_ok and not fmp_universe_ok:
+        for sym, q in massive_quotes.items():
+            if sym in merged:
+                continue
+            market_cap = num(q.get("marketCap"))
+            if market_cap is None or market_cap < 5_000_000_000:
+                continue
+            q["_quoteSource"] = "MASSIVE"
+            merged[sym] = q
 
     normalized = []
     for q in merged.values():
         row = normalize_quote(q, session=session)
         if row:
+            row["dataQualityFlags"] = list(row.get("dataQualityFlags") or [])
             normalized.append(row)
 
-    today = day
-    for row in normalized:
-        row["_today"] = today
-        sc, label, risk, reasons = score(row)
-        row["score"] = sc
-        row["label"] = label
-        row["risk"] = risk
-        row["reasons"] = reasons
-        row.pop("_today", None)
+    if not normalized:
+        raise RuntimeError("No eligible US stocks after provider screening and quality filters")
 
+    # Broad universe -> liquid evaluation pool -> full fundamental/technical checks.
+    # The full source universe is counted separately from the 60-stock deep-evaluation pool.
+    normalized_by_symbol = {row["ticker"]: row for row in normalized}
     normalized.sort(
-        key=lambda r: (
-            -r["score"],
-            r["fpe"] is None,
-            r["fpe"] if r["fpe"] is not None else 999,
-            -(r["marketCap"] or 0),
+        key=lambda row: (
+            -((row.get("averageVolume") or row.get("volume") or 0) * (row.get("price") or 0)),
+            -(row.get("marketCap") or 0),
         )
     )
-    # Enrich a wider pool before final scoring so quality data can
-    # influence both Score and Risk instead of being attached after ranking.
-    ranked_pool = normalized[:50]
-    info = yahoo_info([r["ticker"] for r in ranked_pool])
+    ranked_pool = normalized[:60]
+    selected_symbols = {row["ticker"] for row in ranked_pool}
+    for symbol in SEVEN_MAGNIFICENT:
+        row = normalized_by_symbol.get(symbol)
+        if row and symbol not in selected_symbols:
+            ranked_pool.append(row)
+            selected_symbols.add(symbol)
+    print(
+        f"US universe source={'FMP' if fmp_universe_ok else 'Yahoo fallback'}; "
+        f"quote source={'Massive' if massive_ok else ('FMP' if fmp_universe_ok else 'Yahoo fallback')}; "
+        f"eligible={len(normalized)}, deeply evaluated={len(ranked_pool)}, "
+        f"seven-magnificent included={sum(1 for s in SEVEN_MAGNIFICENT if s in selected_symbols)}"
+    )
+
+    symbols = [row["ticker"] for row in ranked_pool]
+    # Price history remains a fallback feed for technical indicators until a
+    # history endpoint is configured for the provider's licensed data plan.
+    hist_pool = yahoo_history(symbols)
+    for row in ranked_pool:
+        h = hist_pool.get(row["ticker"])
+        if not h:
+            flag = "歷史K線不足或未取得"
+            if flag not in row["dataQualityFlags"]:
+                row["dataQualityFlags"].append(flag)
+            continue
+        close = h["close"]
+        vol = h["volume"]
+        row["priceAvg20"] = float(close.tail(20).mean()) if len(close) >= 20 else None
+        row["priceAvg50"] = float(close.tail(50).mean()) if len(close) >= 50 else None
+        row["priceAvg200"] = float(close.tail(200).mean()) if len(close) >= 200 else None
+        avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
+        row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
+        row["historicalDataSource"] = "YAHOO_HISTORY_BACKUP"
+
+    # Primary fundamentals from FMP are cached for 24 hours. Yahoo fills only
+    # fields that the configured source did not return.
+    fmp_fundamentals = get_fmp_fundamentals(symbols) if FMP_API_KEY else {}
+    for row in ranked_pool:
+        values = fmp_fundamentals.get(row["ticker"], {})
+        if values:
+            row["fundamentalSource"] = "FMP"
+            if values.get("sector"):
+                row["sector"] = sector_label(values.get("sector"), values.get("industry"), row["ticker"], row["name"])
+            for field in ("margin", "roe", "debt", "forwardEps", "epsGrowthPct", "analysts"):
+                if values.get(field) is not None:
+                    row[field] = values[field]
+            if values.get("marketCap") and not row.get("marketCap"):
+                row["marketCap"] = values["marketCap"]
+            if row.get("forwardEps") and row["forwardEps"] > 0:
+                row["fpe"] = (row["price"] / row["forwardEps"])
+            elif values.get("fpe") is not None:
+                row["fpe"] = values["fpe"]
+            if values.get("fpeEstimateDate"):
+                row["fpeEstimateDate"] = values["fpeEstimateDate"]
+
+    # When FMP is disabled or incomplete, Yahoo fundamentals are fallback-only.
+    fallback_symbols = []
+    for row in ranked_pool:
+        missing_core = (
+            row.get("margin") is None or row.get("roe") is None or row.get("debt") is None
+            or row.get("fpe") is None or row.get("epsGrowthPct") is None
+        )
+        if not FMP_API_KEY or (missing_core and row.get("fundamentalSource") != "FMP"):
+            fallback_symbols.append(row["ticker"])
+    info = yahoo_info(fallback_symbols) if fallback_symbols else {}
     for row in ranked_pool:
         inf = info.get(row["ticker"], {})
+        if not inf:
+            continue
         row["sector"] = sector_label(
             first(inf, ["sectorDisp", "sector"]),
             first(inf, ["industryDisp", "industry"]),
@@ -1021,12 +1139,48 @@ def build_live():
             row["name"],
             first(inf, ["quoteType", "quoteTypeDisp"]),
         )
-        row["margin"] = num(first(inf, ["profitMargins", "operatingMargins", "grossMargins", "netProfitMargin"]))
-        row["roe"] = num(first(inf, ["returnOnEquity"]))
-        row["debt"] = num(first(inf, ["debtToEquity", "debtToEquityRatio"]))
+        if row.get("margin") is None:
+            row["margin"] = num(first(inf, ["profitMargins", "operatingMargins", "grossMargins", "netProfitMargin"]))
+        if row.get("roe") is None:
+            row["roe"] = num(first(inf, ["returnOnEquity"]))
+        if row.get("debt") is None:
+            row["debt"] = num(first(inf, ["debtToEquity", "debtToEquityRatio"]))
+        if row.get("forwardEps") is None:
+            row["forwardEps"] = num(first(inf, ["epsForward", "forwardEps", "epsNextYear"]))
+        if row.get("fpe") is None:
+            row["fpe"] = num(first(inf, ["forwardPE", "forwardPeRatio", "forwardPERatio"]))
+            if row.get("fpe") is None and row.get("forwardEps") and row["forwardEps"] > 0:
+                row["fpe"] = row["price"] / row["forwardEps"]
+        if row.get("epsGrowthPct") is None:
+            growth = num(first(inf, ["earningsGrowth", "epsGrowth", "earningsQuarterlyGrowth"]))
+            if growth is not None:
+                row["epsGrowthPct"] = growth * 100 if abs(growth) < 2 else growth
+        if not row.get("analysts"):
+            analysts = num(first(inf, ["numberOfAnalystOpinions", "numberOfAnalysts"]))
+            if analysts is not None:
+                row["analysts"] = int(analysts)
+        if row.get("fundamentalSource") != "FMP":
+            row["fundamentalSource"] = "YAHOO_BACKUP"
 
-    # Recompute after quality enrichment; this is the definitive Score/Risk.
     for row in ranked_pool:
+        flags = row.setdefault("dataQualityFlags", [])
+        if row.get("fpe") is not None and (row["fpe"] <= 0 or row["fpe"] < 3 or row["fpe"] > 100):
+            flag = "Forward PE 異常範圍，已標記供核對"
+            if flag not in flags:
+                flags.append(flag)
+        if row.get("epsGrowthPct") is not None and abs(row["epsGrowthPct"]) > 200:
+            flag = "EPS成長極端值，已排除成長加分"
+            if flag not in flags:
+                flags.append(flag)
+        if row.get("roe") is not None and row["roe"] > 2:
+            flag = "ROE超過200%，需核對股東權益基期"
+            if flag not in flags:
+                flags.append(flag)
+        if row.get("debt") is not None and row["debt"] > 5000:
+            flag = "負債比率極端，可能是財報比例／負權益問題"
+            if flag not in flags:
+                flags.append(flag)
+
         sc, label, risk, reasons = score(row)
         row["score"] = sc
         row["label"] = label
@@ -1034,25 +1188,25 @@ def build_live():
         row["reasons"] = reasons
 
     ranked_pool.sort(
-        key=lambda r: (
-            -r["score"],
-            r["fpe"] is None,
-            r["fpe"] if r["fpe"] is not None else 999,
-            -(r["marketCap"] or 0),
+        key=lambda row: (
+            -row["score"],
+            row.get("entryStatus") != "可考慮進場區",
+            row.get("risk") == "高",
+            row["fpe"] is None,
+            row["fpe"] if row["fpe"] is not None else 999,
+            -(row.get("marketCap") or 0),
         )
     )
     top_rows = ranked_pool[:20]
-    hist = yahoo_history([r["ticker"] for r in top_rows])
     for row in top_rows:
-        h = hist.get(row["ticker"])
+        h = hist_pool.get(row["ticker"])
         if h:
             close = h["close"]
             vol = h["volume"]
-            row["priceAvg20"] = float(close.tail(20).mean()) if len(close) >= 20 else None
             avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
             row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
             row["eventSignals"] = historical_event_signals(
-                row["price"], close, row["volumeRatio"], row["changePct"], row["priceAvg50"], row["priceAvg200"]
+                row["price"], close, row.get("volumeRatio"), row["changePct"], row.get("priceAvg50"), row.get("priceAvg200")
             )
             row.update(entry_plan(row, h, "stock"))
         else:
@@ -1060,9 +1214,41 @@ def build_live():
             row.update(entry_plan(row, None, "stock"))
         row["profiles"] = stock_profiles(row)
 
+        flags = row.get("dataQualityFlags") or []
+        if row["entryStatus"] == "可考慮進場區" and row["score"] >= 78 and row["risk"] != "高" and not flags:
+            row["label"] = "進場候選"
+        elif row["risk"] == "高":
+            row["label"] = "高風險觀察"
+        elif row["score"] >= 78:
+            row["label"] = "高分觀察"
+        elif row["score"] >= 68:
+            row["label"] = "值得研究"
+        elif row["score"] >= 55:
+            row["label"] = "觀察"
+        else:
+            row["label"] = "暫不優先"
+        if flags:
+            row["reasons"] = list(row.get("reasons") or []) + ["資料品質｜" + "、".join(flags[:3])]
+        row["dataQualityFlags"] = flags
+
     rows = top_rows
     apply_rank_history(rows, "data.json", limit=20)
-    fpe_count = sum(1 for r in rows if r["fpe"] is not None)
+    fpe_count = sum(1 for row in rows if row.get("fpe") is not None and 0 < row["fpe"] <= 100)
+    source_mode = (
+        "MASSIVE+FMP" if massive_ok and fmp_universe_ok
+        else "FMP+YAHOO_HISTORY" if fmp_universe_ok
+        else "MASSIVE_QUOTES+YAHOO_UNIVERSE" if massive_ok
+        else "YAHOO_FALLBACK"
+    )
+    mode_note = (
+        "Massive 提供優先行情、FMP 提供候選池與基本面；技術歷史暫由 Yahoo 備援"
+        if massive_ok and fmp_universe_ok else
+        "FMP 提供候選池／基本面；技術歷史暫由 Yahoo 備援"
+        if fmp_universe_ok else
+        "Massive 行情＋Yahoo 候選池／技術歷史；建議設定 FMP_API_KEY 擴大候選池"
+        if massive_ok else
+        "尚未設定 Massive/FMP API Key，目前使用 Yahoo 備援與強制納入七巨頭"
+    )
     return {
         "status": "MARKET_CLOSED" if closed else "LIVE",
         "asOf": now.isoformat(),
@@ -1072,12 +1258,21 @@ def build_live():
         "rows": rows,
         "coverage": round(100 * fpe_count / max(1, len(rows))),
         "universeCount": len(normalized),
+        "evaluatedUniverseCount": len(ranked_pool),
         "focusCount": len(rows),
-        "method": "Yahoo Finance screener via yfinance",
-        "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
+        "method": "FMP US stock screener + Massive full-market snapshot + FMP fundamentals (Yahoo backup where unavailable)" if massive_ok and fmp_universe_ok else "FMP US stock screener + Yahoo technical history" if fmp_universe_ok else "Yahoo fallback screener + seven-magnificent mandatory evaluation",
+        "sourceMode": source_mode,
+        "sourceWarnings": provider_warnings,
+        "fpeFormula": "FMP analyst EPS estimate, fallback to validated Forward PE / price-to-forward-EPS",
+        "fpeCoverage": round(100 * fpe_count / max(1, len(rows))),
+        "epsGrowthCoverage": round(100 * sum(1 for row in rows if row.get("epsGrowthPct") is not None and abs(row["epsGrowthPct"]) <= 200) / max(1, len(rows))),
+        "analystCoverage": round(100 * sum(1 for row in rows if (row.get("analysts") or 0) > 0) / max(1, len(rows))),
+        "dataQualityFlagCount": sum(len(row.get("dataQualityFlags") or []) for row in rows),
+        "sevenMagnificent": {symbol: symbol in normalized_by_symbol for symbol in SEVEN_MAGNIFICENT},
         "holiday": ["Weekend"] if now.weekday() >= 5 else ["NYSE market holiday"] if closed else [],
-        "note": "休市／隔夜顯示最近交易日 TOP 20；盤前、盤中、盤後依時段選用對應行情。研究/監控工具，不構成投資建議。",
+        "note": f"{mode_note}。高分不等於可買進；進場標籤要求進場區、風險與資料品質同時通過。研究/監控工具，不構成投資建議。",
     }
+
 
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TWSE_VAL_URL = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL"
