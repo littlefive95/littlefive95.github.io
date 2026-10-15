@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T08:06:11.866980-04:00",
+  "asOf": "2026-10-15T08:07:53.987333-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -889,8 +889,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 15,
-      "rankChange": 0
+      "previousRank": 16,
+      "rankChange": 1
     },
     {
       "ticker": "RPRX",
@@ -949,8 +949,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 16,
-      "rankChange": 0
+      "previousRank": 17,
+      "rankChange": 1
     },
     {
       "ticker": "BBY",
@@ -1007,8 +1007,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 17,
-      "rankChange": 0
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "REGN",
@@ -1065,8 +1065,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 18,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
       "ticker": "DOCU",
@@ -1125,8 +1125,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
+      "previousRank": 20,
+      "rankChange": 1
     },
     {
       "ticker": "ABBV",
@@ -1185,8 +1185,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
