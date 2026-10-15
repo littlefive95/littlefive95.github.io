@@ -46,6 +46,8 @@ FMP_CACHE_PATH = ".cache/us_fundamentals_cache.json"
 FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
 FMP_UNIVERSE_CACHE_TTL_SECONDS = 50 * 60
 YAHOO_US_BACKUP_CACHE_TTL_SECONDS = 12 * 60 * 60
+MASSIVE_HISTORY_CACHE_TTL_SECONDS = 24 * 60 * 60
+MASSIVE_HISTORY_RETRY_SECONDS = 15 * 60
 
 def load_previous_ranks(path, limit=20):
     """Load the last published TOP-N ranks so the dashboard can show rank movement."""
@@ -401,6 +403,128 @@ def massive_us_snapshot(session):
     print(f"Massive full-market snapshot: {len(out)} stocks with usable prices")
     if not out:
         raise RuntimeError("Massive snapshot returned no usable prices")
+    return out
+
+
+def massive_daily_history(symbol):
+    """Fetch one year of completed daily bars from Massive; excludes today's partial bar."""
+    today = datetime.now(ET).date()
+    from_date = (today - timedelta(days=430)).isoformat()
+    to_date = today.isoformat()
+    payload = provider_json(
+        f"https://api.massive.com/v2/aggs/ticker/{symbol}/range/1/day/{from_date}/{to_date}",
+        {"adjusted": "true", "sort": "asc", "limit": 50000, "apiKey": MASSIVE_API_KEY},
+        timeout=30,
+    )
+    results = payload.get("results", []) if isinstance(payload, dict) else []
+    bars = []
+    for item in results if isinstance(results, list) else []:
+        if not isinstance(item, dict):
+            continue
+        timestamp = num(item.get("t"))
+        close = num(item.get("c"))
+        high = num(item.get("h"))
+        low = num(item.get("l"))
+        volume = num(item.get("v"))
+        if timestamp is None or close is None or high is None or low is None:
+            continue
+        date = datetime.fromtimestamp(timestamp / 1000, ET).date()
+        # During a live session today's daily aggregate is incomplete; compute
+        # the trend and support using completed prior sessions only.
+        if date >= today:
+            continue
+        bars.append({
+            "date": date.isoformat(),
+            "close": close,
+            "high": high,
+            "low": low,
+            "volume": volume or 0,
+        })
+    if len(bars) < 60:
+        raise RuntimeError(f"Massive daily history too short for {symbol}: {len(bars)} bars")
+    index = pd.to_datetime([bar["date"] for bar in bars])
+    close = pd.Series([bar["close"] for bar in bars], index=index, dtype="float64")
+    high = pd.Series([bar["high"] for bar in bars], index=index, dtype="float64")
+    low = pd.Series([bar["low"] for bar in bars], index=index, dtype="float64")
+    volume = pd.Series([bar["volume"] for bar in bars], index=index, dtype="float64")
+    return {"close": close, "high": high, "low": low, "volume": volume}
+
+
+def massive_history(symbols):
+    """Cache completed daily OHLCV bars privately; Yahoo is used only per-symbol on failure."""
+    if not MASSIVE_API_KEY or not symbols:
+        return {}
+    cache = load_fmp_fundamental_cache()
+    store = cache.setdefault("massiveHistory", {})
+    now_epoch = time.time()
+    out = {}
+    missing = []
+    for symbol in dict.fromkeys(symbols):
+        entry = store.get(symbol)
+        if not isinstance(entry, dict):
+            missing.append(symbol)
+            continue
+        fetched_at = float(entry.get("fetchedAt") or 0)
+        bars = entry.get("data")
+        if isinstance(bars, list) and len(bars) >= 60 and now_epoch - fetched_at < MASSIVE_HISTORY_CACHE_TTL_SECONDS:
+            index = pd.to_datetime([bar["date"] for bar in bars])
+            out[symbol] = {
+                "close": pd.Series([bar["close"] for bar in bars], index=index, dtype="float64"),
+                "high": pd.Series([bar["high"] for bar in bars], index=index, dtype="float64"),
+                "low": pd.Series([bar["low"] for bar in bars], index=index, dtype="float64"),
+                "volume": pd.Series([bar["volume"] for bar in bars], index=index, dtype="float64"),
+            }
+        elif not bars and now_epoch < float(entry.get("retryAfter") or 0):
+            continue
+        else:
+            missing.append(symbol)
+    if missing:
+        print(f"Massive daily-history cache miss: {len(missing)} symbols")
+        def get_one(symbol):
+            try:
+                payload = massive_daily_history(symbol)
+                close = payload["close"]
+                return symbol, [
+                    {
+                        "date": idx.date().isoformat() if hasattr(idx, "date") else str(idx)[:10],
+                        "close": float(close.loc[idx]),
+                        "high": float(payload["high"].loc[idx]),
+                        "low": float(payload["low"].loc[idx]),
+                        "volume": float(payload["volume"].loc[idx]),
+                    }
+                    for idx in close.index
+                ], None
+            except Exception as exc:
+                return symbol, [], type(exc).__name__
+
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            futures = {executor.submit(get_one, symbol): symbol for symbol in missing}
+            for future in as_completed(futures):
+                symbol, bars, error_type = future.result()
+                if bars:
+                    store[symbol] = {"fetchedAt": now_epoch, "data": bars}
+                    index = pd.to_datetime([bar["date"] for bar in bars])
+                    out[symbol] = {
+                        "close": pd.Series([bar["close"] for bar in bars], index=index, dtype="float64"),
+                        "high": pd.Series([bar["high"] for bar in bars], index=index, dtype="float64"),
+                        "low": pd.Series([bar["low"] for bar in bars], index=index, dtype="float64"),
+                        "volume": pd.Series([bar["volume"] for bar in bars], index=index, dtype="float64"),
+                    }
+                else:
+                    store[symbol] = {
+                        "fetchedAt": now_epoch,
+                        "retryAfter": now_epoch + MASSIVE_HISTORY_RETRY_SECONDS,
+                        "data": [],
+                        "errorType": error_type or "UnknownError",
+                    }
+                    print(f"Massive daily history unavailable for {symbol}: {error_type}", file=sys.stderr)
+        cache["updatedAt"] = datetime.now(ET).isoformat()
+        try:
+            os.makedirs(os.path.dirname(FMP_CACHE_PATH), exist_ok=True)
+            with open(FMP_CACHE_PATH, "w", encoding="utf-8") as handle:
+                json.dump(cache, handle, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            print(f"Massive history cache write warning: {type(exc).__name__}", file=sys.stderr)
     return out
 
 
@@ -1186,9 +1310,13 @@ def build_live():
     )
 
     symbols = [row["ticker"] for row in ranked_pool]
-    # Price history remains a fallback feed for technical indicators until a
-    # history endpoint is configured for the provider's licensed data plan.
-    hist_pool = yahoo_history(symbols)
+    # Prefer licensed Massive completed daily bars for technical indicators;
+    # Yahoo history is used only for symbols/endpoints missing in Massive.
+    massive_hist_pool = massive_history(symbols) if massive_ok else {}
+    missing_history_symbols = [symbol for symbol in symbols if symbol not in massive_hist_pool]
+    hist_pool = dict(massive_hist_pool)
+    if missing_history_symbols:
+        hist_pool.update(yahoo_history(missing_history_symbols))
     for row in ranked_pool:
         h = hist_pool.get(row["ticker"])
         if not h:
@@ -1204,7 +1332,7 @@ def build_live():
         row["priceAvg200"] = float(close.tail(200).mean()) if len(close) >= 200 else None
         avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
         row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
-        row["historicalDataSource"] = "YAHOO_HISTORY_BACKUP"
+        row["historicalDataSource"] = "MASSIVE_HISTORY" if row["ticker"] in massive_hist_pool else "YAHOO_HISTORY_BACKUP"
         # Entry eligibility is calculated for the entire evaluated pool before
         # ranking, not just after TOP20 has already been selected.
         row.update(entry_plan(row, h, "stock"))
@@ -1365,7 +1493,7 @@ def build_live():
         else "YAHOO_FALLBACK"
     )
     mode_note = (
-        "Massive 提供優先行情、FMP 提供候選池與基本面；技術歷史暫由 Yahoo 備援"
+        "Massive 提供優先行情與歷史技術K線（個別歷史缺漏才由 Yahoo 備援），FMP 提供候選池與基本面"
         if massive_ok and fmp_universe_ok else
         "FMP 提供候選池／基本面；技術歷史暫由 Yahoo 備援"
         if fmp_universe_ok else
@@ -1392,6 +1520,10 @@ def build_live():
         "epsGrowthCoverage": round(100 * sum(1 for row in rows if row.get("epsGrowthPct") is not None and abs(row["epsGrowthPct"]) <= 200) / max(1, len(rows))),
         "analystCoverage": round(100 * sum(1 for row in rows if (row.get("analysts") or 0) > 0) / max(1, len(rows))),
         "dataQualityFlagCount": sum(len(row.get("dataQualityFlags") or []) for row in rows),
+        "historicalDataCoverage": {
+            "massive": len(massive_hist_pool),
+            "yahooBackup": max(0, len(symbols) - len(massive_hist_pool)),
+        },
         "sevenMagnificent": {symbol: symbol in evaluated_by_symbol for symbol in SEVEN_MAGNIFICENT},
         "magnificentSevenRows": magnificent_seven_rows,
         "holiday": ["Weekend"] if now.weekday() >= 5 else ["NYSE market holiday"] if closed else [],
