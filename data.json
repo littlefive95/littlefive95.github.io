@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T03:12:23.827152-04:00",
+  "asOf": "2026-10-15T03:27:34.747818-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "LATEST_CLOSE",
@@ -18,8 +18,8 @@
       "forwardEps": 2.15466,
       "epsGrowthPct": 42.729579162830134,
       "analysts": 0,
-      "priceAvg50": 16.2685,
-      "priceAvg200": 15.26665,
+      "priceAvg50": 16.2735,
+      "priceAvg200": 15.2826,
       "roe": 1.52579,
       "margin": 0.42317,
       "debt": 42.738,
@@ -43,15 +43,15 @@
       ],
       "atr": 0.4639,
       "atrPct": 2.82,
-      "support": 16.2685,
+      "support": 16.2735,
       "resistance": 16.515,
-      "entryLow": 16.1757,
-      "entryPrice": 16.3149,
-      "entryHigh": 16.4309,
-      "stopLoss": 15.7814,
+      "entryLow": 16.1807,
+      "entryPrice": 16.3199,
+      "entryHigh": 16.4359,
+      "stopLoss": 15.7864,
       "takeProfit1": 17.98,
       "takeProfit2": 18.5135,
-      "riskReward": 3.12,
+      "riskReward": 3.11,
       "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
@@ -131,7 +131,7 @@
       "sector": "製藥",
       "price": 1208.74,
       "changePct": 3.6202,
-      "marketCap": 1077883437056.0,
+      "marketCap": 1077418917888.0,
       "volume": 3162617.0,
       "fpe": 25.460129,
       "forwardEps": 47.4758,
@@ -196,8 +196,8 @@
       "forwardEps": 5.21004,
       "epsGrowthPct": 12.74556054238638,
       "analysts": 0,
-      "priceAvg50": 65.7406,
-      "priceAvg200": 53.7296,
+      "priceAvg50": 65.3868,
+      "priceAvg200": 53.7033,
       "roe": 0.17803,
       "margin": 0.09816,
       "debt": 10.654,
@@ -252,9 +252,9 @@
       "changePct": 3.79631,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
-      "fpe": 15.874503,
-      "forwardEps": 9.28344,
-      "epsGrowthPct": 248.27222695333458,
+      "fpe": 15.813419,
+      "forwardEps": 9.3193,
+      "epsGrowthPct": 249.61753020929854,
       "analysts": 0,
       "priceAvg50": 144.4346,
       "priceAvg200": 124.48075,
@@ -307,7 +307,7 @@
       "sector": "綜合保險",
       "price": 97.6,
       "changePct": 0.774393,
-      "marketCap": 33303961600.0,
+      "marketCap": 33281599488.0,
       "volume": 2364003.0,
       "fpe": 9.958706,
       "forwardEps": 9.80047,
@@ -356,64 +356,6 @@
       ],
       "rank": 6,
       "previousRank": 6,
-      "rankChange": 0
-    },
-    {
-      "ticker": "LKNCY",
-      "name": "Luckin Coffee Inc.",
-      "exchange": "OTC Markets OTCID",
-      "sector": "非必需消費",
-      "price": 33.67,
-      "changePct": 3.029369,
-      "marketCap": 9639339008.0,
-      "volume": 325723.0,
-      "fpe": 11.16209,
-      "forwardEps": 3.01646,
-      "epsGrowthPct": 25.379697904283695,
-      "analysts": 0,
-      "priceAvg50": 34.4182,
-      "priceAvg200": 33.575954,
-      "roe": 0.22787,
-      "margin": 0.067729995,
-      "debt": 53.796,
-      "earningsDate": "2026-11-24",
-      "score": 85,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、短線動能健康",
-        "核心優勢｜站上200日均線、短線動能健康",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋15｜短線動能健康",
-        "＋20｜FPE偏低"
-      ],
-      "priceAvg20": 33.38049945831299,
-      "volumeRatio": 0.3976329266134004,
-      "eventSignals": [],
-      "atr": 1.0241,
-      "atrPct": 3.04,
-      "support": 33.576,
-      "resistance": 35.5,
-      "entryLow": 33.3711,
-      "entryPrice": 33.6784,
-      "entryHigh": 33.9344,
-      "stopLoss": 32.5007,
-      "takeProfit1": 35.5,
-      "takeProfit2": 37.2114,
-      "riskReward": 1.55,
-      "entryType": "回踩20日線",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 75,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 7,
-      "previousRank": 7,
       "rankChange": 0
     },
     {
@@ -472,9 +414,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "UNH",
@@ -532,9 +474,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AMP",
@@ -543,7 +485,7 @@
       "sector": "金融",
       "price": 495.82,
       "changePct": 0.50677,
-      "marketCap": 43797377024.0,
+      "marketCap": 43830489088.0,
       "volume": 456143.0,
       "fpe": 9.612354,
       "forwardEps": 51.58154,
@@ -592,9 +534,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 9,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "ETSY",
@@ -609,8 +551,8 @@
       "forwardEps": 6.89209,
       "epsGrowthPct": 16.03997703475597,
       "analysts": 0,
-      "priceAvg50": 77.0582,
-      "priceAvg200": 66.5175,
+      "priceAvg50": 77.1282,
+      "priceAvg200": 66.3816,
       "roe": null,
       "margin": 0.07114,
       "debt": null,
@@ -635,7 +577,7 @@
       ],
       "atr": 2.7267,
       "atrPct": 3.29,
-      "support": 77.0582,
+      "support": 77.1282,
       "resistance": 87.974,
       "entryLow": 79.4887,
       "entryPrice": 79.8977,
@@ -652,9 +594,9 @@
         "momentum",
         "value"
       ],
-      "rank": 11,
+      "rank": 10,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "KDP",
@@ -711,9 +653,9 @@
         "momentum",
         "value"
       ],
-      "rank": 12,
+      "rank": 11,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "BF-B",
@@ -771,9 +713,9 @@
         "value",
         "quality"
       ],
-      "rank": 13,
+      "rank": 12,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "PG",
@@ -782,7 +724,7 @@
       "sector": "必需消費",
       "price": 156.53,
       "changePct": 2.28045,
-      "marketCap": 363567906816.0,
+      "marketCap": 363843518464.0,
       "volume": 10668310.0,
       "fpe": 21.16483,
       "forwardEps": 7.39576,
@@ -831,9 +773,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 13,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "UHS",
@@ -844,9 +786,9 @@
       "changePct": 3.84336,
       "marketCap": 10955708416.0,
       "volume": 656079.0,
-      "fpe": 7.778322,
-      "forwardEps": 23.89847,
-      "epsGrowthPct": 5.949418548719243,
+      "fpe": 7.7458234,
+      "forwardEps": 23.99874,
+      "epsGrowthPct": 6.39394693057298,
       "analysts": 0,
       "priceAvg50": 174.7342,
       "priceAvg200": 178.88956,
@@ -891,9 +833,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
+      "rank": 14,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MTCH",
@@ -902,7 +844,7 @@
       "sector": "通訊服務",
       "price": 42.4,
       "changePct": 0.0944309,
-      "marketCap": 9890501632.0,
+      "marketCap": 9732962304.0,
       "volume": 2279934.0,
       "fpe": 9.262617,
       "forwardEps": 4.57754,
@@ -949,9 +891,9 @@
         "momentum",
         "value"
       ],
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "GDDY",
@@ -966,8 +908,8 @@
       "forwardEps": 11.0275,
       "epsGrowthPct": 14.601195115614441,
       "analysts": 0,
-      "priceAvg50": 97.747,
-      "priceAvg200": 92.4197,
+      "priceAvg50": 97.4616,
+      "priceAvg200": 92.53825,
       "roe": 4.42861,
       "margin": 0.17834999,
       "debt": 57334.33,
@@ -1008,9 +950,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "BBY",
@@ -1066,9 +1008,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 17,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "ABBV",
@@ -1079,9 +1021,9 @@
       "changePct": 3.32411,
       "marketCap": 500942438400.0,
       "volume": 5623920.0,
-      "fpe": 17.47968,
-      "forwardEps": 16.21769,
-      "epsGrowthPct": 16.120576389510433,
+      "fpe": 17.482372,
+      "forwardEps": 16.21519,
+      "epsGrowthPct": 16.102676094155544,
       "analysts": 0,
       "priceAvg50": 260.8754,
       "priceAvg200": 233.4045,
@@ -1126,9 +1068,9 @@
         "momentum",
         "value"
       ],
-      "rank": 19,
+      "rank": 18,
       "previousRank": 19,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "CAH",
@@ -1139,9 +1081,9 @@
       "changePct": 3.34557,
       "marketCap": 57366511616.0,
       "volume": 1972117.0,
-      "fpe": 17.622643,
-      "forwardEps": 14.05805,
-      "epsGrowthPct": 11.887151806400432,
+      "fpe": 17.624123,
+      "forwardEps": 14.05687,
+      "epsGrowthPct": 11.877760259270387,
       "analysts": 0,
       "priceAvg50": 233.7808,
       "priceAvg200": 219.4035,
@@ -1186,9 +1128,69 @@
         "momentum",
         "value"
       ],
-      "rank": 20,
+      "rank": 19,
       "previousRank": 20,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "CSX",
+      "name": "CSX Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "工業",
+      "price": 48.28,
+      "changePct": 1.08878,
+      "marketCap": 89437487104.0,
+      "volume": 8818236.0,
+      "fpe": 21.139927,
+      "forwardEps": 2.28383,
+      "epsGrowthPct": 13.97324124301964,
+      "analysts": 0,
+      "priceAvg50": 48.8802,
+      "priceAvg200": 44.73485,
+      "roe": 0.24357,
+      "margin": 0.22208999,
+      "debt": 138.068,
+      "earningsDate": "2026-10-21",
+      "score": 78,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、短線動能健康",
+        "核心優勢｜站上200日均線、短線動能健康",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋15｜短線動能健康",
+        "＋16｜FPE合理"
+      ],
+      "priceAvg20": 47.13999977111816,
+      "volumeRatio": 0.851455174035271,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 0.6679,
+      "atrPct": 1.38,
+      "support": 47.14,
+      "resistance": 48.6,
+      "entryLow": 47.0064,
+      "entryPrice": 47.2068,
+      "entryHigh": 47.3738,
+      "stopLoss": 46.4387,
+      "takeProfit1": 48.6,
+      "takeProfit2": 49.5109,
+      "riskReward": 1.81,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 82,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 20,
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
