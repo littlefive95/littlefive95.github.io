@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T07:52:05.692266-04:00",
+  "asOf": "2026-10-15T07:57:35.791127-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -69,8 +69,8 @@
       "name": "Eli Lilly and Company",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 1224.78,
-      "changePct": 1.1554431,
+      "price": 1225.0,
+      "changePct": 1.1736107,
       "marketCap": 1077883437056.0,
       "volume": 3162617.0,
       "fpe": 25.460129,
@@ -121,65 +121,6 @@
       ],
       "rank": 2,
       "previousRank": 2,
-      "rankChange": 0
-    },
-    {
-      "ticker": "GDDY",
-      "name": "GoDaddy Inc.",
-      "exchange": "NYSE",
-      "sector": "基礎軟體",
-      "price": 104.55,
-      "changePct": 1.1513182,
-      "marketCap": 13090307072.0,
-      "volume": 1383795.0,
-      "fpe": 9.3729315,
-      "forwardEps": 11.0275,
-      "epsGrowthPct": 14.601195115614441,
-      "analysts": 0,
-      "priceAvg50": 97.747,
-      "priceAvg200": 92.4197,
-      "roe": 4.42861,
-      "margin": 0.17834999,
-      "debt": 57334.33,
-      "earningsDate": "2026-10-29",
-      "score": 87,
-      "label": "進場候選",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線、負債偏高；注意：負債偏高",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜負債偏高",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康",
-        "⚠｜負債偏高"
-      ],
-      "priceAvg20": 99.08999938964844,
-      "volumeRatio": 0.5359952434995139,
-      "eventSignals": [],
-      "atr": 3.1141,
-      "atrPct": 2.98,
-      "support": 99.09,
-      "resistance": 110.35,
-      "entryLow": 98.4672,
-      "entryPrice": 99.4014,
-      "entryHigh": 100.1799,
-      "stopLoss": 95.8201,
-      "takeProfit1": 110.35,
-      "takeProfit2": 113.9313,
-      "riskReward": 3.06,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 65,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 3,
-      "previousRank": 3,
       "rankChange": 0
     },
     {
@@ -239,17 +180,17 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 3,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 149.84,
-      "changePct": 1.6898474,
+      "price": 149.8,
+      "changePct": 1.6627057,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
       "fpe": 15.874503,
@@ -296,9 +237,9 @@
         "momentum",
         "value"
       ],
-      "rank": 5,
+      "rank": 4,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "LYFT",
@@ -354,9 +295,9 @@
         "value",
         "quality"
       ],
-      "rank": 6,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 5,
+      "previousRank": 6,
+      "rankChange": 1
     },
     {
       "ticker": "ACGL",
@@ -412,9 +353,9 @@
         "value",
         "quality"
       ],
-      "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "rank": 6,
+      "previousRank": 7,
+      "rankChange": 1
     },
     {
       "ticker": "VAL",
@@ -472,9 +413,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "rank": 7,
+      "previousRank": 8,
+      "rankChange": 1
     },
     {
       "ticker": "TEVA",
@@ -531,69 +472,9 @@
         "momentum",
         "value"
       ],
-      "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
-    },
-    {
-      "ticker": "UNH",
-      "name": "UnitedHealth Group Incorporated",
-      "exchange": "NYSE",
-      "sector": "醫療保健",
-      "price": 397.75,
-      "changePct": 0.50409853,
-      "marketCap": 355106455552.0,
-      "volume": 7759080.0,
-      "fpe": 17.098457,
-      "forwardEps": 23.13776,
-      "epsGrowthPct": 13.266538442145492,
-      "analysts": 0,
-      "priceAvg50": 387.4708,
-      "priceAvg200": 358.3637,
-      "roe": 0.15773,
-      "margin": 0.03529,
-      "debt": 70.426,
-      "earningsDate": "2026-10-13",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康"
-      ],
-      "priceAvg20": 375.7744995117188,
-      "volumeRatio": 1.3636344463971881,
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "atr": 11.1764,
-      "atrPct": 2.81,
-      "support": 387.4708,
-      "resistance": 399.88,
-      "entryLow": 385.2355,
-      "entryPrice": 388.5884,
-      "entryHigh": 391.3826,
-      "stopLoss": 375.7355,
-      "takeProfit1": 416.97,
-      "takeProfit2": 429.8229,
-      "riskReward": 2.21,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 68,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 10,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": -1
+      "rankChange": 1
     },
     {
       "ticker": "EG",
@@ -649,9 +530,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "rank": 9,
+      "previousRank": 11,
+      "rankChange": 2
     },
     {
       "ticker": "AMP",
@@ -709,9 +590,9 @@
         "value",
         "quality"
       ],
-      "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "rank": 10,
+      "previousRank": 12,
+      "rankChange": 2
     },
     {
       "ticker": "KDP",
@@ -768,9 +649,9 @@
         "momentum",
         "value"
       ],
-      "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "rank": 11,
+      "previousRank": 13,
+      "rankChange": 2
     },
     {
       "ticker": "BF-B",
@@ -828,17 +709,17 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "rank": 12,
+      "previousRank": 14,
+      "rankChange": 2
     },
     {
       "ticker": "PG",
       "name": "The Procter & Gamble Company",
       "exchange": "NYSE",
       "sector": "必需消費",
-      "price": 159.2668,
-      "changePct": 1.751673,
+      "price": 159.03,
+      "changePct": 1.6003865,
       "marketCap": 363567906816.0,
       "volume": 10668310.0,
       "fpe": 21.166546,
@@ -871,14 +752,14 @@
       "atr": 2.5736,
       "atrPct": 1.62,
       "support": 148.2895,
-      "resistance": 164.4139,
+      "resistance": 164.1771,
       "entryLow": 155.0595,
       "entryPrice": 155.4455,
       "entryHigh": 156.2176,
       "stopLoss": 152.2286,
-      "takeProfit1": 164.4139,
-      "takeProfit2": 167.6309,
-      "riskReward": 2.79,
+      "takeProfit1": 164.1771,
+      "takeProfit2": 167.3941,
+      "riskReward": 2.71,
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
@@ -888,9 +769,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "rank": 13,
+      "previousRank": 15,
+      "rankChange": 2
     },
     {
       "ticker": "UHS",
@@ -948,9 +829,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "rank": 14,
+      "previousRank": 16,
+      "rankChange": 2
     },
     {
       "ticker": "MTCH",
@@ -1006,9 +887,128 @@
         "momentum",
         "value"
       ],
+      "rank": 15,
+      "previousRank": 17,
+      "rankChange": 2
+    },
+    {
+      "ticker": "GDDY",
+      "name": "GoDaddy Inc.",
+      "exchange": "NYSE",
+      "sector": "基礎軟體",
+      "price": 103.55,
+      "changePct": 0.1838259,
+      "marketCap": 13090307072.0,
+      "volume": 1383795.0,
+      "fpe": 9.3729315,
+      "forwardEps": 11.0275,
+      "epsGrowthPct": 14.601195115614441,
+      "analysts": 0,
+      "priceAvg50": 97.747,
+      "priceAvg200": 92.4197,
+      "roe": 4.42861,
+      "margin": 0.17834999,
+      "debt": 57334.33,
+      "earningsDate": "2026-10-29",
+      "score": 80,
+      "label": "進場候選",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線、負債偏高；注意：負債偏高",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜負債偏高",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向",
+        "⚠｜負債偏高"
+      ],
+      "priceAvg20": 99.08999938964844,
+      "volumeRatio": 0.5359952434995139,
+      "eventSignals": [],
+      "atr": 3.1141,
+      "atrPct": 3.01,
+      "support": 99.09,
+      "resistance": 110.35,
+      "entryLow": 98.4672,
+      "entryPrice": 99.4014,
+      "entryHigh": 100.1799,
+      "stopLoss": 95.8201,
+      "takeProfit1": 110.35,
+      "takeProfit2": 113.9313,
+      "riskReward": 3.06,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 65,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 16,
+      "previousRank": 3,
+      "rankChange": -13
+    },
+    {
+      "ticker": "RPRX",
+      "name": "Royalty Pharma plc",
+      "exchange": "NasdaqGS",
+      "sector": "生技",
+      "price": 60.0,
+      "changePct": 1.7121518,
+      "marketCap": 34086514688.0,
+      "volume": 2828067.0,
+      "fpe": 10.172374,
+      "forwardEps": 5.79904,
+      "epsGrowthPct": 8.976447794458942,
+      "analysts": 0,
+      "priceAvg50": 59.1678,
+      "priceAvg200": 51.810925,
+      "roe": 0.13965,
+      "margin": 0.32019,
+      "debt": 91.581,
+      "earningsDate": "2026-11-04",
+      "score": 80,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "priceAvg20": 57.72649993896484,
+      "volumeRatio": 0.9376164947633304,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 1.2282,
+      "atrPct": 2.05,
+      "support": 59.1678,
+      "resistance": 64.38,
+      "entryLow": 58.9222,
+      "entryPrice": 59.2906,
+      "entryHigh": 59.5977,
+      "stopLoss": 57.8782,
+      "takeProfit1": 64.38,
+      "takeProfit2": 65.7924,
+      "riskReward": 3.6,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 69,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "BBY",
