@@ -60,13 +60,13 @@ jobs:
 
       - name: Set fundamental cache key
         id: cache-key
-        run: echo "day=$(TZ=America/New_York date +%Y%m%d)" >> "$GITHUB_OUTPUT"
+        run: echo "hour=$(TZ=America/New_York date +%Y%m%d%H)" >> "$GITHUB_OUTPUT"
 
       - name: Restore FMP fundamental cache
         uses: actions/cache@v4
         with:
           path: .cache/us_fundamentals_cache.json
-          key: fmp-us-fundamentals-${{ steps.cache-key.outputs.day }}
+          key: fmp-us-fundamentals-${{ steps.cache-key.outputs.hour }}
           restore-keys: |
             fmp-us-fundamentals-
 
