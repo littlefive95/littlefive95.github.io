@@ -1,8 +1,10 @@
 import json
+import os
 import re
 import sys
 import time
-from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -27,6 +29,13 @@ FALLBACK_SYMBOLS = (
     "AAPL","MSFT","NVDA","AMZN","META","GOOGL","AVGO","TSLA","NFLX","ORCL",
     "AMD","QCOM","MU","CRM","ADBE","JPM","LLY","COST","WMT","XOM",
 )
+
+# Credentials are supplied as GitHub Actions Secrets. Never commit API keys.
+MASSIVE_API_KEY = os.environ.get("MASSIVE_API_KEY", "").strip()
+FMP_API_KEY = os.environ.get("FMP_API_KEY", "").strip()
+SEVEN_MAGNIFICENT = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
+FMP_CACHE_PATH = "us_fundamentals_cache.json"
+FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
 
 def load_previous_ranks(path, limit=20):
     """Load the last published TOP-N ranks so the dashboard can show rank movement."""
@@ -221,6 +230,267 @@ def us_market_session(now):
         return "after"
     return "overnight"
 
+def provider_json(url, params=None, timeout=25):
+    """Fetch a JSON provider endpoint without exposing credentials in logs."""
+    response = requests.get(
+        url,
+        params=params or {},
+        timeout=timeout,
+        headers={
+            "User-Agent": "AlphaWatch/1.0",
+            "Accept": "application/json",
+            "Accept-Encoding": "identity",
+            "Connection": "close",
+        },
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if isinstance(payload, dict) and (payload.get("Error Message") or payload.get("error")):
+        raise RuntimeError(str(payload.get("Error Message") or payload.get("error")))
+    return payload
+
+
+def fmp_request(endpoint, params=None):
+    if not FMP_API_KEY:
+        raise RuntimeError("FMP_API_KEY is not configured")
+    query = dict(params or {})
+    query["apikey"] = FMP_API_KEY
+    return provider_json("https://financialmodelingprep.com/stable/" + endpoint, query)
+
+
+def fmp_us_universe():
+    """Build a broad liquid US universe from FMP instead of Yahoo preset lists."""
+    payload = fmp_request("company-screener", {
+        "marketCapMoreThan": 5_000_000_000,
+        "priceMoreThan": 10,
+        "avgVolumeMoreThan": 300_000,
+        "country": "US",
+        "exchange": "NASDAQ,NYSE",
+        "isActivelyTrading": "true",
+        "limit": 1000,
+    },)
+    if not isinstance(payload, list) or not payload:
+        raise RuntimeError("FMP company screener returned no rows")
+    rows = []
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        symbol = str(first(item, ["symbol"], "")).strip().upper()
+        exchange = str(first(item, ["exchangeShortName", "exchange"], "")).strip().upper()
+        name = str(first(item, ["companyName", "name"], symbol)).strip()
+        market_cap = num(first(item, ["marketCap", "market_cap"]))
+        price = num(first(item, ["price", "regularMarketPrice"]))
+        volume = num(first(item, ["volume", "regularMarketVolume"])) or 0
+        avg_volume = num(first(item, ["avgVolume", "averageVolume", "volumeAvg"])) or 0
+        if not symbol or not re.fullmatch(r"[A-Z][A-Z0-9.\-]{0,9}", symbol):
+            continue
+        if exchange and exchange not in {"NASDAQ", "NYSE", "NASDAQGS", "NASDAQGM", "NASDAQCM"}:
+            continue
+        if item.get("isEtf") is True or item.get("isFund") is True:
+            continue
+        if market_cap is None or market_cap < 5_000_000_000 or price is None or price < 10:
+            continue
+        if max(volume, avg_volume) < 300_000:
+            continue
+        rows.append({
+            "symbol": symbol,
+            "longName": name,
+            "companyName": name,
+            "exchange": exchange,
+            "fullExchangeName": exchange,
+            "marketCap": market_cap,
+            "regularMarketPrice": price,
+            "regularMarketChangePercent": num(first(item, ["changePercentage", "changesPercentage", "changePercent"])),
+            "regularMarketVolume": volume,
+            "averageDailyVolume3Month": avg_volume,
+            "sectorDisp": first(item, ["sector"], ""),
+            "industryDisp": first(item, ["industry"], ""),
+            "quoteType": "EQUITY",
+            "_quoteSource": "FMP",
+        })
+    if not rows:
+        raise RuntimeError("FMP screener returned no eligible NYSE/Nasdaq stocks")
+    print(f"FMP US screener: {len(rows)} eligible NYSE/Nasdaq stocks")
+    return rows
+
+
+def massive_us_snapshot(session):
+    """Fetch a broad market snapshot; FMP supplies reference/financial metadata."""
+    if not MASSIVE_API_KEY:
+        return {}
+    payload = provider_json(
+        "https://api.massive.com/v2/snapshot/locale/us/markets/stocks/tickers",
+        {"apiKey": MASSIVE_API_KEY, "include_otc": "false"},
+        timeout=35,
+    )
+    items = payload.get("tickers", []) if isinstance(payload, dict) else []
+    if not isinstance(items, list) or not items:
+        raise RuntimeError("Massive full-market snapshot returned no tickers")
+    out = {}
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        symbol = str(item.get("ticker") or "").strip().upper()
+        if not symbol or not re.fullmatch(r"[A-Z][A-Z0-9.\-]{0,9}", symbol):
+            continue
+        day = item.get("day") or {}
+        prev = item.get("prevDay") or {}
+        minute = item.get("min") or {}
+        trade = item.get("lastTrade") or {}
+        details = item.get("details") or {}
+        if session in {"pre", "regular", "after"}:
+            price = num(trade.get("p")) or num(minute.get("c")) or num(day.get("c")) or num(prev.get("c"))
+        else:
+            price = num(day.get("c")) or num(prev.get("c")) or num(trade.get("p"))
+        if price is None or price <= 0:
+            continue
+        volume = num(day.get("v")) or num(prev.get("v")) or 0
+        row = {
+            "symbol": symbol,
+            "longName": first(details, ["name"], symbol),
+            "fullExchangeName": first(details, ["primary_exchange"], ""),
+            "marketCap": num(first(details, ["market_cap", "marketCap"])),
+            "regularMarketPrice": price,
+            "regularMarketChangePercent": num(item.get("todaysChangePerc")),
+            "regularMarketVolume": volume,
+            "quoteType": "EQUITY",
+            "_quoteSource": "MASSIVE",
+        }
+        if session == "pre":
+            row["preMarketPrice"] = price
+            row["preMarketChangePercent"] = row["regularMarketChangePercent"]
+        elif session == "after":
+            row["postMarketPrice"] = price
+            row["postMarketChangePercent"] = row["regularMarketChangePercent"]
+        out[symbol] = row
+    print(f"Massive full-market snapshot: {len(out)} stocks with usable prices")
+    if not out:
+        raise RuntimeError("Massive snapshot returned no usable prices")
+    return out
+
+
+def fmp_symbol_fundamentals(symbol):
+    """Fetch cached FMP fundamentals/estimates for one symbol."""
+    profile = {}
+    ratios = {}
+    metrics = {}
+    estimates = []
+    statements = []
+    errors = []
+    calls = (
+        ("profile", {"symbol": symbol}),
+        ("ratios-ttm", {"symbol": symbol, "limit": 1}),
+        ("key-metrics-ttm", {"symbol": symbol}),
+        ("analyst-estimates", {"symbol": symbol, "period": "annual", "page": 0, "limit": 5}),
+        ("income-statement", {"symbol": symbol, "period": "annual", "limit": 2}),
+    )
+    responses = {}
+    for endpoint, params in calls:
+        try:
+            data = fmp_request(endpoint, params)
+            responses[endpoint] = data if isinstance(data, list) else []
+        except Exception as exc:
+            errors.append(f"{endpoint}:{type(exc).__name__}")
+    profile = (responses.get("profile") or [{}])[0]
+    ratios = (responses.get("ratios-ttm") or [{}])[0]
+    metrics = (responses.get("key-metrics-ttm") or [{}])[0]
+    estimates = responses.get("analyst-estimates") or []
+    statements = responses.get("income-statement") or []
+
+    today = datetime.now(ET).date().isoformat()
+    future_estimates = [
+        row for row in estimates
+        if isinstance(row, dict) and str(row.get("date") or "")[:10] >= today
+        and num(row.get("epsAvg")) is not None and num(row.get("epsAvg")) > 0
+    ]
+    future_estimates.sort(key=lambda row: str(row.get("date") or "9999"))
+    estimate = future_estimates[0] if future_estimates else {}
+    forward_eps = num(estimate.get("epsAvg"))
+    latest_statement = {}
+    past_statements = [
+        row for row in statements
+        if isinstance(row, dict) and str(row.get("date") or "")[:10] <= today
+    ]
+    past_statements.sort(key=lambda row: str(row.get("date") or ""), reverse=True)
+    if past_statements:
+        latest_statement = past_statements[0]
+    current_eps = num(first(latest_statement, ["epsDiluted", "eps"]))
+    growth = None
+    if forward_eps is not None and current_eps is not None and current_eps > 0:
+        growth = (forward_eps / current_eps - 1) * 100
+    margin = num(first(ratios, ["netProfitMarginTTM", "netProfitMargin"]))
+    roe = num(first(metrics, ["returnOnEquityTTM", "returnOnEquity"]))
+    debt_ratio = num(first(ratios, ["debtToEquityRatioTTM", "debtToEquityRatio"]))
+    # FMP reports debt-to-equity as a ratio (e.g. 0.8); the score thresholds
+    # are expressed as percent (e.g. 80), so normalize the unit.
+    debt = debt_ratio * 100 if debt_ratio is not None else None
+    fpe = None
+    analysts = num(first(estimate, ["numAnalystsEps", "numAnalysts"]))
+    return {
+        "sector": first(profile, ["sector"], None),
+        "industry": first(profile, ["industry"], None),
+        "marketCap": num(first(profile, ["marketCap", "mktCap"])),
+        "fpe": fpe,
+        "forwardEps": forward_eps,
+        "epsGrowthPct": growth,
+        "analysts": int(analysts) if analysts is not None else None,
+        "margin": margin,
+        "roe": roe,
+        "debt": debt,
+        "fpeEstimateDate": estimate.get("date") if estimate else None,
+        "source": "FMP" if any(responses.values()) else None,
+        "errors": errors,
+    }
+
+
+def load_fmp_fundamental_cache():
+    try:
+        with open(FMP_CACHE_PATH, encoding="utf-8") as handle:
+            payload = json.load(handle)
+        if isinstance(payload, dict) and isinstance(payload.get("items"), dict):
+            return payload
+    except Exception:
+        pass
+    return {"items": {}}
+
+
+def get_fmp_fundamentals(symbols):
+    """Cache fundamentals for 24h so regular quote refreshes do not exhaust API quotas."""
+    if not FMP_API_KEY or not symbols:
+        return {}
+    cache = load_fmp_fundamental_cache()
+    items = cache.setdefault("items", {})
+    now_epoch = time.time()
+    missing = []
+    for symbol in dict.fromkeys(symbols):
+        entry = items.get(symbol)
+        if not isinstance(entry, dict) or now_epoch - float(entry.get("fetchedAt") or 0) >= FMP_CACHE_TTL_SECONDS:
+            missing.append(symbol)
+    if missing:
+        print(f"FMP fundamentals cache miss: {len(missing)} symbols")
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = {executor.submit(fmp_symbol_fundamentals, symbol): symbol for symbol in missing}
+            for future in as_completed(futures):
+                symbol = futures[future]
+                try:
+                    result = future.result()
+                    if result.get("source"):
+                        items[symbol] = {"fetchedAt": now_epoch, "data": result}
+                except Exception as exc:
+                    print(f"FMP fundamentals warning {symbol}: {exc}", file=sys.stderr)
+        try:
+            with open(FMP_CACHE_PATH, "w", encoding="utf-8") as handle:
+                json.dump({"updatedAt": datetime.now(ET).isoformat(), "items": items}, handle, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            print(f"FMP fundamentals cache write warning: {exc}", file=sys.stderr)
+    out = {}
+    for symbol in symbols:
+        entry = items.get(symbol)
+        if isinstance(entry, dict) and isinstance(entry.get("data"), dict):
+            out[symbol] = entry["data"]
+    return out
+
+
 def yahoo_screen(screen_name):
     try:
         result = yf.screen(screen_name, count=250)
@@ -231,9 +501,9 @@ def yahoo_screen(screen_name):
         print(f"Yahoo screen warning {screen_name}: {e}", file=sys.stderr)
         return []
 
-def fallback_info():
+def fallback_info(symbols=None):
     rows = []
-    for sym in FALLBACK_SYMBOLS:
+    for sym in (symbols or FALLBACK_SYMBOLS):
         try:
             info = yf.Ticker(sym).get_info()
             info["symbol"] = sym
