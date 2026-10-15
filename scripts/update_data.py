@@ -2886,7 +2886,11 @@ def update_us_signal_history(payload):
                     if any(str(horizon) not in returns for horizon in (1, 5, 20)):
                         unresolved_symbols.add(signal.get("ticker"))
             unresolved_symbols = sorted(symbol for symbol in unresolved_symbols if symbol)
-            histories = yahoo_history(unresolved_symbols, retry_missing=False) if unresolved_symbols else {}
+            histories = {}
+            # Keep each historical download bounded; the daily archive grows over time.
+            for offset in range(0, len(unresolved_symbols), 60):
+                chunk = unresolved_symbols[offset:offset + 60]
+                histories.update(yahoo_history(chunk, retry_missing=False))
 
             for record in records[-35:]:
                 record_date = str(record.get("date") or "")[:10]
