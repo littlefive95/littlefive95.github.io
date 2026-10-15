@@ -1298,6 +1298,22 @@ def build_live():
         row["label"] = label
         row["risk"] = risk
         row["reasons"] = reasons
+        flags = row.get("dataQualityFlags") or []
+        if row.get("entryStatus") == "可考慮進場區" and row["score"] >= 78 and row["risk"] != "高" and not flags:
+            row["label"] = "進場候選"
+        elif row["risk"] == "高":
+            row["label"] = "高風險觀察"
+        elif row["score"] >= 78:
+            row["label"] = "高分觀察"
+        elif row["score"] >= 68:
+            row["label"] = "值得研究"
+        elif row["score"] >= 55:
+            row["label"] = "觀察"
+        else:
+            row["label"] = "暫不優先"
+        if flags:
+            row["reasons"] = list(row.get("reasons") or []) + ["資料品質｜" + "、".join(flags[:3])]
+        row["dataQualityFlags"] = flags
 
     ranked_pool.sort(
         key=lambda row: (
@@ -1324,24 +1340,22 @@ def build_live():
             row["eventSignals"] = []
         row["profiles"] = stock_profiles(row)
 
-        flags = row.get("dataQualityFlags") or []
-        if row["entryStatus"] == "可考慮進場區" and row["score"] >= 78 and row["risk"] != "高" and not flags:
-            row["label"] = "進場候選"
-        elif row["risk"] == "高":
-            row["label"] = "高風險觀察"
-        elif row["score"] >= 78:
-            row["label"] = "高分觀察"
-        elif row["score"] >= 68:
-            row["label"] = "值得研究"
-        elif row["score"] >= 55:
-            row["label"] = "觀察"
-        else:
-            row["label"] = "暫不優先"
-        if flags:
-            row["reasons"] = list(row.get("reasons") or []) + ["資料品質｜" + "、".join(flags[:3])]
-        row["dataQualityFlags"] = flags
-
     rows = top_rows
+    evaluated_by_symbol = {row["ticker"]: row for row in ranked_pool}
+    magnificent_seven_rows = []
+    for symbol in SEVEN_MAGNIFICENT:
+        row = evaluated_by_symbol.get(symbol)
+        if not row:
+            continue
+        magnificent_seven_rows.append({
+            key: row.get(key)
+            for key in (
+                "ticker", "name", "exchange", "price", "changePct", "score", "label",
+                "risk", "entryStatus", "entryType", "entryLow", "entryPrice", "entryHigh",
+                "stopLoss", "takeProfit1", "fpe", "epsGrowthPct", "volumeRatio",
+                "dataQualityFlags", "quoteSource", "fundamentalSource",
+            )
+        })
     apply_rank_history(rows, "data.json", limit=20)
     fpe_count = sum(1 for row in rows if row.get("fpe") is not None and 0 < row["fpe"] <= 100)
     source_mode = (
@@ -1378,7 +1392,8 @@ def build_live():
         "epsGrowthCoverage": round(100 * sum(1 for row in rows if row.get("epsGrowthPct") is not None and abs(row["epsGrowthPct"]) <= 200) / max(1, len(rows))),
         "analystCoverage": round(100 * sum(1 for row in rows if (row.get("analysts") or 0) > 0) / max(1, len(rows))),
         "dataQualityFlagCount": sum(len(row.get("dataQualityFlags") or []) for row in rows),
-        "sevenMagnificent": {symbol: symbol in normalized_by_symbol for symbol in SEVEN_MAGNIFICENT},
+        "sevenMagnificent": {symbol: symbol in evaluated_by_symbol for symbol in SEVEN_MAGNIFICENT},
+        "magnificentSevenRows": magnificent_seven_rows,
         "holiday": ["Weekend"] if now.weekday() >= 5 else ["NYSE market holiday"] if closed else [],
         "note": f"{mode_note}。高分不等於可買進；進場標籤要求進場區、風險與資料品質同時通過。研究/監控工具，不構成投資建議。",
     }
