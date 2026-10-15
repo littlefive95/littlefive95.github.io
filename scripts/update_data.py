@@ -1195,6 +1195,7 @@ def build_live():
             flag = "歷史K線不足或未取得"
             if flag not in row["dataQualityFlags"]:
                 row["dataQualityFlags"].append(flag)
+            row.update(entry_plan(row, None, "stock"))
             continue
         close = h["close"]
         vol = h["volume"]
@@ -1204,6 +1205,9 @@ def build_live():
         avg20vol = float(vol.tail(20).mean()) if len(vol) >= 20 else None
         row["volumeRatio"] = float(row["volume"] / avg20vol) if avg20vol and avg20vol > 0 else None
         row["historicalDataSource"] = "YAHOO_HISTORY_BACKUP"
+        # Entry eligibility is calculated for the entire evaluated pool before
+        # ranking, not just after TOP20 has already been selected.
+        row.update(entry_plan(row, h, "stock"))
 
     # Primary fundamentals from FMP are cached for 24 hours. Yahoo fills only
     # fields that the configured source did not return.
@@ -1316,10 +1320,8 @@ def build_live():
             row["eventSignals"] = historical_event_signals(
                 row["price"], close, row.get("volumeRatio"), row["changePct"], row.get("priceAvg50"), row.get("priceAvg200")
             )
-            row.update(entry_plan(row, h, "stock"))
         else:
             row["eventSignals"] = []
-            row.update(entry_plan(row, None, "stock"))
         row["profiles"] = stock_profiles(row)
 
         flags = row.get("dataQualityFlags") or []
