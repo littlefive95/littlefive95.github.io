@@ -44,6 +44,7 @@ if FMP_API_KEY and os.environ.get("FMP_DISPLAY_LICENSE_CONFIRMED", "").strip().l
 SEVEN_MAGNIFICENT = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
 FMP_CACHE_PATH = ".cache/us_fundamentals_cache.json"
 FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
+FMP_UNIVERSE_CACHE_TTL_SECONDS = 50 * 60
 
 def load_previous_ranks(path, limit=20):
     """Load the last published TOP-N ranks so the dashboard can show rank movement."""
@@ -276,7 +277,15 @@ def fmp_request(endpoint, params=None):
 
 
 def fmp_us_universe():
-    """Build a broad liquid US universe from FMP instead of Yahoo preset lists."""
+    """Build a broad liquid US universe from FMP and cache it for 50 minutes."""
+    cache = load_fmp_fundamental_cache()
+    cached_universe = cache.get("universe") or {}
+    cached_rows = cached_universe.get("rows") if isinstance(cached_universe, dict) else None
+    fetched_at = float(cached_universe.get("fetchedAt") or 0) if isinstance(cached_universe, dict) else 0
+    if isinstance(cached_rows, list) and cached_rows and time.time() - fetched_at < FMP_UNIVERSE_CACHE_TTL_SECONDS:
+        print(f"FMP US screener cache hit: {len(cached_rows)} stocks")
+        return cached_rows
+
     payload = fmp_request("company-screener", {
         "marketCapMoreThan": 5_000_000_000,
         "priceMoreThan": 10,
@@ -328,6 +337,14 @@ def fmp_us_universe():
     if not rows:
         raise RuntimeError("FMP screener returned no eligible NYSE/Nasdaq stocks")
     print(f"FMP US screener: {len(rows)} eligible NYSE/Nasdaq stocks")
+    cache["universe"] = {"fetchedAt": time.time(), "rows": rows}
+    cache["updatedAt"] = datetime.now(ET).isoformat()
+    try:
+        os.makedirs(os.path.dirname(FMP_CACHE_PATH), exist_ok=True)
+        with open(FMP_CACHE_PATH, "w", encoding="utf-8") as handle:
+            json.dump(cache, handle, ensure_ascii=False, indent=2)
+    except Exception as exc:
+        print(f"FMP universe cache write warning: {exc}", file=sys.stderr)
     return rows
 
 
@@ -407,6 +424,9 @@ def fmp_symbol_fundamentals(symbol):
             responses[endpoint] = data if isinstance(data, list) else []
         except Exception as exc:
             errors.append(f"{endpoint}:{type(exc).__name__}")
+        finally:
+            # Keep initial cache warm-up under common API requests/minute limits.
+            time.sleep(0.45)
     profile = {}
     ratios = (responses.get("ratios-ttm") or [{}])[0]
     metrics = (responses.get("key-metrics-ttm") or [{}])[0]
@@ -485,25 +505,30 @@ def get_fmp_fundamentals(symbols):
     if missing:
         print(f"FMP fundamentals cache miss: {len(missing)} symbols")
         os.makedirs(os.path.dirname(FMP_CACHE_PATH), exist_ok=True)
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        with ThreadPoolExecutor(max_workers=3) as executor:
             futures = {executor.submit(fmp_symbol_fundamentals, symbol): symbol for symbol in missing}
             for future in as_completed(futures):
                 symbol = futures[future]
                 try:
                     result = future.result()
-                    if result.get("source"):
-                        items[symbol] = {"fetchedAt": now_epoch, "data": result}
+                    items[symbol] = {"fetchedAt": now_epoch, "data": result}
                 except Exception as exc:
                     print(f"FMP fundamentals warning {symbol}: {exc}", file=sys.stderr)
         try:
             with open(FMP_CACHE_PATH, "w", encoding="utf-8") as handle:
-                json.dump({"updatedAt": datetime.now(ET).isoformat(), "items": items}, handle, ensure_ascii=False, indent=2)
+                cache["updatedAt"] = datetime.now(ET).isoformat()
+                cache["items"] = items
+                json.dump(cache, handle, ensure_ascii=False, indent=2)
         except Exception as exc:
             print(f"FMP fundamentals cache write warning: {exc}", file=sys.stderr)
     out = {}
     for symbol in symbols:
         entry = items.get(symbol)
-        if isinstance(entry, dict) and isinstance(entry.get("data"), dict):
+        if (
+            isinstance(entry, dict)
+            and isinstance(entry.get("data"), dict)
+            and entry["data"].get("source")
+        ):
             out[symbol] = entry["data"]
     return out
 
@@ -1089,7 +1114,7 @@ def build_live():
             -(row.get("marketCap") or 0),
         )
     )
-    ranked_pool = normalized[:38]
+    ranked_pool = normalized[:50]
     selected_symbols = {row["ticker"] for row in ranked_pool}
     for symbol in SEVEN_MAGNIFICENT:
         row = normalized_by_symbol.get(symbol)
