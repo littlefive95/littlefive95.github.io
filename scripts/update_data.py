@@ -815,19 +815,121 @@ def fetch_json(url, retries=4):
                 time.sleep(1.5 * (attempt + 1))
     raise last
 
+def yahoo_taiwan_snapshot(max_rows=1000):
+    """Fallback universe feed when the exchange OpenAPI is empty or blocked."""
+    try:
+        from yfinance import EquityQuery
+
+        query = EquityQuery("and", [
+            EquityQuery("eq", ["region", "tw"]),
+            EquityQuery("is-in", ["exchange", "TAI", "TWO"]),
+        ])
+        quotes_by_symbol = {}
+        dates = []
+        offset = 0
+        page_size = 250
+        while offset < max_rows:
+            result = yf.screen(
+                query,
+                offset=offset,
+                size=page_size,
+                sortField="dayvolume",
+                sortAsc=False,
+            )
+            quotes = result.get("quotes", []) if isinstance(result, dict) else []
+            print(f"Yahoo Taiwan screener offset={offset}: {len(quotes)} rows")
+            if not quotes:
+                break
+            for q in quotes:
+                symbol = str(first(q, ["symbol"], "")).strip().upper()
+                if symbol.endswith(".TWO"):
+                    code, exchange = symbol[:-4], "TPEx"
+                elif symbol.endswith(".TW"):
+                    code, exchange = symbol[:-3], "TWSE"
+                else:
+                    continue
+
+                price = tw_num(first(q, [
+                    "regularMarketPrice", "intradayprice", "price",
+                    "regularMarketPreviousClose",
+                ]))
+                volume = tw_num(first(q, [
+                    "regularMarketVolume", "dayvolume", "eodvolume", "volume",
+                ])) or 0
+                if not code.isdigit() or len(code) < 4 or price is None or price < 10 or volume < 300_000:
+                    continue
+
+                change_pct = tw_num(first(q, [
+                    "regularMarketChangePercent", "percentchange", "changePercent",
+                ]))
+                row = {
+                    "ticker": code,
+                    "yahoo": symbol,
+                    "name": str(first(q, ["shortName", "longName", "displayName", "name"], code)).strip(),
+                    "exchange": exchange,
+                    "price": price,
+                    "changePct": change_pct,
+                    "volume": volume,
+                    # Yahoo screener does not consistently provide turnover;
+                    # price x shares is used only as a relative liquidity proxy.
+                    "turnover": price * volume,
+                    "pe": None,
+                }
+                previous = quotes_by_symbol.get(symbol)
+                if previous is None or row["volume"] > previous["volume"]:
+                    quotes_by_symbol[symbol] = row
+
+                timestamp = tw_num(first(q, ["regularMarketTime", "marketTime"]))
+                if timestamp:
+                    if timestamp > 10_000_000_000:
+                        timestamp /= 1000
+                    try:
+                        dates.append(datetime.fromtimestamp(timestamp, ZoneInfo("Asia/Taipei")).date().isoformat())
+                    except (OverflowError, OSError, ValueError):
+                        pass
+
+            if len(quotes) < page_size:
+                break
+            offset += len(quotes)
+
+        rows = list(quotes_by_symbol.values())
+        snapshot_date = max(dates) if dates else None
+        if not rows:
+            raise RuntimeError("Yahoo Finance Taiwan screener returned no liquid TWSE/TPEx shares")
+
+        if not snapshot_date:
+            try:
+                history = yf.Ticker(rows[0]["yahoo"]).history(period="5d", auto_adjust=False)
+                if history is not None and not history.empty:
+                    snapshot_date = history.index[-1].date().isoformat()
+            except Exception as e:
+                print("Yahoo Taiwan fallback date warning", e, file=sys.stderr)
+
+        print(f"Yahoo Taiwan fallback produced {len(rows)} liquid rows; snapshot={snapshot_date}")
+        return rows, snapshot_date
+    except Exception as e:
+        print("Yahoo Taiwan screener warning", e, file=sys.stderr)
+        raise RuntimeError(f"Yahoo Finance Taiwan fallback unavailable: {e}") from e
+
+
 def taiwan_snapshot():
     try:
         twse = fetch_json(TWSE_URL)
+        if not isinstance(twse, list) or not twse:
+            print("TWSE daily snapshot warning: endpoint returned no rows", file=sys.stderr)
+            twse = []
     except Exception as e:
         print("TWSE daily snapshot warning", e, file=sys.stderr)
         twse = []
     try:
         tpex = fetch_json(TPEX_URL)
+        if not isinstance(tpex, list) or not tpex:
+            print("TPEx daily snapshot warning: endpoint returned no rows", file=sys.stderr)
+            tpex = []
     except Exception as e:
         print("TPEx daily snapshot warning", e, file=sys.stderr)
         tpex = []
-    if not twse and not tpex:
-        raise RuntimeError("TWSE and TPEx daily snapshots unavailable")
+
     valuation = {}
     try:
         for x in fetch_json(TWSE_VAL_URL) or []:
@@ -886,6 +988,39 @@ def taiwan_snapshot():
                 "pe": None,
             })
 
+    official_rows = list(rows)
+    official_has_twse = any(row.get("exchange") == "TWSE" for row in official_rows)
+    official_has_tpex = any(row.get("exchange") == "TPEx" for row in official_rows)
+    used_yahoo_fallback = False
+    yahoo_snapshot_date = None
+
+    # A non-empty JSON response is not enough: require usable candidates from
+    # both boards. Cloud runners may receive HTTP 403 or empty payloads from TPEx.
+    if not official_has_twse or not official_has_tpex:
+        missing = []
+        if not official_has_twse:
+            missing.append("TWSE")
+        if not official_has_tpex:
+            missing.append("TPEx")
+        print(f"Official Taiwan feed incomplete ({', '.join(missing)} missing); trying Yahoo Finance screener", file=sys.stderr)
+        yahoo_rows, yahoo_snapshot_date = yahoo_taiwan_snapshot()
+        by_key = {(row["ticker"], row["exchange"]): row for row in rows}
+        for row in yahoo_rows:
+            key = (row["ticker"], row["exchange"])
+            # Official exchange values win when both providers cover a symbol.
+            if key not in by_key:
+                by_key[key] = row
+        rows = list(by_key.values())
+        used_yahoo_fallback = True
+
+    has_twse = any(row.get("exchange") == "TWSE" for row in rows)
+    has_tpex = any(row.get("exchange") == "TPEx" for row in rows)
+    if not rows or not has_twse or not has_tpex:
+        raise RuntimeError(
+            f"Incomplete Taiwan universe after fallback: TWSE rows={sum(r.get('exchange') == 'TWSE' for r in rows)}, "
+            f"TPEx rows={sum(r.get('exchange') == 'TPEx' for r in rows)}"
+        )
+
     dates = []
     for x in twse or []:
         d = roc_date(first(x, ["日期", "Date"]))
@@ -895,8 +1030,15 @@ def taiwan_snapshot():
         d = roc_date(first(x, ["Date", "日期"]))
         if d:
             dates.append(d)
+    if yahoo_snapshot_date:
+        dates.append(yahoo_snapshot_date)
     snapshot_date = max(dates) if dates else None
-    return rows, snapshot_date
+    if used_yahoo_fallback:
+        source_mode = "MIXED" if official_rows else "YAHOO_FALLBACK"
+    else:
+        source_mode = "OFFICIAL"
+    print(f"Taiwan universe: TWSE={sum(r.get('exchange') == 'TWSE' for r in rows)}, TPEx={sum(r.get('exchange') == 'TPEx' for r in rows)}, source={source_mode}")
+    return rows, snapshot_date, source_mode
 
 def taiwan_live_quotes(symbols):
     out = {}
@@ -1245,7 +1387,7 @@ def build_taiwan_live():
     now = datetime.now(ZoneInfo("Asia/Taipei"))
     day = now.date().isoformat()
     try:
-        snapshot, snapshot_date = taiwan_snapshot()
+        snapshot, snapshot_date, snapshot_source = taiwan_snapshot()
     except Exception as e:
         return {
             "status": "DATA_ERROR",
@@ -1456,7 +1598,8 @@ def build_taiwan_live():
         "valuationFallbackCoverage": round(100 * sum(1 for r in rows if r.get("valuationSource") == "PE") / max(1, len(rows))),
         "universeCount": len(enriched),
         "focusCount": len(rows),
-        "method": "TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data",
+        "method": ("TWSE + TPEx daily snapshot + Yahoo Finance 5-minute intraday/technical/valuation data" if snapshot_source == "OFFICIAL" else "TWSE/TPEx official snapshots supplemented by Yahoo Finance screener + Yahoo Finance technical/valuation data" if snapshot_source == "MIXED" else "Yahoo Finance Taiwan equity screener + Yahoo Finance technical/valuation data (official exchange snapshots unavailable)"),
+        "sourceMode": snapshot_source,
         "fpeFormula": "Yahoo Forward P/E, fallback to latest price / forward EPS",
         "holiday": [] if using_intraday else ["Outside Taiwan cash-session; latest completed trading day shown"],
         "note": note,
