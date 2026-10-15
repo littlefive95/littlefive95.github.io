@@ -32,8 +32,9 @@ tbody tr{transition:background .12s}tbody tr:hover{background:rgba(125,162,255,.
 @media(max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}.method-grid{grid-template-columns:1fr 1fr}.filters{grid-template-columns:minmax(220px,360px) auto;justify-content:start}.filters .input{grid-column:auto}}
 @media(max-width:620px){.head{flex-direction:column;align-items:flex-start}.kpis{grid-template-columns:1fr 1fr}.title{font-size:27px}.filters{grid-template-columns:1fr}.filters .input{grid-column:auto}.market-tabs{width:100%}.market-tab{flex:1}.method-grid{grid-template-columns:1fr}.toolbar-top{display:block}.crypto-groups{margin-top:8px}}
 .us-validation-panel{margin-top:14px}.us-validation-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.us-validation-metrics .kpi{padding:0}.us-validation-panel .ph{margin-bottom:12px}
-@media(max-width:1000px){.us-validation-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.us-validation-metrics{grid-template-columns:1fr 1fr}.us-validation-panel{padding:12px}}
+.seven-watch-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.seven-watch-card{min-width:0;border:1px solid var(--line);border-radius:11px;padding:10px;background:rgba(8,13,21,.38)}.seven-watch-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.seven-watch-ticker{font-size:13px;font-weight:900}.seven-watch-name{font-size:10px;color:var(--muted);min-height:28px;margin:5px 0;overflow-wrap:anywhere}.seven-watch-label{font-size:10px;font-weight:800;margin:4px 0}.seven-watch-entry{margin-top:5px}.seven-watch-change{font-size:10px;color:var(--muted);margin-top:7px}
+@media(max-width:1000px){.us-validation-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.seven-watch-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:620px){.us-validation-metrics{grid-template-columns:1fr 1fr}.us-validation-panel{padding:12px}.seven-watch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.seven-watch-card{padding:9px}}
 </style>
 </head>
 <body>
@@ -71,6 +72,11 @@ tbody tr{transition:background .12s}tbody tr:hover{background:rgba(125,162,255,.
     <div class="kpi"><div class="label">20 日內觸及停損率</div><div class="value" id="usBacktestStop20d">累積中</div><div class="hint" id="usBacktestStop20dHint">等待足夠樣本</div></div>
   </div>
   <div class="hint">驗證價格目前使用 Yahoo 歷史日線；為收盤價變動統計，不是完整成交模擬，尚未計入交易成本、滑價與盤中觸發順序。</div>
+</section>
+
+<section class="card panel us-validation-panel" id="sevenMagnificentPanel">
+  <div class="ph"><div><h2>美股七巨頭監控</h2><div class="subline">七檔固定納入評估；只有進場條件符合時才列為進場候選，不強制占用 TOP20 名額。</div></div><span id="sevenMagnificentStatus" class="badge amber">載入中</span></div>
+  <div id="sevenMagnificentGrid" class="seven-watch-grid"><div class="hint">正在取得七巨頭評估結果…</div></div>
 </section>
 
 <section class="grid kpis">
@@ -370,11 +376,40 @@ function loadUsBacktest(){
     byId("usBacktestStatus").className="badge amber";
   });
 }
+function renderMagnificentSeven(payload){
+  var grid=document.getElementById("sevenMagnificentGrid");
+  var status=document.getElementById("sevenMagnificentStatus");
+  if(!grid||!status) return;
+  var rows=payload&&Array.isArray(payload.magnificentSevenRows)?payload.magnificentSevenRows:[];
+  if(!rows.length){
+    grid.innerHTML="<div class='hint'>目前快照尚未提供七巨頭評估結果。</div>";
+    status.textContent="等待評估資料";
+    status.className="badge amber";
+    return;
+  }
+  grid.innerHTML=rows.map(function(x){
+    var score=x.score==null?"—":esc(x.score);
+    var change=x.changePct==null?"—":((Number(x.changePct)>0?"+":"")+Number(x.changePct).toFixed(2)+"%");
+    var statusText=x.entryStatus||"資料不足";
+    return "<div class='seven-watch-card'>"+
+      "<div class='seven-watch-head'><span class='seven-watch-ticker'>"+esc(x.ticker)+"</span><span class='score "+clsScore(Number(x.score||0))+"'>"+score+"</span></div>"+
+      "<div class='seven-watch-name'>"+esc(x.name||"")+"</div>"+
+      "<div><span class='pill "+riskClass(x.risk)+"'>風險 "+esc(x.risk||"N/A")+"</span></div>"+
+      "<div class='seven-watch-label'>"+esc(x.label||"觀察")+"</div>"+
+      "<div class='seven-watch-entry'><span class='entry-status "+entryStatusClass(statusText)+"'>"+esc(statusText)+"</span></div>"+
+      "<div class='seven-watch-change'>當日 "+change+"</div>"+
+      (x.dataQualityFlags&&x.dataQualityFlags.length?"<div class='hint'>資料需核對</div>":"")+
+      "</div>";
+  }).join("");
+  status.textContent=rows.length+"/7 已納入評估";
+  status.className="badge "+(rows.length===7?"live":"amber");
+}
 function loadRadar(){
   var specs={us:"data.json",tw:"taiwan_data.json",crypto:"crypto_data.json"};
   Object.keys(specs).forEach(function(k){
     fetchSnapshot(specs[k]).then(function(p){
       radarData[k]=p;
+      if(k==="us") renderMagnificentSeven(p);
       if(!payloadState[k] || Date.parse(p.asOf||0)>=Date.parse(payloadState[k].asOf||0)) payloadState[k]=p;
       renderRadarCard(k,k==="us"?"🇺🇸 美股":k==="tw"?"🇹🇼 台股":"🪙 加密貨幣");
     }).catch(function(){
