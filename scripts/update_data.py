@@ -45,6 +45,7 @@ SEVEN_MAGNIFICENT = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
 FMP_CACHE_PATH = ".cache/us_fundamentals_cache.json"
 FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
 FMP_UNIVERSE_CACHE_TTL_SECONDS = 50 * 60
+YAHOO_US_BACKUP_CACHE_TTL_SECONDS = 12 * 60 * 60
 
 def load_previous_ranks(path, limit=20):
     """Load the last published TOP-N ranks so the dashboard can show rank movement."""
@@ -531,6 +532,62 @@ def get_fmp_fundamentals(symbols):
         ):
             out[symbol] = entry["data"]
     return out
+
+
+
+def get_yahoo_us_fallback_info(symbols):
+    """Cache only the Yahoo backup fields needed by US scoring for 12 hours."""
+    if not symbols:
+        return {}
+    cache = load_fmp_fundamental_cache()
+    backup = cache.setdefault("yahooBackup", {})
+    now_epoch = time.time()
+    fields = (
+        "sectorDisp", "sector", "industryDisp", "industry", "quoteType", "quoteTypeDisp",
+        "profitMargins", "operatingMargins", "grossMargins", "netProfitMargin",
+        "returnOnEquity", "debtToEquity", "debtToEquityRatio",
+        "epsForward", "forwardEps", "epsNextYear", "forwardPE", "forwardPeRatio",
+        "forwardPERatio", "earningsGrowth", "epsGrowth", "earningsQuarterlyGrowth",
+        "numberOfAnalystOpinions", "numberOfAnalysts", "earningsTimestampStart", "earningsTimestamp",
+        "marketCap",
+    )
+    missing = []
+    for symbol in dict.fromkeys(symbols):
+        entry = backup.get(symbol)
+        if not isinstance(entry, dict) or now_epoch - float(entry.get("fetchedAt") or 0) >= YAHOO_US_BACKUP_CACHE_TTL_SECONDS:
+            missing.append(symbol)
+    if missing:
+        def fetch_one(symbol):
+            try:
+                info = yf.Ticker(symbol).get_info() or {}
+                return {
+                    key: (value if isinstance(value, (str, int, float, bool)) or value is None else str(value))
+                    for key, value in info.items()
+                    if key in fields
+                }
+            except Exception as exc:
+                print(f"Yahoo US backup warning {symbol}: {type(exc).__name__}", file=sys.stderr)
+                return {}
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            futures = {executor.submit(fetch_one, symbol): symbol for symbol in missing}
+            for future in as_completed(futures):
+                symbol = futures[future]
+                try:
+                    backup[symbol] = {"fetchedAt": now_epoch, "data": future.result()}
+                except Exception:
+                    backup[symbol] = {"fetchedAt": now_epoch, "data": {}}
+        cache["updatedAt"] = datetime.now(ET).isoformat()
+        try:
+            os.makedirs(os.path.dirname(FMP_CACHE_PATH), exist_ok=True)
+            with open(FMP_CACHE_PATH, "w", encoding="utf-8") as handle:
+                json.dump(cache, handle, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            print(f"Yahoo US backup cache write warning: {type(exc).__name__}", file=sys.stderr)
+    return {
+        symbol: backup[symbol].get("data", {})
+        for symbol in symbols
+        if isinstance(backup.get(symbol), dict)
+    }
 
 
 def yahoo_screen(screen_name):
@@ -1176,9 +1233,9 @@ def build_live():
             row.get("margin") is None or row.get("roe") is None or row.get("debt") is None
             or row.get("fpe") is None or row.get("epsGrowthPct") is None
         )
-        if not FMP_API_KEY or (missing_core and row.get("fundamentalSource") != "FMP"):
+        if not FMP_API_KEY or missing_core:
             fallback_symbols.append(row["ticker"])
-    info = yahoo_info(fallback_symbols) if fallback_symbols else {}
+    info = get_yahoo_us_fallback_info(fallback_symbols) if fallback_symbols else {}
     for row in ranked_pool:
         inf = info.get(row["ticker"], {})
         if not inf:
