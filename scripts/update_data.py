@@ -34,7 +34,7 @@ FALLBACK_SYMBOLS = (
 MASSIVE_API_KEY = os.environ.get("MASSIVE_API_KEY", "").strip()
 FMP_API_KEY = os.environ.get("FMP_API_KEY", "").strip()
 SEVEN_MAGNIFICENT = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
-FMP_CACHE_PATH = "us_fundamentals_cache.json"
+FMP_CACHE_PATH = ".cache/us_fundamentals_cache.json"
 FMP_CACHE_TTL_SECONDS = 24 * 60 * 60
 
 def load_previous_ranks(path, limit=20):
@@ -232,21 +232,30 @@ def us_market_session(now):
 
 def provider_json(url, params=None, timeout=25):
     """Fetch a JSON provider endpoint without exposing credentials in logs."""
-    response = requests.get(
-        url,
-        params=params or {},
-        timeout=timeout,
-        headers={
-            "User-Agent": "AlphaWatch/1.0",
-            "Accept": "application/json",
-            "Accept-Encoding": "identity",
-            "Connection": "close",
-        },
-    )
-    response.raise_for_status()
-    payload = response.json()
+    try:
+        response = requests.get(
+            url,
+            params=params or {},
+            timeout=timeout,
+            headers={
+                "User-Agent": "AlphaWatch/1.0",
+                "Accept": "application/json",
+                "Accept-Encoding": "identity",
+                "Connection": "close",
+            },
+        )
+    except requests.RequestException as exc:
+        # Do not include request URLs in errors: API credentials are query parameters.
+        raise RuntimeError("provider network request failed") from None
+    if not response.ok:
+        raise RuntimeError(f"provider returned HTTP {response.status_code}")
+    try:
+        payload = response.json()
+    except ValueError:
+        raise RuntimeError("provider returned invalid JSON") from None
     if isinstance(payload, dict) and (payload.get("Error Message") or payload.get("error")):
-        raise RuntimeError(str(payload.get("Error Message") or payload.get("error")))
+        message = str(payload.get("Error Message") or payload.get("error"))
+        raise RuntimeError(message[:180])
     return payload
 
 
@@ -378,8 +387,7 @@ def fmp_symbol_fundamentals(symbol):
     statements = []
     errors = []
     calls = (
-        ("profile", {"symbol": symbol}),
-        ("ratios-ttm", {"symbol": symbol, "limit": 1}),
+        ("ratios-ttm", {"symbol": symbol}),
         ("key-metrics-ttm", {"symbol": symbol}),
         ("analyst-estimates", {"symbol": symbol, "period": "annual", "page": 0, "limit": 5}),
         ("income-statement", {"symbol": symbol, "period": "annual", "limit": 2}),
@@ -391,7 +399,7 @@ def fmp_symbol_fundamentals(symbol):
             responses[endpoint] = data if isinstance(data, list) else []
         except Exception as exc:
             errors.append(f"{endpoint}:{type(exc).__name__}")
-    profile = (responses.get("profile") or [{}])[0]
+    profile = {}
     ratios = (responses.get("ratios-ttm") or [{}])[0]
     metrics = (responses.get("key-metrics-ttm") or [{}])[0]
     estimates = responses.get("analyst-estimates") or []
@@ -468,6 +476,7 @@ def get_fmp_fundamentals(symbols):
             missing.append(symbol)
     if missing:
         print(f"FMP fundamentals cache miss: {len(missing)} symbols")
+        os.makedirs(os.path.dirname(FMP_CACHE_PATH), exist_ok=True)
         with ThreadPoolExecutor(max_workers=8) as executor:
             futures = {executor.submit(fmp_symbol_fundamentals, symbol): symbol for symbol in missing}
             for future in as_completed(futures):
@@ -1072,7 +1081,7 @@ def build_live():
             -(row.get("marketCap") or 0),
         )
     )
-    ranked_pool = normalized[:60]
+    ranked_pool = normalized[:38]
     selected_symbols = {row["ticker"] for row in ranked_pool}
     for symbol in SEVEN_MAGNIFICENT:
         row = normalized_by_symbol.get(symbol)
