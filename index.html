@@ -302,6 +302,8 @@ function radarStatus(p,modeName){
   var asOfTime=p.asOf?Date.parse(p.asOf):NaN;
   if(isFinite(asOfTime) && Date.now()-asOfTime>60*60*1000) return {label:"資料超過 60 分鐘",cls:"warn"};
   if(p.fallback) return {label:"沿用上次正常資料",cls:"warn"};
+  if(p.sourceMode==="YAHOO_FALLBACK") return {label:"Yahoo Finance 備援來源",cls:"warn"};
+  if(p.sourceMode==="MIXED") return {label:"Yahoo Finance 補足資料",cls:"warn"};
   if(p.status==="MARKET_CLOSED") return {label:"休市／最新收盤",cls:"warn"};
   if(p.dataMode==="INTRADAY") return {label:"盤中資料",cls:"live"};
   return {label:modeName==="crypto"?"24/7 快照":"正常更新",cls:"live"};
@@ -357,9 +359,11 @@ function loadData(){
     document.getElementById("updated").textContent=p.asOf?new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(p.asOf)):"—";
     var snapshotTime=p.asOf?Date.parse(p.asOf):NaN, age=Date.now()-snapshotTime;
     var stale=!isFinite(snapshotTime)||age>60*60*1000||age< -5*60*1000, fallback=!!p.fallback, closed=p.status==="MARKET_CLOSED";
-    var badgeText=stale?"資料過期 · 超過 60 分鐘":fallback?"沿用上次正常資料":p.dataMode==="INTRADAY"?"盤中資料 · "+(requestedMode==="tw"?"TWSE / TPEx":"Yahoo Finance"):p.dataMode==="LATEST_CLOSE"||closed?"最新收盤 · "+(requestedMode==="us"?"Yahoo Finance":requestedMode==="tw"?"TWSE / TPEx":"Binance + CMC"):p.status==="LIVE"?(requestedMode==="crypto"?"快照 · Binance + CMC":CFG[requestedMode].source):"資料狀態待確認";
-    badge.textContent=badgeText; badge.className=(fallback||stale||closed)?"badge amber":"badge green";
-    if(refreshInfo) refreshInfo.textContent="最後成功快照 "+(p.asOf?new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(p.asOf)):"時間未知")+" · 最近檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())+(stale?" · 警告：快照超過 60 分鐘或時間異常":fallback?" · 警告：後端沿用舊資料":closed?" · 休市時顯示最近收盤資料":" · 檢查正常");
+    var alternateSource=requestedMode==="tw"&&(p.sourceMode==="MIXED"||p.sourceMode==="YAHOO_FALLBACK");
+    var sourceWarning=p.sourceMode==="YAHOO_FALLBACK"?"Yahoo Finance 替代來源":"官方行情缺漏，已由 Yahoo Finance 補足";
+    var badgeText=stale?"資料過期 · 超過 60 分鐘":fallback?"沿用上次正常資料":alternateSource?sourceWarning:p.dataMode==="INTRADAY"?"盤中資料 · "+(requestedMode==="tw"?"TWSE / TPEx":"Yahoo Finance"):p.dataMode==="LATEST_CLOSE"||closed?"最新收盤 · "+(requestedMode==="us"?"Yahoo Finance":requestedMode==="tw"?"TWSE / TPEx":"Binance + CMC"):p.status==="LIVE"?(requestedMode==="crypto"?"快照 · Binance + CMC":CFG[requestedMode].source):"資料狀態待確認";
+    badge.textContent=badgeText; badge.className=(fallback||stale||closed||alternateSource)?"badge amber":"badge green";
+    if(refreshInfo) refreshInfo.textContent="最後成功快照 "+(p.asOf?new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(p.asOf)):"時間未知")+" · 最近檢查 "+new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())+(stale?" · 警告：快照超過 60 分鐘或時間異常":fallback?" · 警告：後端沿用舊資料":alternateSource?" · 警告："+sourceWarning:closed?" · 休市時顯示最近收盤資料":" · 檢查正常");
     render(); setHeader(); setClock();
     if(radarData[requestedMode]){radarData[requestedMode]=p;renderRadarCard(requestedMode,requestedMode==="us"?"🇺🇸 美股":requestedMode==="tw"?"🇹🇼 台股":"🪙 加密貨幣");}
   }).catch(function(err){
