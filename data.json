@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T04:46:47.368924-04:00",
+  "asOf": "2026-10-15T04:59:44.539510-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -69,8 +69,8 @@
       "name": "Teva Pharmaceutical Industries Limited",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 41.0,
-      "changePct": 0.63818926,
+      "price": 40.99,
+      "changePct": 0.6630659,
       "marketCap": 47491436544.0,
       "volume": 10268288.0,
       "fpe": 13.206886,
@@ -187,8 +187,8 @@
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 150.45,
-      "changePct": 2.1038282,
+      "price": 150.34,
+      "changePct": 2.0291755,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
       "fpe": 15.874503,
@@ -420,8 +420,8 @@
       "name": "UnitedHealth Group Incorporated",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 398.92,
-      "changePct": 0.79973936,
+      "price": 398.5,
+      "changePct": 0.6936097,
       "marketCap": 355106455552.0,
       "volume": 7759080.0,
       "fpe": 17.098457,
@@ -481,7 +481,7 @@
       "exchange": "NYSE",
       "sector": "金融",
       "price": 378.0,
-      "changePct": 0.68455034,
+      "changePct": 0.6738218,
       "marketCap": 14396547072.0,
       "volume": 294925.0,
       "fpe": 6.2433214,
@@ -590,8 +590,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "KDP",
@@ -649,8 +649,8 @@
         "value"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -709,8 +709,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "UHS",
@@ -769,8 +769,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -827,8 +827,8 @@
         "value"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "GDDY",
@@ -886,8 +886,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "BBY",
@@ -944,8 +944,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "ABBV",
@@ -1004,8 +1004,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "CAH",
@@ -1064,8 +1064,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CSX",
@@ -1124,8 +1124,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "HRB",
@@ -1185,8 +1185,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
