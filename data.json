@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T05:57:31.391886-04:00",
+  "asOf": "2026-10-15T06:12:36.567396-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -69,13 +69,13 @@
       "name": "Teva Pharmaceutical Industries Limited",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 40.96,
-      "changePct": 0.5893857,
+      "price": 41.06,
+      "changePct": 0.8349709,
       "marketCap": 47491436544.0,
       "volume": 10268288.0,
-      "fpe": 13.206886,
-      "forwardEps": 3.08324,
-      "epsGrowthPct": 46.35470809658755,
+      "fpe": 13.168321,
+      "forwardEps": 3.09227,
+      "epsGrowthPct": 46.783342589559936,
       "analysts": 0,
       "priceAvg50": 38.0046,
       "priceAvg200": 34.05115,
@@ -101,7 +101,7 @@
         "量能放大"
       ],
       "atr": 1.1536,
-      "atrPct": 2.82,
+      "atrPct": 2.81,
       "support": 39.738,
       "resistance": 42.02,
       "entryLow": 39.5073,
@@ -120,17 +120,17 @@
         "value"
       ],
       "rank": 2,
-      "previousRank": 7,
-      "rankChange": 5
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "LLY",
       "name": "Eli Lilly and Company",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 1227.0,
-      "changePct": 1.3387921,
-      "marketCap": 1077883437056.0,
+      "price": 1227.39,
+      "changePct": 1.3710036,
+      "marketCap": 1077418917888.0,
       "volume": 3162617.0,
       "fpe": 25.460129,
       "forwardEps": 47.4758,
@@ -179,21 +179,21 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 150.3,
-      "changePct": 2.0020337,
+      "price": 150.0,
+      "changePct": 1.7984349,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
-      "fpe": 15.874503,
-      "forwardEps": 9.28344,
-      "epsGrowthPct": 248.27222695333458,
+      "fpe": 15.813419,
+      "forwardEps": 9.3193,
+      "epsGrowthPct": 249.61753020929854,
       "analysts": 0,
       "priceAvg50": 144.4346,
       "priceAvg200": 124.48075,
@@ -217,43 +217,43 @@
       "volumeRatio": 0.9745210331721695,
       "eventSignals": [],
       "atr": 3.55,
-      "atrPct": 2.36,
+      "atrPct": 2.37,
       "support": 145.8855,
       "resistance": 153.57,
       "entryLow": 145.1755,
-      "entryPrice": 146.2405,
-      "entryHigh": 147.128,
-      "stopLoss": 142.158,
+      "entryPrice": 146.1695,
+      "entryHigh": 146.9505,
+      "stopLoss": 141.9095,
       "takeProfit1": 153.57,
-      "takeProfit2": 158.488,
-      "riskReward": 1.8,
-      "entryType": "回踩20日線",
+      "takeProfit2": 158.9495,
+      "riskReward": 1.74,
+      "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "qualityScore": 42,
       "profiles": [
         "momentum",
         "value"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "LYFT",
       "name": "Lyft, Inc.",
       "exchange": "NasdaqGS",
       "sector": "應用軟體",
-      "price": 16.35,
-      "changePct": -0.78882986,
+      "price": 16.38,
+      "changePct": -0.60679847,
       "marketCap": 6238343168.0,
       "volume": 12746078.0,
       "fpe": 7.6485386,
       "forwardEps": 2.15466,
       "epsGrowthPct": 42.729579162830134,
       "analysts": 0,
-      "priceAvg50": 16.2685,
-      "priceAvg200": 15.26665,
+      "priceAvg50": 16.2735,
+      "priceAvg200": 15.2826,
       "roe": 1.52579,
       "margin": 0.42317,
       "debt": 42.738,
@@ -274,16 +274,16 @@
       "volumeRatio": 1.3466182087108105,
       "eventSignals": [],
       "atr": 0.4639,
-      "atrPct": 2.84,
-      "support": 16.2685,
+      "atrPct": 2.83,
+      "support": 16.2735,
       "resistance": 16.515,
-      "entryLow": 16.1757,
-      "entryPrice": 16.3149,
-      "entryHigh": 16.4309,
-      "stopLoss": 15.7814,
+      "entryLow": 16.1807,
+      "entryPrice": 16.3199,
+      "entryHigh": 16.4359,
+      "stopLoss": 15.7864,
       "takeProfit1": 17.98,
       "takeProfit2": 18.5135,
-      "riskReward": 3.12,
+      "riskReward": 3.11,
       "entryType": "支撐回踩",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
@@ -294,8 +294,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "ACGL",
@@ -304,7 +304,7 @@
       "sector": "綜合保險",
       "price": 97.6,
       "changePct": 0.77439344,
-      "marketCap": 33303961600.0,
+      "marketCap": 33281599488.0,
       "volume": 2364003.0,
       "fpe": 9.958706,
       "forwardEps": 9.80047,
@@ -352,8 +352,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "VAL",
@@ -412,16 +412,16 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "UNH",
       "name": "UnitedHealth Group Incorporated",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 398.5,
-      "changePct": 0.6936097,
+      "price": 398.18,
+      "changePct": 0.61274976,
       "marketCap": 355106455552.0,
       "volume": 7759080.0,
       "fpe": 17.098457,
@@ -452,7 +452,7 @@
         "突破20日高點"
       ],
       "atr": 11.1764,
-      "atrPct": 2.8,
+      "atrPct": 2.81,
       "support": 387.4708,
       "resistance": 399.88,
       "entryLow": 385.2355,
@@ -472,8 +472,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "EG",
@@ -530,8 +530,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMP",
@@ -540,7 +540,7 @@
       "sector": "金融",
       "price": 495.82,
       "changePct": 0.50677,
-      "marketCap": 43797377024.0,
+      "marketCap": 43830489088.0,
       "volume": 456143.0,
       "fpe": 9.612354,
       "forwardEps": 51.58154,
@@ -590,8 +590,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "KDP",
@@ -649,17 +649,17 @@
         "value"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
       "name": "The Procter & Gamble Company",
       "exchange": "NYSE",
       "sector": "必需消費",
-      "price": 158.4,
-      "changePct": 1.194656,
-      "marketCap": 363567906816.0,
+      "price": 158.6129,
+      "changePct": 1.3306721,
+      "marketCap": 363843518464.0,
       "volume": 10668310.0,
       "fpe": 21.16483,
       "forwardEps": 7.39576,
@@ -691,14 +691,14 @@
       "atr": 2.5736,
       "atrPct": 1.62,
       "support": 148.2895,
-      "resistance": 163.5471,
+      "resistance": 163.76,
       "entryLow": 155.0595,
       "entryPrice": 155.4455,
       "entryHigh": 156.2176,
       "stopLoss": 152.2286,
-      "takeProfit1": 163.5471,
-      "takeProfit2": 166.7641,
-      "riskReward": 2.52,
+      "takeProfit1": 163.76,
+      "takeProfit2": 166.977,
+      "riskReward": 2.58,
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
@@ -709,8 +709,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "UHS",
@@ -721,9 +721,9 @@
       "changePct": 3.84336,
       "marketCap": 10955708416.0,
       "volume": 656079.0,
-      "fpe": 7.778322,
-      "forwardEps": 23.89847,
-      "epsGrowthPct": 5.949418548719243,
+      "fpe": 7.7458234,
+      "forwardEps": 23.99874,
+      "epsGrowthPct": 6.39394693057298,
       "analysts": 0,
       "priceAvg50": 174.7342,
       "priceAvg200": 178.88956,
@@ -769,8 +769,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "MTCH",
@@ -779,7 +779,7 @@
       "sector": "通訊服務",
       "price": 42.4,
       "changePct": 0.094430864,
-      "marketCap": 9890501632.0,
+      "marketCap": 9732962304.0,
       "volume": 2279934.0,
       "fpe": 9.262617,
       "forwardEps": 4.57754,
@@ -827,8 +827,8 @@
         "value"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "GDDY",
@@ -843,8 +843,8 @@
       "forwardEps": 11.0275,
       "epsGrowthPct": 14.601195115614441,
       "analysts": 0,
-      "priceAvg50": 97.747,
-      "priceAvg200": 92.4197,
+      "priceAvg50": 97.4616,
+      "priceAvg200": 92.53825,
       "roe": 4.42861,
       "margin": 0.17834999,
       "debt": 57334.33,
@@ -886,8 +886,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "BBY",
@@ -944,8 +944,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "DOCU",
@@ -960,8 +960,8 @@
       "forwardEps": 5.21004,
       "epsGrowthPct": 12.74556054238638,
       "analysts": 0,
-      "priceAvg50": 65.7406,
-      "priceAvg200": 53.7296,
+      "priceAvg50": 65.3868,
+      "priceAvg200": 53.7033,
       "roe": 0.17803,
       "margin": 0.09816,
       "debt": 10.654,
@@ -1004,8 +1004,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "ABBV",
@@ -1016,9 +1016,9 @@
       "changePct": 2.1945322,
       "marketCap": 500942438400.0,
       "volume": 5623920.0,
-      "fpe": 17.47968,
-      "forwardEps": 16.21769,
-      "epsGrowthPct": 16.120576389510433,
+      "fpe": 17.482372,
+      "forwardEps": 16.21519,
+      "epsGrowthPct": 16.102676094155544,
       "analysts": 0,
       "priceAvg50": 260.8754,
       "priceAvg200": 233.4045,
@@ -1064,8 +1064,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CAH",
@@ -1076,9 +1076,9 @@
       "changePct": 3.34557,
       "marketCap": 57366511616.0,
       "volume": 1972117.0,
-      "fpe": 17.622643,
-      "forwardEps": 14.05805,
-      "epsGrowthPct": 11.887151806400432,
+      "fpe": 17.624123,
+      "forwardEps": 14.05687,
+      "epsGrowthPct": 11.877760259270387,
       "analysts": 0,
       "priceAvg50": 233.7808,
       "priceAvg200": 219.4035,
@@ -1124,8 +1124,8 @@
         "value"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CSX",
@@ -1184,8 +1184,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
