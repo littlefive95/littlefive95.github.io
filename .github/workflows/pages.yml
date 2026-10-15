@@ -59,6 +59,9 @@ jobs:
           done
 
       - name: Build live market data (retry transient provider failures)
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: |
           # Yahoo Finance and crypto APIs occasionally return transient errors.
           # Retry the full build before falling back to the last good snapshots.
@@ -152,6 +155,16 @@ jobs:
               if len(rows) > 20:
                   raise SystemExit(f"{name}: more than TOP 20 rows")
               print(f"{name}: {payload.get('status')} {len(rows)} rows")
+          us = json.load(open("data.json", encoding="utf-8"))
+          for row in us.get("rows", []):
+              if row.get("label") == "進場候選":
+                  if row.get("entryStatus") != "可考慮進場區":
+                      raise SystemExit(f"{row.get('ticker')}: entry label without entry-zone status")
+                  if row.get("risk") == "高" or row.get("dataQualityFlags"):
+                      raise SystemExit(f"{row.get('ticker')}: entry label with high risk/data-quality flags")
+          for name in ("us_signal_history.json", "us_backtest.json"):
+              with open(name, encoding="utf-8") as handle:
+                  json.load(handle)
           PY
 
       - name: Save latest data snapshot
@@ -160,7 +173,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Retry if a code/docs commit updates main while market data is building.
           for attempt in 1 2 3; do
-            git add data.json taiwan_data.json crypto_data.json
+            git add data.json taiwan_data.json crypto_data.json us_signal_history.json us_backtest.json
+            if [ -f us_fundamentals_cache.json ]; then git add us_fundamentals_cache.json; fi
             if git diff --cached --quiet; then
               echo "Market snapshots already match the remote branch."
               exit 0
