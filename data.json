@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T05:12:35.701824-04:00",
+  "asOf": "2026-10-15T05:27:33.427801-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -65,66 +65,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "VAL",
-      "name": "Valaris Limited",
-      "exchange": "NYSE",
-      "sector": "能源",
-      "price": 84.73,
-      "changePct": 0.0,
-      "marketCap": 5883296256.0,
-      "volume": 1857693.0,
-      "fpe": 11.998188,
-      "forwardEps": 7.0619,
-      "epsGrowthPct": 92.03931123753168,
-      "analysts": 0,
-      "priceAvg50": 84.0596,
-      "priceAvg200": 83.59595,
-      "roe": 0.33619,
-      "margin": 0.43954,
-      "debt": 36.22,
-      "earningsDate": "2026-11-02",
-      "score": 93,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢與基本面條件偏多",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "priceAvg20": 82.11900024414062,
-      "volumeRatio": 1.7951239545636828,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 2.7725,
-      "atrPct": 3.27,
-      "support": 84.0596,
-      "resistance": 88.23,
-      "entryLow": 83.5051,
-      "entryPrice": 84.2814,
-      "entryHigh": 84.8914,
-      "stopLoss": 80.9544,
-      "takeProfit1": 93.16,
-      "takeProfit2": 96.487,
-      "riskReward": 2.67,
-      "entryType": "回踩50日線",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 2,
-      "previousRank": 7,
-      "rankChange": 5
-    },
-    {
       "ticker": "TEVA",
       "name": "Teva Pharmaceutical Industries Limited",
       "exchange": "NYSE",
@@ -179,17 +119,17 @@
         "momentum",
         "value"
       ],
-      "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "rank": 2,
+      "previousRank": 3,
+      "rankChange": 1
     },
     {
       "ticker": "LLY",
       "name": "Eli Lilly and Company",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 1223.0,
-      "changePct": 1.0084293,
+      "price": 1227.15,
+      "changePct": 1.3511827,
       "marketCap": 1077418917888.0,
       "volume": 3162617.0,
       "fpe": 25.460129,
@@ -220,7 +160,7 @@
         "突破20日高點"
       ],
       "atr": 34.3657,
-      "atrPct": 2.81,
+      "atrPct": 2.8,
       "support": 1177.409,
       "resistance": 1292.65,
       "entryLow": 1217.43,
@@ -238,9 +178,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "rank": 3,
+      "previousRank": 4,
+      "rankChange": 1
     },
     {
       "ticker": "MRK",
@@ -295,9 +235,9 @@
         "momentum",
         "value"
       ],
-      "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "rank": 4,
+      "previousRank": 5,
+      "rankChange": 1
     },
     {
       "ticker": "LYFT",
@@ -353,9 +293,9 @@
         "value",
         "quality"
       ],
-      "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "rank": 5,
+      "previousRank": 6,
+      "rankChange": 1
     },
     {
       "ticker": "ACGL",
@@ -411,17 +351,77 @@
         "value",
         "quality"
       ],
+      "rank": 6,
+      "previousRank": 7,
+      "rankChange": 1
+    },
+    {
+      "ticker": "VAL",
+      "name": "Valaris Limited",
+      "exchange": "NYSE",
+      "sector": "能源",
+      "price": 84.6,
+      "changePct": -0.15343429,
+      "marketCap": 5883296256.0,
+      "volume": 1857693.0,
+      "fpe": 11.998188,
+      "forwardEps": 7.0619,
+      "epsGrowthPct": 92.03931123753168,
+      "analysts": 0,
+      "priceAvg50": 84.0596,
+      "priceAvg200": 83.59595,
+      "roe": 0.33619,
+      "margin": 0.43954,
+      "debt": 36.22,
+      "earningsDate": "2026-11-02",
+      "score": 85,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋20｜FPE偏低"
+      ],
+      "priceAvg20": 82.11900024414062,
+      "volumeRatio": 1.7951239545636828,
+      "eventSignals": [
+        "量能放大"
+      ],
+      "atr": 2.7725,
+      "atrPct": 3.28,
+      "support": 84.0596,
+      "resistance": 88.23,
+      "entryLow": 83.5051,
+      "entryPrice": 84.3369,
+      "entryHigh": 85.03,
+      "stopLoss": 81.1485,
+      "takeProfit1": 93.16,
+      "takeProfit2": 96.3484,
+      "riskReward": 2.77,
+      "entryType": "支撐回踩",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 2,
+      "rankChange": -5
     },
     {
       "ticker": "UNH",
       "name": "UnitedHealth Group Incorporated",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 398.8586,
-      "changePct": 0.7842244,
+      "price": 398.11,
+      "changePct": 0.59506017,
       "marketCap": 355106455552.0,
       "volume": 7759080.0,
       "fpe": 17.098457,
@@ -452,7 +452,7 @@
         "突破20日高點"
       ],
       "atr": 11.1764,
-      "atrPct": 2.8,
+      "atrPct": 2.81,
       "support": 387.4708,
       "resistance": 399.88,
       "entryLow": 385.2355,
@@ -948,6 +948,66 @@
       "rankChange": 0
     },
     {
+      "ticker": "DOCU",
+      "name": "DocuSign, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "應用軟體",
+      "price": 75.23,
+      "changePct": 0.0,
+      "marketCap": 14060672000.0,
+      "volume": 3362757.0,
+      "fpe": 14.439429,
+      "forwardEps": 5.21004,
+      "epsGrowthPct": 12.74556054238638,
+      "analysts": 0,
+      "priceAvg50": 65.3868,
+      "priceAvg200": 53.7033,
+      "roe": 0.17803,
+      "margin": 0.09816,
+      "debt": 10.654,
+      "earningsDate": "2026-12-03",
+      "score": 80,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "priceAvg20": 69.45250053405762,
+      "volumeRatio": 1.1444293945282589,
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "atr": 2.4079,
+      "atrPct": 3.2,
+      "support": 69.4525,
+      "resistance": 80.0457,
+      "entryLow": 68.9709,
+      "entryPrice": 69.6933,
+      "entryHigh": 70.2953,
+      "stopLoss": 66.9243,
+      "takeProfit1": 74.065,
+      "takeProfit2": 78.0004,
+      "riskReward": 1.58,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "qualityScore": 76,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 17,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "ABBV",
       "name": "AbbVie Inc.",
       "exchange": "NYSE",
@@ -1003,9 +1063,9 @@
         "momentum",
         "value"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CAH",
@@ -1063,9 +1123,9 @@
         "momentum",
         "value"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CSX",
@@ -1123,74 +1183,13 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "HRB",
-      "name": "H&R Block, Inc.",
-      "exchange": "NYSE",
-      "sector": "非必需消費",
-      "price": 46.33,
-      "changePct": 0.67362314,
-      "marketCap": 5637130752.0,
-      "volume": 1808164.0,
-      "fpe": 6.650289,
-      "forwardEps": 6.92,
-      "epsGrowthPct": 12.520325203252014,
-      "analysts": 0,
-      "priceAvg50": 46.9634,
-      "priceAvg200": 38.82065,
-      "roe": 7.13542,
-      "margin": 0.18594,
-      "debt": 1789.419,
-      "earningsDate": "2026-11-05",
-      "score": 77,
-      "label": "值得研究",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、短線動能健康、負債偏高；注意：負債偏高",
-        "核心優勢｜站上200日均線、短線動能健康",
-        "主要風險｜負債偏高",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋15｜短線動能健康",
-        "＋20｜FPE偏低",
-        "⚠｜負債偏高"
-      ],
-      "priceAvg20": 43.006500244140625,
-      "volumeRatio": 0.8572626029404096,
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "atr": 1.445,
-      "atrPct": 3.12,
-      "support": 43.0065,
-      "resistance": 58.67,
-      "entryLow": 42.7175,
-      "entryPrice": 43.151,
-      "entryHigh": 43.5123,
-      "stopLoss": 41.4893,
-      "takeProfit1": 58.67,
-      "takeProfit2": 60.3317,
-      "riskReward": 9.34,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "qualityScore": 65,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
-  "universeCount": 342,
+  "universeCount": 341,
   "focusCount": 20,
   "method": "Yahoo Finance screener via yfinance",
   "fpeFormula": "Yahoo Forward P/E, fallback to price / forward EPS",
