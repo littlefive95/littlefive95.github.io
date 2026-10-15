@@ -1054,13 +1054,6 @@ def taiwan_snapshot():
             missing.append("TPEx")
         print(f"Official Taiwan feed incomplete ({', '.join(missing)} missing); trying Yahoo Finance screener", file=sys.stderr)
         missing_exchanges = set(missing)
-        # Resolve Chinese names independently of the quote provider. Yahoo Finance
-        # frequently returns English company names for Taiwan-listed symbols.
-        for row in rows:
-            chinese_name = company_names.get((row["ticker"], row["exchange"]))
-            if chinese_name:
-                row["name"] = chinese_name
-
         company_names = taiwan_company_name_map()
         for row in rows:
             chinese_name = company_names.get((row["ticker"], row["exchange"]))
