@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T08:40:15.836834-04:00",
+  "asOf": "2026-10-15T08:43:06.971245-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "INTRADAY",
@@ -66,16 +66,16 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 8,
-      "rankChange": 7
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "UNH",
       "name": "UnitedHealth Group Incorporated",
       "exchange": "NYSE",
       "sector": "醫療保健",
-      "price": 398.3767,
-      "changePct": 0.66245633,
+      "price": 399.0,
+      "changePct": 0.8199505,
       "marketCap": 355106455552.0,
       "volume": 7759080.0,
       "averageVolume": 5158237.0,
@@ -111,7 +111,7 @@
         "突破20日高點"
       ],
       "atr": 11.1764,
-      "atrPct": 2.81,
+      "atrPct": 2.8,
       "support": 387.4708,
       "resistance": 399.88,
       "entryLow": 385.2355,
@@ -196,16 +196,16 @@
         "value"
       ],
       "rank": 3,
-      "previousRank": 11,
-      "rankChange": 8
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "JPM",
       "name": "JPMorgan Chase & Co.",
       "exchange": "NYSE",
       "sector": "銀行",
-      "price": 338.38,
-      "changePct": 0.9140666,
+      "price": 338.2682,
+      "changePct": 0.8807199,
       "marketCap": 890369605632.0,
       "volume": 10236412.0,
       "averageVolume": 7236950.0,
@@ -261,16 +261,16 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": -1
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 217.41,
-      "changePct": -1.7577945,
+      "price": 217.5,
+      "changePct": -1.7171274,
       "marketCap": 5343730991104.0,
       "volume": 117762243.0,
       "averageVolume": 118784690.0,
@@ -324,8 +324,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 17,
-      "rankChange": 12
+      "previousRank": 4,
+      "rankChange": -1
     },
     {
       "ticker": "MDT",
@@ -390,16 +390,16 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 14,
-      "rankChange": 8
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "KO",
       "name": "The Coca-Cola Company",
       "exchange": "NYSE",
       "sector": "必需消費",
-      "price": 93.25,
-      "changePct": 1.5795174,
+      "price": 93.32,
+      "changePct": 1.6557697,
       "marketCap": 394887954432.0,
       "volume": 14523087.0,
       "averageVolume": 15849629.0,
@@ -437,7 +437,7 @@
       "atr": 1.2657,
       "atrPct": 1.36,
       "support": 88.1948,
-      "resistance": 95.7814,
+      "resistance": 95.8514,
       "entryLow": 87.9417,
       "entryPrice": 88.3214,
       "entryHigh": 88.6378,
@@ -454,16 +454,16 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 9,
-      "rankChange": 2
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "META",
       "name": "Meta Platforms, Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 728.5,
-      "changePct": -1.2256933,
+      "price": 728.2,
+      "changePct": -1.2663674,
       "marketCap": 1878887628800.0,
       "volume": 16151285.0,
       "averageVolume": 18754425.0,
@@ -517,16 +517,16 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": -3
     },
     {
       "ticker": "TSM",
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 417.37,
-      "changePct": -2.9552622,
+      "price": 417.2,
+      "changePct": -2.9947858,
       "marketCap": 2230183788544.0,
       "volume": 14977146.0,
       "averageVolume": 11131835.0,
@@ -574,7 +574,7 @@
       "takeProfit2": 501.174,
       "riskReward": 5.3,
       "entryType": "支撐回踩",
-      "entryStatus": "等待回踩",
+      "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "qualityScore": 100,
       "profiles": [
@@ -583,16 +583,16 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 6
     },
     {
       "ticker": "WMT",
       "name": "Walmart Inc.",
       "exchange": "NasdaqGS",
       "sector": "必需消費",
-      "price": 119.38,
-      "changePct": 2.772033,
+      "price": 119.4833,
+      "changePct": 2.8609638,
       "marketCap": 924410511360.0,
       "volume": 25862870.0,
       "averageVolume": 23812825.0,
@@ -631,14 +631,14 @@
       "atr": 2.3214,
       "atrPct": 1.94,
       "support": 118.2048,
-      "resistance": 124.0229,
+      "resistance": 124.1262,
       "entryLow": 115.0597,
       "entryPrice": 115.4079,
       "entryHigh": 116.1043,
       "stopLoss": 112.5061,
-      "takeProfit1": 124.0229,
-      "takeProfit2": 126.9246,
-      "riskReward": 2.97,
+      "takeProfit1": 124.1262,
+      "takeProfit2": 127.0279,
+      "riskReward": 3.0,
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
@@ -648,8 +648,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 19,
-      "rankChange": 9
+      "previousRank": 6,
+      "rankChange": -4
     },
     {
       "ticker": "ADI",
@@ -720,8 +720,8 @@
       "name": "Apple Inc.",
       "exchange": "NasdaqGS",
       "sector": "消費電子",
-      "price": 345.25,
-      "changePct": 0.6677189,
+      "price": 345.1,
+      "changePct": 0.62398374,
       "marketCap": 5005219725312.0,
       "volume": 49893047.0,
       "averageVolume": 44865393.0,
@@ -777,16 +777,16 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 3,
-      "rankChange": -9
+      "previousRank": 7,
+      "rankChange": -5
     },
     {
       "ticker": "MSFT",
       "name": "Microsoft Corporation",
       "exchange": "NasdaqGS",
       "sector": "基礎軟體",
-      "price": 530.7801,
-      "changePct": -0.54524386,
+      "price": 531.12,
+      "changePct": -0.48155433,
       "marketCap": 3962939637760.0,
       "volume": 22251503.0,
       "averageVolume": 27143418.0,
@@ -824,15 +824,15 @@
       "support": 516.3725,
       "resistance": 551.15,
       "entryLow": 513.9272,
-      "entryPrice": 517.3506,
-      "entryHigh": 520.0404,
-      "stopLoss": 502.6789,
+      "entryPrice": 517.5951,
+      "entryHigh": 520.6518,
+      "stopLoss": 503.5347,
       "takeProfit1": 551.15,
-      "takeProfit2": 565.8217,
-      "riskReward": 2.3,
-      "entryType": "支撐回踩",
+      "takeProfit2": 565.2104,
+      "riskReward": 2.39,
+      "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "qualityScore": 100,
       "profiles": [
         "momentum",
@@ -840,16 +840,16 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": -5
     },
     {
       "ticker": "MRK",
       "name": "Merck & Co., Inc.",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 149.1,
-      "changePct": 1.1876484,
+      "price": 149.21,
+      "changePct": 1.262301,
       "marketCap": 363587076096.0,
       "volume": 9799803.0,
       "averageVolume": 9837601.0,
@@ -906,16 +906,16 @@
         "value"
       ],
       "rank": 14,
-      "previousRank": 20,
-      "rankChange": 6
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "CSCO",
       "name": "Cisco Systems, Inc.",
       "exchange": "NasdaqGS",
       "sector": "科技",
-      "price": 112.52,
-      "changePct": -0.9855709,
+      "price": 112.53,
+      "changePct": -0.97676927,
       "marketCap": 448035586048.0,
       "volume": 16708140.0,
       "averageVolume": 18895487.0,
@@ -969,16 +969,16 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 6,
-      "rankChange": -9
+      "previousRank": 9,
+      "rankChange": -6
     },
     {
       "ticker": "JNJ",
       "name": "Johnson & Johnson",
       "exchange": "NYSE",
       "sector": "製藥",
-      "price": 256.5,
-      "changePct": 1.0120928,
+      "price": 257.35,
+      "changePct": 1.3468332,
       "marketCap": 611897311232.0,
       "volume": 9651904.0,
       "averageVolume": 7118071.0,
@@ -1014,7 +1014,7 @@
         "跌破50日線"
       ],
       "atr": 5.97,
-      "atrPct": 2.33,
+      "atrPct": 2.32,
       "support": 245.17,
       "resistance": 275.23,
       "entryLow": 243.976,
@@ -1034,16 +1034,16 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 16,
-      "rankChange": 0
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 340.5,
-      "changePct": -0.91662854,
+      "price": 340.9,
+      "changePct": -0.8002328,
       "marketCap": 4202817126400.0,
       "volume": 20028772.0,
       "averageVolume": 17874728.0,
@@ -1077,7 +1077,7 @@
       ],
       "eventSignals": [],
       "atr": 7.8899,
-      "atrPct": 2.32,
+      "atrPct": 2.31,
       "support": 338.8629,
       "resistance": 359.98,
       "entryLow": 337.285,
@@ -1097,16 +1097,16 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 10,
+      "rankChange": -7
     },
     {
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 344.48,
-      "changePct": -0.90898734,
+      "price": 345.0,
+      "changePct": -0.75941044,
       "marketCap": 4251614707712.0,
       "volume": 27871114.0,
       "averageVolume": 27088800.0,
@@ -1160,16 +1160,16 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 12,
-      "rankChange": -6
+      "previousRank": 11,
+      "rankChange": -7
     },
     {
       "ticker": "AMZN",
       "name": "Amazon.com, Inc.",
       "exchange": "NasdaqGS",
       "sector": "電商",
-      "price": 250.37,
-      "changePct": -1.4601727,
+      "price": 250.3141,
+      "changePct": -1.4821708,
       "marketCap": 2740586545152.0,
       "volume": 34598204.0,
       "averageVolume": 38867642.0,
@@ -1222,16 +1222,16 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 13,
-      "rankChange": -6
+      "previousRank": 12,
+      "rankChange": -7
     },
     {
       "ticker": "HOOD",
       "name": "Robinhood Markets, Inc.",
       "exchange": "NasdaqGS",
       "sector": "金融",
-      "price": 98.7,
-      "changePct": -2.3545754,
+      "price": 98.5388,
+      "changePct": -2.514047,
       "marketCap": 90879238144.0,
       "volume": 23337832.0,
       "averageVolume": 20768276.0,
@@ -1267,7 +1267,7 @@
         "跌破50日線"
       ],
       "atr": 5.0601,
-      "atrPct": 5.13,
+      "atrPct": 5.14,
       "support": 93.9135,
       "resistance": 126.74,
       "entryLow": 92.9015,
@@ -1286,8 +1286,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": -7
     }
   ],
   "coverage": 100,
