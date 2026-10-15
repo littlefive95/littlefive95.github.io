@@ -581,6 +581,7 @@ def normalize_quote(q, session="regular"):
         "changePct": change,
         "marketCap": market_cap,
         "volume": volume,
+        "averageVolume": avg_volume,
         "fpe": fpe,
         "forwardEps": forward_eps,
         "epsGrowthPct": eps_growth,
@@ -591,6 +592,9 @@ def normalize_quote(q, session="regular"):
         "margin": margin,
         "debt": debt,
         "earningsDate": earnings_date,
+        "quoteSource": first(q, ["_quoteSource"], "YAHOO"),
+        "fundamentalSource": first(q, ["_fundamentalSource"], "QUOTE"),
+        "dataQualityFlags": list(q.get("_dataQualityFlags") or []),
     }
 
 def quality_profile(row):
@@ -885,7 +889,16 @@ def score(row):
         risk = "高"
         addr("FPE不具估值意義")
 
-    if growth is not None:
+    if growth is not None and abs(growth) > 200:
+        # Very large growth ratios are often denominator/base-effect anomalies.
+        # Keep the raw value for transparency, but do not reward it in the score.
+        flags = row.setdefault("dataQualityFlags", [])
+        flag = "EPS成長極端值，已排除成長加分"
+        if flag not in flags:
+            flags.append(flag)
+        risk = "高" if risk == "高" else "中"
+        addr("EPS成長幅度極端，需核對估算基期")
+    elif growth is not None:
         if growth >= 25:
             pts += 20
             addp(20, "預估EPS高成長")
@@ -907,12 +920,28 @@ def score(row):
     if margin is not None and margin > 0.15:
         pts += 5
         addp(5, "獲利率佳")
-    if roe is not None and roe > 0.15:
+    if roe is not None and 0.15 < roe <= 2.0:
         pts += 5
         addp(5, "ROE佳")
-    if debt is not None and debt > 250:
-        pts -= 5
-        addn(-5, "負債偏高")
+    elif roe is not None and roe > 2.0:
+        flags = row.setdefault("dataQualityFlags", [])
+        flag = "ROE超過200%，需核對股東權益基期"
+        if flag not in flags:
+            flags.append(flag)
+        risk = "高" if risk == "高" else "中"
+        addr("ROE極端值，未給予品質加分")
+    if debt is not None and debt > 5000:
+        pts -= 12
+        addn(-12, "負債比率極端")
+        risk = "高"
+        flags = row.setdefault("dataQualityFlags", [])
+        flag = "負債比率極端，可能是財報比例／負權益問題"
+        if flag not in flags:
+            flags.append(flag)
+        addr("負債比率極端，禁止低風險標籤")
+    elif debt is not None and debt > 250:
+        pts -= 8
+        addn(-8, "負債偏高")
         risk = "高" if risk == "高" else "中"
         addr("負債偏高")
 
