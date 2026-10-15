@@ -783,6 +783,52 @@ def build_live():
 TWSE_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TWSE_VAL_URL = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL"
 TPEX_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
+TWSE_COMPANY_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"
+TPEX_COMPANY_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"
+
+def taiwan_company_name_map():
+    """Load official Chinese company abbreviations so provider English names never leak into the TW UI."""
+    names = {}
+    sources = (
+        (
+            "TWSE",
+            TWSE_COMPANY_URL,
+            ["公司代號", "證券代號", "SecuritiesCompanyCode", "Code"],
+            ["公司簡稱", "公司名稱", "證券名稱", "CompanyAbbreviation", "CompanyName", "Name"],
+        ),
+        (
+            "TPEx",
+            TPEX_COMPANY_URL,
+            ["SecuritiesCompanyCode", "公司代號", "證券代號", "Code"],
+            ["CompanyAbbreviation", "CompanyName", "公司簡稱", "公司名稱", "證券名稱", "Name"],
+        ),
+    )
+    for exchange, url, code_keys, name_keys in sources:
+        try:
+            response = S.get(url, timeout=15, headers={
+                "Accept": "application/json",
+                "Accept-Encoding": "identity",
+                "Connection": "close",
+                "User-Agent": "Mozilla/5.0 (compatible; AlphaWatch/1.0)",
+            })
+            response.raise_for_status()
+            payload = response.json()
+            if not isinstance(payload, list):
+                raise ValueError("expected a JSON list")
+            count = 0
+            for item in payload:
+                if not isinstance(item, dict):
+                    continue
+                code = str(first(item, code_keys, "")).strip()
+                name = str(first(item, name_keys, "")).strip()
+                name = re.sub(r"\\s+", " ", name).strip()
+                if code.isdigit() and name and name not in {"-", "－", "--", "—"}:
+                    names[(code, exchange)] = name
+                    count += 1
+            print(f"{exchange} Chinese company-name map: {count} rows")
+        except Exception as e:
+            print(f"{exchange} company-name map warning", e, file=sys.stderr)
+    return names
 
 def tw_num(v):
     try:
@@ -1003,10 +1049,21 @@ def taiwan_snapshot():
         if not official_has_tpex:
             missing.append("TPEx")
         print(f"Official Taiwan feed incomplete ({', '.join(missing)} missing); trying Yahoo Finance screener", file=sys.stderr)
+        # Resolve Chinese names independently of the quote provider. Yahoo Finance
+        # frequently returns English company names for Taiwan-listed symbols.
+        company_names = taiwan_company_name_map()
+        for row in rows:
+            chinese_name = company_names.get((row["ticker"], row["exchange"]))
+            if chinese_name:
+                row["name"] = chinese_name
+
         yahoo_rows, yahoo_snapshot_date = yahoo_taiwan_snapshot()
         by_key = {(row["ticker"], row["exchange"]): row for row in rows}
         for row in yahoo_rows:
             key = (row["ticker"], row["exchange"])
+            chinese_name = company_names.get(key)
+            if chinese_name:
+                row["name"] = chinese_name
             # Official exchange values win when both providers cover a symbol.
             if key not in by_key:
                 by_key[key] = row
