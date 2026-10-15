@@ -1034,6 +1034,10 @@ def taiwan_snapshot():
                 "pe": None,
             })
 
+    # Mark the provider tier explicitly so a backup feed can never displace a
+    # usable exchange-native candidate during the first-stage screening.
+    for row in rows:
+        row["_feedSource"] = "OFFICIAL"
     official_rows = list(rows)
     official_has_twse = any(row.get("exchange") == "TWSE" for row in official_rows)
     official_has_tpex = any(row.get("exchange") == "TPEx" for row in official_rows)
@@ -1049,8 +1053,14 @@ def taiwan_snapshot():
         if not official_has_tpex:
             missing.append("TPEx")
         print(f"Official Taiwan feed incomplete ({', '.join(missing)} missing); trying Yahoo Finance screener", file=sys.stderr)
+        missing_exchanges = set(missing)
         # Resolve Chinese names independently of the quote provider. Yahoo Finance
         # frequently returns English company names for Taiwan-listed symbols.
+        for row in rows:
+            chinese_name = company_names.get((row["ticker"], row["exchange"]))
+            if chinese_name:
+                row["name"] = chinese_name
+
         company_names = taiwan_company_name_map()
         for row in rows:
             chinese_name = company_names.get((row["ticker"], row["exchange"]))
@@ -1061,11 +1071,17 @@ def taiwan_snapshot():
         by_key = {(row["ticker"], row["exchange"]): row for row in rows}
         for row in yahoo_rows:
             key = (row["ticker"], row["exchange"])
+            # Only use Yahoo to backfill an exchange whose official feed failed.
+            # Do not mix a Yahoo volume/turnover proxy into an exchange already
+            # covered by official market data.
+            if row["exchange"] not in missing_exchanges:
+                continue
             chinese_name = company_names.get(key)
             if chinese_name:
                 row["name"] = chinese_name
             # Official exchange values win when both providers cover a symbol.
             if key not in by_key:
+                row["_feedSource"] = "YAHOO_FALLBACK"
                 by_key[key] = row
         rows = list(by_key.values())
         used_yahoo_fallback = True
@@ -1463,8 +1479,35 @@ def build_taiwan_live():
     # During a live session, replace it with same-day intraday quotes when
     # Yahoo has current-day bars. Outside the session, continue screening
     # the latest close instead of returning an empty table.
-    snapshot.sort(key=lambda x: (x.get("turnover") or 0), reverse=True)
-    shortlist = snapshot[:160]
+    # Official TWSE/TPEx rows are the primary candidate pool. Yahoo fallback
+    # rows are only used to fill the pool if official sources yielded fewer
+    # than 160 candidates; otherwise a proxy turnover value cannot change the
+    # composition of the primary screening universe.
+    official_candidates = sorted(
+        (x for x in snapshot if x.get("_feedSource") == "OFFICIAL"),
+        key=lambda x: (x.get("turnover") or 0),
+        reverse=True,
+    )
+    fallback_candidates = sorted(
+        (x for x in snapshot if x.get("_feedSource") != "OFFICIAL"),
+        key=lambda x: (x.get("turnover") or 0),
+        reverse=True,
+    )
+    shortlist = official_candidates[:160]
+    if len(shortlist) < 160:
+        selected = {(x["ticker"], x["exchange"]) for x in shortlist}
+        for candidate in fallback_candidates:
+            key = (candidate["ticker"], candidate["exchange"])
+            if key not in selected:
+                shortlist.append(candidate)
+                selected.add(key)
+            if len(shortlist) >= 160:
+                break
+    print(
+        f"Taiwan screening pool: official={min(len(official_candidates), 160)}, "
+        f"fallback={max(0, len(shortlist) - min(len(official_candidates), 160))}, "
+        f"total={len(shortlist)}"
+    )
     using_intraday = False
 
     if now.weekday() < 5:
@@ -1618,6 +1661,7 @@ def build_taiwan_live():
         row["eventSignals"] = historical_event_signals(row["price"], row.get("_close_series"), row.get("volumeRatio"), row.get("changePct"), row.get("priceAvg50"), row.get("priceAvg200"))
         row.update(entry_plan(row, hist.get(row["yahoo"], {}), "stock"))
         row.pop("_close_series", None)
+        row.pop("_feedSource", None)
         row.pop("yahoo", None)
         row.pop("turnover", None)
 
