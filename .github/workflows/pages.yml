@@ -58,10 +58,24 @@ jobs:
             if [ -f "$f" ]; then cp "$f" ".data-backup/$f"; fi
           done
 
+      - name: Set fundamental cache key
+        id: cache-key
+        run: echo "day=$(TZ=America/New_York date +%Y%m%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore FMP fundamental cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/us_fundamentals_cache.json
+          key: fmp-us-fundamentals-${{ steps.cache-key.outputs.day }}
+          restore-keys: |
+            fmp-us-fundamentals-
+
       - name: Build live market data (retry transient provider failures)
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          MASSIVE_DISPLAY_LICENSE_CONFIRMED: ${{ secrets.MASSIVE_DISPLAY_LICENSE_CONFIRMED }}
+          FMP_DISPLAY_LICENSE_CONFIRMED: ${{ secrets.FMP_DISPLAY_LICENSE_CONFIRMED }}
         run: |
           # Yahoo Finance and crypto APIs occasionally return transient errors.
           # Retry the full build before falling back to the last good snapshots.
@@ -174,7 +188,6 @@ jobs:
           # Retry if a code/docs commit updates main while market data is building.
           for attempt in 1 2 3; do
             git add data.json taiwan_data.json crypto_data.json us_signal_history.json us_backtest.json
-            if [ -f us_fundamentals_cache.json ]; then git add us_fundamentals_cache.json; fi
             if git diff --cached --quiet; then
               echo "Market snapshots already match the remote branch."
               exit 0
