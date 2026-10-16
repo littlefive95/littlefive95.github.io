@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-16T14:28:23.079109+08:00",
+  "asOf": "2026-10-16T14:43:14.634611+08:00",
   "date": "2026-10-16",
   "snapshotDate": "2026-10-16",
   "dataMode": "INTRADAY",
@@ -631,7 +631,7 @@
     },
     {
       "ticker": "4760",
-      "name": "勤凱",
+      "name": "勤凱科技",
       "exchange": "TPEx",
       "price": 377.0,
       "changePct": 2.3066485753052914,
@@ -1122,7 +1122,7 @@
       "priceAvg200": 91.8785000038147,
       "volumeRatio": 1.6365667841069955,
       "fpe": null,
-      "valuation": 54.069767,
+      "valuation": 51.0989,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
