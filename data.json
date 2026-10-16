@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-15T20:43:06.302949-04:00",
+  "asOf": "2026-10-15T20:58:05.967232-04:00",
   "date": "2026-10-15",
   "snapshotDate": "2026-10-15",
   "dataMode": "LATEST_CLOSE",
@@ -324,8 +324,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 7,
-      "rankChange": 2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
@@ -387,8 +387,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
@@ -450,8 +450,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "SHOP",
