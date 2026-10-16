@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-10-15T20:02:10.061130-04:00",
+  "asOf": "2026-10-16T00:13:12.630345-04:00",
   "source": "Yahoo historical daily bars used for forward outcome measurement",
-  "records": 1,
+  "records": 2,
   "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
   "results": {
     "1d": {
