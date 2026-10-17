@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-17T17:59:00.421475-04:00",
+  "asOf": "2026-10-17T18:14:05.212570-04:00",
   "date": "2026-10-17",
   "snapshotDate": "2026-10-16",
   "dataMode": "LATEST_CLOSE",
@@ -707,8 +707,8 @@
         "value"
       ],
       "rank": 11,
-      "previousRank": 15,
-      "rankChange": 4
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -772,8 +772,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -835,8 +835,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -901,8 +901,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -967,8 +967,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
