@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-17T09:58:48.493275-04:00",
+  "asOf": "2026-10-17T10:12:29.682406-04:00",
   "date": "2026-10-17",
   "snapshotDate": "2026-10-16",
   "dataMode": "LATEST_CLOSE",
@@ -274,7 +274,7 @@
       "averageVolume": 11028692.0,
       "fpe": 17.643997,
       "forwardEps": 23.38529,
-      "epsGrowthPct": 35.1029276848666,
+      "epsGrowthPct": 33.5977070724498,
       "analysts": 20,
       "priceAvg50": 434.3638000488281,
       "priceAvg200": 395.0466499328613,
@@ -707,8 +707,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -770,8 +770,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -836,8 +836,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -902,8 +902,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "CVX",
@@ -967,8 +967,8 @@
         "value"
       ],
       "rank": 15,
-      "previousRank": 11,
-      "rankChange": -4
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
