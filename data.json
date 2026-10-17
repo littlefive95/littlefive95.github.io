@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-16T20:13:38.156397-04:00",
+  "asOf": "2026-10-16T20:28:38.023902-04:00",
   "date": "2026-10-16",
   "snapshotDate": "2026-10-16",
   "dataMode": "LATEST_CLOSE",
@@ -65,8 +65,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 14,
-      "rankChange": 13
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 1,
-      "rankChange": -2
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -256,8 +256,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 15,
-      "rankChange": 11
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 20,
-      "rankChange": 15
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -387,8 +387,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 4,
-      "rankChange": -2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "UNH",
@@ -452,8 +452,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -515,8 +515,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -579,8 +579,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 3,
-      "rankChange": -6
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -642,8 +642,72 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
+    },
+    {
+      "ticker": "ASML",
+      "name": "ASML Holding N.V.",
+      "exchange": "NasdaqGS",
+      "sector": "半導體設備",
+      "price": 1641.52,
+      "changePct": -0.960513,
+      "marketCap": 630507831296.0,
+      "volume": 1885891.0,
+      "averageVolume": 1438110.0,
+      "fpe": 26.175589,
+      "forwardEps": 62.71187,
+      "epsGrowthPct": 52.17770700683311,
+      "analysts": 17,
+      "priceAvg50": 1740.8872021484376,
+      "priceAvg200": 1574.3691998291015,
+      "roe": 0.65636003,
+      "margin": 0.34135,
+      "debt": 8.897,
+      "earningsDate": "2026-10-14",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 1763.3974975585938,
+      "volumeRatio": 1.2456594252197863,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 54.2036,
+      "atrPct": 3.3,
+      "support": 1614.02,
+      "resistance": 1873.5,
+      "entryLow": 1603.1793,
+      "entryPrice": 1618.3563,
+      "entryHigh": 1630.2811,
+      "stopLoss": 1553.312,
+      "takeProfit1": 1873.5,
+      "takeProfit2": 1938.5443,
+      "riskReward": 3.92,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "score": 70,
+      "label": "值得研究",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、FPE中性",
+        "核心優勢｜站上200日均線、FPE中性",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜FPE中性",
+        "＋20｜預估EPS高成長"
+      ],
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 11,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "CVX",
@@ -706,9 +770,9 @@
         "momentum",
         "value"
       ],
-      "rank": 11,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 12,
+      "previousRank": 11,
+      "rankChange": -1
     },
     {
       "ticker": "AAPL",
@@ -771,9 +835,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 13,
+      "previousRank": 12,
+      "rankChange": -1
     },
     {
       "ticker": "MU",
@@ -837,9 +901,9 @@
         "value",
         "quality"
       ],
-      "rank": 13,
-      "previousRank": 8,
-      "rankChange": -5
+      "rank": 14,
+      "previousRank": 13,
+      "rankChange": -1
     },
     {
       "ticker": "SNDK",
@@ -903,9 +967,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 7,
-      "rankChange": -7
+      "rank": 15,
+      "previousRank": 14,
+      "rankChange": -1
     },
     {
       "ticker": "XOM",
@@ -968,9 +1032,9 @@
         "momentum",
         "value"
       ],
-      "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 16,
+      "previousRank": 15,
+      "rankChange": -1
     },
     {
       "ticker": "HOOD",
@@ -1033,9 +1097,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 12,
-      "rankChange": -4
+      "rank": 17,
+      "previousRank": 16,
+      "rankChange": -1
     },
     {
       "ticker": "PLTR",
@@ -1097,9 +1161,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 17,
-      "previousRank": 10,
-      "rankChange": -7
+      "rank": 18,
+      "previousRank": 17,
+      "rankChange": -1
     },
     {
       "ticker": "CSCO",
@@ -1162,9 +1226,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 19,
+      "previousRank": 18,
+      "rankChange": -1
     },
     {
       "ticker": "CRM",
@@ -1226,77 +1290,13 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
-      "ticker": "SHOP",
-      "name": "Shopify Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "應用軟體",
-      "price": 169.52,
-      "changePct": -4.83889,
-      "marketCap": 219978416128.0,
-      "volume": 15097705.0,
-      "averageVolume": 9639517.0,
-      "fpe": 69.038826,
-      "forwardEps": 2.45543,
-      "epsGrowthPct": 28.49196215514713,
-      "analysts": 48,
-      "priceAvg50": 148.90900024414063,
-      "priceAvg200": 129.66764999389648,
-      "roe": 0.15543,
-      "margin": 0.1453,
-      "debt": 1.403,
-      "earningsDate": "2026-11-03",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 155.86650009155272,
-      "volumeRatio": 1.4963771760854472,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 7.2108,
-      "atrPct": 4.25,
-      "support": 155.8665,
-      "resistance": 180.88,
-      "entryLow": 154.4243,
-      "entryPrice": 156.5876,
-      "entryHigh": 158.3903,
-      "stopLoss": 148.2952,
-      "takeProfit1": 180.88,
-      "takeProfit2": 189.1724,
-      "riskReward": 2.93,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 57,
-      "label": "高風險觀察",
-      "risk": "高",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線、短線轉弱；注意：短線轉弱",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜短線轉弱",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "−8｜短線轉弱",
-        "⚠｜短線轉弱",
-        "⚠｜FPE很高"
-      ],
-      "eventSignals": [],
-      "qualityScore": 86,
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 16,
-      "rankChange": -4
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
-  "universeCount": 349,
+  "universeCount": 347,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
