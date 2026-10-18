@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-18T03:29:20.637252-04:00",
+  "asOf": "2026-10-18T03:43:24.813849-04:00",
   "date": "2026-10-18",
   "snapshotDate": "2026-10-16",
   "dataMode": "LATEST_CLOSE",
@@ -982,7 +982,7 @@
       "averageVolume": 13586490.0,
       "fpe": 15.089611,
       "forwardEps": 11.86114,
-      "epsGrowthPct": -8.089230115939017,
+      "epsGrowthPct": -8.855252076302179,
       "analysts": 22,
       "priceAvg50": 163.68860046386717,
       "priceAvg200": 151.71649990081787,
