@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-19T05:59:45.522273+08:00",
+  "asOf": "2026-10-19T06:14:47.858881+08:00",
   "date": "2026-10-19",
   "snapshotDate": "2026-10-16",
   "dataMode": "LATEST_CLOSE",
@@ -629,7 +629,7 @@
     },
     {
       "ticker": "4760",
-      "name": "勤凱科技",
+      "name": "勤凱",
       "exchange": "TPEx",
       "price": 375.0,
       "changePct": 1.7639077340569878,
