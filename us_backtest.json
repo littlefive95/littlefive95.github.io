@@ -1,19 +1,19 @@
 {
-  "asOf": "2026-10-16T00:13:12.630345-04:00",
+  "asOf": "2026-10-19T00:14:56.681584-04:00",
   "source": "Yahoo historical daily bars used for forward outcome measurement",
-  "records": 2,
+  "records": 3,
   "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
   "results": {
     "1d": {
       "allTop20": {
-        "samples": 0,
-        "averageReturnPct": null,
-        "positiveRatePct": null
+        "samples": 20,
+        "averageReturnPct": -3.1208,
+        "positiveRatePct": 15.0
       },
       "actionableEntrySignals": {
-        "samples": 0,
-        "averageReturnPct": null,
-        "positiveRatePct": null
+        "samples": 4,
+        "averageReturnPct": -2.5942,
+        "positiveRatePct": 0.0
       }
     },
     "5d": {
