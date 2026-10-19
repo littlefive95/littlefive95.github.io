@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-19T17:00:05.617500+08:00",
+  "asOf": "2026-10-19T17:14:56.172656+08:00",
   "date": "2026-10-19",
   "snapshotDate": "2026-10-19",
   "dataMode": "INTRADAY",
@@ -349,7 +349,7 @@
     },
     {
       "ticker": "4760",
-      "name": "勤凱",
+      "name": "勤凱科技",
       "exchange": "TPEx",
       "price": 338.0,
       "changePct": 0.0,
