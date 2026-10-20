@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-20T20:59:10.879152+08:00",
+  "asOf": "2026-10-20T21:15:40.149252+08:00",
   "date": "2026-10-20",
   "snapshotDate": "2026-10-20",
   "dataMode": "INTRADAY",
@@ -832,7 +832,7 @@
       "priceAvg200": 26.846250019073487,
       "volumeRatio": 1.7845463265186519,
       "fpe": null,
-      "valuation": 23.487654,
+      "valuation": 23.78125,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
