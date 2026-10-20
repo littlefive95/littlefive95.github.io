@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-19T20:00:15.419686-04:00",
+  "asOf": "2026-10-19T20:15:13.843419-04:00",
   "date": "2026-10-19",
   "snapshotDate": "2026-10-19",
   "dataMode": "LATEST_CLOSE",
@@ -74,7 +74,7 @@
       "exchange": "NasdaqGS",
       "sector": "電商",
       "price": 262.45,
-      "changePct": 4.980005,
+      "changePct": 4.98,
       "marketCap": 2830868152320.0,
       "volume": 54744203.0,
       "averageVolume": 38653442.0,
@@ -194,8 +194,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 5,
-      "rankChange": 2
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -259,8 +259,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 7,
-      "rankChange": 3
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -268,7 +268,7 @@
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
       "price": 1371.12,
-      "changePct": 5.5275874,
+      "changePct": 5.52759,
       "marketCap": 198164643840.0,
       "volume": 8457234.0,
       "averageVolume": 12229485.0,
@@ -324,8 +324,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 8,
-      "rankChange": 3
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -387,8 +387,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 16,
-      "rankChange": 10
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -400,9 +400,9 @@
       "marketCap": 466553765888.0,
       "volume": 23719536.0,
       "averageVolume": 32724401.0,
-      "fpe": 82.82284,
-      "forwardEps": 2.34416,
-      "epsGrowthPct": 44.814762190112,
+      "fpe": 82.56291,
+      "forwardEps": 2.35154,
+      "epsGrowthPct": 45.27067515892087,
       "analysts": 26,
       "priceAvg50": 182.56859893798827,
       "priceAvg200": 152.64687465667726,
@@ -450,8 +450,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 9,
-      "rankChange": 2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "ACN",
@@ -515,8 +515,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 19,
-      "rankChange": 11
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -524,13 +524,13 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 538.05,
-      "changePct": 1.758863,
+      "changePct": 1.75886,
       "marketCap": 878353186816.0,
       "volume": 20120889.0,
       "averageVolume": 22727982.0,
-      "fpe": 34.150433,
-      "forwardEps": 15.75529,
-      "epsGrowthPct": 107.62799756992077,
+      "fpe": 34.1357,
+      "forwardEps": 15.76209,
+      "epsGrowthPct": 107.71761003554188,
       "analysts": 51,
       "priceAvg50": 537.1383996582031,
       "priceAvg200": 394.2475003051758,
@@ -578,8 +578,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 12,
-      "rankChange": 3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -587,7 +587,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 276.15,
-      "changePct": -0.11936382,
+      "changePct": -0.119364,
       "marketCap": 252193341440.0,
       "volume": 9366894.0,
       "averageVolume": 6298343.0,
@@ -642,8 +642,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 3,
-      "rankChange": -7
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "SHOP",
@@ -651,8 +651,8 @@
       "exchange": "NasdaqGS",
       "sector": "應用軟體",
       "price": 171.06,
-      "changePct": 0.90844345,
-      "marketCap": 220093317120.0,
+      "changePct": 0.908443,
+      "marketCap": 221976805376.0,
       "volume": 6639460.0,
       "averageVolume": 9777410.0,
       "fpe": 69.666,
@@ -705,8 +705,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 15,
-      "rankChange": 4
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -718,9 +718,9 @@
       "marketCap": 213073887232.0,
       "volume": 17864768.0,
       "averageVolume": 21954564.0,
-      "fpe": 32.55492,
-      "forwardEps": 7.28277,
-      "epsGrowthPct": 72.56726497245425,
+      "fpe": 32.494774,
+      "forwardEps": 7.29625,
+      "epsGrowthPct": 72.88667732954208,
       "analysts": 44,
       "priceAvg50": 241.04199951171876,
       "priceAvg200": 175.8614001083374,
@@ -768,8 +768,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 17,
-      "rankChange": 5
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -781,9 +781,9 @@
       "marketCap": 1797112725504.0,
       "volume": 15788171.0,
       "averageVolume": 18746782.0,
-      "fpe": 20.372736,
-      "forwardEps": 34.62667,
-      "epsGrowthPct": 14.042847083575127,
+      "fpe": 20.358568,
+      "forwardEps": 34.65077,
+      "epsGrowthPct": 14.122220370544802,
       "analysts": 58,
       "priceAvg50": 655.2401965332032,
       "priceAvg200": 631.9770971679687,
@@ -831,8 +831,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 4,
-      "rankChange": -9
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -840,13 +840,13 @@
       "exchange": "NasdaqGS",
       "sector": "半導體設備",
       "price": 1647.12,
-      "changePct": 0.34114575,
+      "changePct": 0.341146,
       "marketCap": 634829275136.0,
       "volume": 1255329.0,
       "averageVolume": 1433084.0,
-      "fpe": 26.212753,
-      "forwardEps": 62.83659,
-      "epsGrowthPct": 52.4803547132066,
+      "fpe": 26.23657,
+      "forwardEps": 62.779545,
+      "epsGrowthPct": 52.34192833082947,
       "analysts": 17,
       "priceAvg50": 1739.6302026367186,
       "priceAvg200": 1577.2160998535155,
@@ -895,8 +895,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 10,
-      "rankChange": -4
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
@@ -958,8 +958,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 18,
-      "rankChange": 3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "GOOGL",
@@ -1021,8 +1021,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 6,
-      "rankChange": -10
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "NOW",
@@ -1034,9 +1034,9 @@
       "marketCap": 150282190848.0,
       "volume": 9549048.0,
       "averageVolume": 17323895.0,
-      "fpe": 29.033327,
-      "forwardEps": 5.00666,
-      "epsGrowthPct": 23.110251032135753,
+      "fpe": 29.041275,
+      "forwardEps": 5.00529,
+      "epsGrowthPct": 23.076563694886154,
       "analysts": 46,
       "priceAvg50": 134.85059982299805,
       "priceAvg200": 115.03470016479493,
@@ -1083,8 +1083,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -1148,8 +1148,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CRM",
@@ -1212,8 +1212,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "SKHY",
@@ -1221,7 +1221,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 142.87,
-      "changePct": 4.6743274,
+      "changePct": 4.67433,
       "marketCap": 1041331716096.0,
       "volume": 19454236.0,
       "averageVolume": 23956065.0,
@@ -1277,12 +1277,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 364,
+  "universeCount": 360,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1312,7 +1312,7 @@
       "name": "Apple Inc.",
       "exchange": "NasdaqGS",
       "price": 342.94,
-      "changePct": -0.15139726,
+      "changePct": -0.151397,
       "score": 59,
       "label": "觀察",
       "risk": "中",
@@ -1381,7 +1381,7 @@
       "name": "Amazon.com, Inc.",
       "exchange": "NasdaqGS",
       "price": 262.45,
-      "changePct": 4.980005,
+      "changePct": 4.98,
       "score": 95,
       "label": "高分觀察",
       "risk": "低",
@@ -1438,8 +1438,8 @@
       "entryHigh": 667.4343,
       "stopLoss": 636.032,
       "takeProfit1": 779.82,
-      "fpe": 20.372736,
-      "epsGrowthPct": 14.042847083575127,
+      "fpe": 20.358568,
+      "epsGrowthPct": 14.122220370544802,
       "volumeRatio": 0.7250783315387976,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1450,7 +1450,7 @@
       "name": "Tesla, Inc.",
       "exchange": "NasdaqGS",
       "price": 368.06,
-      "changePct": 3.7607114,
+      "changePct": 3.76071,
       "score": 42,
       "label": "高風險觀察",
       "risk": "高",
