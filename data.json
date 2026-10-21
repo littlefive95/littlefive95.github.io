@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-20T22:15:54.260426-04:00",
+  "asOf": "2026-10-20T22:30:52.419008-04:00",
   "date": "2026-10-20",
   "snapshotDate": "2026-10-20",
   "dataMode": "LATEST_CLOSE",
@@ -66,8 +66,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 6,
-      "rankChange": 5
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -128,8 +128,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 1,
-      "rankChange": -1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -191,8 +191,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -253,8 +253,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 9,
-      "rankChange": 5
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -315,8 +315,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 3,
-      "rankChange": -2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -378,8 +378,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 4,
-      "rankChange": -2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -442,8 +442,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 5,
-      "rankChange": -2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -505,8 +505,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -568,8 +568,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -1079,8 +1079,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -1145,8 +1145,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1209,8 +1209,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1272,12 +1272,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 422,
+  "universeCount": 423,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
