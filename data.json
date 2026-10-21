@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-21T02:45:58.707970-04:00",
+  "asOf": "2026-10-21T03:00:56.476799-04:00",
   "date": "2026-10-21",
   "snapshotDate": "2026-10-21",
   "dataMode": "LATEST_CLOSE",
@@ -1456,8 +1456,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 172.34286,
-      "epsGrowthPct": 24.830031834850242,
+      "fpe": 172.3381,
+      "epsGrowthPct": 24.83348588731731,
       "volumeRatio": 0.8850867992040906,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"
