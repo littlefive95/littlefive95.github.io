@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-20T20:01:09.041183-04:00",
+  "asOf": "2026-10-20T20:08:15.074216-04:00",
   "date": "2026-10-20",
   "snapshotDate": "2026-10-20",
   "dataMode": "LATEST_CLOSE",
@@ -66,8 +66,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 14,
-      "rankChange": 13
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -75,7 +75,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 277.78,
-      "changePct": 0.5902607,
+      "changePct": 0.590261,
       "marketCap": 253681942528.0,
       "volume": 7089193.0,
       "averageVolume": 6366704.0,
@@ -253,8 +253,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -315,8 +315,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 7,
-      "rankChange": 2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -378,8 +378,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 19,
-      "rankChange": 13
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -387,7 +387,7 @@
       "exchange": "NasdaqGS",
       "sector": "金融",
       "price": 98.21,
-      "changePct": 1.7509351,
+      "changePct": 1.75094,
       "marketCap": 88298872832.0,
       "volume": 13838124.0,
       "averageVolume": 20491423.0,
@@ -442,8 +442,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 11,
-      "rankChange": 4
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -451,7 +451,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 216.47,
-      "changePct": -0.28559357,
+      "changePct": -0.285594,
       "marketCap": 5227101028352.0,
       "volume": 77454645.0,
       "averageVolume": 118663679.0,
@@ -505,8 +505,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 1,
-      "rankChange": -7
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -568,8 +568,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -577,7 +577,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 240.42,
-      "changePct": 1.4045308,
+      "changePct": 1.40453,
       "marketCap": 216066572288.0,
       "volume": 15957818.0,
       "averageVolume": 21844726.0,
@@ -631,8 +631,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 6,
-      "rankChange": -4
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -640,7 +640,7 @@
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
       "price": 694.25,
-      "changePct": -1.5862445,
+      "changePct": -1.58624,
       "marketCap": 1768606138368.0,
       "volume": 16684869.0,
       "averageVolume": 18841467.0,
@@ -694,8 +694,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 9,
-      "rankChange": -2
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "NOW",
@@ -758,8 +758,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -823,8 +823,8 @@
         "value"
       ],
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -885,8 +885,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -894,7 +894,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 896.07,
-      "changePct": -0.9758003,
+      "changePct": -0.9758,
       "marketCap": 1013834448896.0,
       "volume": 19362385.0,
       "averageVolume": 31039329.0,
@@ -950,8 +950,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 8,
-      "rankChange": -7
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -959,7 +959,7 @@
       "exchange": "NasdaqGS",
       "sector": "基礎軟體",
       "price": 531.87,
-      "changePct": -0.3092713,
+      "changePct": -0.309271,
       "marketCap": 3949425065984.0,
       "volume": 14432432.0,
       "averageVolume": 26660476.0,
@@ -1013,8 +1013,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
@@ -1079,8 +1079,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -1145,8 +1145,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1209,8 +1209,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 10,
-      "rankChange": -9
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1218,7 +1218,7 @@
       "exchange": "NasdaqGS",
       "sector": "基礎軟體",
       "price": 192.6,
-      "changePct": -0.79834557,
+      "changePct": -0.798346,
       "marketCap": 462829060096.0,
       "volume": 14979559.0,
       "averageVolume": 32621951.0,
@@ -1272,8 +1272,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 15,
-      "rankChange": -5
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
@@ -1330,7 +1330,7 @@
       "name": "Microsoft Corporation",
       "exchange": "NasdaqGS",
       "price": 531.87,
-      "changePct": -0.3092713,
+      "changePct": -0.309271,
       "score": 72,
       "label": "值得研究",
       "risk": "低",
@@ -1353,7 +1353,7 @@
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "price": 216.47,
-      "changePct": -0.28559357,
+      "changePct": -0.285594,
       "score": 80,
       "label": "高分觀察",
       "risk": "低",
@@ -1399,7 +1399,7 @@
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
       "price": 340.275,
-      "changePct": -1.1345804,
+      "changePct": -1.13458,
       "score": 37,
       "label": "暫不優先",
       "risk": "低",
@@ -1422,7 +1422,7 @@
       "name": "Meta Platforms, Inc.",
       "exchange": "NasdaqGS",
       "price": 694.25,
-      "changePct": -1.5862445,
+      "changePct": -1.58624,
       "score": 78,
       "label": "高分觀察",
       "risk": "低",
@@ -1445,7 +1445,7 @@
       "name": "Tesla, Inc.",
       "exchange": "NasdaqGS",
       "price": 373.71,
-      "changePct": 1.5350741,
+      "changePct": 1.53507,
       "score": 42,
       "label": "高風險觀察",
       "risk": "高",
