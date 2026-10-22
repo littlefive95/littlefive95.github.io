@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-21T20:31:33.329033-04:00",
+  "asOf": "2026-10-21T20:46:26.452903-04:00",
   "date": "2026-10-21",
   "snapshotDate": "2026-10-21",
   "dataMode": "LATEST_CLOSE",
@@ -196,6 +196,68 @@
       "rankChange": 0
     },
     {
+      "ticker": "ADI",
+      "name": "Analog Devices, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 405.96,
+      "changePct": 2.24405,
+      "marketCap": 196714201088.0,
+      "volume": 3007403.0,
+      "averageVolume": 3532557.0,
+      "fpe": 24.602472,
+      "forwardEps": 16.50078,
+      "epsGrowthPct": 28.123284490904823,
+      "analysts": 32,
+      "priceAvg50": 383.66,
+      "priceAvg200": 367.41370056152346,
+      "roe": 0.12227,
+      "margin": 0.29787,
+      "debt": 27.314,
+      "earningsDate": "2026-11-24",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 402.5354995727539,
+      "volumeRatio": 1.0006348371898806,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 13.0621,
+      "atrPct": 3.22,
+      "support": 402.5355,
+      "resistance": 422.67,
+      "entryLow": 399.9231,
+      "entryPrice": 403.8417,
+      "entryHigh": 407.1072,
+      "stopLoss": 388.8202,
+      "takeProfit1": 433.8846,
+      "takeProfit2": 448.9061,
+      "riskReward": 2.0,
+      "entryType": "回踩20日線",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "score": 90,
+      "label": "進場候選",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康"
+      ],
+      "eventSignals": [],
+      "qualityScore": 77,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 4,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "STX",
       "name": "Seagate Technology Holdings plc",
       "exchange": "NasdaqGS",
@@ -205,9 +267,9 @@
       "marketCap": 158467915776.0,
       "volume": 4429423.0,
       "averageVolume": 4607340.0,
-      "fpe": 12.229487,
-      "forwardEps": 56.9844,
-      "epsGrowthPct": 55.42644052929282,
+      "fpe": 12.1327715,
+      "forwardEps": 57.43865,
+      "epsGrowthPct": 56.66541927804565,
       "analysts": 24,
       "priceAvg50": 836.0936022949219,
       "priceAvg200": 678.3180996704101,
@@ -260,9 +322,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 5,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MRVL",
@@ -323,9 +385,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 5,
+      "rank": 6,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MU",
@@ -388,9 +450,9 @@
         "value",
         "quality"
       ],
-      "rank": 6,
+      "rank": 7,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "SNDK",
@@ -453,9 +515,9 @@
         "value",
         "quality"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "META",
@@ -516,9 +578,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
+      "rank": 9,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "IBM",
@@ -582,9 +644,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "ASML",
@@ -596,9 +658,9 @@
       "marketCap": 646226051072.0,
       "volume": 1239652.0,
       "averageVolume": 1416314.0,
-      "fpe": 26.733782,
-      "forwardEps": 62.71802,
-      "epsGrowthPct": 52.19263070306626,
+      "fpe": 26.704967,
+      "forwardEps": 62.785694,
+      "epsGrowthPct": 52.35684960044533,
       "analysts": 17,
       "priceAvg50": 1735.7000024414062,
       "priceAvg200": 1582.437699584961,
@@ -646,9 +708,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "HOOD",
@@ -710,9 +772,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "PLTR",
@@ -773,9 +835,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMD",
@@ -836,9 +898,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MSFT",
@@ -850,9 +912,9 @@
       "marketCap": 3957444575232.0,
       "volume": 13826924.0,
       "averageVolume": 26510284.0,
-      "fpe": 22.48847,
-      "forwardEps": 23.69881,
-      "epsGrowthPct": 19.925177100934,
+      "fpe": 22.483585,
+      "forwardEps": 23.70396,
+      "epsGrowthPct": 19.95123809986472,
       "analysts": 53,
       "priceAvg50": 506.7192004394531,
       "priceAvg200": 435.7961492919922,
@@ -899,9 +961,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMZN",
@@ -913,9 +975,9 @@
       "marketCap": 2830004912128.0,
       "volume": 30981629.0,
       "averageVolume": 39136868.0,
-      "fpe": 25.123646,
-      "forwardEps": 10.44315,
-      "epsGrowthPct": 25.707493229009938,
+      "fpe": 25.11179,
+      "forwardEps": 10.44808,
+      "epsGrowthPct": 25.76683719530546,
       "analysts": 58,
       "priceAvg50": 256.5261996459961,
       "priceAvg200": 243.06689987182617,
@@ -961,9 +1023,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CSCO",
@@ -1026,9 +1088,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "LITE",
@@ -1090,9 +1152,9 @@
         "momentum",
         "value"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CRWD",
@@ -1155,9 +1217,9 @@
       "profiles": [
         "momentum"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AAPL",
@@ -1218,78 +1280,13 @@
         "momentum",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "DELL",
-      "name": "Dell Technologies Inc.",
-      "exchange": "NYSE",
-      "sector": "電腦硬體",
-      "price": 485.88,
-      "changePct": 5.26909,
-      "marketCap": 308928708608.0,
-      "volume": 6821140.0,
-      "averageVolume": 7644629.0,
-      "fpe": 16.236353,
-      "forwardEps": 29.92544,
-      "epsGrowthPct": 15.557632194249793,
-      "analysts": 25,
-      "priceAvg50": 513.3662017822265,
-      "priceAvg200": 317.3128998184204,
-      "roe": null,
-      "margin": 0.07525,
-      "debt": null,
-      "earningsDate": "2026-11-27",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 536.9545028686523,
-      "volumeRatio": 0.9853635846216519,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 31.1129,
-      "atrPct": 6.4,
-      "support": 448.55,
-      "resistance": 595.06,
-      "entryLow": 442.3274,
-      "entryPrice": 451.039,
-      "entryHigh": 457.8838,
-      "stopLoss": 413.7036,
-      "takeProfit1": 595.06,
-      "takeProfit2": 632.3954,
-      "riskReward": 3.86,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "score": 73,
-      "label": "值得研究",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、短線動能健康；注意：品質資料不足",
-        "核心優勢｜站上200日均線、短線動能健康",
-        "主要風險｜品質資料不足",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋15｜短線動能健康",
-        "＋16｜FPE合理",
-        "⚠｜品質資料不足"
-      ],
-      "eventSignals": [
-        "跌破50日線"
-      ],
-      "qualityScore": 0,
-      "profiles": [
-        "momentum",
-        "value"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 95,
-  "universeCount": 387,
+  "universeCount": 384,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1353,8 +1350,8 @@
       "entryHigh": 527.463,
       "stopLoss": 511.649,
       "takeProfit1": 551.15,
-      "fpe": 22.48847,
-      "epsGrowthPct": 19.925177100934,
+      "fpe": 22.483585,
+      "epsGrowthPct": 19.95123809986472,
       "volumeRatio": 0.6441114164682776,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1399,8 +1396,8 @@
       "entryHigh": 258.8064,
       "stopLoss": 249.6854,
       "takeProfit1": 280.14,
-      "fpe": 25.123646,
-      "epsGrowthPct": 25.707493229009938,
+      "fpe": 25.11179,
+      "epsGrowthPct": 25.76683719530546,
       "volumeRatio": 0.8578877355917467,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
