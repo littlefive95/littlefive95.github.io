@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-21T21:46:26.522812-04:00",
+  "asOf": "2026-10-21T22:01:26.701958-04:00",
   "date": "2026-10-21",
   "snapshotDate": "2026-10-21",
   "dataMode": "LATEST_CLOSE",
@@ -14,7 +14,7 @@
       "changePct": 2.47318,
       "marketCap": 259955949568.0,
       "volume": 10193468.0,
-      "averageVolume": 6326946.0,
+      "averageVolume": 6389566.0,
       "fpe": 26.719118,
       "forwardEps": 10.65342,
       "epsGrowthPct": 26.257069311248806,
@@ -78,7 +78,7 @@
       "changePct": 2.54077,
       "marketCap": 5359909470208.0,
       "volume": 86111324.0,
-      "averageVolume": 117727704.0,
+      "averageVolume": 117416487.0,
       "fpe": 13.94757,
       "forwardEps": 15.9146,
       "epsGrowthPct": 70.89650166122235,
@@ -254,8 +254,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -266,7 +266,7 @@
       "changePct": 3.22308,
       "marketCap": 158467915776.0,
       "volume": 4429423.0,
-      "averageVolume": 4594848.0,
+      "averageVolume": 4605135.0,
       "fpe": 12.1327715,
       "forwardEps": 57.43865,
       "epsGrowthPct": 56.66541927804565,
@@ -323,8 +323,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -386,8 +386,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -398,7 +398,7 @@
       "changePct": 1.96413,
       "marketCap": 1033747431424.0,
       "volume": 20724431.0,
-      "averageVolume": 30437101.0,
+      "averageVolume": 30419109.0,
       "fpe": 4.417067,
       "forwardEps": 206.84993,
       "epsGrowthPct": 17.192765195532967,
@@ -451,8 +451,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -463,7 +463,7 @@
       "changePct": 0.940395,
       "marketCap": 199190773760.0,
       "volume": 6859996.0,
-      "averageVolume": 11989900.0,
+      "averageVolume": 11967580.0,
       "fpe": 5.1754975,
       "forwardEps": 266.2971,
       "epsGrowthPct": 23.96101800149575,
@@ -516,8 +516,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "IBM",
@@ -582,8 +582,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -645,8 +645,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -657,7 +657,7 @@
       "changePct": 2.81143,
       "marketCap": 646226051072.0,
       "volume": 1239652.0,
-      "averageVolume": 1420007.0,
+      "averageVolume": 1413660.0,
       "fpe": 26.704967,
       "forwardEps": 62.785694,
       "epsGrowthPct": 52.35684960044533,
@@ -709,8 +709,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -773,8 +773,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -836,8 +836,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -848,7 +848,7 @@
       "changePct": 3.36238,
       "marketCap": 902301548544.0,
       "volume": 17756841.0,
-      "averageVolume": 22460034.0,
+      "averageVolume": 22391596.0,
       "fpe": 35.064636,
       "forwardEps": 15.76289,
       "epsGrowthPct": 107.72267781346079,
@@ -899,8 +899,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -911,7 +911,7 @@
       "changePct": 0.20306,
       "marketCap": 3957444575232.0,
       "volume": 13826924.0,
-      "averageVolume": 26289029.0,
+      "averageVolume": 26317544.0,
       "fpe": 22.483585,
       "forwardEps": 23.70396,
       "epsGrowthPct": 19.95123809986472,
@@ -962,8 +962,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -1024,8 +1024,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1089,8 +1089,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "LITE",
@@ -1101,11 +1101,11 @@
       "changePct": 3.42731,
       "marketCap": 77058834432.0,
       "volume": 3709977.0,
-      "averageVolume": 4788582.0,
+      "averageVolume": 4773396.0,
       "fpe": 23.684484,
       "forwardEps": 35.91803,
       "epsGrowthPct": 64.86687830027249,
-      "analysts": 26,
+      "analysts": 27,
       "priceAvg50": 931.3226025390625,
       "priceAvg200": 784.4517008972168,
       "roe": -2.40027,
@@ -1153,8 +1153,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1165,7 +1165,7 @@
       "changePct": 5.26455,
       "marketCap": 245068562432.0,
       "volume": 9332356.0,
-      "averageVolume": 9552603.0,
+      "averageVolume": 9549996.0,
       "fpe": 148.54489,
       "forwardEps": 1.61123,
       "epsGrowthPct": 28.20200669960773,
@@ -1218,8 +1218,8 @@
         "momentum"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -1281,8 +1281,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
