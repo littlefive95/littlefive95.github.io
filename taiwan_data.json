@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-22T08:46:30.787463+08:00",
+  "asOf": "2026-10-22T08:48:10.377330+08:00",
   "date": "2026-10-22",
   "snapshotDate": "2026-10-21",
   "dataMode": "LATEST_CLOSE",
@@ -839,7 +839,7 @@
       "priceAvg200": 26.910750017166137,
       "volumeRatio": 2.301140393242295,
       "fpe": null,
-      "valuation": 25.96875,
+      "valuation": 23.742857,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -870,7 +870,8 @@
         "⚠｜單日漲幅偏大"
       ],
       "profiles": [
-        "momentum"
+        "momentum",
+        "value"
       ],
       "qualityScore": 60,
       "eventSignals": [
