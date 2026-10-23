@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-23T19:30:34.488983-04:00",
+  "asOf": "2026-10-23T19:32:40.984015-04:00",
   "date": "2026-10-23",
   "snapshotDate": "2026-10-23",
   "dataMode": "INTRADAY",
@@ -10,8 +10,8 @@
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 211.1271,
-      "changePct": 0.07920885,
+      "price": 211.08,
+      "changePct": 0.056880504,
       "marketCap": 5094050889728.0,
       "volume": 79740563.0,
       "averageVolume": 117647362.0,
@@ -200,8 +200,8 @@
       "name": "Palantir Technologies Inc.",
       "exchange": "NasdaqGS",
       "sector": "基礎軟體",
-      "price": 196.87,
-      "changePct": 0.060988624,
+      "price": 196.9,
+      "changePct": 0.07623578,
       "marketCap": 472801738752.0,
       "volume": 16072134.0,
       "averageVolume": 32119782.0,
@@ -255,16 +255,16 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 10,
-      "rankChange": 6
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
       "name": "Amazon.com, Inc.",
       "exchange": "NasdaqGS",
       "sector": "電商",
-      "price": 248.37,
-      "changePct": 0.14919157,
+      "price": 248.5,
+      "changePct": 0.2016129,
       "marketCap": 2675005718528.0,
       "volume": 25470108.0,
       "averageVolume": 39112728.0,
@@ -318,8 +318,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -383,8 +383,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -396,9 +396,9 @@
       "marketCap": 398889320448.0,
       "volume": 18882560.0,
       "averageVolume": 15909200.0,
-      "fpe": 26.30623,
-      "forwardEps": 3.52426,
-      "epsGrowthPct": 6.630641642789503,
+      "fpe": 26.31422,
+      "forwardEps": 3.52319,
+      "epsGrowthPct": 6.598267531186552,
       "analysts": 24,
       "priceAvg50": 89.1013996887207,
       "priceAvg200": 81.58894996643066,
@@ -445,16 +445,16 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
       "name": "Micron Technology, Inc.",
       "exchange": "NasdaqGS",
       "sector": "半導體",
-      "price": 876.2,
-      "changePct": -0.15383461,
+      "price": 875.9225,
+      "changePct": -0.1854598,
       "marketCap": 992880427008.0,
       "volume": 21123737.0,
       "averageVolume": 30292410.0,
@@ -475,7 +475,7 @@
       "volumeRatio": 0.7854117550360735,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 50.3293,
-      "atrPct": 5.74,
+      "atrPct": 5.75,
       "support": 849.25,
       "resistance": 1108.72,
       "entryLow": 839.1841,
@@ -510,8 +510,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -573,8 +573,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -637,8 +637,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -712,7 +712,7 @@
       "sector": "必需消費",
       "price": 120.0,
       "changePct": 0.09175128,
-      "marketCap": 954094059520.0,
+      "marketCap": 951176855552.0,
       "volume": 18116171.0,
       "averageVolume": 23852764.0,
       "fpe": 37.158028,
@@ -773,8 +773,8 @@
       "name": "Meta Platforms, Inc.",
       "exchange": "NasdaqGS",
       "sector": "通訊服務",
-      "price": 640.35,
-      "changePct": -0.35324445,
+      "price": 639.7643,
+      "changePct": -0.44438595,
       "marketCap": 1637078401024.0,
       "volume": 14729073.0,
       "averageVolume": 19640000.0,
@@ -897,17 +897,17 @@
         "momentum"
       ],
       "rank": 14,
-      "previousRank": 18,
-      "rankChange": 4
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "SMCI",
       "name": "Super Micro Computer, Inc.",
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
-      "price": 32.86,
-      "changePct": -0.24285981,
-      "marketCap": 21640437760.0,
+      "price": 32.89,
+      "changePct": -0.15178883,
+      "marketCap": 21307996160.0,
       "volume": 29585501.0,
       "averageVolume": 42919134.0,
       "fpe": 5.895112,
@@ -927,7 +927,7 @@
       "volumeRatio": 0.8345799669296695,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 2.7379,
-      "atrPct": 8.33,
+      "atrPct": 8.32,
       "support": 32.548,
       "resistance": 45.77,
       "entryLow": 32.0005,
@@ -962,8 +962,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "ACN",
@@ -1094,71 +1094,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "CVX",
-      "name": "Chevron Corporation",
-      "exchange": "NYSE",
-      "sector": "石油能源",
-      "price": 233.48,
-      "changePct": 0.115770765,
-      "marketCap": 457465528320.0,
-      "volume": 8131403.0,
-      "averageVolume": 8430417.0,
-      "fpe": 14.838952,
-      "forwardEps": 15.71607,
-      "epsGrowthPct": -10.223076039847623,
-      "analysts": 24,
-      "priceAvg50": 210.4188003540039,
-      "priceAvg200": 191.62965003967284,
-      "roe": 0.12231,
-      "margin": 0.09834,
-      "debt": 18.959,
-      "earningsDate": "2026-10-30",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 215.36550064086913,
-      "volumeRatio": 1.1019228603735416,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 4.9857,
-      "atrPct": 2.14,
-      "support": 215.3655,
-      "resistance": 243.4514,
-      "entryLow": 214.3684,
-      "entryPrice": 215.8641,
-      "entryHigh": 217.1105,
-      "stopLoss": 210.1305,
-      "takeProfit1": 229.04,
-      "takeProfit2": 234.7736,
-      "riskReward": 2.3,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 60,
-      "label": "觀察",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線、預估EPS下滑；注意：EPS成長轉弱",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜EPS成長轉弱",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向",
-        "⚠｜EPS成長轉弱"
-      ],
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "qualityScore": 60,
-      "profiles": [
-        "momentum",
-        "value"
-      ],
-      "rank": 18,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
       "ticker": "XOM",
       "name": "ExxonMobil Holdings Corporation",
       "exchange": "NYSE",
@@ -1219,9 +1154,9 @@
         "momentum",
         "value"
       ],
-      "rank": 19,
+      "rank": 18,
       "previousRank": 19,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "PANW",
@@ -1281,13 +1216,78 @@
       "profiles": [
         "momentum"
       ],
-      "rank": 20,
+      "rank": 19,
       "previousRank": 20,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 515.5,
+      "changePct": -0.2496136,
+      "marketCap": 843646697472.0,
+      "volume": 15094156.0,
+      "averageVolume": 22368167.0,
+      "fpe": 32.78523,
+      "forwardEps": 15.76289,
+      "epsGrowthPct": 107.72267781346079,
+      "analysts": 50,
+      "priceAvg50": 542.2793981933594,
+      "priceAvg200": 402.0832498168945,
+      "roe": 0.10196,
+      "margin": 0.15577,
+      "debt": 6.361,
+      "earningsDate": "2026-11-03",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 587.2224914550782,
+      "volumeRatio": 0.7747308028192519,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 29.2729,
+      "atrPct": 5.68,
+      "support": 502.6,
+      "resistance": 658.52,
+      "entryLow": 496.7454,
+      "entryPrice": 504.9418,
+      "entryHigh": 511.3819,
+      "stopLoss": 469.8144,
+      "takeProfit1": 658.52,
+      "takeProfit2": 693.6474,
+      "riskReward": 4.37,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "score": 59,
+      "label": "觀察",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、FPE偏高但仍有估值分；注意：FPE偏高",
+        "核心優勢｜站上200日均線、FPE偏高但仍有估值分",
+        "主要風險｜FPE偏高",
+        "判斷｜目前量化優勢有限",
+        "＋25｜站上200日均線",
+        "＋4｜FPE偏高但仍有估值分",
+        "＋20｜預估EPS高成長",
+        "⚠｜FPE偏高"
+      ],
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "qualityScore": 77,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 20,
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 95,
-  "universeCount": 372,
+  "universeCount": 373,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1316,8 +1316,8 @@
       "ticker": "AAPL",
       "name": "Apple Inc.",
       "exchange": "NasdaqGS",
-      "price": 347.4,
-      "changePct": -0.093468174,
+      "price": 347.3,
+      "changePct": -0.12222829,
       "score": 59,
       "label": "觀察",
       "risk": "中",
@@ -1362,8 +1362,8 @@
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "exchange": "NasdaqGS",
-      "price": 211.1271,
-      "changePct": 0.07920885,
+      "price": 211.08,
+      "changePct": 0.056880504,
       "score": 88,
       "label": "高分觀察",
       "risk": "低",
@@ -1385,8 +1385,8 @@
       "ticker": "AMZN",
       "name": "Amazon.com, Inc.",
       "exchange": "NasdaqGS",
-      "price": 248.37,
-      "changePct": 0.14919157,
+      "price": 248.5,
+      "changePct": 0.2016129,
       "score": 78,
       "label": "高分觀察",
       "risk": "低",
@@ -1408,8 +1408,8 @@
       "ticker": "GOOGL",
       "name": "Alphabet Inc.",
       "exchange": "NasdaqGS",
-      "price": 321.1,
-      "changePct": 0.2779472,
+      "price": 321.0,
+      "changePct": 0.24671577,
       "score": 51,
       "label": "暫不優先",
       "risk": "低",
@@ -1431,8 +1431,8 @@
       "ticker": "META",
       "name": "Meta Platforms, Inc.",
       "exchange": "NasdaqGS",
-      "price": 640.35,
-      "changePct": -0.35324445,
+      "price": 639.7643,
+      "changePct": -0.44438595,
       "score": 68,
       "label": "值得研究",
       "risk": "低",
@@ -1454,8 +1454,8 @@
       "ticker": "TSLA",
       "name": "Tesla, Inc.",
       "exchange": "NasdaqGS",
-      "price": 371.43,
-      "changePct": -0.21224236,
+      "price": 371.3555,
+      "changePct": -0.23225564,
       "score": 27,
       "label": "高風險觀察",
       "risk": "高",
