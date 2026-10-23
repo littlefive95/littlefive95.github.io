@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-23T01:02:07.583564-04:00",
+  "asOf": "2026-10-23T01:17:13.176492-04:00",
   "date": "2026-10-23",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -988,9 +988,9 @@
       "marketCap": 969052651520.0,
       "volume": 31922936.0,
       "averageVolume": 30444778.0,
-      "fpe": 4.1406345,
-      "forwardEps": 206.84993,
-      "epsGrowthPct": 17.192765195532967,
+      "fpe": 4.139756,
+      "forwardEps": 206.89381,
+      "epsGrowthPct": 17.217625820512517,
       "analysts": 46,
       "priceAvg50": 984.1728002929688,
       "priceAvg200": 729.4127508544922,
@@ -1475,7 +1475,7 @@
       "exchange": "NasdaqGS",
       "price": 374.58,
       "changePct": -3.07657,
-      "score": 27,
+      "score": 19,
       "label": "高風險觀察",
       "risk": "高",
       "entryStatus": "等待",
@@ -1486,7 +1486,7 @@
       "stopLoss": null,
       "takeProfit1": null,
       "fpe": 171.13408,
-      "epsGrowthPct": 27.04367106240715,
+      "epsGrowthPct": 23.711206190053645,
       "volumeRatio": 1.3993346694094484,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"
