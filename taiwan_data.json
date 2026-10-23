@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-24T02:47:43.614626+08:00",
+  "asOf": "2026-10-24T03:02:43.666746+08:00",
   "date": "2026-10-24",
   "snapshotDate": "2026-10-22",
   "dataMode": "LATEST_CLOSE",
@@ -1372,8 +1372,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 70,
