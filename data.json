@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-24T14:47:03.149034-04:00",
+  "asOf": "2026-10-24T15:03:00.717481-04:00",
   "date": "2026-10-24",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -725,7 +725,7 @@
       "averageVolume": 9212482.0,
       "fpe": 21.730299,
       "forwardEps": 7.40993,
-      "epsGrowthPct": 5.973015954738647,
+      "epsGrowthPct": 6.012435476302214,
       "analysts": 23,
       "priceAvg50": 148.3672003173828,
       "priceAvg200": 148.5131505584717,
@@ -982,7 +982,7 @@
       "averageVolume": 38966726.0,
       "fpe": 23.777382,
       "forwardEps": 10.43008,
-      "epsGrowthPct": 25.550165513090594,
+      "epsGrowthPct": 25.51239470517448,
       "analysts": 58,
       "priceAvg50": 255.64759979248046,
       "priceAvg200": 243.29289993286133,
@@ -1109,7 +1109,7 @@
       "averageVolume": 19692282.0,
       "fpe": 18.455109,
       "forwardEps": 34.82071,
-      "epsGrowthPct": 14.943961834893393,
+      "epsGrowthPct": 14.21869054648035,
       "analysts": 58,
       "priceAvg50": 663.8145983886719,
       "priceAvg200": 632.527497253418,
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
@@ -1405,7 +1405,7 @@
       "stopLoss": 236.7948,
       "takeProfit1": 265.34,
       "fpe": 23.777382,
-      "epsGrowthPct": 25.550165513090594,
+      "epsGrowthPct": 25.51239470517448,
       "volumeRatio": 0.7111469366575147,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1451,7 +1451,7 @@
       "stopLoss": 611.3724,
       "takeProfit1": 771.27,
       "fpe": 18.455109,
-      "epsGrowthPct": 14.943961834893393,
+      "epsGrowthPct": 14.21869054648035,
       "volumeRatio": 0.764993054641237,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
