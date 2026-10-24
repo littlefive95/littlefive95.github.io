@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-24T10:03:02.348858-04:00",
+  "asOf": "2026-10-24T10:17:59.960101-04:00",
   "date": "2026-10-24",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
