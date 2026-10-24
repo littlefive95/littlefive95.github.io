@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-24T06:47:53.073386-04:00",
+  "asOf": "2026-10-24T07:02:53.167898-04:00",
   "date": "2026-10-24",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -729,9 +729,9 @@
       "analysts": 23,
       "priceAvg50": 148.3672003173828,
       "priceAvg200": 148.5131505584717,
-      "roe": 0.29608,
+      "roe": 0.29609,
       "margin": 0.18229,
-      "debt": 70.342,
+      "debt": 70.343,
       "earningsDate": "2027-01-21",
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP",
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
