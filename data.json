@@ -1,7 +1,7 @@
 {
-  "status": "LIVE",
-  "asOf": "2026-10-23T23:47:49.141389-04:00",
-  "date": "2026-10-23",
+  "status": "MARKET_CLOSED",
+  "asOf": "2026-10-24T00:02:47.744626-04:00",
+  "date": "2026-10-24",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
   "rows": [
@@ -1483,6 +1483,8 @@
       "fundamentalSource": "YAHOO_BACKUP"
     }
   ],
-  "holiday": [],
+  "holiday": [
+    "Weekend"
+  ],
   "note": "尚未設定 Massive/FMP API Key，目前使用 Yahoo 備援與強制納入七巨頭。高分不等於可買進；進場標籤要求進場區、風險與資料品質同時通過。研究/監控工具，不構成投資建議。"
 }
