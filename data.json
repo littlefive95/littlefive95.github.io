@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-24T07:47:58.013721-04:00",
+  "asOf": "2026-10-24T08:02:56.605967-04:00",
   "date": "2026-10-24",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -914,7 +914,7 @@
       "changePct": 4.04739,
       "marketCap": 998693076992.0,
       "volume": 16180562.0,
-      "averageVolume": 22819818.0,
+      "averageVolume": 22766135.0,
       "fpe": 3.9743614,
       "forwardEps": 34.47598,
       "epsGrowthPct": 29.20099280504902,
