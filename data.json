@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-25T19:18:59.098362-04:00",
+  "asOf": "2026-10-25T19:33:52.349227-04:00",
   "date": "2026-10-25",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -1294,7 +1294,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 376,
+  "universeCount": 377,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
