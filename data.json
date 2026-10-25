@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-25T16:03:46.145778-04:00",
+  "asOf": "2026-10-25T16:18:54.497981-04:00",
   "date": "2026-10-25",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -719,7 +719,7 @@
       "exchange": "NYSE",
       "sector": "必需消費",
       "price": 161.02,
-      "changePct": -2.11639,
+      "changePct": -2.1161,
       "marketCap": 373209432064.0,
       "volume": 9773146.0,
       "averageVolume": 9212482.0,
