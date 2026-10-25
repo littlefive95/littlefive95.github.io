@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-25T06:18:20.742101-04:00",
+  "asOf": "2026-10-25T06:33:23.928346-04:00",
   "date": "2026-10-25",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -144,7 +144,7 @@
       "averageVolume": 29990103.0,
       "fpe": 4.2415476,
       "forwardEps": 206.89381,
-      "epsGrowthPct": 17.18935494590974,
+      "epsGrowthPct": 17.16452129499155,
       "analysts": 45,
       "priceAvg50": 982.7271997070312,
       "priceAvg200": 732.1027508544922,
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
