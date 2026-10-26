@@ -1,8 +1,8 @@
 {
-  "status": "MARKET_CLOSED",
-  "asOf": "2026-10-25T23:49:01.306910-04:00",
-  "date": "2026-10-25",
-  "snapshotDate": "2026-10-23",
+  "status": "LIVE",
+  "asOf": "2026-10-26T00:03:59.327524-04:00",
+  "date": "2026-10-26",
+  "snapshotDate": "2026-10-26",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -915,9 +915,9 @@
       "marketCap": 998693076992.0,
       "volume": 16311654.0,
       "averageVolume": 22766135.0,
-      "fpe": 3.9743614,
-      "forwardEps": 34.47598,
-      "epsGrowthPct": 29.20099280504902,
+      "fpe": 3.912445,
+      "forwardEps": 35.02158,
+      "epsGrowthPct": 31.24566453517632,
       "analysts": 14,
       "priceAvg50": 169.86359985351564,
       "priceAvg200": null,
@@ -1109,7 +1109,7 @@
       "averageVolume": 19692282.0,
       "fpe": 18.33438,
       "forwardEps": 35.05,
-      "epsGrowthPct": 14.970806271731284,
+      "epsGrowthPct": 16.132666246976555,
       "analysts": 58,
       "priceAvg50": 663.8145983886719,
       "priceAvg200": 632.527497253418,
@@ -1451,7 +1451,7 @@
       "stopLoss": 611.3724,
       "takeProfit1": 771.27,
       "fpe": 18.33438,
-      "epsGrowthPct": 14.970806271731284,
+      "epsGrowthPct": 16.132666246976555,
       "volumeRatio": 0.7682407142669796,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1483,8 +1483,6 @@
       "fundamentalSource": "YAHOO_BACKUP"
     }
   ],
-  "holiday": [
-    "Weekend"
-  ],
+  "holiday": [],
   "note": "尚未設定 Massive/FMP API Key，目前使用 Yahoo 備援與強制納入七巨頭。高分不等於可買進；進場標籤要求進場區、風險與資料品質同時通過。研究/監控工具，不構成投資建議。"
 }
