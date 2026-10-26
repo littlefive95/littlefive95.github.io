@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-25T22:18:57.551456-04:00",
+  "asOf": "2026-10-25T22:33:55.438880-04:00",
   "date": "2026-10-25",
   "snapshotDate": "2026-10-23",
   "dataMode": "LATEST_CLOSE",
@@ -207,9 +207,9 @@
       "marketCap": 3894773022720.0,
       "volume": 13681067.0,
       "averageVolume": 25928984.0,
-      "fpe": 22.127527,
-      "forwardEps": 23.70396,
-      "epsGrowthPct": 19.958340418296206,
+      "fpe": 22.128946,
+      "forwardEps": 23.70244,
+      "epsGrowthPct": 19.950648172889295,
       "analysts": 53,
       "priceAvg50": 508.4276013183594,
       "priceAvg200": 436.51469940185547,
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
@@ -1358,8 +1358,8 @@
       "entryHigh": 512.2919,
       "stopLoss": 496.8348,
       "takeProfit1": 551.15,
-      "fpe": 22.127527,
-      "epsGrowthPct": 19.958340418296206,
+      "fpe": 22.128946,
+      "epsGrowthPct": 19.950648172889295,
       "volumeRatio": 0.6774227362575115,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
