@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-26T00:19:04.082453-04:00",
+  "asOf": "2026-10-26T00:33:56.726429-04:00",
   "date": "2026-10-26",
   "snapshotDate": "2026-10-26",
   "dataMode": "LATEST_CLOSE",
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
