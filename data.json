@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-26T00:33:56.726429-04:00",
+  "asOf": "2026-10-26T00:48:55.818616-04:00",
   "date": "2026-10-26",
   "snapshotDate": "2026-10-26",
   "dataMode": "LATEST_CLOSE",
@@ -917,7 +917,7 @@
       "averageVolume": 22766135.0,
       "fpe": 3.912445,
       "forwardEps": 35.02158,
-      "epsGrowthPct": 31.24566453517632,
+      "epsGrowthPct": 29.164243255972288,
       "analysts": 14,
       "priceAvg50": 169.86359985351564,
       "priceAvg200": null,
@@ -1294,7 +1294,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 380,
+  "universeCount": 379,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
