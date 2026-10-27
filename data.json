@@ -1,8 +1,8 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-26T23:49:34.780887-04:00",
-  "date": "2026-10-26",
-  "snapshotDate": "2026-10-26",
+  "asOf": "2026-10-27T00:04:35.214159-04:00",
+  "date": "2026-10-27",
+  "snapshotDate": "2026-10-27",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -1438,8 +1438,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.968327,
-      "epsGrowthPct": 17.171485809682817,
+      "fpe": 17.91073,
+      "epsGrowthPct": 17.548280467445764,
       "volumeRatio": 1.587374999001358,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
