@@ -1,0 +1,7 @@
+{
+  "asOf": null,
+  "source": "Yahoo Finance historical daily bars",
+  "records": 0,
+  "method": "台股每日收盤後 TOP20 名單；以後續收盤價計算 5／20 個交易日報酬；非成交模擬。",
+  "results": {}
+}

@@ -33,8 +33,11 @@ tbody tr{transition:background .12s}tbody tr:hover{background:rgba(125,162,255,.
 @media(max-width:620px){.head{flex-direction:column;align-items:flex-start}.kpis{grid-template-columns:1fr 1fr}.title{font-size:27px}.filters{grid-template-columns:1fr}.filters .input{grid-column:auto}.market-tabs{width:100%}.market-tab{flex:1}.method-grid{grid-template-columns:1fr}.toolbar-top{display:block}.crypto-groups{margin-top:8px}}
 /* US-only analytics must never appear on Taiwan-stock or crypto pages. */
 body:not(.us-mode) #usValidationPanel,
-body:not(.us-mode) #sevenMagnificentPanel{display:none!important}
-.us-validation-panel{margin-top:14px}.us-validation-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.us-validation-metrics .kpi{padding:0}.us-validation-panel .ph{margin-bottom:12px}
+body:not(.us-mode) #sevenMagnificentPanel,
+body:not(.tw-mode) #twValidationPanel,
+body:not(.crypto-mode) #cryptoValidationPanel{display:none!important}
+.us-validation-panel{margin-top:14px}
+.market-validation-panel{margin-top:14px}.us-validation-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.us-validation-metrics .kpi{padding:0}.us-validation-panel .ph{margin-bottom:12px}
 .seven-watch-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.seven-watch-card{min-width:0;border:1px solid var(--line);border-radius:11px;padding:10px;background:rgba(8,13,21,.38)}.seven-watch-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.seven-watch-ticker{font-size:13px;font-weight:900}.seven-watch-name{font-size:10px;color:var(--muted);min-height:28px;margin:5px 0;overflow-wrap:anywhere}.seven-watch-label{font-size:10px;font-weight:800;margin:4px 0}.seven-watch-entry{margin-top:5px}.seven-watch-change{font-size:10px;color:var(--muted);margin-top:7px}
 @media(max-width:1000px){.us-validation-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.seven-watch-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:620px){.us-validation-metrics{grid-template-columns:1fr 1fr}.us-validation-panel{padding:12px}.seven-watch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.seven-watch-card{padding:9px}}
@@ -80,6 +83,28 @@ body:not(.us-mode) #sevenMagnificentPanel{display:none!important}
 <section class="card panel us-validation-panel" id="sevenMagnificentPanel">
   <div class="ph"><div><h2>美股七巨頭監控</h2><div class="subline">七檔固定納入評估；只有進場條件符合時才列為進場候選，不強制占用 TOP20 名額。</div></div><span id="sevenMagnificentStatus" class="badge amber">載入中</span></div>
   <div id="sevenMagnificentGrid" class="seven-watch-grid"><div class="hint">正在取得七巨頭評估結果…</div></div>
+</section>
+
+<section class="card panel us-validation-panel market-validation-panel" id="twValidationPanel">
+  <div class="ph"><div><h2>台股策略驗證</h2><div class="subline">每日收盤後累積 TOP20 的後續報酬；只觀察與驗證，不代表未來績效。</div></div><span id="twBacktestStatus" class="badge amber">樣本累積中</span></div>
+  <div class="us-validation-metrics">
+    <div class="kpi"><div class="label">進場訊號 · 5 交易日平均報酬</div><div class="value" id="twBacktest5d">累積中</div><div class="hint" id="twBacktest5dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">進場訊號 · 20 交易日平均報酬</div><div class="value" id="twBacktest20d">累積中</div><div class="hint" id="twBacktest20dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">進場訊號 · 20 交易日正報酬率</div><div class="value" id="twBacktestWin20d">累積中</div><div class="hint" id="twBacktestWin20dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">20 交易日內觸及停損率</div><div class="value" id="twBacktestStop20d">累積中</div><div class="hint" id="twBacktestStop20dHint">有效進場樣本 0 筆</div></div>
+  </div>
+  <div class="hint">每日收盤後保存當日名單；報酬使用 Yahoo Finance 歷史日線收盤價，停損使用後續日線低點判斷。不是實際成交回測，未計入手續費與滑價。</div>
+</section>
+
+<section class="card panel us-validation-panel market-validation-panel" id="cryptoValidationPanel">
+  <div class="ph"><div><h2>加密貨幣策略驗證</h2><div class="subline">每日固定一份 TOP20 快照；以後續日 K 追蹤進場訊號報酬與停損。</div></div><span id="cryptoBacktestStatus" class="badge amber">樣本累積中</span></div>
+  <div class="us-validation-metrics">
+    <div class="kpi"><div class="label">進場訊號 · 5 日平均報酬</div><div class="value" id="cryptoBacktest5d">累積中</div><div class="hint" id="cryptoBacktest5dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">進場訊號 · 20 日平均報酬</div><div class="value" id="cryptoBacktest20d">累積中</div><div class="hint" id="cryptoBacktest20dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">進場訊號 · 20 日正報酬率</div><div class="value" id="cryptoBacktestWin20d">累積中</div><div class="hint" id="cryptoBacktestWin20dHint">等待足夠樣本</div></div>
+    <div class="kpi"><div class="label">20 日內觸及停損率</div><div class="value" id="cryptoBacktestStop20d">累積中</div><div class="hint" id="cryptoBacktestStop20dHint">有效進場樣本 0 筆</div></div>
+  </div>
+  <div class="hint">每日保存 TOP20 快照；報酬使用 Binance 現貨 1 日 K 線，停損依後續日 K 低點判斷。非完整成交模擬，未計入交易手續費、滑價或盤中觸發順序。</div>
 </section>
 
 <section class="grid kpis">
@@ -270,6 +295,8 @@ function render(){
 function setHeader(){
   var c=CFG[mode];
   document.body.classList.toggle("us-mode", mode==="us");
+  document.body.classList.toggle("tw-mode", mode==="tw");
+  document.body.classList.toggle("crypto-mode", mode==="crypto");
   document.getElementById("eyebrow").textContent=c.eyebrow;
   document.getElementById("title").textContent=c.title;
   document.getElementById("subtitle").textContent=c.subtitle;
@@ -343,44 +370,62 @@ function renderRadarCard(key,label){
   var st=radarStatus(p,key);
   el.innerHTML="<div class='radar-top'><div class='radar-name'>"+label+"</div><span class='radar-status "+st.cls+"'>"+st.label+"</span></div><div class='radar-metrics'><div class='radar-metric'><b>"+c+"</b>進場候選</div><div class='radar-metric'><b>"+rows.length+"</b>TOP 20</div><div class='radar-metric'><b>"+(p.snapshotDate||p.date||"—")+"</b>"+(p.dataMode==="LATEST_CLOSE"?"資料日期":"資料快照")+"</div></div>";
 }
-function loadUsBacktest(){
-  if(mode!=="us") return;
+var marketBacktestConfig={
+  us:{file:"us_backtest.json",prefix:"us",firstStatus:"等待第一份收盤名單",first5:"每日收盤後開始記錄",first20:"至少需等待 20 個交易日"},
+  tw:{file:"taiwan_backtest.json",prefix:"tw",firstStatus:"等待第一份收盤名單",first5:"每日收盤後開始記錄",first20:"至少需等待 20 個交易日"},
+  crypto:{file:"crypto_backtest.json",prefix:"crypto",firstStatus:"等待第一份日快照",first5:"每日固定時段開始記錄",first20:"至少需等待 20 根日 K"}
+};
+function loadMarketBacktest(market){
+  if(mode!==market) return;
+  var cfg=marketBacktestConfig[market];
+  if(!cfg) return;
   var fmt=function(value){
     if(value===null || value===undefined || !isFinite(Number(value))) return "累積中";
     var n=Number(value);
     return (n>0?"+":"")+n.toFixed(2)+"%";
   };
-  var byId=function(id){return document.getElementById(id);};
-  fetch("us_backtest.json?ts="+Date.now(),{cache:"no-cache"}).then(function(response){
+  var byId=function(suffix){return document.getElementById(cfg.prefix+"Backtest"+suffix);};
+  fetch(cfg.file+"?ts="+Date.now(),{cache:"no-cache"}).then(function(response){
     if(!response.ok) throw new Error("HTTP "+response.status);
     return response.json();
   }).then(function(payload){
+    if(mode!==market) return;
     var results=payload.results||{};
     var five=((results["5d"]||{}).actionableEntrySignals)||{};
     var twenty=((results["20d"]||{}).actionableEntrySignals)||{};
     var stops=results.entrySignals20d||{};
-    byId("usBacktest5d").textContent=fmt(five.averageReturnPct);
-    byId("usBacktest20d").textContent=fmt(twenty.averageReturnPct);
-    byId("usBacktestWin20d").textContent=fmt(twenty.positiveRatePct);
-    byId("usBacktestStop20d").textContent=fmt(stops.stopHitRatePct);
-    byId("usBacktest5dHint").textContent="有效樣本 "+Number(five.samples||0)+" 筆";
-    byId("usBacktest20dHint").textContent="有效樣本 "+Number(twenty.samples||0)+" 筆";
-    byId("usBacktestWin20dHint").textContent="有效樣本 "+Number(twenty.samples||0)+" 筆";
-    byId("usBacktestStop20dHint").textContent="有效進場樣本 "+Number(stops.samples||0)+" 筆";
+    byId("5d").textContent=fmt(five.averageReturnPct);
+    byId("20d").textContent=fmt(twenty.averageReturnPct);
+    byId("Win20d").textContent=fmt(twenty.positiveRatePct);
+    byId("Stop20d").textContent=fmt(stops.stopHitRatePct);
+    byId("5dHint").textContent="有效樣本 "+Number(five.samples||0)+" 筆";
+    byId("20dHint").textContent="有效樣本 "+Number(twenty.samples||0)+" 筆";
+    byId("Win20dHint").textContent="有效樣本 "+Number(twenty.samples||0)+" 筆";
+    byId("Stop20dHint").textContent="有效進場樣本 "+Number(stops.samples||0)+" 筆";
     var recordCount=Number(payload.records||0);
-    var status=byId("usBacktestStatus");
+    var status=document.getElementById(cfg.prefix+"BacktestStatus");
     status.textContent=Number(twenty.samples||0)<30?"樣本累積中":"初步統計 · 持續觀察";
     status.className="badge amber";
     if(recordCount===0){
-      status.textContent="等待第一份收盤名單";
-      byId("usBacktest5dHint").textContent="每日收盤後開始記錄";
-      byId("usBacktest20dHint").textContent="至少需等待 20 個交易日";
+      status.textContent=cfg.firstStatus;
+      byId("5dHint").textContent=cfg.first5;
+      byId("20dHint").textContent=cfg.first20;
     }
   }).catch(function(){
-    if(mode!=="us") return;
-    byId("usBacktestStatus").textContent="暫無驗證資料";
-    byId("usBacktestStatus").className="badge amber";
+    if(mode!==market) return;
+    var status=document.getElementById(cfg.prefix+"BacktestStatus");
+    if(status){status.textContent="暫無驗證資料";status.className="badge amber";}
+    var hint=byId("5dHint");
+    if(hint) hint.textContent="驗證資料載入失敗，稍後自動重試";
   });
+}
+function loadUsBacktest(){loadMarketBacktest("us");}
+function loadTaiwanBacktest(){loadMarketBacktest("tw");}
+function loadCryptoBacktest(){loadMarketBacktest("crypto");}
+function loadCurrentMarketBacktest(){
+  if(mode==="us") loadUsBacktest();
+  else if(mode==="tw") loadTaiwanBacktest();
+  else if(mode==="crypto") loadCryptoBacktest();
 }
 function renderMagnificentSeven(payload){
   var grid=document.getElementById("sevenMagnificentGrid");
@@ -483,7 +528,7 @@ function switchMode(next){
   document.querySelectorAll(".market-tab").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-market")===mode)});
   document.querySelectorAll(".tab").forEach(function(x){x.classList.toggle("active",x.getAttribute("data-tab")==="all")});
   
-  setHeader(); setClock(); loadData();
+  setHeader(); setClock(); loadData(); loadCurrentMarketBacktest();
 }
 document.querySelectorAll(".market-tab").forEach(function(el){el.addEventListener("click",function(){switchMode(el.getAttribute("data-market"))})});
 document.getElementById("refreshBtn").addEventListener("click",function(){
@@ -493,14 +538,14 @@ document.getElementById("refreshBtn").addEventListener("click",function(){
   btn.textContent="↻ 檢查中";
   loadData();
   loadRadar();
-  loadUsBacktest();
+  loadCurrentMarketBacktest();
   setTimeout(function(){btn.dataset.busy="0";btn.textContent="↻ 檢查最新資料";},1200);
 });
 
 document.querySelectorAll(".tab").forEach(function(el){el.addEventListener("click",function(){tab=el.getAttribute("data-tab");document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active")});el.classList.add("active");render()})});
 
 document.getElementById("entryStatus").addEventListener("input",render);document.getElementById("entryStatus").addEventListener("change",render);
-setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();loadUsBacktest();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);setInterval(loadUsBacktest,300000);
+setHeader();setClock();updatePageTime();updateNextUpdate();loadData();loadRadar();loadCurrentMarketBacktest();setInterval(setClock,1000);setInterval(updatePageTime,1000);setInterval(updateNextUpdate,1000);setInterval(loadData,300000);setInterval(loadRadar,300000);setInterval(loadUsBacktest,300000);
 </script>
 </body>
 </html>

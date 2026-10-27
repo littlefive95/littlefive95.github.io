@@ -50,11 +50,27 @@ jobs:
           Path("/tmp/index.js").write_text(js, encoding="utf-8")
           PY
           node --check /tmp/index.js
+          python - <<'PY'
+          from scripts.update_data import _market_backtest_summary
+
+          signals = [
+              {"entryStatus": "可考慮進場區", "risk": "低", "returnsPct": {"5": 2.0, "20": 4.0}, "stopLoss": 9, "takeProfit1": 12, "stopHitWithin20d": True, "targetHitWithin20d": True},
+              {"entryStatus": "可考慮進場區", "risk": "中", "returnsPct": {"5": -2.0, "20": -2.0}, "stopLoss": 8, "takeProfit1": 12, "stopHitWithin20d": False, "targetHitWithin20d": False},
+              {"entryStatus": "可考慮進場區", "risk": "高", "returnsPct": {"5": 99.0, "20": 99.0}, "stopLoss": 8, "stopHitWithin20d": True},
+          ]
+          summary = _market_backtest_summary([{"signals": signals}], "tw")
+          assert summary["results"]["5d"]["actionableEntrySignals"]["samples"] == 2
+          assert summary["results"]["5d"]["actionableEntrySignals"]["averageReturnPct"] == 0.0
+          assert summary["results"]["20d"]["actionableEntrySignals"]["positiveRatePct"] == 50.0
+          assert summary["results"]["entrySignals20d"]["samples"] == 2
+          assert summary["results"]["entrySignals20d"]["stopHitRatePct"] == 50.0
+          print("Market backtest summary checks passed.")
+          PY
 
       - name: Backup last known good snapshots
         run: |
           mkdir -p .data-backup
-          for f in data.json taiwan_data.json crypto_data.json; do
+          for f in data.json taiwan_data.json crypto_data.json us_signal_history.json us_backtest.json taiwan_signal_history.json taiwan_backtest.json crypto_signal_history.json crypto_backtest.json; do
             if [ -f "$f" ]; then cp "$f" ".data-backup/$f"; fi
           done
 
@@ -176,9 +192,15 @@ jobs:
                       raise SystemExit(f"{row.get('ticker')}: entry label without entry-zone status")
                   if row.get("risk") == "高" or row.get("dataQualityFlags"):
                       raise SystemExit(f"{row.get('ticker')}: entry label with high risk/data-quality flags")
-          for name in ("us_signal_history.json", "us_backtest.json"):
+          for name in ("us_signal_history.json", "us_backtest.json", "taiwan_signal_history.json", "taiwan_backtest.json", "crypto_signal_history.json", "crypto_backtest.json"):
               with open(name, encoding="utf-8") as handle:
-                  json.load(handle)
+                  tracker = json.load(handle)
+              if not isinstance(tracker, dict):
+                  raise SystemExit(f"{name}: expected JSON object")
+              if name.endswith("_signal_history.json") and not isinstance(tracker.get("records"), list):
+                  raise SystemExit(f"{name}: missing records array")
+              if name.endswith("_backtest.json") and not isinstance(tracker.get("results"), dict):
+                  raise SystemExit(f"{name}: missing results object")
           PY
 
       - name: Save latest data snapshot
@@ -187,7 +209,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Retry if a code/docs commit updates main while market data is building.
           for attempt in 1 2 3; do
-            git add data.json taiwan_data.json crypto_data.json us_signal_history.json us_backtest.json
+            git add data.json taiwan_data.json crypto_data.json us_signal_history.json us_backtest.json taiwan_signal_history.json taiwan_backtest.json crypto_signal_history.json crypto_backtest.json
             if git diff --cached --quiet; then
               echo "Market snapshots already match the remote branch."
               exit 0

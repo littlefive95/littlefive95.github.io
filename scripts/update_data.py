@@ -2630,25 +2630,43 @@ def crypto_klines(symbol, limit=210):
     if len(data) < 20:
         print(f"Crypto kline history too short {symbol}: {len(data)} candles; need at least 20", file=sys.stderr)
         return None
+    open_times_ms = []
     closes = []
     highs = []
     lows = []
     quote_vols = []
     for k in data:
         try:
-            highs.append(float(k[2]))
-            lows.append(float(k[3]))
-            closes.append(float(k[4]))
-            quote_vols.append(float(k[7]))
+            open_time_ms = int(k[0])
+            high = float(k[2])
+            low = float(k[3])
+            close = float(k[4])
+            quote_volume = float(k[7])
+            open_times_ms.append(open_time_ms)
+            highs.append(high)
+            lows.append(low)
+            closes.append(close)
+            quote_vols.append(quote_volume)
         except Exception:
             pass
-    if len(closes) < 20 or len(highs) != len(closes) or len(lows) != len(closes):
+    if (
+        len(closes) < 20
+        or len(highs) != len(closes)
+        or len(lows) != len(closes)
+        or len(open_times_ms) != len(closes)
+    ):
         print(
             f"Crypto kline parse incomplete {symbol}: closes={len(closes)}, highs={len(highs)}, lows={len(lows)}",
             file=sys.stderr,
         )
         return None
-    return {"close": closes, "high": highs, "low": lows, "quoteVolume": quote_vols}
+    return {
+        "openTimeMs": open_times_ms,
+        "close": closes,
+        "high": highs,
+        "low": lows,
+        "quoteVolume": quote_vols,
+    }
 
 def crypto_score(row):
     price = row.get("price") or 0
@@ -3165,6 +3183,324 @@ def update_us_signal_history(payload):
                 pass
 
 
+
+def _market_backtest_parse_time(value):
+    """Parse an ISO timestamp emitted by the market snapshot builders."""
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=ZoneInfo("Asia/Taipei"))
+        return parsed
+    except Exception:
+        return None
+
+
+def _market_backtest_is_entry(signal):
+    """Use each market's explicit entry-zone flag and exclude high-risk/data-flagged signals."""
+    if not isinstance(signal, dict):
+        return False
+    if signal.get("entryStatus") != "可考慮進場區":
+        return False
+    if str(signal.get("risk") or "").strip() == "高":
+        return False
+    if signal.get("dataQualityFlags"):
+        return False
+    return True
+
+
+def _market_backtest_summary(records, market):
+    """Build the same summary schema used by the shared strategy-validation panels."""
+    summaries = {}
+    actionable = [
+        signal
+        for record in records
+        for signal in (record.get("signals") or [])
+        if _market_backtest_is_entry(signal)
+    ]
+
+    def pack(values):
+        values = [float(value) for value in values if num(value) is not None]
+        return {
+            "samples": len(values),
+            "averageReturnPct": round(sum(values) / len(values), 4) if values else None,
+            "positiveRatePct": round(sum(1 for value in values if value > 0) / len(values) * 100, 2) if values else None,
+        }
+
+    for horizon in (1, 5, 20):
+        returns = [
+            num((signal.get("returnsPct") or {}).get(str(horizon)))
+            for signal in actionable
+        ]
+        summaries[f"{horizon}d"] = {
+            "actionableEntrySignals": pack(returns),
+        }
+
+    matured = [
+        signal for signal in actionable
+        if num((signal.get("returnsPct") or {}).get("20")) is not None
+    ]
+    stop_samples = [
+        signal for signal in matured
+        if num(signal.get("stopLoss")) is not None
+        and isinstance(signal.get("stopHitWithin20d"), bool)
+    ]
+    target_samples = [
+        signal for signal in matured
+        if num(signal.get("takeProfit1")) is not None
+        and isinstance(signal.get("targetHitWithin20d"), bool)
+    ]
+    summaries["entrySignals20d"] = {
+        "samples": len(stop_samples),
+        "stopHitRatePct": round(
+            sum(bool(signal.get("stopHitWithin20d")) for signal in stop_samples) / len(stop_samples) * 100, 2
+        ) if stop_samples else None,
+        "targetHitRatePct": round(
+            sum(bool(signal.get("targetHitWithin20d")) for signal in target_samples) / len(target_samples) * 100, 2
+        ) if target_samples else None,
+    }
+
+    if market == "tw":
+        source = "Yahoo Finance historical daily bars"
+        method = "台股每日收盤後 TOP20 名單；以後續收盤價計算 5／20 個交易日報酬，停損率依未來日線低點判斷；非成交模擬，不含手續費與滑價。"
+    else:
+        source = "Binance Spot 1d klines"
+        method = "加密貨幣每日 TOP20 名單；以訊號快照價格計算後續日 K 報酬，停損率依未來日 K 低點判斷；非成交模擬，不含手續費與滑價。"
+    return {
+        "asOf": datetime.now(ZoneInfo("Asia/Taipei")).isoformat(),
+        "source": source,
+        "records": len(records),
+        "method": method,
+        "results": summaries,
+    }
+
+
+def update_market_signal_history(payload, market):
+    """Archive a daily Taiwan/crypto TOP20 cohort and evaluate matured forward outcomes."""
+    if market not in {"tw", "crypto"}:
+        return
+
+    if market == "tw":
+        archive_path = "taiwan_signal_history.json"
+        summary_path = "taiwan_backtest.json"
+        tz = ZoneInfo("Asia/Taipei")
+        now = datetime.now(tz)
+        snapshot_date = str(payload.get("snapshotDate") or payload.get("date") or "")[:10]
+        # Capture one daily cohort only after the Taiwan cash session has ended.
+        record_window_open = now.weekday() < 5 and (now.hour * 60 + now.minute) >= (13 * 60 + 45)
+        source_label = "Yahoo Finance daily bars"
+    else:
+        archive_path = "crypto_signal_history.json"
+        summary_path = "crypto_backtest.json"
+        tz = ZoneInfo("Asia/Taipei")
+        now = datetime.now(tz)
+        parsed_asof = _market_backtest_parse_time(payload.get("asOf"))
+        snapshot_date = parsed_asof.astimezone(tz).date().isoformat() if parsed_asof else str(payload.get("date") or now.date().isoformat())[:10]
+        # Avoid capturing the first few minutes of the Taiwan-local day; keep a single daily cohort.
+        record_window_open = (now.hour * 60 + now.minute) >= 15
+        source_label = "Binance Spot daily klines"
+
+    try:
+        try:
+            with open(archive_path, encoding="utf-8") as handle:
+                archive = json.load(handle)
+        except FileNotFoundError:
+            archive = {"records": []}
+        if not isinstance(archive, dict) or not isinstance(archive.get("records"), list):
+            archive = {"records": []}
+        records = archive["records"]
+
+        eligible_to_record = (
+            record_window_open
+            and payload.get("status") != "DATA_ERROR"
+            and snapshot_date
+            and snapshot_date == now.date().isoformat()
+            and isinstance(payload.get("rows"), list)
+            and bool(payload.get("rows"))
+        )
+        new_record = False
+        if eligible_to_record and not any(
+            str(record.get("date") or "")[:10] == snapshot_date
+            for record in records if isinstance(record, dict)
+        ):
+            signals = []
+            for row in payload.get("rows", [])[:20]:
+                if not isinstance(row, dict) or not row.get("ticker") or num(row.get("price")) is None:
+                    continue
+                ticker = str(row["ticker"]).strip().upper()
+                if market == "tw":
+                    if ticker.endswith(".TW") or ticker.endswith(".TWO"):
+                        history_symbol = ticker
+                    else:
+                        exchange = str(row.get("exchange") or "").upper()
+                        suffix = ".TWO" if exchange in {"TPEX", "OTC", "TWO"} else ".TW"
+                        history_symbol = ticker + suffix
+                else:
+                    history_symbol = str(row.get("symbol") or (ticker + "USDT")).strip().upper()
+
+                signals.append({
+                    "ticker": ticker,
+                    "name": row.get("name"),
+                    "historySymbol": history_symbol,
+                    "score": row.get("score"),
+                    "label": row.get("label"),
+                    "risk": row.get("risk"),
+                    "entryStatus": row.get("entryStatus"),
+                    "entryType": row.get("entryType"),
+                    "signalPrice": num(row.get("price")),
+                    "entryLow": num(row.get("entryLow")),
+                    "entryPrice": num(row.get("entryPrice")),
+                    "entryHigh": num(row.get("entryHigh")),
+                    "stopLoss": num(row.get("stopLoss")),
+                    "takeProfit1": num(row.get("takeProfit1")),
+                    "dataQualityFlags": row.get("dataQualityFlags") or [],
+                    "signalTime": payload.get("asOf"),
+                    "returnsPct": {},
+                })
+            records.append({
+                "date": snapshot_date,
+                "asOf": payload.get("asOf"),
+                "sourceMode": payload.get("sourceMode"),
+                "signals": signals,
+            })
+            records.sort(key=lambda record: str(record.get("date") or ""))
+            records[:] = records[-180:]
+            new_record = True
+
+        archive["updatedAt"] = now.isoformat()
+        archive["records"] = records
+
+        if new_record:
+            unresolved_symbols = set()
+            for record in records[-35:]:
+                record_date = str(record.get("date") or "")[:10]
+                if not record_date:
+                    continue
+                for signal in record.get("signals") or []:
+                    if not _market_backtest_is_entry(signal):
+                        continue
+                    returns = signal.setdefault("returnsPct", {})
+                    if any(returns.get(str(horizon)) is None for horizon in (1, 5, 20)):
+                        symbol = signal.get("historySymbol")
+                        if symbol:
+                            unresolved_symbols.add(str(symbol))
+
+            histories = {}
+            symbols = sorted(unresolved_symbols)
+            if market == "tw":
+                # Batch historical requests to avoid a large single Yahoo download.
+                for offset in range(0, len(symbols), 60):
+                    chunk = symbols[offset:offset + 60]
+                    try:
+                        histories.update(yahoo_history(chunk, retry_missing=False))
+                    except Exception as exc:
+                        print(f"Taiwan backtest history warning: {type(exc).__name__}", file=sys.stderr)
+            else:
+                # Only entry-zone signals are needed for performance stats, keeping API usage modest.
+                for symbol in symbols:
+                    try:
+                        history = crypto_klines(symbol, limit=210)
+                        if history:
+                            histories[symbol] = history
+                    except Exception as exc:
+                        print(f"Crypto backtest history warning {symbol}: {type(exc).__name__}", file=sys.stderr)
+
+            for record in records[-35:]:
+                record_date = str(record.get("date") or "")[:10]
+                record_time = _market_backtest_parse_time(record.get("asOf"))
+                for signal in record.get("signals") or []:
+                    if not _market_backtest_is_entry(signal):
+                        continue
+                    symbol = signal.get("historySymbol")
+                    history = histories.get(symbol)
+                    if not history:
+                        continue
+
+                    returns = signal.setdefault("returnsPct", {})
+                    if market == "tw":
+                        close = history.get("close")
+                        high = history.get("high")
+                        low = history.get("low")
+                        if close is None or len(close) < 2 or not record_date:
+                            continue
+                        date_values = [
+                            index.date().isoformat() if hasattr(index, "date") else str(index)[:10]
+                            for index in close.index
+                        ]
+                        candidates = [i for i, value in enumerate(date_values) if value <= record_date]
+                        if not candidates:
+                            continue
+                        index0 = candidates[-1]
+                        base_price = float(close.iloc[index0])
+                    else:
+                        open_times = history.get("openTimeMs") or []
+                        close = history.get("close")
+                        high = history.get("high")
+                        low = history.get("low")
+                        if not open_times or close is None or len(open_times) != len(close) or record_time is None:
+                            continue
+                        signal_time_ms = int(record_time.timestamp() * 1000)
+                        candidates = [i for i, open_time in enumerate(open_times) if int(open_time) <= signal_time_ms]
+                        if not candidates:
+                            continue
+                        index0 = candidates[-1]
+                        base_price = num(signal.get("signalPrice"))
+                        if base_price is None:
+                            continue
+                        base_price = float(base_price)
+
+                    if base_price <= 0:
+                        continue
+                    signal["referencePrice"] = round(base_price, 8 if market == "crypto" else 4)
+                    for horizon in (1, 5, 20):
+                        target_index = index0 + horizon
+                        key = str(horizon)
+                        if returns.get(key) is None and target_index < len(close):
+                            target_close = float(close.iloc[target_index]) if market == "tw" else float(close[target_index])
+                            returns[key] = round((target_close / base_price - 1) * 100, 4)
+
+                    # Count a stop/target result only after a complete 20-bar window exists.
+                    if index0 + 20 < len(close) and "stopHitWithin20d" not in signal:
+                        if market == "tw":
+                            future_high = high.iloc[index0 + 1:index0 + 21]
+                            future_low = low.iloc[index0 + 1:index0 + 21]
+                        else:
+                            future_high = high[index0 + 1:index0 + 21]
+                            future_low = low[index0 + 1:index0 + 21]
+                        stop = num(signal.get("stopLoss"))
+                        target = num(signal.get("takeProfit1"))
+                        if stop is not None and len(future_low) == 20:
+                            signal["stopHitWithin20d"] = bool(float(min(future_low)) <= stop)
+                        if target is not None and len(future_high) == 20:
+                            signal["targetHitWithin20d"] = bool(float(max(future_high)) >= target)
+
+        archive["records"] = records
+        with open(archive_path, "w", encoding="utf-8") as handle:
+            json.dump(archive, handle, ensure_ascii=False, indent=2)
+
+        summary_exists = os.path.exists(summary_path)
+        if new_record or not summary_exists:
+            summary = _market_backtest_summary(records, market)
+            with open(summary_path, "w", encoding="utf-8") as handle:
+                json.dump(summary, handle, ensure_ascii=False, indent=2)
+    except Exception as exc:
+        print(f"{market} signal history update warning: {type(exc).__name__}", file=sys.stderr)
+        # Never overwrite an existing archive or summary after a transient failure.
+        if not os.path.exists(archive_path):
+            try:
+                with open(archive_path, "w", encoding="utf-8") as handle:
+                    json.dump({"updatedAt": now.isoformat(), "records": []}, handle, ensure_ascii=False, indent=2)
+            except Exception:
+                pass
+        if not os.path.exists(summary_path):
+            try:
+                with open(summary_path, "w", encoding="utf-8") as handle:
+                    json.dump(_market_backtest_summary([], market), handle, ensure_ascii=False, indent=2)
+            except Exception:
+                pass
+
+
 def main():
     try:
         payload = build_live()
@@ -3202,6 +3538,7 @@ if __name__ == "__main__":
             "error": str(e),
             "note": "研究/監控工具，不構成投資建議。",
         }
+    update_market_signal_history(taiwan_payload, "tw")
     with open("taiwan_data.json", "w", encoding="utf-8") as f:
         json.dump(taiwan_payload, f, ensure_ascii=False, indent=2)
     try:
@@ -3218,5 +3555,6 @@ if __name__ == "__main__":
             "error": str(e),
             "note": "加密貨幣資料建置失敗。",
         }
+    update_market_signal_history(crypto_payload, "crypto")
     with open("crypto_data.json", "w", encoding="utf-8") as f:
         json.dump(crypto_payload, f, ensure_ascii=False, indent=2)
