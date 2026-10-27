@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-27T17:49:50.601500+08:00",
+  "asOf": "2026-10-27T18:04:48.891609+08:00",
   "date": "2026-10-27",
   "snapshotDate": "2026-10-27",
   "dataMode": "INTRADAY",
@@ -76,75 +76,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "6146",
-      "name": "耕興",
-      "exchange": "TPEx",
-      "price": 203.0,
-      "changePct": 0.0,
-      "volume": 897797.0,
-      "pe": null,
-      "priceAvg20": 195.675,
-      "priceAvg50": 190.21,
-      "priceAvg200": 194.495,
-      "volumeRatio": 1.8145812336545915,
-      "fpe": 15.896632,
-      "valuation": 15.896632,
-      "valuationSource": "FPE",
-      "fpeSource": "YAHOO_FORWARD_PE",
-      "valuationConfidence": 100,
-      "forwardEps": 12.77,
-      "forwardEpsSource": "YAHOO_INFO",
-      "forwardEpsAnalysts": 2,
-      "forwardEpsLow": 11.81,
-      "forwardEpsHigh": 13.73,
-      "epsGrowthPct": 20.9,
-      "analysts": 2,
-      "earningsDate": "2025-08-05",
-      "margin": 0.24742001,
-      "roe": 0.21575001,
-      "debt": 2.204,
-      "quality": 0.21575001,
-      "sector": "工業",
-      "score": 83,
-      "label": "進場候選",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜趨勢、量能與估值條件偏多",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜站上20日均線"
-      ],
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "qualityScore": 100,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 7.5714,
-      "atrPct": 3.73,
-      "support": 195.675,
-      "resistance": 214.5,
-      "entryLow": 194.1607,
-      "entryPrice": 196.0536,
-      "entryHigh": 197.5679,
-      "stopLoss": 186.2107,
-      "takeProfit1": 214.5,
-      "takeProfit2": 225.5821,
-      "riskReward": 1.87,
-      "entryType": "深度回調",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待更深支撐區才評估。",
-      "rank": 2,
-      "previousRank": 2,
-      "rankChange": 0
-    },
-    {
       "ticker": "6121",
       "name": "新普",
       "exchange": "TPEx",
@@ -209,9 +140,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 3,
+      "rank": 2,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3219",
@@ -276,9 +207,9 @@
       "entryType": "回踩50日線",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 4,
+      "rank": 3,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4541",
@@ -346,9 +277,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 5,
+      "rank": 4,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5465",
@@ -414,9 +345,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 6,
+      "rank": 5,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4577",
@@ -481,9 +412,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 7,
+      "rank": 6,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5210",
@@ -547,9 +478,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3564",
@@ -614,9 +545,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3498",
@@ -683,9 +614,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 10,
+      "rank": 9,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5009",
@@ -751,9 +682,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 11,
+      "rank": 10,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4188",
@@ -819,9 +750,9 @@
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "rank": 12,
+      "rank": 11,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "1742",
@@ -886,9 +817,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 13,
+      "rank": 12,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5228",
@@ -954,9 +885,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 14,
+      "rank": 13,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4563",
@@ -1022,9 +953,9 @@
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "rank": 15,
+      "rank": 14,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5274",
@@ -1092,9 +1023,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3691",
@@ -1159,9 +1090,9 @@
       "entryType": "深度回調",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3374",
@@ -1228,9 +1159,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 18,
+      "rank": 17,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3441",
@@ -1296,9 +1227,9 @@
       "entryType": "回踩50日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 19,
+      "rank": 18,
       "previousRank": 19,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "00858",
@@ -1363,19 +1294,88 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 20,
+      "rank": 19,
       "previousRank": 20,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "6026",
+      "name": "福邦證",
+      "exchange": "TPEx",
+      "price": 15.350000381469727,
+      "changePct": 2.4851448007672404e-06,
+      "volume": 1033107.0,
+      "pe": null,
+      "priceAvg20": 15.685000133514404,
+      "priceAvg50": 15.316000022888183,
+      "priceAvg200": 15.125749998092651,
+      "volumeRatio": 1.5659533045619847,
+      "fpe": null,
+      "valuation": 5.5615945,
+      "valuationSource": "PE",
+      "fpeSource": null,
+      "valuationConfidence": 50,
+      "forwardEps": null,
+      "forwardEpsSource": null,
+      "forwardEpsAnalysts": 0,
+      "forwardEpsLow": null,
+      "forwardEpsHigh": null,
+      "epsGrowthPct": null,
+      "analysts": 0,
+      "earningsDate": null,
+      "margin": 0.64007,
+      "roe": 0.18855,
+      "debt": 101.193,
+      "quality": 0.18855,
+      "sector": "金融",
+      "score": 53,
+      "label": "暫不優先",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋20｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋8｜短線維持正向"
+      ],
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "qualityScore": 75,
+      "eventSignals": [
+        "量能放大"
+      ],
+      "atr": 0.2321,
+      "atrPct": 1.51,
+      "support": 15.316,
+      "resistance": 16.2,
+      "entryLow": 15.2696,
+      "entryPrice": 15.3346,
+      "entryHigh": 15.3856,
+      "stopLoss": 15.056,
+      "takeProfit1": 16.2,
+      "takeProfit2": 16.4786,
+      "riskReward": 3.11,
+      "entryType": "回踩50日線",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "rank": 20,
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 85,
   "valuationCoverage": 85,
-  "fpeCoverage": 45,
-  "peCoverage": 40,
-  "epsGrowthCoverage": 65,
-  "directFpeCoverage": 45,
+  "fpeCoverage": 40,
+  "peCoverage": 45,
+  "epsGrowthCoverage": 60,
+  "directFpeCoverage": 40,
   "derivedFpeCoverage": 0,
-  "valuationFallbackCoverage": 40,
+  "valuationFallbackCoverage": 45,
   "universeCount": 159,
   "focusCount": 20,
   "method": "TWSE/TPEx official snapshots supplemented by Yahoo Finance screener + Yahoo Finance technical/valuation data",
