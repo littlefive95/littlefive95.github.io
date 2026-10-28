@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-29T03:20:40.861228+08:00",
+  "asOf": "2026-10-29T03:35:41.660769+08:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-28",
   "dataMode": "LATEST_CLOSE",
@@ -771,7 +771,7 @@
       "priceAvg200": 80.88475005149841,
       "volumeRatio": 2.023364206433752,
       "fpe": null,
-      "valuation": 82.43801,
+      "valuation": 81.09756,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
