@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-27T23:35:10.648245-04:00",
+  "asOf": "2026-10-27T23:50:11.674121-04:00",
   "date": "2026-10-27",
   "snapshotDate": "2026-10-27",
   "dataMode": "LATEST_CLOSE",
@@ -891,8 +891,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -955,8 +955,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -1018,8 +1018,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "SMCI",
@@ -1084,8 +1084,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "V",
@@ -1147,8 +1147,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
