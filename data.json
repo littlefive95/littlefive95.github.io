@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-27T21:35:11.145029-04:00",
+  "asOf": "2026-10-27T21:43:56.557373-04:00",
   "date": "2026-10-27",
   "snapshotDate": "2026-10-27",
   "dataMode": "LATEST_CLOSE",
@@ -77,7 +77,7 @@
       "changePct": 0.898149,
       "marketCap": 5262596898816.0,
       "volume": 84307573.0,
-      "averageVolume": 116117431.0,
+      "averageVolume": 115636824.0,
       "fpe": 13.694344,
       "forwardEps": 15.9146,
       "epsGrowthPct": 70.89650166122235,
@@ -268,7 +268,7 @@
       "changePct": 4.1877,
       "marketCap": 218897498112.0,
       "volume": 15362331.0,
-      "averageVolume": 21637785.0,
+      "averageVolume": 21543706.0,
       "fpe": 33.233547,
       "forwardEps": 7.32904,
       "epsGrowthPct": 73.6636455186304,
@@ -331,7 +331,7 @@
       "changePct": 2.77304,
       "marketCap": 1050820673536.0,
       "volume": 22799290.0,
-      "averageVolume": 29602560.0,
+      "averageVolume": 29500964.0,
       "fpe": 4.489066,
       "forwardEps": 206.89381,
       "epsGrowthPct": 17.16452129499155,
@@ -461,7 +461,7 @@
       "changePct": 1.03411,
       "marketCap": 439125311488.0,
       "volume": 14112082.0,
-      "averageVolume": 18510065.0,
+      "averageVolume": 18443040.0,
       "fpe": 19.81135,
       "forwardEps": 5.62203,
       "epsGrowthPct": 9.251122723218351,
@@ -828,8 +828,8 @@
         "momentum"
       ],
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -891,8 +891,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -903,7 +903,7 @@
       "changePct": 2.54454,
       "marketCap": 196664000512.0,
       "volume": 12242748.0,
-      "averageVolume": 11924406.0,
+      "averageVolume": 11929866.0,
       "fpe": 18.080042,
       "forwardEps": 10.18637,
       "epsGrowthPct": -2.8349121530165777,
@@ -955,8 +955,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -1018,8 +1018,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "SMCI",
@@ -1030,7 +1030,7 @@
       "changePct": 7.3417,
       "marketCap": 23052914688.0,
       "volume": 31320298.0,
-      "averageVolume": 42410385.0,
+      "averageVolume": 42241838.0,
       "fpe": 6.279887,
       "forwardEps": 5.58768,
       "epsGrowthPct": 19.69667109378348,
@@ -1084,8 +1084,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "V",
@@ -1096,7 +1096,7 @@
       "changePct": -0.569086,
       "marketCap": 754433982464.0,
       "volume": 8146153.0,
-      "averageVolume": 6468309.0,
+      "averageVolume": 6495706.0,
       "fpe": 23.578032,
       "forwardEps": 17.04383,
       "epsGrowthPct": 13.454368509375513,
@@ -1147,8 +1147,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1210,8 +1210,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1222,7 +1222,7 @@
       "changePct": -0.0553212,
       "marketCap": 477559783424.0,
       "volume": 19170693.0,
-      "averageVolume": 31748148.0,
+      "averageVolume": 31565835.0,
       "fpe": 85.04692,
       "forwardEps": 2.33671,
       "epsGrowthPct": 44.741699702675916,
@@ -1273,8 +1273,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
