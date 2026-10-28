@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-27T20:05:04.284243-04:00",
+  "asOf": "2026-10-27T20:20:00.887377-04:00",
   "date": "2026-10-27",
   "snapshotDate": "2026-10-27",
   "dataMode": "LATEST_CLOSE",
@@ -137,7 +137,7 @@
       "exchange": "NasdaqGS",
       "sector": "半導體",
       "price": 308.91,
-      "changePct": 3.619351,
+      "changePct": 3.61935,
       "marketCap": 282420248576.0,
       "volume": 8046658.0,
       "averageVolume": 6320267.0,
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 8,
-      "rankChange": 5
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -256,8 +256,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 14,
-      "rankChange": 10
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 3,
-      "rankChange": -3
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -393,7 +393,7 @@
       "exchange": "NasdaqGS",
       "sector": "電腦硬體",
       "price": 1304.84,
-      "changePct": 3.9232872,
+      "changePct": 3.92329,
       "marketCap": 188585345024.0,
       "volume": 6936035.0,
       "averageVolume": 11630181.0,
@@ -512,8 +512,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -576,8 +576,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -638,8 +638,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -702,8 +702,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -765,8 +765,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 4,
-      "rankChange": -8
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "MSTR",
@@ -827,8 +827,8 @@
         "value"
       ],
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "LITE",
@@ -890,8 +890,8 @@
         "momentum"
       ],
       "rank": 14,
-      "previousRank": 19,
-      "rankChange": 5
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -953,8 +953,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -1017,8 +1017,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -1080,8 +1080,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 6,
-      "rankChange": -11
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "SMCI",
@@ -1146,8 +1146,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 13,
-      "rankChange": -5
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "V",
@@ -1209,8 +1209,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1272,12 +1272,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 17,
-      "rankChange": -3
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 394,
+  "universeCount": 393,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1445,7 +1445,7 @@
       "name": "Tesla, Inc.",
       "exchange": "NasdaqGS",
       "price": 407.46,
-      "changePct": 4.0447364,
+      "changePct": 4.04474,
       "score": 67,
       "label": "高風險觀察",
       "risk": "高",
