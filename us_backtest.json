@@ -1,31 +1,31 @@
 {
-  "asOf": "2026-10-28T00:05:17.344463-04:00",
+  "asOf": "2026-10-29T00:05:51.923092-04:00",
   "source": "Yahoo historical daily bars used for forward outcome measurement",
-  "records": 10,
+  "records": 11,
   "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
   "results": {
     "1d": {
       "allTop20": {
-        "samples": 160,
-        "averageReturnPct": 0.0798,
-        "positiveRatePct": 53.75
+        "samples": 180,
+        "averageReturnPct": 0.2614,
+        "positiveRatePct": 53.89
       },
       "actionableEntrySignals": {
-        "samples": 16,
-        "averageReturnPct": -0.0836,
-        "positiveRatePct": 50.0
+        "samples": 20,
+        "averageReturnPct": 0.3848,
+        "positiveRatePct": 55.0
       }
     },
     "5d": {
       "allTop20": {
-        "samples": 80,
-        "averageReturnPct": -0.9618,
-        "positiveRatePct": 43.75
+        "samples": 100,
+        "averageReturnPct": -0.8088,
+        "positiveRatePct": 45.0
       },
       "actionableEntrySignals": {
-        "samples": 11,
-        "averageReturnPct": -4.6462,
-        "positiveRatePct": 9.09
+        "samples": 13,
+        "averageReturnPct": -4.7629,
+        "positiveRatePct": 15.38
       }
     },
     "20d": {
