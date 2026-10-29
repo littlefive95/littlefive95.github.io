@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-29T08:05:43.126653+08:00",
+  "asOf": "2026-10-29T08:20:49.554441+08:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-28",
   "dataMode": "LATEST_CLOSE",
@@ -760,7 +760,7 @@
     },
     {
       "ticker": "3441",
-      "name": "聯一光",
+      "name": "聯一光電",
       "exchange": "TPEx",
       "price": 199.5,
       "changePct": 1.7857142857142856,

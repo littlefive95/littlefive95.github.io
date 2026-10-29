@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-28T20:05:36.845002-04:00",
+  "asOf": "2026-10-28T20:20:44.058571-04:00",
   "date": "2026-10-28",
   "snapshotDate": "2026-10-28",
   "dataMode": "LATEST_CLOSE",
@@ -65,8 +65,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 6,
-      "rankChange": 5
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -128,8 +128,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 11,
-      "rankChange": 9
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -198,8 +198,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -262,8 +262,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 9,
-      "rankChange": 5
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -325,8 +325,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -389,8 +389,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -451,8 +451,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 13,
-      "rankChange": 6
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -514,8 +514,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 15,
-      "rankChange": 7
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "SMCI",
@@ -579,8 +579,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 16,
-      "rankChange": 7
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "ACN",
@@ -642,8 +642,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 18,
-      "rankChange": 8
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -707,8 +707,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 3,
-      "rankChange": -8
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -770,8 +770,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 19,
-      "rankChange": 7
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -832,8 +832,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 4,
-      "rankChange": -9
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -898,8 +898,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 12,
-      "rankChange": -2
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -960,8 +960,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 20,
-      "rankChange": 5
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MSTR",
@@ -1022,8 +1022,8 @@
         "value"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "LITE",
@@ -1083,8 +1083,8 @@
         "momentum"
       ],
       "rank": 17,
-      "previousRank": 8,
-      "rankChange": -9
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "BE",
@@ -1148,8 +1148,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -1211,8 +1211,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 1,
-      "rankChange": -18
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1274,8 +1274,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 2,
-      "rankChange": -18
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
