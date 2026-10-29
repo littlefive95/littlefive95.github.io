@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-28T23:20:54.375052-04:00",
+  "asOf": "2026-10-28T23:35:51.584289-04:00",
   "date": "2026-10-28",
   "snapshotDate": "2026-10-28",
   "dataMode": "LATEST_CLOSE",
@@ -1146,8 +1146,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -1209,8 +1209,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1272,8 +1272,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
