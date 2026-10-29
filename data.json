@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-29T01:50:53.078752-04:00",
+  "asOf": "2026-10-29T02:05:49.033979-04:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-29",
   "dataMode": "LATEST_CLOSE",
@@ -1144,8 +1144,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1207,8 +1207,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -1273,8 +1273,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
