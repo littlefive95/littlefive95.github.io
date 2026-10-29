@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-29T21:51:16.798681+08:00",
+  "asOf": "2026-10-29T22:06:08.537409+08:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-29",
   "dataMode": "INTRADAY",
@@ -139,8 +139,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "5904",
@@ -206,8 +206,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3324",
@@ -359,12 +359,12 @@
       "priceAvg50": 482.11,
       "priceAvg200": 406.09,
       "volumeRatio": 2.3318179790976084,
-      "fpe": 57.834366,
-      "valuation": 57.834366,
+      "fpe": 48.0182,
+      "valuation": 48.0182,
       "valuationSource": "FPE",
       "fpeSource": "YAHOO_FORWARD_PE",
       "valuationConfidence": 100,
-      "forwardEps": 10.27071,
+      "forwardEps": 12.37031,
       "forwardEpsSource": "YAHOO_INFO",
       "forwardEpsAnalysts": 15,
       "forwardEpsLow": 6.35,
@@ -480,8 +480,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "4577",
@@ -821,8 +821,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "3260",
@@ -891,8 +891,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 13,
-      "previousRank": 15,
-      "rankChange": 2
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "1569",
@@ -1025,8 +1025,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 15,
-      "previousRank": 12,
-      "rankChange": -3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "4706",
@@ -1232,8 +1232,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "3564",
@@ -1299,8 +1299,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "3498",
