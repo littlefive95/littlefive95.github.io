@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-29T21:21:12.126299+08:00",
+  "asOf": "2026-10-29T21:36:10.021006+08:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-29",
   "dataMode": "INTRADAY",
@@ -141,8 +141,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 2,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "3147",
@@ -208,8 +208,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3324",
@@ -485,8 +485,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "4577",
@@ -825,8 +825,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 12,
-      "previousRank": 15,
-      "rankChange": 3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "3114",
@@ -893,8 +893,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "1569",
@@ -1030,8 +1030,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 15,
-      "previousRank": 13,
-      "rankChange": -2
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "4706",
@@ -1235,8 +1235,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "5351",
@@ -1304,8 +1304,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "3498",
