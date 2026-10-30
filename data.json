@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-29T20:06:21.808717-04:00",
+  "asOf": "2026-10-29T20:21:21.140733-04:00",
   "date": "2026-10-29",
   "snapshotDate": "2026-10-29",
   "dataMode": "LATEST_CLOSE",
@@ -66,8 +66,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -130,8 +130,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 10,
-      "rankChange": 8
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -193,8 +193,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -255,8 +255,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 13,
-      "rankChange": 9
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "LLY",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 1,
-      "rankChange": -4
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -386,8 +386,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -448,8 +448,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -513,8 +513,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 15,
-      "rankChange": 7
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -576,8 +576,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 7,
-      "rankChange": -2
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -639,8 +639,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "MA",
@@ -706,8 +706,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 16,
-      "rankChange": 5
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -769,8 +769,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -834,8 +834,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 6,
-      "rankChange": -7
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -960,8 +960,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -1026,8 +1026,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
@@ -1089,8 +1089,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -1156,8 +1156,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -1289,8 +1289,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": 12,
-      "rankChange": -8
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
