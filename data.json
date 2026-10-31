@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-10-31T14:53:02.270305-04:00",
+  "asOf": "2026-10-31T15:08:06.038241-04:00",
   "date": "2026-10-31",
   "snapshotDate": "2026-10-30",
   "dataMode": "LATEST_CLOSE",
@@ -409,7 +409,7 @@
       "averageVolume": 10364598.0,
       "fpe": 16.38965,
       "forwardEps": 9.12283,
-      "epsGrowthPct": 234.0325580714139,
+      "epsGrowthPct": 231.55480768881316,
       "analysts": 26,
       "priceAvg50": 146.86280029296876,
       "priceAvg200": 126.70770008087158,
@@ -531,6 +531,73 @@
       "rankChange": 0
     },
     {
+      "ticker": "XOM",
+      "name": "ExxonMobil Holdings Corporation",
+      "exchange": "NYSE",
+      "sector": "石油能源",
+      "price": 187.25,
+      "changePct": 2.16051,
+      "marketCap": 763792785408.0,
+      "volume": 21162779.0,
+      "averageVolume": 13420639.0,
+      "fpe": 15.586917,
+      "forwardEps": 12.01328,
+      "epsGrowthPct": -9.544616362307046,
+      "analysts": 22,
+      "priceAvg50": 167.76160034179688,
+      "priceAvg200": 154.5989998626709,
+      "roe": 0.15528,
+      "margin": 0.10462,
+      "debt": 12.568,
+      "earningsDate": "2027-01-29",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 175.97749862670898,
+      "volumeRatio": 1.7601011842112377,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 4.1364,
+      "atrPct": 2.21,
+      "support": 175.9775,
+      "resistance": 195.5229,
+      "entryLow": 185.2498,
+      "entryPrice": 185.8702,
+      "entryHigh": 187.1112,
+      "stopLoss": 180.6997,
+      "takeProfit1": 195.5229,
+      "takeProfit2": 201.3818,
+      "riskReward": 1.87,
+      "entryType": "突破",
+      "entryStatus": "等待回踩",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "score": 68,
+      "label": "值得研究",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線、預估EPS下滑；注意：EPS成長轉弱",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜EPS成長轉弱",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋15｜短線動能健康",
+        "⚠｜EPS成長轉弱"
+      ],
+      "eventSignals": [
+        "突破20日高點",
+        "量能放大"
+      ],
+      "qualityScore": 86,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 9,
+      "previousRank": 12,
+      "rankChange": 3
+    },
+    {
       "ticker": "CVX",
       "name": "Chevron Corporation",
       "exchange": "NYSE",
@@ -546,8 +613,8 @@
       "analysts": 24,
       "priceAvg50": 213.14780029296875,
       "priceAvg200": 193.3377000427246,
-      "roe": 0.12231,
-      "margin": 0.09834,
+      "roe": null,
+      "margin": 0.117819995,
       "debt": 18.959,
       "earningsDate": "2027-01-29",
       "quoteSource": "YAHOO",
@@ -586,14 +653,15 @@
       "eventSignals": [
         "突破20日高點"
       ],
-      "qualityScore": 60,
+      "qualityScore": 58,
       "profiles": [
         "momentum",
-        "value"
+        "value",
+        "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "JNJ",
@@ -654,9 +722,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MU",
@@ -720,75 +788,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
-      "previousRank": 11,
-      "rankChange": 0
-    },
-    {
-      "ticker": "XOM",
-      "name": "ExxonMobil Holdings Corporation",
-      "exchange": "NYSE",
-      "sector": "石油能源",
-      "price": 187.25,
-      "changePct": 2.16051,
-      "marketCap": 763792785408.0,
-      "volume": 21162779.0,
-      "averageVolume": 13420639.0,
-      "fpe": 15.586917,
-      "forwardEps": 12.01328,
-      "epsGrowthPct": -9.544616362307046,
-      "analysts": 22,
-      "priceAvg50": 167.76160034179688,
-      "priceAvg200": 154.5989998626709,
-      "roe": 0.12584,
-      "margin": 0.09072,
-      "debt": 15.921,
-      "earningsDate": "2027-01-29",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 175.97749862670898,
-      "volumeRatio": 1.7601011842112377,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 4.1364,
-      "atrPct": 2.21,
-      "support": 175.9775,
-      "resistance": 195.5229,
-      "entryLow": 185.2498,
-      "entryPrice": 185.8702,
-      "entryHigh": 187.1112,
-      "stopLoss": 180.6997,
-      "takeProfit1": 195.5229,
-      "takeProfit2": 201.3818,
-      "riskReward": 1.87,
-      "entryType": "突破",
-      "entryStatus": "等待回踩",
-      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "score": 63,
-      "label": "觀察",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線、預估EPS下滑；注意：EPS成長轉弱",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜EPS成長轉弱",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜短線動能健康",
-        "⚠｜EPS成長轉弱"
-      ],
-      "eventSignals": [
-        "突破20日高點",
-        "量能放大"
-      ],
-      "qualityScore": 60,
-      "profiles": [
-        "momentum",
-        "value"
-      ],
       "rank": 12,
-      "previousRank": 12,
-      "rankChange": 0
+      "previousRank": 11,
+      "rankChange": -1
     },
     {
       "ticker": "MRVL",
