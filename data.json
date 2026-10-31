@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-10-30T20:06:22.633432-04:00",
+  "asOf": "2026-10-30T20:22:34.946795-04:00",
   "date": "2026-10-30",
   "snapshotDate": "2026-10-30",
   "dataMode": "LATEST_CLOSE",
@@ -66,8 +66,8 @@
         "momentum"
       ],
       "rank": 1,
-      "previousRank": 7,
-      "rankChange": 6
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "ACN",
@@ -131,8 +131,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 16,
-      "rankChange": 14
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -196,8 +196,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 5,
-      "rankChange": 2
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -262,8 +262,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 10,
-      "rankChange": 6
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -329,8 +329,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 2,
-      "rankChange": -3
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -394,8 +394,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 3,
-      "rankChange": -3
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
@@ -460,8 +460,8 @@
         "value"
       ],
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -527,8 +527,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 1,
-      "rankChange": -7
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "CVX",
@@ -593,8 +593,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "JNJ",
@@ -658,8 +658,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -724,8 +724,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 4,
-      "rankChange": -7
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
@@ -790,8 +790,8 @@
         "value"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -857,8 +857,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 6,
-      "rankChange": -7
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -920,8 +920,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 11,
-      "rankChange": -3
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -1049,8 +1049,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -1116,8 +1116,8 @@
         "value"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1183,8 +1183,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 12,
-      "rankChange": -6
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1247,8 +1247,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 13,
-      "rankChange": -6
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1313,12 +1313,12 @@
         "momentum"
       ],
       "rank": 20,
-      "previousRank": 14,
-      "rankChange": -6
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
-  "universeCount": 367,
+  "universeCount": 375,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
