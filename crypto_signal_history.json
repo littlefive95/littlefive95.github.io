@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T00:09:22.085214+08:00",
+  "updatedAt": "2026-11-02T00:24:48.976165+08:00",
   "records": [
     {
       "date": "2026-10-27",
@@ -24,7 +24,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
-            "1": -4.5322
+            "1": -4.5322,
+            "5": -9.9903
           },
           "referencePrice": 0.2052
         },
@@ -65,7 +66,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
-            "1": 1.0028
+            "1": 1.0028,
+            "5": -3.983
           },
           "referencePrice": 741.91
         },
@@ -144,7 +146,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
-            "1": 1.1165
+            "1": 1.1165,
+            "5": -1.2369
           },
           "referencePrice": 0.9136
         },
@@ -325,7 +328,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-10-28T00:21:00.717443+08:00",
           "returnsPct": {
-            "1": -0.3524
+            "1": -0.3524,
+            "5": -5.2713
           },
           "referencePrice": 752.0
         },
@@ -1805,6 +1809,224 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "signalTime": "2026-11-01T00:23:39.807127+08:00",
+          "returnsPct": {}
+        }
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "asOf": "2026-11-02T00:24:39.298164+08:00",
+      "sourceMode": null,
+      "signals": [
+        {
+          "ticker": "UNI",
+          "name": "Uniswap",
+          "historySymbol": "UNIUSDT",
+          "score": 63,
+          "label": "中性",
+          "risk": "中",
+          "entryStatus": "可考慮進場區",
+          "entryType": "回踩20日線",
+          "signalPrice": 7.218,
+          "entryLow": 7.0585,
+          "entryPrice": 7.2168,
+          "entryHigh": 7.3487,
+          "stopLoss": 6.6099,
+          "takeProfit1": 10.942,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {},
+          "referencePrice": 7.218
+        },
+        {
+          "ticker": "BTC",
+          "name": "Bitcoin",
+          "historySymbol": "BTCUSDT",
+          "score": 59,
+          "label": "中性",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 78103.02,
+          "entryLow": 75943.6681,
+          "entryPrice": 76478.9047,
+          "entryHigh": 76899.4478,
+          "stopLoss": 74185.0336,
+          "takeProfit1": 84898.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "ETH",
+          "name": "Ethereum",
+          "historySymbol": "ETHUSDT",
+          "score": 58,
+          "label": "中性",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 2271.0,
+          "entryLow": 2158.4769,
+          "entryPrice": 2180.3213,
+          "entryHigh": 2197.4847,
+          "stopLoss": 2086.7024,
+          "takeProfit1": 2579.88,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "BNB",
+          "name": "BNB",
+          "historySymbol": "BNBUSDT",
+          "score": 56,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 712.32,
+          "entryLow": 675.3287,
+          "entryPrice": 682.3356,
+          "entryHigh": 688.1748,
+          "stopLoss": 655.4757,
+          "takeProfit1": 762.2,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "PEPE",
+          "name": "Pepe",
+          "historySymbol": "PEPEUSDT",
+          "score": 47,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "回踩20日線",
+          "signalPrice": 4.89e-06,
+          "entryLow": 0.0,
+          "entryPrice": 0.0,
+          "entryHigh": 0.0,
+          "stopLoss": 0.0,
+          "takeProfit1": 0.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "TRX",
+          "name": "TRON",
+          "historySymbol": "TRXUSDT",
+          "score": 46,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 0.313,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "SOL",
+          "name": "Solana",
+          "historySymbol": "SOLUSDT",
+          "score": 40,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 94.89,
+          "entryLow": 91.588,
+          "entryPrice": 92.6408,
+          "entryHigh": 93.468,
+          "stopLoss": 88.1288,
+          "takeProfit1": 113.4,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "ZEC",
+          "name": "Zcash",
+          "historySymbol": "ZECUSDT",
+          "score": 35,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "可考慮進場區",
+          "entryType": "回踩20日線",
+          "signalPrice": 1239.31,
+          "entryLow": 1198.4975,
+          "entryPrice": 1229.3435,
+          "entryHigh": 1255.0485,
+          "stopLoss": 1111.1005,
+          "takeProfit1": 1698.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {},
+          "referencePrice": 1239.31
+        },
+        {
+          "ticker": "NEAR",
+          "name": "NEAR Protocol",
+          "historySymbol": "NEARUSDT",
+          "score": 28,
+          "label": "偏弱",
+          "risk": "高",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 4.337,
+          "entryLow": 3.8283,
+          "entryPrice": 3.9413,
+          "entryHigh": 4.03,
+          "stopLoss": 3.4573,
+          "takeProfit1": 6.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "XPL",
+          "name": "Plasma",
+          "historySymbol": "XPLUSDT",
+          "score": 23,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 0.07355,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "XRP",
+          "name": "XRP",
+          "historySymbol": "XRPUSDT",
+          "score": 13,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 1.2523,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-02T00:24:39.298164+08:00",
           "returnsPct": {}
         }
       ]
