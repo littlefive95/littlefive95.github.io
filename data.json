@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-01T10:08:33.421332-05:00",
+  "asOf": "2026-11-01T10:23:33.841891-05:00",
   "date": "2026-11-01",
   "snapshotDate": "2026-10-30",
   "dataMode": "LATEST_CLOSE",
@@ -1496,8 +1496,8 @@
       "entryHigh": 388.8943,
       "stopLoss": 367.32,
       "takeProfit1": 423.4132,
-      "fpe": 185.5,
-      "epsGrowthPct": 23.83636415869459,
+      "fpe": 185.1641,
+      "epsGrowthPct": 24.061018702059812,
       "volumeRatio": 1.1453179426882154,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"
