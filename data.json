@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-02T08:39:04.430441-05:00",
+  "asOf": "2026-11-02T08:53:59.737835-05:00",
   "date": "2026-11-02",
   "snapshotDate": "2026-11-02",
   "dataMode": "INTRADAY",
@@ -13,7 +13,7 @@
       "price": 206.15,
       "changePct": 0.7378785,
       "marketCap": 4941441662976.0,
-      "volume": 1940471.0,
+      "volume": 2174190.0,
       "averageVolume": 114133204.0,
       "fpe": 12.858633,
       "forwardEps": 15.9146,
@@ -29,7 +29,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 221.45950164794922,
-      "volumeRatio": 0.019202791685289596,
+      "volumeRatio": 0.02151566174101019,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 6.54,
       "atrPct": 3.17,
@@ -78,7 +78,7 @@
       "price": 303.77,
       "changePct": 0.9739372,
       "marketCap": 275042271232.0,
-      "volume": 619562.0,
+      "volume": 619986.0,
       "averageVolume": 6237917.0,
       "fpe": 26.108826,
       "forwardEps": 11.52254,
@@ -94,7 +94,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 289.61499938964846,
-      "volumeRatio": 0.08626197905136634,
+      "volumeRatio": 0.08632101281895986,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 10.6571,
       "atrPct": 3.51,
@@ -140,11 +140,11 @@
       "price": 525.7437,
       "changePct": 0.73455966,
       "marketCap": 3875804807168.0,
-      "volume": 183095.0,
+      "volume": 207851.0,
       "averageVolume": 23798665.0,
-      "fpe": 21.584963,
-      "forwardEps": 24.17933,
-      "epsGrowthPct": 20.80815802424725,
+      "fpe": 21.592813,
+      "forwardEps": 24.17054,
+      "epsGrowthPct": 20.764240194057848,
       "analysts": 52,
       "priceAvg50": 512.910601196289,
       "priceAvg200": 437.9265493774414,
@@ -156,7 +156,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 530.9810028076172,
-      "volumeRatio": 0.008317433926608338,
+      "volumeRatio": 0.009442021677705397,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 11.7379,
       "atrPct": 2.23,
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 5,
-      "rankChange": 2
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -203,7 +203,7 @@
       "price": 412.0,
       "changePct": 1.4578441,
       "marketCap": 2106382745600.0,
-      "volume": 208209.0,
+      "volume": 239158.0,
       "averageVolume": 10538771.0,
       "fpe": 17.3669,
       "forwardEps": 23.38529,
@@ -219,7 +219,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 437.6334991455078,
-      "volumeRatio": 0.017378925583101605,
+      "volumeRatio": 0.019962197045293013,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 14.4129,
       "atrPct": 3.5,
@@ -257,8 +257,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -319,8 +319,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -330,7 +330,7 @@
       "price": 894.61,
       "changePct": 1.1155814,
       "marketCap": 1001015410688.0,
-      "volume": 610959.0,
+      "volume": 708771.0,
       "averageVolume": 27394796.0,
       "fpe": 4.2584615,
       "forwardEps": 207.76048,
@@ -346,7 +346,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 950.608999633789,
-      "volumeRatio": 0.023416927665392193,
+      "volumeRatio": 0.027165880588268097,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 50.9979,
       "atrPct": 5.7,
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 4,
-      "rankChange": -2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -395,11 +395,11 @@
       "price": 187.55,
       "changePct": 1.8684496,
       "marketCap": 442427080704.0,
-      "volume": 485143.0,
+      "volume": 581400.0,
       "averageVolume": 31125882.0,
-      "fpe": 78.33468,
-      "forwardEps": 2.3503,
-      "epsGrowthPct": 45.57628462415142,
+      "fpe": 78.79027,
+      "forwardEps": 2.33671,
+      "epsGrowthPct": 44.73452752589071,
       "analysts": 28,
       "priceAvg50": 186.90479919433594,
       "priceAvg200": 153.56767459869386,
@@ -411,7 +411,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 197.24549942016603,
-      "volumeRatio": 0.02104409542267512,
+      "volumeRatio": 0.025219444738444775,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 9.201,
       "atrPct": 4.91,
@@ -447,8 +447,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "LLY",
@@ -458,7 +458,7 @@
       "price": 1410.2,
       "changePct": -0.44757563,
       "marketCap": 1262666776576.0,
-      "volume": 22992.0,
+      "volume": 26806.0,
       "averageVolume": 2552982.0,
       "fpe": 28.48739,
       "forwardEps": 49.76026,
@@ -474,7 +474,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 1246.0099975585938,
-      "volumeRatio": 0.009074117925645275,
+      "volumeRatio": 0.01057936695871813,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 48.2415,
       "atrPct": 3.42,
@@ -511,8 +511,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -522,7 +522,7 @@
       "price": 105.15,
       "changePct": 0.612381,
       "marketCap": 412039774208.0,
-      "volume": 1011550.0,
+      "volume": 1013147.0,
       "averageVolume": 18029795.0,
       "fpe": 18.589373,
       "forwardEps": 5.62203,
@@ -538,7 +538,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 110.9794994354248,
-      "volumeRatio": 0.0642241735078062,
+      "volumeRatio": 0.06432556840187172,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 3.1693,
       "atrPct": 3.01,
@@ -576,8 +576,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -587,7 +587,7 @@
       "price": 257.14,
       "changePct": 2.6794002,
       "marketCap": 256424001536.0,
-      "volume": 133083.0,
+      "volume": 147996.0,
       "averageVolume": 9828475.0,
       "fpe": 155.42784,
       "forwardEps": 1.61123,
@@ -605,7 +605,7 @@
         "Forward PE 異常範圍，已標記供核對"
       ],
       "priceAvg20": 254.94499969482422,
-      "volumeRatio": 0.014793188483849078,
+      "volumeRatio": 0.01645088195228337,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 13.6297,
       "atrPct": 5.3,
@@ -641,8 +641,8 @@
         "momentum"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -652,11 +652,11 @@
       "price": 510.25,
       "changePct": 1.0796379,
       "marketCap": 824073388032.0,
-      "volume": 501006.0,
+      "volume": 579285.0,
       "averageVolume": 21380817.0,
-      "fpe": 31.529781,
-      "forwardEps": 16.01026,
-      "epsGrowthPct": 110.17983802893636,
+      "fpe": 31.551458,
+      "forwardEps": 15.99926,
+      "epsGrowthPct": 110.03543199066348,
       "analysts": 50,
       "priceAvg50": 548.2901977539062,
       "priceAvg200": 410.4886998748779,
@@ -668,7 +668,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 570.4404937744141,
-      "volumeRatio": 0.024435312065924805,
+      "volumeRatio": 0.028253174113901332,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 32.1943,
       "atrPct": 6.31,
@@ -706,71 +706,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
-    },
-    {
-      "ticker": "JNJ",
-      "name": "Johnson & Johnson",
-      "exchange": "NYSE",
-      "sector": "製藥",
-      "price": 273.2,
-      "changePct": 0.0,
-      "marketCap": 657677221888.0,
-      "volume": 9265.0,
-      "averageVolume": 6888976.0,
-      "fpe": 23.51552,
-      "forwardEps": 11.61786,
-      "epsGrowthPct": 4.479695100510539,
-      "analysts": 22,
-      "priceAvg50": 265.5990008544922,
-      "priceAvg200": 246.98580024719237,
-      "roe": 0.20018,
-      "margin": 0.16203,
-      "debt": 54.767,
-      "earningsDate": "2027-01-26",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 260.7995010375977,
-      "volumeRatio": 0.0012154063412333652,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 7.7357,
-      "atrPct": 2.83,
-      "support": 265.599,
-      "resistance": 278.05,
-      "entryLow": 264.0519,
-      "entryPrice": 266.3726,
-      "entryHigh": 268.3065,
-      "stopLoss": 257.4765,
-      "takeProfit1": 281.07,
-      "takeProfit2": 293.0608,
-      "riskReward": 1.65,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 73,
-      "label": "值得研究",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋8｜短線維持正向"
-      ],
-      "eventSignals": [],
-      "qualityScore": 92,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 12,
-      "previousRank": 20,
-      "rankChange": 8
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -780,7 +717,7 @@
       "price": 426.1716,
       "changePct": 0.47425422,
       "marketCap": 269775339520.0,
-      "volume": 79078.0,
+      "volume": 100333.0,
       "averageVolume": 7617875.0,
       "fpe": 14.020323,
       "forwardEps": 30.26321,
@@ -796,7 +733,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 506.15199890136716,
-      "volumeRatio": 0.012095746649800312,
+      "volumeRatio": 0.01534690493708003,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 35.3514,
       "atrPct": 8.3,
@@ -833,9 +770,9 @@
         "momentum",
         "value"
       ],
-      "rank": 13,
-      "previousRank": 11,
-      "rankChange": -2
+      "rank": 12,
+      "previousRank": 13,
+      "rankChange": 1
     },
     {
       "ticker": "SKHY",
@@ -845,7 +782,7 @@
       "price": 153.8,
       "changePct": 3.0761988,
       "marketCap": 1052189130752.0,
-      "volume": 1468591.0,
+      "volume": 1583032.0,
       "averageVolume": 20942003.0,
       "fpe": 3.5275016,
       "forwardEps": 42.29906,
@@ -861,7 +798,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 155.1699996948242,
-      "volumeRatio": 0.06470523053307241,
+      "volumeRatio": 0.06974743172280824,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 9.7471,
       "atrPct": 6.34,
@@ -898,9 +835,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
-      "previousRank": 12,
-      "rankChange": -2
+      "rank": 13,
+      "previousRank": 14,
+      "rankChange": 1
     },
     {
       "ticker": "WDC",
@@ -910,7 +847,7 @@
       "price": 370.07,
       "changePct": 1.0816482,
       "marketCap": 137043484672.0,
-      "volume": 108353.0,
+      "volume": 118285.0,
       "averageVolume": 8123196.0,
       "fpe": 9.061043,
       "forwardEps": 40.40484,
@@ -926,7 +863,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 377.83700408935545,
-      "volumeRatio": 0.011560298329591144,
+      "volumeRatio": 0.012619954112167531,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 24.5964,
       "atrPct": 6.65,
@@ -964,9 +901,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 13,
-      "rankChange": -2
+      "rank": 14,
+      "previousRank": 15,
+      "rankChange": 1
     },
     {
       "ticker": "WMT",
@@ -975,8 +912,8 @@
       "sector": "必需消費",
       "price": 123.95,
       "changePct": 0.35624224,
-      "marketCap": 982902374400.0,
-      "volume": 767277.0,
+      "marketCap": 979897024512.0,
+      "volume": 795634.0,
       "averageVolume": 23438264.0,
       "fpe": 38.280464,
       "forwardEps": 3.22645,
@@ -992,7 +929,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 115.95200004577637,
-      "volumeRatio": 0.038525338588026356,
+      "volumeRatio": 0.0399491568783448,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 2.6443,
       "atrPct": 2.13,
@@ -1029,9 +966,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 16,
-      "previousRank": 14,
-      "rankChange": -2
+      "rank": 15,
+      "previousRank": 16,
+      "rankChange": 1
     },
     {
       "ticker": "TSLA",
@@ -1041,7 +978,7 @@
       "price": 402.5,
       "changePct": 0.6728202,
       "marketCap": 1580341002240.0,
-      "volume": 624423.0,
+      "volume": 744087.0,
       "averageVolume": 36680226.0,
       "fpe": 185.1641,
       "forwardEps": 2.15922,
@@ -1059,7 +996,7 @@
         "Forward PE 異常範圍，已標記供核對"
       ],
       "priceAvg20": 380.69749908447267,
-      "volumeRatio": 0.01720031165464126,
+      "volumeRatio": 0.020496567708375657,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 14.3829,
       "atrPct": 3.57,
@@ -1094,17 +1031,17 @@
       "profiles": [
         "momentum"
       ],
-      "rank": 17,
-      "previousRank": 15,
-      "rankChange": -2
+      "rank": 16,
+      "previousRank": 17,
+      "rankChange": 1
     },
     {
       "ticker": "ACN",
       "name": "Accenture plc",
       "exchange": "NYSE",
       "sector": "IT服務",
-      "price": 256.26,
-      "changePct": -0.76672107,
+      "price": 256.52,
+      "changePct": -0.6660476,
       "marketCap": 158027923456.0,
       "volume": 10351585.0,
       "averageVolume": 6208240.0,
@@ -1159,9 +1096,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
-      "previousRank": 16,
-      "rankChange": -2
+      "rank": 17,
+      "previousRank": 18,
+      "rankChange": 1
     },
     {
       "ticker": "LRCX",
@@ -1171,7 +1108,7 @@
       "price": 242.24,
       "changePct": 1.309023,
       "marketCap": 299228069888.0,
-      "volume": 50383.0,
+      "volume": 57193.0,
       "averageVolume": 9309950.0,
       "fpe": 19.540989,
       "forwardEps": 12.23633,
@@ -1187,7 +1124,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 278.50000152587893,
-      "volumeRatio": 0.004702290760287515,
+      "volumeRatio": 0.0053378741927460425,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 15.5143,
       "atrPct": 6.4,
@@ -1225,9 +1162,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 17,
-      "rankChange": -2
+      "rank": 18,
+      "previousRank": 19,
+      "rankChange": 1
     },
     {
       "ticker": "AMAT",
@@ -1237,7 +1174,7 @@
       "price": 394.0,
       "changePct": 1.0023338,
       "marketCap": 309574434816.0,
-      "volume": 61195.0,
+      "volume": 64494.0,
       "averageVolume": 6902065.0,
       "fpe": 21.021801,
       "forwardEps": 18.55645,
@@ -1253,7 +1190,7 @@
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
       "priceAvg20": 442.4310028076172,
-      "volumeRatio": 0.008491350810941694,
+      "volumeRatio": 0.008949116418022283,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
       "atr": 22.3207,
       "atrPct": 5.67,
@@ -1291,13 +1228,83 @@
         "value",
         "quality"
       ],
+      "rank": 19,
+      "previousRank": 20,
+      "rankChange": 1
+    },
+    {
+      "ticker": "STX",
+      "name": "Seagate Technology Holdings plc",
+      "exchange": "NasdaqGS",
+      "sector": "電腦硬體",
+      "price": 650.3405,
+      "changePct": 0.89368236,
+      "marketCap": 147970506752.0,
+      "volume": 89321.0,
+      "averageVolume": 4601960.0,
+      "fpe": 9.864778,
+      "forwardEps": 65.34157,
+      "epsGrowthPct": 63.440139673677855,
+      "analysts": 24,
+      "priceAvg50": 799.0894018554687,
+      "priceAvg200": 692.5951493835449,
+      "roe": 2.5935102,
+      "margin": 0.31857002,
+      "debt": 77.382,
+      "earningsDate": "2027-01-26",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [
+        "ROE超過200%，需核對股東權益基期"
+      ],
+      "priceAvg20": 713.123501586914,
+      "volumeRatio": 0.015866031937758672,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 51.1257,
+      "atrPct": 7.86,
+      "support": 621.0,
+      "resistance": 903.0,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "score": 65,
+      "label": "觀察",
+      "risk": "中",
+      "reasons": [
+        "摘要｜短線動能健康、FPE偏低；注意：ROE極端值，未給予品質加分",
+        "核心優勢｜短線動能健康、FPE偏低",
+        "主要風險｜ROE極端值，未給予品質加分",
+        "判斷｜目前量化優勢有限",
+        "＋15｜短線動能健康",
+        "＋20｜FPE偏低",
+        "＋20｜預估EPS高成長",
+        "⚠｜ROE極端值，未給予品質加分",
+        "資料品質｜ROE超過200%，需核對股東權益基期"
+      ],
+      "eventSignals": [
+        "跌破50日線",
+        "跌破200日線"
+      ],
+      "qualityScore": 92,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
       "rank": 20,
-      "previousRank": 18,
-      "rankChange": -2
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 90,
-  "universeCount": 381,
+  "universeCount": 382,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1307,7 +1314,7 @@
   "fpeCoverage": 90,
   "epsGrowthCoverage": 100,
   "analystCoverage": 100,
-  "dataQualityFlagCount": 2,
+  "dataQualityFlagCount": 3,
   "historicalDataCoverage": {
     "massive": 0,
     "yahooBackup": 50
@@ -1340,7 +1347,7 @@
       "takeProfit1": 358.1549,
       "fpe": 36.068707,
       "epsGrowthPct": 8.062606240945126,
-      "volumeRatio": 0.009962114397246718,
+      "volumeRatio": 0.011214573967005448,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1361,9 +1368,9 @@
       "entryHigh": 517.7682,
       "stopLoss": 501.3352,
       "takeProfit1": 551.15,
-      "fpe": 21.584963,
-      "epsGrowthPct": 20.80815802424725,
-      "volumeRatio": 0.008317433926608338,
+      "fpe": 21.592813,
+      "epsGrowthPct": 20.764240194057848,
+      "volumeRatio": 0.009442021677705397,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1386,7 +1393,7 @@
       "takeProfit1": 243.37,
       "fpe": 12.858633,
       "epsGrowthPct": 70.89650166122235,
-      "volumeRatio": 0.019202791685289596,
+      "volumeRatio": 0.02151566174101019,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1409,7 +1416,7 @@
       "takeProfit1": null,
       "fpe": 22.019148,
       "epsGrowthPct": -4.543820818200828,
-      "volumeRatio": 0.01270468768126661,
+      "volumeRatio": 0.015952361500162618,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1432,7 +1439,7 @@
       "takeProfit1": null,
       "fpe": 18.452505,
       "epsGrowthPct": -9.712982752769861,
-      "volumeRatio": 0.0275654991891493,
+      "volumeRatio": 0.03174134241478036,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1453,9 +1460,9 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.2809,
-      "epsGrowthPct": 19.464007573112774,
-      "volumeRatio": 0.012185073667180597,
+      "fpe": 17.358568,
+      "epsGrowthPct": 18.92945860300239,
+      "volumeRatio": 0.014411725561232602,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP"
@@ -1478,7 +1485,7 @@
       "takeProfit1": 423.4132,
       "fpe": 185.1641,
       "epsGrowthPct": 24.18588600678668,
-      "volumeRatio": 0.01720031165464126,
+      "volumeRatio": 0.020496567708375657,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"
       ],
