@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-02T00:39:05.417059-05:00",
+  "asOf": "2026-11-02T00:53:55.518314-05:00",
   "date": "2026-11-02",
   "snapshotDate": "2026-11-02",
   "dataMode": "LATEST_CLOSE",
@@ -1473,8 +1473,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.2809,
-      "epsGrowthPct": 19.053608806819433,
+      "fpe": 17.358568,
+      "epsGrowthPct": 18.520896190957604,
       "volumeRatio": 1.0960480375007777,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
