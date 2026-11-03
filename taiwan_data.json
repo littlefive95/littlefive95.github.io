@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-03T07:54:18.082629+08:00",
+  "asOf": "2026-11-03T08:09:22.943964+08:00",
   "date": "2026-11-03",
   "snapshotDate": "2026-11-02",
   "dataMode": "LATEST_CLOSE",
@@ -1100,7 +1100,7 @@
     },
     {
       "ticker": "6140",
-      "name": "訊達電腦",
+      "name": "訊達",
       "exchange": "TPEx",
       "price": 24.950000762939453,
       "changePct": 9.911894273127754,
