@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-02T19:09:19.032796-05:00",
+  "asOf": "2026-11-02T19:24:19.811266-05:00",
   "date": "2026-11-02",
   "snapshotDate": "2026-11-02",
   "dataMode": "INTRADAY",
@@ -72,8 +72,8 @@
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
       "exchange": "NYSE",
       "sector": "半導體",
-      "price": 400.88,
-      "changePct": 0.56443316,
+      "price": 401.0,
+      "changePct": 0.59453505,
       "marketCap": 2067484114944.0,
       "volume": 13082230.0,
       "averageVolume": 10538771.0,
@@ -330,7 +330,7 @@
       "sector": "應用軟體",
       "price": 158.4982,
       "changePct": 1.4583268,
-      "marketCap": 202719608832.0,
+      "marketCap": 200999518208.0,
       "volume": 13799538.0,
       "averageVolume": 9373890.0,
       "fpe": 63.54152,
@@ -463,9 +463,9 @@
       "marketCap": 3765971714048.0,
       "volume": 33949220.0,
       "averageVolume": 23798665.0,
-      "fpe": 20.973286,
-      "forwardEps": 24.17933,
-      "epsGrowthPct": 21.78157582070113,
+      "fpe": 20.980913,
+      "forwardEps": 24.17054,
+      "epsGrowthPct": 21.73730412039083,
       "analysts": 52,
       "priceAvg50": 513.3882012939453,
       "priceAvg200": 438.1788493347168,
@@ -479,16 +479,16 @@
       "priceAvg20": 530.0780029296875,
       "volumeRatio": 1.5169025023925833,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 12.7857,
+      "atr": 12.7836,
       "atrPct": 2.51,
       "support": 478.53,
       "resistance": 551.15,
-      "entryLow": 475.9729,
-      "entryPrice": 479.5529,
-      "entryHigh": 482.3657,
-      "stopLoss": 464.21,
+      "entryLow": 475.9733,
+      "entryPrice": 479.5527,
+      "entryHigh": 482.3651,
+      "stopLoss": 464.2124,
       "takeProfit1": 551.15,
-      "takeProfit2": 566.4929,
+      "takeProfit2": 566.4903,
       "riskReward": 4.67,
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
@@ -579,48 +579,48 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 20,
-      "rankChange": 11
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
-      "ticker": "JNJ",
-      "name": "Johnson & Johnson",
+      "ticker": "PG",
+      "name": "The Procter & Gamble Company",
       "exchange": "NYSE",
-      "sector": "製藥",
-      "price": 270.825,
-      "changePct": 0.09795042,
-      "marketCap": 651321868288.0,
-      "volume": 8017689.0,
-      "averageVolume": 6888976.0,
-      "fpe": 23.288282,
-      "forwardEps": 11.61786,
-      "epsGrowthPct": 4.479695100510539,
-      "analysts": 22,
-      "priceAvg50": 265.60540100097654,
-      "priceAvg200": 247.24075019836425,
-      "roe": 0.20018,
-      "margin": 0.16203,
-      "debt": 54.767,
-      "earningsDate": "2027-01-26",
+      "sector": "必需消費",
+      "price": 163.9,
+      "changePct": 0.20787255,
+      "marketCap": 379096596480.0,
+      "volume": 9705710.0,
+      "averageVolume": 9024120.0,
+      "fpe": 22.11609,
+      "forwardEps": 7.39552,
+      "epsGrowthPct": 5.992945766098123,
+      "analysts": 23,
+      "priceAvg50": 150.36680023193358,
+      "priceAvg200": 149.0184004211426,
+      "roe": 0.29609,
+      "margin": 0.18229,
+      "debt": 70.343,
+      "earningsDate": "2027-01-21",
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP",
       "dataQualityFlags": [],
-      "priceAvg20": 261.6810012817383,
-      "volumeRatio": 1.0658263779249888,
+      "priceAvg20": 157.04199981689453,
+      "volumeRatio": 0.9397572524611875,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 6.8218,
-      "atrPct": 2.52,
-      "support": 265.6054,
-      "resistance": 282.02,
-      "entryLow": 264.241,
-      "entryPrice": 266.2876,
-      "entryHigh": 267.993,
-      "stopLoss": 258.4425,
-      "takeProfit1": 282.02,
-      "takeProfit2": 289.865,
-      "riskReward": 2.01,
-      "entryType": "支撐回踩",
-      "entryStatus": "等待回踩",
+      "atr": 3.44,
+      "atrPct": 2.1,
+      "support": 157.042,
+      "resistance": 166.85,
+      "entryLow": 156.354,
+      "entryPrice": 157.386,
+      "entryHigh": 158.246,
+      "stopLoss": 153.43,
+      "takeProfit1": 166.85,
+      "takeProfit2": 170.806,
+      "riskReward": 2.39,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "score": 73,
       "label": "值得研究",
@@ -642,8 +642,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "SKHY",
@@ -707,8 +707,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -773,8 +773,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -839,8 +839,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -904,8 +904,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -979,7 +979,7 @@
       "sector": "必需消費",
       "price": 127.85,
       "changePct": 0.12530036,
-      "marketCap": 1016167137280.0,
+      "marketCap": 1013060075520.0,
       "volume": 24868612.0,
       "averageVolume": 23438264.0,
       "fpe": 39.576004,
@@ -998,16 +998,16 @@
       "priceAvg20": 117.08300018310547,
       "volumeRatio": 1.231245236765682,
       "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 2.7721,
+      "atr": 2.7736,
       "atrPct": 2.17,
       "support": 118.5513,
-      "resistance": 133.3943,
+      "resistance": 133.3971,
       "entryLow": 124.759,
-      "entryPrice": 125.1748,
-      "entryHigh": 126.0065,
-      "stopLoss": 121.7097,
-      "takeProfit1": 133.3943,
-      "takeProfit2": 136.8595,
+      "entryPrice": 125.1751,
+      "entryHigh": 126.0071,
+      "stopLoss": 121.7081,
+      "takeProfit1": 133.3971,
+      "takeProfit2": 136.8641,
       "riskReward": 2.37,
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
@@ -1034,8 +1034,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1099,8 +1099,8 @@
         "momentum"
       ],
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "LRCX",
@@ -1165,8 +1165,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
@@ -1229,8 +1229,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
@@ -1242,9 +1242,9 @@
       "marketCap": 366029570048.0,
       "volume": 9050917.0,
       "averageVolume": 10364598.0,
-      "fpe": 16.330431,
-      "forwardEps": 9.08488,
-      "epsGrowthPct": 228.71926244337342,
+      "fpe": 16.378115,
+      "forwardEps": 9.05843,
+      "epsGrowthPct": 227.76221903810801,
       "analysts": 26,
       "priceAvg50": 146.77900024414063,
       "priceAvg200": 126.89465007781982,
@@ -1295,8 +1295,8 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
@@ -1359,13 +1359,13 @@
       "risk": "低",
       "entryStatus": "價格偏高／不追",
       "entryType": "支撐回踩",
-      "entryLow": 475.9729,
-      "entryPrice": 479.5529,
-      "entryHigh": 482.3657,
-      "stopLoss": 464.21,
+      "entryLow": 475.9733,
+      "entryPrice": 479.5527,
+      "entryHigh": 482.3651,
+      "stopLoss": 464.2124,
       "takeProfit1": 551.15,
-      "fpe": 20.973286,
-      "epsGrowthPct": 21.78157582070113,
+      "fpe": 20.980913,
+      "epsGrowthPct": 21.73730412039083,
       "volumeRatio": 1.5169025023925833,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
