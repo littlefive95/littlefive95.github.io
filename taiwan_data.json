@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-03T17:09:29.183970+08:00",
+  "asOf": "2026-11-03T17:24:35.769197+08:00",
   "date": "2026-11-03",
   "snapshotDate": "2026-11-03",
   "dataMode": "INTRADAY",
@@ -555,6 +555,75 @@
       "rankChange": 0
     },
     {
+      "ticker": "4116",
+      "name": "明基醫",
+      "exchange": "TPEx",
+      "price": 43.849998474121094,
+      "changePct": -3.4797694587710046e-06,
+      "volume": 2016355.0,
+      "pe": null,
+      "priceAvg20": 40.90499973297119,
+      "priceAvg50": 40.16399993896484,
+      "priceAvg200": 39.9504999923706,
+      "volumeRatio": 19.342972738980595,
+      "fpe": null,
+      "valuation": 16.673002,
+      "valuationSource": "PE",
+      "fpeSource": null,
+      "valuationConfidence": 50,
+      "forwardEps": null,
+      "forwardEpsSource": null,
+      "forwardEpsAnalysts": 0,
+      "forwardEpsLow": null,
+      "forwardEpsHigh": null,
+      "epsGrowthPct": 22.672,
+      "analysts": 0,
+      "earningsDate": null,
+      "margin": 0.14092,
+      "roe": 0.36038,
+      "debt": 42.739,
+      "quality": 0.36038,
+      "sector": "醫療保健",
+      "score": 60,
+      "label": "觀察",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋20｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋5｜站上20日均線"
+      ],
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "qualityScore": 93,
+      "eventSignals": [
+        "量能放大"
+      ],
+      "atr": 0.9321,
+      "atrPct": 2.13,
+      "support": 40.905,
+      "resistance": 45.35,
+      "entryLow": 40.7186,
+      "entryPrice": 40.9982,
+      "entryHigh": 41.2312,
+      "stopLoss": 39.9263,
+      "takeProfit1": 45.35,
+      "takeProfit2": 46.422,
+      "riskReward": 4.06,
+      "entryType": "回踩20日線",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "rank": 9,
+      "previousRank": 15,
+      "rankChange": 6
+    },
+    {
       "ticker": "3285",
       "name": "微端",
       "exchange": "TPEx",
@@ -618,9 +687,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4741",
@@ -685,9 +754,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3479",
@@ -754,9 +823,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3287",
@@ -823,9 +892,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4903",
@@ -890,9 +959,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3325",
@@ -957,77 +1026,9 @@
       "entryType": "深度回調",
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 14,
-      "previousRank": 14,
-      "rankChange": 0
-    },
-    {
-      "ticker": "4116",
-      "name": "明基醫",
-      "exchange": "TPEx",
-      "price": 43.849998474121094,
-      "changePct": -3.4797694587710046e-06,
-      "volume": 2016355.0,
-      "pe": null,
-      "priceAvg20": 40.90499973297119,
-      "priceAvg50": 40.16399993896484,
-      "priceAvg200": 39.9504999923706,
-      "volumeRatio": 19.342972738980595,
-      "fpe": null,
-      "valuation": 16.673002,
-      "valuationSource": "PE",
-      "fpeSource": null,
-      "valuationConfidence": 50,
-      "forwardEps": null,
-      "forwardEpsSource": null,
-      "forwardEpsAnalysts": 0,
-      "forwardEpsLow": null,
-      "forwardEpsHigh": null,
-      "epsGrowthPct": 5.03,
-      "analysts": 0,
-      "earningsDate": null,
-      "margin": 0.02161,
-      "roe": 0.12953,
-      "debt": 87.835,
-      "quality": 0.12953,
-      "sector": "醫療保健",
-      "score": 54,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜站上20日均線"
-      ],
-      "profiles": [
-        "momentum",
-        "value"
-      ],
-      "qualityScore": 52,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 0.9321,
-      "atrPct": 2.13,
-      "support": 40.905,
-      "resistance": 45.35,
-      "entryLow": 40.7186,
-      "entryPrice": 40.9982,
-      "entryHigh": 41.2312,
-      "stopLoss": 39.9263,
-      "takeProfit1": 45.35,
-      "takeProfit2": 46.422,
-      "riskReward": 4.06,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 15,
-      "previousRank": 15,
-      "rankChange": 0
+      "previousRank": 14,
+      "rankChange": -1
     },
     {
       "ticker": "5013",
