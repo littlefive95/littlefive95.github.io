@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-04T02:33:26.863999-05:00",
+  "asOf": "2026-11-04T02:48:31.540397-05:00",
   "date": "2026-11-04",
   "snapshotDate": "2026-11-04",
   "dataMode": "LATEST_CLOSE",
@@ -1303,7 +1303,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 413,
+  "universeCount": 419,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1344,8 +1344,8 @@
       "entryHigh": 332.8126,
       "stopLoss": 322.4344,
       "takeProfit1": 351.73,
-      "fpe": 31.07349,
-      "epsGrowthPct": 12.972002195740306,
+      "fpe": 31.169645,
+      "epsGrowthPct": 12.623497171239183,
       "volumeRatio": 1.4103409835108585,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
