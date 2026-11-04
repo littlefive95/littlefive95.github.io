@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-04T03:18:31.250214-05:00",
+  "asOf": "2026-11-04T03:33:32.574315-05:00",
   "date": "2026-11-04",
   "snapshotDate": "2026-11-04",
   "dataMode": "LATEST_CLOSE",
@@ -448,8 +448,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 9,
-      "rankChange": 2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -513,8 +513,8 @@
         "value"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -578,8 +578,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
