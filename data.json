@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-04T01:58:54.552364-05:00",
+  "asOf": "2026-11-04T02:03:31.353314-05:00",
   "date": "2026-11-04",
   "snapshotDate": "2026-11-04",
   "dataMode": "LATEST_CLOSE",
@@ -1303,7 +1303,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 419,
+  "universeCount": 413,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
