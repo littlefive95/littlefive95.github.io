@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T14:19:04.155569+08:00",
+  "asOf": "2026-11-05T14:34:08.012574+08:00",
   "date": "2026-11-05",
   "snapshotDate": "2026-11-05",
   "dataMode": "INTRADAY",
@@ -493,7 +493,7 @@
       "priceAvg200": 31.223999938964845,
       "volumeRatio": 4.133446437325706,
       "fpe": null,
-      "valuation": 28.786407,
+      "valuation": 27.201834,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -882,8 +882,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "4741",
@@ -951,8 +951,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "3691",
@@ -1019,8 +1019,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "3287",
@@ -1089,8 +1089,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "3325",
@@ -1157,8 +1157,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 17,
-      "previousRank": 18,
-      "rankChange": 1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "3141",
@@ -1226,8 +1226,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "3293",
@@ -1291,8 +1291,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "2061",
@@ -1359,8 +1359,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 65,
