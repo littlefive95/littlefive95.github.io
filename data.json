@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-04T21:03:52.202533-05:00",
+  "asOf": "2026-11-04T21:18:52.574540-05:00",
   "date": "2026-11-04",
   "snapshotDate": "2026-11-04",
   "dataMode": "LATEST_CLOSE",
@@ -400,7 +400,7 @@
       "sector": "必需消費",
       "price": 129.17,
       "changePct": 3.45186,
-      "marketCap": 1024801964032.0,
+      "marketCap": 1027945070592.0,
       "volume": 29186958.0,
       "averageVolume": 23364898.0,
       "fpe": 40.034714,
@@ -912,6 +912,72 @@
       "rankChange": 0
     },
     {
+      "ticker": "UBER",
+      "name": "Uber Technologies, Inc.",
+      "exchange": "NYSE",
+      "sector": "應用軟體",
+      "price": 69.87,
+      "changePct": 4.90992,
+      "marketCap": 142713683968.0,
+      "volume": 36915665.0,
+      "averageVolume": 18070218.0,
+      "fpe": 15.852094,
+      "forwardEps": 4.40762,
+      "epsGrowthPct": 31.36526746223818,
+      "analysts": 46,
+      "priceAvg50": 70.71559951782227,
+      "priceAvg200": 73.15789993286133,
+      "roe": 0.3716,
+      "margin": 0.17345,
+      "debt": 51.872,
+      "earningsDate": "2026-11-04",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 68.38499908447265,
+      "volumeRatio": 2.227032239654878,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 1.6536,
+      "atrPct": 2.37,
+      "support": 68.385,
+      "resistance": 72.08,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "score": 66,
+      "label": "觀察",
+      "risk": "低",
+      "reasons": [
+        "摘要｜短線動能健康、FPE合理",
+        "核心優勢｜短線動能健康、FPE合理",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋15｜短線動能健康",
+        "＋16｜FPE合理",
+        "＋20｜預估EPS高成長"
+      ],
+      "eventSignals": [
+        "跌破200日線",
+        "量能放大"
+      ],
+      "qualityScore": 92,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 15,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "MDT",
       "name": "Medtronic plc",
       "exchange": "NYSE",
@@ -973,9 +1039,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MU",
@@ -1039,9 +1105,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "HOOD",
@@ -1104,9 +1170,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "PLTR",
@@ -1169,9 +1235,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "META",
@@ -1234,78 +1300,13 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "BAC",
-      "name": "Bank of America Corporation",
-      "exchange": "NYSE",
-      "sector": "銀行",
-      "price": 51.63,
-      "changePct": 3.96698,
-      "marketCap": 356257792000.0,
-      "volume": 47353853.0,
-      "averageVolume": 36431204.0,
-      "fpe": 9.967297,
-      "forwardEps": 5.17994,
-      "epsGrowthPct": 14.969770146577055,
-      "analysts": 22,
-      "priceAvg50": 55.940399932861325,
-      "priceAvg200": 54.922249946594235,
-      "roe": 0.1073,
-      "margin": 0.28064,
-      "debt": null,
-      "earningsDate": "2027-01-15",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 51.50949993133545,
-      "volumeRatio": 1.1006910429169496,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 1.0271,
-      "atrPct": 1.99,
-      "support": 51.5095,
-      "resistance": 54.93,
-      "entryLow": null,
-      "entryPrice": null,
-      "entryHigh": null,
-      "stopLoss": null,
-      "takeProfit1": null,
-      "takeProfit2": null,
-      "riskReward": null,
-      "entryType": "暫無訊號",
-      "entryStatus": "等待",
-      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "score": 57,
-      "label": "觀察",
-      "risk": "低",
-      "reasons": [
-        "摘要｜短線動能健康、FPE偏低",
-        "核心優勢｜短線動能健康、FPE偏低",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋15｜短線動能健康",
-        "＋20｜FPE偏低",
-        "＋12｜預估EPS成長"
-      ],
-      "eventSignals": [
-        "跌破50日線",
-        "跌破200日線"
-      ],
-      "qualityScore": 47,
-      "profiles": [
-        "momentum",
-        "value"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 100,
-  "universeCount": 427,
+  "universeCount": 425,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
