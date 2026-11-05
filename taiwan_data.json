@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T17:49:09.037303+08:00",
+  "asOf": "2026-11-05T18:04:06.887653+08:00",
   "date": "2026-11-05",
   "snapshotDate": "2026-11-05",
   "dataMode": "INTRADAY",
@@ -686,6 +686,73 @@
       "rankChange": 0
     },
     {
+      "ticker": "3306",
+      "name": "鼎天",
+      "exchange": "TPEx",
+      "price": 45.650001525878906,
+      "changePct": 3.3425605863550613e-06,
+      "volume": 530832.0,
+      "pe": null,
+      "priceAvg20": 44.25250015258789,
+      "priceAvg50": 44.95099983215332,
+      "priceAvg200": 46.552749996185305,
+      "volumeRatio": 5.5137341663680415,
+      "fpe": null,
+      "valuation": 101.44445,
+      "valuationSource": "PE",
+      "fpeSource": null,
+      "valuationConfidence": 50,
+      "forwardEps": null,
+      "forwardEpsSource": null,
+      "forwardEpsAnalysts": 0,
+      "forwardEpsLow": null,
+      "forwardEpsHigh": null,
+      "epsGrowthPct": 26.364,
+      "analysts": 0,
+      "earningsDate": null,
+      "margin": 0.14956,
+      "roe": 0.04577,
+      "debt": 1.184,
+      "quality": 0.04577,
+      "sector": "科技",
+      "score": 53,
+      "label": "暫不優先",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上50日均線、站上20日均線",
+        "核心優勢｜站上50日均線、站上20日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋10｜站上50日均線",
+        "＋5｜站上20日均線",
+        "＋8｜短線維持正向"
+      ],
+      "profiles": [
+        "quality"
+      ],
+      "qualityScore": 70,
+      "eventSignals": [
+        "量能放大"
+      ],
+      "atr": 1.225,
+      "atrPct": 2.68,
+      "support": 44.951,
+      "resistance": 47.3,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "rank": 11,
+      "previousRank": null,
+      "rankChange": null
+    },
+    {
       "ticker": "4706",
       "name": "大恭",
       "exchange": "TPEx",
@@ -748,9 +815,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3354",
@@ -815,9 +882,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3597",
@@ -882,9 +949,9 @@
       "entryType": "回踩50日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4174",
@@ -949,9 +1016,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "1569",
@@ -1016,9 +1083,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4953",
@@ -1087,9 +1154,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "5202",
@@ -1154,9 +1221,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4741",
@@ -1221,9 +1288,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "3556",
@@ -1291,83 +1358,16 @@
       "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "009814",
-      "name": "富邦標普500",
-      "exchange": "TPEx",
-      "price": 11.729999542236328,
-      "changePct": -3.9025036001818044e-06,
-      "volume": 2467382.0,
-      "pe": null,
-      "priceAvg20": 11.609999895095825,
-      "priceAvg50": 11.461799964904785,
-      "priceAvg200": 10.829400010108948,
-      "volumeRatio": 3.0427609440273544,
-      "fpe": null,
-      "valuation": 24.774368,
-      "valuationSource": "PE",
-      "fpeSource": null,
-      "valuationConfidence": 50,
-      "forwardEps": null,
-      "forwardEpsSource": null,
-      "forwardEpsAnalysts": 0,
-      "forwardEpsLow": null,
-      "forwardEpsHigh": null,
-      "epsGrowthPct": null,
-      "analysts": 0,
-      "earningsDate": null,
-      "margin": null,
-      "roe": null,
-      "debt": null,
-      "quality": null,
-      "sector": "ETF",
-      "score": 50,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜站上20日均線"
-      ],
-      "profiles": [
-        "momentum"
-      ],
-      "qualityScore": 0,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 0.095,
-      "atrPct": 0.81,
-      "support": 11.61,
-      "resistance": 11.92,
-      "entryLow": 11.7535,
-      "entryPrice": 11.7677,
-      "entryHigh": 11.7962,
-      "stopLoss": 11.649,
-      "takeProfit1": 12.0052,
-      "takeProfit2": 12.124,
-      "riskReward": 2.0,
-      "entryType": "突破",
-      "entryStatus": "等待價格靠近",
-      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 70,
   "valuationCoverage": 70,
   "fpeCoverage": 20,
   "peCoverage": 50,
-  "epsGrowthCoverage": 30,
+  "epsGrowthCoverage": 35,
   "directFpeCoverage": 20,
   "derivedFpeCoverage": 0,
   "valuationFallbackCoverage": 50,
