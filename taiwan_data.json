@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T14:04:07.859573+08:00",
+  "asOf": "2026-11-05T14:19:04.155569+08:00",
   "date": "2026-11-05",
   "snapshotDate": "2026-11-05",
   "dataMode": "INTRADAY",
@@ -342,8 +342,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 5,
-      "previousRank": 7,
-      "rankChange": 2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "2221",
@@ -407,8 +407,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 6,
-      "previousRank": 8,
-      "rankChange": 2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "4563",
@@ -477,8 +477,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 7,
-      "previousRank": 9,
-      "rankChange": 2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "5013",
@@ -545,8 +545,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 8,
-      "previousRank": 10,
-      "rankChange": 2
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "5209",
@@ -561,7 +561,7 @@
       "priceAvg200": 169.07,
       "volumeRatio": 2.661171657467343,
       "fpe": null,
-      "valuation": 11.080637,
+      "valuation": 11.516533,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -615,8 +615,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 9,
-      "previousRank": 11,
-      "rankChange": 2
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "3354",
@@ -682,8 +682,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 10,
-      "previousRank": 12,
-      "rankChange": 2
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "3597",
@@ -749,8 +749,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 11,
-      "previousRank": 6,
-      "rankChange": -5
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "4105",
@@ -814,74 +814,7 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 12,
-      "previousRank": 20,
-      "rankChange": 8
-    },
-    {
-      "ticker": "009807",
-      "name": "台新標普科技精選",
-      "exchange": "TPEx",
-      "price": 16.450000762939453,
-      "changePct": 0.6731992835951852,
-      "volume": 108516.0,
-      "pe": null,
-      "priceAvg20": 17.419500160217286,
-      "priceAvg50": 17.245000038146973,
-      "priceAvg200": 15.379949984550477,
-      "volumeRatio": 1.2113073660628324,
-      "fpe": null,
-      "valuation": null,
-      "valuationSource": null,
-      "fpeSource": null,
-      "valuationConfidence": 0,
-      "forwardEps": null,
-      "forwardEpsSource": null,
-      "forwardEpsAnalysts": 0,
-      "forwardEpsLow": null,
-      "forwardEpsHigh": null,
-      "epsGrowthPct": null,
-      "analysts": 0,
-      "earningsDate": null,
-      "margin": null,
-      "roe": null,
-      "debt": null,
-      "quality": null,
-      "sector": "ETF",
-      "score": 43,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、短線動能健康",
-        "核心優勢｜站上200日均線、短線動能健康",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜站上200日均線",
-        "＋15｜短線動能健康",
-        "＋8｜成交量增溫"
-      ],
-      "profiles": [
-        "momentum"
-      ],
-      "qualityScore": 0,
-      "eventSignals": [
-        "跌破50日線"
-      ],
-      "atr": 0.2279,
-      "atrPct": 1.39,
-      "support": 16.25,
-      "resistance": 18.38,
-      "entryLow": 16.2044,
-      "entryPrice": 16.2682,
-      "entryHigh": 16.3184,
-      "stopLoss": 15.9948,
-      "takeProfit1": 18.38,
-      "takeProfit2": 18.6534,
-      "riskReward": 7.72,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 13,
-      "previousRank": 13,
+      "previousRank": 12,
       "rankChange": 0
     },
     {
@@ -948,9 +881,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 14,
+      "rank": 13,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4741",
@@ -1017,9 +950,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 15,
+      "rank": 14,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3691",
@@ -1085,9 +1018,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3287",
@@ -1155,9 +1088,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3325",
@@ -1223,9 +1156,9 @@
       "entryType": "深度回調",
       "entryStatus": "等待回踩",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 18,
+      "rank": 17,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3141",
@@ -1292,9 +1225,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 19,
+      "rank": 18,
       "previousRank": 19,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3293",
@@ -1357,19 +1290,87 @@
       "entryType": "回踩50日線",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "rank": 19,
+      "previousRank": 20,
+      "rankChange": 1
+    },
+    {
+      "ticker": "2061",
+      "name": "風青",
+      "exchange": "TPEx",
+      "price": 59.099998474121094,
+      "changePct": -3.5889095038807564,
+      "volume": 4664953.0,
+      "pe": null,
+      "priceAvg20": 61.849999809265135,
+      "priceAvg50": 57.00299995422363,
+      "priceAvg200": 39.03174992084503,
+      "volumeRatio": 2.5412808402381692,
+      "fpe": null,
+      "valuation": 51.842106,
+      "valuationSource": "PE",
+      "fpeSource": null,
+      "valuationConfidence": 50,
+      "forwardEps": null,
+      "forwardEpsSource": null,
+      "forwardEpsAnalysts": 0,
+      "forwardEpsLow": null,
+      "forwardEpsHigh": null,
+      "epsGrowthPct": null,
+      "analysts": 0,
+      "earningsDate": null,
+      "margin": 0.05076,
+      "roe": 0.102010004,
+      "debt": 87.353,
+      "quality": 0.102010004,
+      "sector": "工業",
+      "score": 37,
+      "label": "暫不優先",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線、短線轉弱；注意：短線轉弱",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜短線轉弱",
+        "判斷｜目前量化優勢有限",
+        "＋20｜站上200日均線",
+        "＋10｜站上50日均線",
+        "−8｜短線轉弱",
+        "⚠｜短線轉弱"
+      ],
+      "profiles": [
+        "momentum"
+      ],
+      "qualityScore": 52,
+      "eventSignals": [
+        "量能放大"
+      ],
+      "atr": 3.75,
+      "atrPct": 6.35,
+      "support": 57.003,
+      "resistance": 70.8,
+      "entryLow": 56.253,
+      "entryPrice": 57.378,
+      "entryHigh": 58.3155,
+      "stopLoss": 53.0655,
+      "takeProfit1": 70.8,
+      "takeProfit2": 75.1125,
+      "riskReward": 3.11,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 20,
       "previousRank": null,
       "rankChange": null
     }
   ],
-  "coverage": 60,
-  "valuationCoverage": 60,
+  "coverage": 65,
+  "valuationCoverage": 65,
   "fpeCoverage": 10,
-  "peCoverage": 50,
+  "peCoverage": 55,
   "epsGrowthCoverage": 20,
   "directFpeCoverage": 10,
   "derivedFpeCoverage": 0,
-  "valuationFallbackCoverage": 50,
+  "valuationFallbackCoverage": 55,
   "universeCount": 158,
   "focusCount": 20,
   "method": "TWSE/TPEx official snapshots supplemented by Yahoo Finance screener + Yahoo Finance technical/valuation data",
