@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T00:49:00.533351-05:00",
+  "asOf": "2026-11-05T01:04:02.170070-05:00",
   "date": "2026-11-05",
   "snapshotDate": "2026-11-05",
   "dataMode": "LATEST_CLOSE",
@@ -974,8 +974,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -1040,8 +1040,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -1106,8 +1106,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -1171,8 +1171,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1236,8 +1236,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -1301,8 +1301,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
