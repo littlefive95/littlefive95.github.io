@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T18:19:07.569413+08:00",
+  "asOf": "2026-11-05T18:34:15.165042+08:00",
   "date": "2026-11-05",
   "snapshotDate": "2026-11-05",
   "dataMode": "INTRADAY",
@@ -1314,13 +1314,13 @@
       "forwardEpsAnalysts": 0,
       "forwardEpsLow": null,
       "forwardEpsHigh": null,
-      "epsGrowthPct": 174.4,
+      "epsGrowthPct": 125.4,
       "analysts": 0,
       "earningsDate": null,
-      "margin": 0.21517,
-      "roe": 0.18782,
-      "debt": 2.534,
-      "quality": 0.18782,
+      "margin": 0.22633,
+      "roe": 0.21280001,
+      "debt": 2.263,
+      "quality": 0.21280001,
       "sector": "半導體",
       "score": 50,
       "label": "暫不優先",
@@ -1339,7 +1339,7 @@
         "value",
         "quality"
       ],
-      "qualityScore": 93,
+      "qualityScore": 100,
       "eventSignals": [
         "跌破50日線",
         "量能放大"
