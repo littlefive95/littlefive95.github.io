@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-06T22:35:01.677790+08:00",
+  "asOf": "2026-11-06T22:50:01.172346+08:00",
   "date": "2026-11-06",
   "snapshotDate": "2026-11-06",
   "dataMode": "INTRADAY",
@@ -137,8 +137,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 2,
-      "previousRank": 5,
-      "rankChange": 3
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "2221",
@@ -204,8 +204,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3609",
@@ -272,8 +272,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "3227",
@@ -343,8 +343,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 5,
-      "previousRank": 6,
-      "rankChange": 1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "3479",
@@ -414,8 +414,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 6,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "3131",
@@ -556,8 +556,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3287",
@@ -623,8 +623,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "1742",
@@ -690,8 +690,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 10,
-      "previousRank": 12,
-      "rankChange": 2
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "4741",
@@ -827,8 +827,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "1584",
@@ -897,8 +897,78 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
+    },
+    {
+      "ticker": "3218",
+      "name": "大學光",
+      "exchange": "TPEx",
+      "price": 126.5,
+      "changePct": 0.0,
+      "volume": 575409.0,
+      "pe": null,
+      "priceAvg20": 130.1,
+      "priceAvg50": 133.54,
+      "priceAvg200": 136.2375,
+      "volumeRatio": 3.8873917117565076,
+      "fpe": 8.882984,
+      "valuation": 8.882984,
+      "valuationSource": "FPE",
+      "fpeSource": "YAHOO_FORWARD_PE",
+      "valuationConfidence": 100,
+      "forwardEps": 14.24071,
+      "forwardEpsSource": "YAHOO_INFO",
+      "forwardEpsAnalysts": 1,
+      "forwardEpsLow": 14.24071,
+      "forwardEpsHigh": 14.24071,
+      "epsGrowthPct": 4.34,
+      "analysts": 1,
+      "earningsDate": "2025-08-11",
+      "margin": 0.26782,
+      "roe": 0.31244,
+      "debt": 38.619,
+      "quality": 0.31244,
+      "sector": "醫療保健",
+      "score": 47,
+      "label": "暫不優先",
+      "risk": "低",
+      "reasons": [
+        "摘要｜短線維持正向、成交量放大",
+        "核心優勢｜短線維持正向、成交量放大",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋8｜短線維持正向",
+        "＋15｜成交量放大",
+        "＋20｜估值偏低"
+      ],
+      "profiles": [
+        "value",
+        "quality"
+      ],
+      "qualityScore": 100,
+      "eventSignals": [
+        "跌破50日線",
+        "跌破200日線",
+        "量能放大"
+      ],
+      "atr": 2.9643,
+      "atrPct": 2.34,
+      "support": 122.5,
+      "resistance": 134.5,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "rank": 14,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "3141",
@@ -965,9 +1035,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "rank": 15,
+      "previousRank": 14,
+      "rankChange": -1
     },
     {
       "ticker": "3306",
@@ -1032,9 +1102,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 15,
-      "previousRank": 19,
-      "rankChange": 4
+      "rank": 16,
+      "previousRank": 15,
+      "rankChange": -1
     },
     {
       "ticker": "4105",
@@ -1099,9 +1169,9 @@
       "entryType": "回踩50日線",
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 17,
+      "previousRank": 16,
+      "rankChange": -1
     },
     {
       "ticker": "3354",
@@ -1166,9 +1236,9 @@
       "entryType": "回踩50日線",
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 18,
+      "previousRank": 17,
+      "rankChange": -1
     },
     {
       "ticker": "3631",
@@ -1233,9 +1303,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 18,
-      "previousRank": 20,
-      "rankChange": 2
+      "rank": 19,
+      "previousRank": 18,
+      "rankChange": -1
     },
     {
       "ticker": "4174",
@@ -1300,84 +1370,17 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 19,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
-      "ticker": "4563",
-      "name": "百德",
-      "exchange": "TPEx",
-      "price": 51.099998474121094,
-      "changePct": -2.9860643985735526e-06,
-      "volume": 940383.0,
-      "pe": null,
-      "priceAvg20": 56.00499992370605,
-      "priceAvg50": 50.37900001525879,
-      "priceAvg200": 47.013749771118164,
-      "volumeRatio": 1.6362111700574204,
-      "fpe": null,
-      "valuation": null,
-      "valuationSource": null,
-      "fpeSource": null,
-      "valuationConfidence": 0,
-      "forwardEps": null,
-      "forwardEpsSource": null,
-      "forwardEpsAnalysts": 0,
-      "forwardEpsLow": null,
-      "forwardEpsHigh": null,
-      "epsGrowthPct": null,
-      "analysts": 0,
-      "earningsDate": null,
-      "margin": null,
-      "roe": null,
-      "debt": null,
-      "quality": null,
-      "sector": "未分類",
-      "score": 45,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋15｜成交量放大"
-      ],
-      "profiles": [
-        "momentum"
-      ],
-      "qualityScore": 0,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 4.5143,
-      "atrPct": 8.83,
-      "support": 50.6,
-      "resistance": 67.5,
-      "entryLow": 49.6971,
-      "entryPrice": 50.9611,
-      "entryHigh": 51.9543,
-      "stopLoss": 45.544,
-      "takeProfit1": 67.5,
-      "takeProfit2": 72.9171,
-      "riskReward": 3.05,
-      "entryType": "回踩50日線",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
-  "coverage": 50,
-  "valuationCoverage": 50,
-  "fpeCoverage": 35,
+  "coverage": 55,
+  "valuationCoverage": 55,
+  "fpeCoverage": 40,
   "peCoverage": 15,
-  "epsGrowthCoverage": 45,
-  "directFpeCoverage": 30,
+  "epsGrowthCoverage": 50,
+  "directFpeCoverage": 35,
   "derivedFpeCoverage": 5,
   "valuationFallbackCoverage": 15,
   "universeCount": 159,
