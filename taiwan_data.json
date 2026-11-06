@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-06T13:49:49.325711+08:00",
+  "asOf": "2026-11-06T14:04:43.118464+08:00",
   "date": "2026-11-06",
   "snapshotDate": "2026-11-06",
   "dataMode": "INTRADAY",
@@ -9,16 +9,16 @@
       "ticker": "5013",
       "name": "強新",
       "exchange": "TPEx",
-      "price": 61.79999923706055,
-      "changePct": 4.215850315447808,
-      "volume": 11697821.0,
+      "price": 62.0,
+      "changePct": 4.553119730185502,
+      "volume": 11720141.0,
       "pe": null,
       "priceAvg20": 51.687499809265134,
       "priceAvg50": 40.57399971008301,
       "priceAvg200": 31.388999938964844,
-      "volumeRatio": 3.241418132434656,
+      "volumeRatio": 3.2476029127211676,
       "fpe": null,
-      "valuation": 30.097088,
+      "valuation": 28.440367,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -55,7 +55,7 @@
         "量能放大"
       ],
       "atr": 6.7214,
-      "atrPct": 10.88,
+      "atrPct": 10.84,
       "support": 51.6875,
       "resistance": 73.2,
       "entryLow": 50.3432,
@@ -71,6 +71,76 @@
       "rank": 1,
       "previousRank": 1,
       "rankChange": 0
+    },
+    {
+      "ticker": "3609",
+      "name": "三一東林",
+      "exchange": "TPEx",
+      "price": 29.100000381469727,
+      "changePct": 3.1914907144316573,
+      "volume": 615822.0,
+      "pe": null,
+      "priceAvg20": 25.622500133514404,
+      "priceAvg50": 22.80599998474121,
+      "priceAvg200": 27.249249982833863,
+      "volumeRatio": 3.4377114301217166,
+      "fpe": null,
+      "valuation": 4.490741,
+      "valuationSource": "PE",
+      "fpeSource": null,
+      "valuationConfidence": 50,
+      "forwardEps": null,
+      "forwardEpsSource": null,
+      "forwardEpsAnalysts": 0,
+      "forwardEpsLow": null,
+      "forwardEpsHigh": null,
+      "epsGrowthPct": null,
+      "analysts": 0,
+      "earningsDate": null,
+      "margin": 0.41422,
+      "roe": 0.75918996,
+      "debt": 62.064,
+      "quality": 0.75918996,
+      "sector": "電子零組件",
+      "score": 65,
+      "label": "觀察",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋20｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋5｜站上20日均線"
+      ],
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "qualityScore": 92,
+      "eventSignals": [
+        "突破20日高點",
+        "量能放大"
+      ],
+      "atr": 1.725,
+      "atrPct": 5.93,
+      "support": 27.2492,
+      "resistance": 32.55,
+      "entryLow": 28.9578,
+      "entryPrice": 29.2165,
+      "entryHigh": 29.734,
+      "stopLoss": 27.0603,
+      "takeProfit1": 32.55,
+      "takeProfit2": 35.6853,
+      "riskReward": 1.55,
+      "entryType": "突破",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "rank": 2,
+      "previousRank": 9,
+      "rankChange": 7
     },
     {
       "ticker": "2221",
@@ -135,9 +205,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 2,
-      "previousRank": 4,
-      "rankChange": 2
+      "rank": 3,
+      "previousRank": 2,
+      "rankChange": -1
     },
     {
       "ticker": "3306",
@@ -203,9 +273,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 3,
+      "rank": 4,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "4174",
@@ -270,9 +340,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "rank": 5,
+      "previousRank": 4,
+      "rankChange": -1
     },
     {
       "ticker": "1584",
@@ -341,9 +411,9 @@
       "entryType": "暫無訊號",
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "rank": 5,
-      "previousRank": null,
-      "rankChange": null
+      "rank": 6,
+      "previousRank": 5,
+      "rankChange": -1
     },
     {
       "ticker": "4741",
@@ -351,12 +421,12 @@
       "exchange": "TPEx",
       "price": 57.29999923706055,
       "changePct": 9.980804677659396,
-      "volume": 2285524.0,
+      "volume": 2287227.0,
       "pe": null,
       "priceAvg20": 47.86500015258789,
       "priceAvg50": 43.10899993896484,
       "priceAvg200": 43.87425000190735,
-      "volumeRatio": 2.3145381241085756,
+      "volumeRatio": 2.3152076738632417,
       "fpe": null,
       "valuation": null,
       "valuationSource": null,
@@ -410,9 +480,9 @@
       "entryType": "深度回調",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
-      "rank": 6,
-      "previousRank": 7,
-      "rankChange": 1
+      "rank": 7,
+      "previousRank": 6,
+      "rankChange": -1
     },
     {
       "ticker": "5202",
@@ -420,12 +490,12 @@
       "exchange": "TPEx",
       "price": 18.299999237060547,
       "changePct": 9.909905327690982,
-      "volume": 8062573.0,
+      "volume": 8066561.0,
       "pe": null,
       "priceAvg20": 15.074999904632568,
       "priceAvg50": 13.925999908447265,
       "priceAvg200": 13.883499956130981,
-      "volumeRatio": 2.2398280605480116,
+      "volumeRatio": 2.2409359493454795,
       "fpe": null,
       "valuation": null,
       "valuationSource": null,
@@ -480,9 +550,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "rank": 8,
+      "previousRank": 7,
+      "rankChange": -1
     },
     {
       "ticker": "3213",
@@ -549,78 +619,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 8,
-      "previousRank": null,
-      "rankChange": null
-    },
-    {
-      "ticker": "3609",
-      "name": "三一東林",
-      "exchange": "TPEx",
-      "price": 28.149999618530273,
-      "changePct": -0.1773063172685314,
-      "volume": 606822.0,
-      "pe": null,
-      "priceAvg20": 25.58750009536743,
-      "priceAvg50": 22.791999969482422,
-      "priceAvg200": 27.245749979019166,
-      "volumeRatio": 3.4364621579554355,
-      "fpe": null,
-      "valuation": 4.490741,
-      "valuationSource": "PE",
-      "fpeSource": null,
-      "valuationConfidence": 50,
-      "forwardEps": null,
-      "forwardEpsSource": null,
-      "forwardEpsAnalysts": 0,
-      "forwardEpsLow": null,
-      "forwardEpsHigh": null,
-      "epsGrowthPct": null,
-      "analysts": 0,
-      "earningsDate": null,
-      "margin": 0.41422,
-      "roe": 0.75918996,
-      "debt": 62.064,
-      "quality": 0.75918996,
-      "sector": "電子零組件",
-      "score": 50,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜站上20日均線"
-      ],
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "qualityScore": 92,
-      "eventSignals": [
-        "量能放大"
-      ],
-      "atr": 1.6786,
-      "atrPct": 5.96,
-      "support": 27.2457,
-      "resistance": 28.9,
-      "entryLow": 26.91,
-      "entryPrice": 27.3297,
-      "entryHigh": 27.6654,
-      "stopLoss": 25.1475,
-      "takeProfit1": 31.694,
-      "takeProfit2": 33.8761,
-      "riskReward": 2.0,
-      "entryType": "深度回調",
-      "entryStatus": "等待回踩",
-      "entryNote": "等待更深支撐區才評估。",
       "rank": 9,
-      "previousRank": 2,
-      "rankChange": -7
+      "previousRank": 8,
+      "rankChange": -1
     },
     {
       "ticker": "3691",
@@ -686,8 +687,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 10,
-      "previousRank": 14,
-      "rankChange": 4
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "3260",
@@ -757,8 +758,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 17,
-      "rankChange": 6
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "3287",
@@ -826,8 +827,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 12,
-      "previousRank": 9,
-      "rankChange": -3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "5230",
@@ -891,8 +892,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "4114",
@@ -961,8 +962,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 14,
-      "previousRank": 12,
-      "rankChange": -2
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "4105",
@@ -1028,8 +1029,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 15,
-      "previousRank": 6,
-      "rankChange": -9
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "3227",
@@ -1099,21 +1100,21 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 16,
-      "previousRank": 13,
-      "rankChange": -3
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "5009",
       "name": "榮剛",
       "exchange": "TPEx",
-      "price": 29.799999237060547,
-      "changePct": -0.9966802755463605,
-      "volume": 8493125.0,
+      "price": 29.75,
+      "changePct": -1.1627906976744233,
+      "volume": 8893263.0,
       "pe": null,
       "priceAvg20": 32.887500286102295,
       "priceAvg50": 32.8139998626709,
       "priceAvg200": 33.70499991416931,
-      "volumeRatio": 4.226375008453372,
+      "volumeRatio": 4.425492911831989,
       "fpe": 10.587189,
       "valuation": 10.587189,
       "valuationSource": "FPE",
@@ -1156,8 +1157,8 @@
         "量能放大"
       ],
       "atr": 0.8679,
-      "atrPct": 2.91,
-      "support": 28.9321,
+      "atrPct": 2.92,
+      "support": 28.8821,
       "resistance": 34.8,
       "entryLow": null,
       "entryPrice": null,
@@ -1170,21 +1171,21 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "4707",
       "name": "磐亞",
       "exchange": "TPEx",
-      "price": 25.399999618530273,
-      "changePct": 0.9940342685100393,
-      "volume": 2334789.0,
+      "price": 25.450000762939453,
+      "changePct": 1.192845975902404,
+      "volume": 2340138.0,
       "pe": null,
-      "priceAvg20": 29.342500019073487,
-      "priceAvg50": 29.614951248168946,
-      "priceAvg200": 21.186274070739746,
-      "volumeRatio": 1.1691339960159723,
+      "priceAvg20": 29.35000009536743,
+      "priceAvg50": 29.617951278686522,
+      "priceAvg200": 21.18702407836914,
+      "volumeRatio": 1.1702888387583608,
       "fpe": null,
       "valuation": null,
       "valuationSource": null,
@@ -1223,7 +1224,7 @@
         "跌破50日線"
       ],
       "atr": 1.6571,
-      "atrPct": 6.52,
+      "atrPct": 6.51,
       "support": 25.1,
       "resistance": 34.25,
       "entryLow": 24.7686,
@@ -1237,21 +1238,21 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "2643",
       "name": "捷迅",
       "exchange": "TPEx",
-      "price": 64.19999694824219,
-      "changePct": -1.23077392578125,
-      "volume": 339544.0,
+      "price": 64.4000015258789,
+      "changePct": -0.9230745755709134,
+      "volume": 341544.0,
       "pe": null,
       "priceAvg20": 63.08500022888184,
       "priceAvg50": 62.83200004577637,
       "priceAvg200": 66.05150035858155,
-      "volumeRatio": 5.826105980207534,
+      "volumeRatio": 5.8403806445820985,
       "fpe": null,
       "valuation": 9.006993,
       "valuationSource": "PE",
@@ -1290,7 +1291,7 @@
         "量能放大"
       ],
       "atr": 1.5214,
-      "atrPct": 2.37,
+      "atrPct": 2.36,
       "support": 63.085,
       "resistance": 71.0,
       "entryLow": null,
@@ -1304,8 +1305,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 19,
-      "previousRank": 15,
-      "rankChange": -4
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "3141",
@@ -1373,8 +1374,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 20,
-      "previousRank": 16,
-      "rankChange": -4
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 55,
