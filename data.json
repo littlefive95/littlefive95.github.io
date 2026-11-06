@@ -1,8 +1,8 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-05T23:49:38.280262-05:00",
-  "date": "2026-11-05",
-  "snapshotDate": "2026-11-05",
+  "asOf": "2026-11-06T00:04:40.440122-05:00",
+  "date": "2026-11-06",
+  "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
   "rows": [
     {
@@ -462,76 +462,13 @@
       "rankChange": 0
     },
     {
-      "ticker": "MDT",
-      "name": "Medtronic plc",
-      "exchange": "NYSE",
-      "sector": "醫療器材",
-      "price": 104.84,
-      "changePct": -0.114332,
-      "marketCap": 134104817664.0,
-      "volume": 11598770.0,
-      "averageVolume": 16564381.0,
-      "fpe": 16.365726,
-      "forwardEps": 6.40607,
-      "epsGrowthPct": 7.213304614004534,
-      "analysts": 26,
-      "priceAvg50": 92.47319976806641,
-      "priceAvg200": 88.22904987335205,
-      "roe": 0.106479995,
-      "margin": 0.13934,
-      "debt": 55.365,
-      "earningsDate": "2026-11-24",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 95.77099952697753,
-      "volumeRatio": 0.6180762787009643,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 2.5607,
-      "atrPct": 2.44,
-      "support": 95.771,
-      "resistance": 105.72,
-      "entryLow": 95.2589,
-      "entryPrice": 96.0271,
-      "entryHigh": 96.6673,
-      "stopLoss": 93.0822,
-      "takeProfit1": 105.72,
-      "takeProfit2": 108.6648,
-      "riskReward": 3.29,
-      "entryType": "回踩20日線",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 61,
-      "label": "觀察",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋16｜FPE合理"
-      ],
-      "eventSignals": [],
-      "qualityScore": 62,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 8,
-      "previousRank": 8,
-      "rankChange": 0
-    },
-    {
       "ticker": "WMT",
       "name": "Walmart Inc.",
       "exchange": "NasdaqGS",
       "sector": "必需消費",
       "price": 127.72,
       "changePct": -1.12255,
-      "marketCap": 1013298102272.0,
+      "marketCap": 1016405884928.0,
       "volume": 41735671.0,
       "averageVolume": 23487376.0,
       "fpe": 39.585304,
@@ -585,9 +522,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "JPM",
@@ -651,75 +588,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 9,
       "previousRank": 10,
-      "rankChange": 0
-    },
-    {
-      "ticker": "MRK",
-      "name": "Merck & Co., Inc.",
-      "exchange": "NYSE",
-      "sector": "製藥",
-      "price": 146.94,
-      "changePct": -2.27454,
-      "marketCap": 362526212096.0,
-      "volume": 11428734.0,
-      "averageVolume": 10290065.0,
-      "fpe": 16.322567,
-      "forwardEps": 9.00226,
-      "epsGrowthPct": 224.91040138016157,
-      "analysts": 26,
-      "priceAvg50": 146.41420013427734,
-      "priceAvg200": 127.4575500869751,
-      "roe": null,
-      "margin": 0.03641,
-      "debt": 128.408,
-      "earningsDate": "2026-10-29",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [
-        "EPS成長極端值，已排除成長加分"
-      ],
-      "priceAvg20": 145.77000122070314,
-      "volumeRatio": 1.0691596531347949,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 5.2136,
-      "atrPct": 3.55,
-      "support": 146.4142,
-      "resistance": 154.02,
-      "entryLow": 145.3715,
-      "entryPrice": 146.9356,
-      "entryHigh": 148.2389,
-      "stopLoss": 140.94,
-      "takeProfit1": 158.9268,
-      "takeProfit2": 164.9224,
-      "riskReward": 2.0,
-      "entryType": "回踩20日線",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 56,
-      "label": "觀察",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線；注意：EPS成長幅度極端，需核對估算基期",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜EPS成長幅度極端，需核對估算基期",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋16｜FPE合理",
-        "⚠｜EPS成長幅度極端，需核對估算基期",
-        "資料品質｜EPS成長極端值，已排除成長加分"
-      ],
-      "eventSignals": [],
-      "qualityScore": 30,
-      "profiles": [
-        "momentum",
-        "value"
-      ],
-      "rank": 11,
-      "previousRank": 11,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "APP",
@@ -728,7 +599,7 @@
       "sector": "通訊服務",
       "price": 356.1,
       "changePct": 31.0396,
-      "marketCap": 119169056768.0,
+      "marketCap": 119628062720.0,
       "volume": 22122914.0,
       "averageVolume": 5191757.0,
       "fpe": 17.79306,
@@ -789,9 +660,9 @@
         "value",
         "quality"
       ],
-      "rank": 12,
+      "rank": 10,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": 2
     },
     {
       "ticker": "PLTR",
@@ -857,9 +728,75 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 11,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": 2
+    },
+    {
+      "ticker": "SHOP",
+      "name": "Shopify Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "應用軟體",
+      "price": 143.75,
+      "changePct": -6.06417,
+      "marketCap": 184937529344.0,
+      "volume": 12124350.0,
+      "averageVolume": 9056145.0,
+      "fpe": 58.67994,
+      "forwardEps": 2.44973,
+      "epsGrowthPct": 29.50570945231552,
+      "analysts": 49,
+      "priceAvg50": 152.62359985351563,
+      "priceAvg200": 129.87869995117188,
+      "roe": 0.16833,
+      "margin": 0.15007,
+      "debt": 1.475,
+      "earningsDate": "2026-11-03",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 166.26149978637696,
+      "volumeRatio": 1.268134643896546,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 8.7982,
+      "atrPct": 6.12,
+      "support": 135.65,
+      "resistance": 180.88,
+      "entryLow": 133.8904,
+      "entryPrice": 136.3539,
+      "entryHigh": 138.2895,
+      "stopLoss": 125.796,
+      "takeProfit1": 180.88,
+      "takeProfit2": 191.4379,
+      "riskReward": 4.22,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "score": 52,
+      "label": "高風險觀察",
+      "risk": "高",
+      "reasons": [
+        "摘要｜站上200日均線、預估EPS高成長、短線轉弱；注意：短線轉弱",
+        "核心優勢｜站上200日均線、預估EPS高成長",
+        "主要風險｜短線轉弱",
+        "判斷｜目前量化優勢有限",
+        "＋25｜站上200日均線",
+        "−8｜短線轉弱",
+        "＋20｜預估EPS高成長",
+        "⚠｜短線轉弱",
+        "⚠｜FPE很高"
+      ],
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "qualityScore": 93,
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "rank": 12,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "WDC",
@@ -924,9 +861,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 13,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "NVDA",
@@ -991,9 +928,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
+      "rank": 14,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "QCOM",
@@ -1058,9 +995,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 15,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "XOM",
@@ -1122,9 +1059,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 16,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AVGO",
@@ -1189,9 +1126,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 17,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "TSM",
@@ -1256,9 +1193,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
+      "rank": 18,
       "previousRank": 19,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "LRCX",
@@ -1323,13 +1260,80 @@
         "value",
         "quality"
       ],
-      "rank": 20,
+      "rank": 19,
       "previousRank": 20,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "AMAT",
+      "name": "Applied Materials, Inc.",
+      "exchange": "NasdaqGS",
+      "sector": "半導體設備",
+      "price": 319.25,
+      "changePct": -13.5761,
+      "marketCap": 253355982848.0,
+      "volume": 16936369.0,
+      "averageVolume": 6933739.0,
+      "fpe": 17.20426,
+      "forwardEps": 18.55645,
+      "epsGrowthPct": 45.042633965384795,
+      "analysts": 37,
+      "priceAvg50": 447.83520141601565,
+      "priceAvg200": 445.2849998474121,
+      "roe": 0.41068,
+      "margin": 0.30052,
+      "debt": 28.666,
+      "earningsDate": "2026-11-12",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 409.54749908447263,
+      "volumeRatio": 2.0856158934851785,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 22.3221,
+      "atrPct": 6.99,
+      "support": 296.9279,
+      "resistance": 523.34,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "score": 43,
+      "label": "暫不優先",
+      "risk": "中",
+      "reasons": [
+        "摘要｜FPE合理、預估EPS高成長、短線轉弱；注意：短線轉弱",
+        "核心優勢｜FPE合理、預估EPS高成長",
+        "主要風險｜短線轉弱",
+        "判斷｜目前量化優勢有限",
+        "−8｜短線轉弱",
+        "＋16｜FPE合理",
+        "＋20｜預估EPS高成長",
+        "⚠｜短線轉弱"
+      ],
+      "eventSignals": [
+        "跌破50日線",
+        "跌破200日線",
+        "量能放大"
+      ],
+      "qualityScore": 100,
+      "profiles": [
+        "value",
+        "quality"
+      ],
+      "rank": 20,
+      "previousRank": null,
+      "rankChange": null
     }
   ],
   "coverage": 100,
-  "universeCount": 335,
+  "universeCount": 334,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1337,9 +1341,9 @@
   "sourceWarnings": [],
   "fpeFormula": "FMP analyst EPS estimate, fallback to validated Forward PE / price-to-forward-EPS",
   "fpeCoverage": 100,
-  "epsGrowthCoverage": 95,
+  "epsGrowthCoverage": 100,
   "analystCoverage": 100,
-  "dataQualityFlagCount": 2,
+  "dataQualityFlagCount": 1,
   "historicalDataCoverage": {
     "massive": 0,
     "yahooBackup": 50
