@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-06T14:04:43.118464+08:00",
+  "asOf": "2026-11-06T14:19:42.978899+08:00",
   "date": "2026-11-06",
   "snapshotDate": "2026-11-06",
   "dataMode": "INTRADAY",
@@ -139,8 +139,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 2,
-      "previousRank": 9,
-      "rankChange": 7
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "2221",
@@ -206,8 +206,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3306",
@@ -274,8 +274,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "4174",
@@ -341,8 +341,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "1584",
@@ -412,8 +412,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "4741",
@@ -481,8 +481,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "5202",
@@ -551,8 +551,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3213",
@@ -620,8 +620,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "3691",
