@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-06T20:05:06.535384-05:00",
+  "asOf": "2026-11-06T20:20:06.024784-05:00",
   "date": "2026-11-06",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -64,8 +64,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -127,8 +127,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 1,
-      "rankChange": -1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 9,
-      "rankChange": 6
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -205,9 +205,9 @@
       "marketCap": 736464797696.0,
       "volume": 45607871.0,
       "averageVolume": 22033403.0,
-      "fpe": 26.54911,
-      "forwardEps": 16.91356,
-      "epsGrowthPct": 109.66720632315426,
+      "fpe": 26.012634,
+      "forwardEps": 17.26238,
+      "epsGrowthPct": 113.99131756346334,
       "analysts": 48,
       "priceAvg50": 547.3663977050782,
       "priceAvg200": 415.0009497833252,
@@ -259,8 +259,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 12,
-      "rankChange": 8
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "SKHY",
@@ -324,8 +324,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 13,
-      "rankChange": 8
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -391,8 +391,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 8,
-      "rankChange": 2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -457,8 +457,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 14,
-      "rankChange": 7
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -520,8 +520,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 3,
-      "rankChange": -5
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -586,8 +586,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 17,
-      "rankChange": 8
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -652,8 +652,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 18,
-      "rankChange": 8
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -718,8 +718,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 19,
-      "rankChange": 8
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -781,8 +781,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 4,
-      "rankChange": -8
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -844,8 +844,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 5,
-      "rankChange": -8
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -906,8 +906,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 6,
-      "rankChange": -8
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -973,8 +973,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "ORCL",
@@ -1040,8 +1040,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -1050,7 +1050,7 @@
       "sector": "必需消費",
       "price": 125.52,
       "changePct": -1.72252,
-      "marketCap": 995843768320.0,
+      "marketCap": 998898073600.0,
       "volume": 24815423.0,
       "averageVolume": 23781632.0,
       "fpe": 38.90344,
@@ -1103,8 +1103,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 15,
-      "rankChange": -2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "LITE",
@@ -1168,8 +1168,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1234,8 +1234,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -1300,12 +1300,12 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 390,
+  "universeCount": 389,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
