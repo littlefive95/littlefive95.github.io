@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-07T16:50:34.450588-05:00",
+  "asOf": "2026-11-07T17:05:36.435583-05:00",
   "date": "2026-11-07",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -450,8 +450,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -517,8 +517,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -583,8 +583,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -649,8 +649,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -715,8 +715,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -778,8 +778,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 13,
-      "rankChange": 1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -840,8 +840,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "MU",
@@ -906,8 +906,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "ORCL",
@@ -973,8 +973,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 16,
-      "rankChange": 1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -989,7 +989,7 @@
       "fpe": 13.504721,
       "forwardEps": 12.24831,
       "epsGrowthPct": 23.525407387536013,
-      "analysts": 29,
+      "analysts": 28,
       "priceAvg50": 178.10539978027344,
       "priceAvg200": 169.68540000915527,
       "roe": 0.52814996,
@@ -1038,8 +1038,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 7,
-      "rankChange": -9
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -1048,7 +1048,7 @@
       "sector": "必需消費",
       "price": 125.52,
       "changePct": -1.72252,
-      "marketCap": 998898073600.0,
+      "marketCap": 995843768320.0,
       "volume": 24815423.0,
       "averageVolume": 23876045.0,
       "fpe": 38.90344,
@@ -1303,7 +1303,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 389,
+  "universeCount": 388,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
