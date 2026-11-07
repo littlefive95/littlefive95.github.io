@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-07T18:20:19.752007+08:00",
+  "asOf": "2026-11-07T18:35:26.316466+08:00",
   "date": "2026-11-07",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -1376,8 +1376,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 60,
