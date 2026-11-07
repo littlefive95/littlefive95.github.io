@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-07T04:50:18.725594-05:00",
+  "asOf": "2026-11-07T05:05:20.181453-05:00",
   "date": "2026-11-07",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -23,7 +23,7 @@
       "priceAvg200": 344.675100402832,
       "roe": 0.63507,
       "margin": 0.51203996,
-      "debt": 61.12,
+      "debt": 63.568,
       "earningsDate": "2027-01-26",
       "quoteSource": "YAHOO",
       "fundamentalSource": "YAHOO_BACKUP",
