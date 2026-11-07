@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-07T06:50:21.359703-05:00",
+  "asOf": "2026-11-07T07:05:19.445396-05:00",
   "date": "2026-11-07",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -1460,7 +1460,7 @@
       "stopLoss": null,
       "takeProfit1": null,
       "fpe": 17.144897,
-      "epsGrowthPct": 19.053608806819433,
+      "epsGrowthPct": 19.71010173450538,
       "volumeRatio": 0.6222361888176848,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
