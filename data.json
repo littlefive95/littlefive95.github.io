@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-08T01:50:57.123928-05:00",
+  "asOf": "2026-11-08T02:05:53.908035-05:00",
   "date": "2026-11-08",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -1048,7 +1048,7 @@
       "sector": "必需消費",
       "price": 125.52,
       "changePct": -1.72252,
-      "marketCap": 998898073600.0,
+      "marketCap": 995843768320.0,
       "volume": 24815423.0,
       "averageVolume": 23876045.0,
       "fpe": 38.90344,
@@ -1303,7 +1303,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 394,
+  "universeCount": 395,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
