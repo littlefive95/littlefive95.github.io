@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-07T22:50:46.388209-05:00",
+  "asOf": "2026-11-07T23:05:40.819092-05:00",
   "date": "2026-11-07",
   "snapshotDate": "2026-11-06",
   "dataMode": "LATEST_CLOSE",
@@ -391,6 +391,71 @@
       "rankChange": 0
     },
     {
+      "ticker": "QCOM",
+      "name": "QUALCOMM Incorporated",
+      "exchange": "NasdaqGS",
+      "sector": "半導體",
+      "price": 165.41,
+      "changePct": 5.52472,
+      "marketCap": 176988700672.0,
+      "volume": 19671665.0,
+      "averageVolume": 12365607.0,
+      "fpe": 13.504721,
+      "forwardEps": 12.24831,
+      "epsGrowthPct": 27.56676307531436,
+      "analysts": 28,
+      "priceAvg50": 178.10539978027344,
+      "priceAvg200": 169.68540000915527,
+      "roe": 0.52814996,
+      "margin": 0.31605,
+      "debt": 52.604,
+      "earningsDate": "2027-02-03",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 173.45800018310547,
+      "volumeRatio": 1.4577926204290823,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 9.0964,
+      "atrPct": 5.5,
+      "support": 148.25,
+      "resistance": 185.59,
+      "entryLow": null,
+      "entryPrice": null,
+      "entryHigh": null,
+      "stopLoss": null,
+      "takeProfit1": null,
+      "takeProfit2": null,
+      "riskReward": null,
+      "entryType": "暫無訊號",
+      "entryStatus": "等待",
+      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
+      "score": 70,
+      "label": "值得研究",
+      "risk": "低",
+      "reasons": [
+        "摘要｜短線動能健康、FPE偏低",
+        "核心優勢｜短線動能健康、FPE偏低",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋15｜短線動能健康",
+        "＋20｜FPE偏低",
+        "＋20｜預估EPS高成長"
+      ],
+      "eventSignals": [
+        "跌破50日線"
+      ],
+      "qualityScore": 92,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 7,
+      "previousRank": 16,
+      "rankChange": 9
+    },
+    {
       "ticker": "TXN",
       "name": "Texas Instruments Incorporated",
       "exchange": "NasdaqGS",
@@ -449,9 +514,9 @@
         "value",
         "quality"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMD",
@@ -516,9 +581,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 8,
+      "rank": 9,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AVGO",
@@ -582,9 +647,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMAT",
@@ -648,9 +713,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MRVL",
@@ -714,9 +779,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AAPL",
@@ -777,9 +842,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "KO",
@@ -839,9 +904,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MU",
@@ -905,9 +970,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "ORCL",
@@ -972,74 +1037,9 @@
         "value",
         "quality"
       ],
-      "rank": 15,
-      "previousRank": 15,
-      "rankChange": 0
-    },
-    {
-      "ticker": "QCOM",
-      "name": "QUALCOMM Incorporated",
-      "exchange": "NasdaqGS",
-      "sector": "半導體",
-      "price": 165.41,
-      "changePct": 5.52472,
-      "marketCap": 176988700672.0,
-      "volume": 19671665.0,
-      "averageVolume": 12365607.0,
-      "fpe": 13.504721,
-      "forwardEps": 12.24831,
-      "epsGrowthPct": 23.525407387536013,
-      "analysts": 28,
-      "priceAvg50": 178.10539978027344,
-      "priceAvg200": 169.68540000915527,
-      "roe": 0.52814996,
-      "margin": 0.31605,
-      "debt": 52.604,
-      "earningsDate": "2027-02-03",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 173.45800018310547,
-      "volumeRatio": 1.4577926204290823,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 9.0964,
-      "atrPct": 5.5,
-      "support": 148.25,
-      "resistance": 185.59,
-      "entryLow": null,
-      "entryPrice": null,
-      "entryHigh": null,
-      "stopLoss": null,
-      "takeProfit1": null,
-      "takeProfit2": null,
-      "riskReward": null,
-      "entryType": "暫無訊號",
-      "entryStatus": "等待",
-      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "score": 62,
-      "label": "觀察",
-      "risk": "低",
-      "reasons": [
-        "摘要｜短線動能健康、FPE偏低",
-        "核心優勢｜短線動能健康、FPE偏低",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋15｜短線動能健康",
-        "＋20｜FPE偏低",
-        "＋12｜預估EPS成長"
-      ],
-      "eventSignals": [
-        "跌破50日線"
-      ],
-      "qualityScore": 92,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 16,
-      "previousRank": 16,
-      "rankChange": 0
+      "previousRank": 15,
+      "rankChange": -1
     },
     {
       "ticker": "WMT",
