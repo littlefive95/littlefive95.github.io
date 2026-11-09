@@ -1,21 +1,21 @@
 {
-  "asOf": "2026-11-06T13:50:43.798472+08:00",
+  "asOf": "2026-11-09T13:53:13.017165+08:00",
   "source": "Yahoo Finance historical daily bars",
-  "records": 9,
+  "records": 10,
   "method": "台股每日收盤後 TOP20 名單；以後續收盤價計算 5／20 個交易日報酬，停損率依未來日線低點判斷；非成交模擬，不含手續費與滑價。",
   "results": {
     "1d": {
       "actionableEntrySignals": {
-        "samples": 25,
-        "averageReturnPct": -2.2348,
-        "positiveRatePct": 28.0
+        "samples": 28,
+        "averageReturnPct": -1.8778,
+        "positiveRatePct": 32.14
       }
     },
     "5d": {
       "actionableEntrySignals": {
-        "samples": 15,
-        "averageReturnPct": -9.3345,
-        "positiveRatePct": 26.67
+        "samples": 20,
+        "averageReturnPct": -8.0844,
+        "positiveRatePct": 25.0
       }
     },
     "20d": {
