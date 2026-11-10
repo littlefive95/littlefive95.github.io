@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-11T07:07:27.883480+08:00",
+  "asOf": "2026-11-11T07:22:30.295818+08:00",
   "date": "2026-11-11",
   "snapshotDate": "2026-11-10",
   "dataMode": "LATEST_CLOSE",
@@ -229,7 +229,7 @@
       "priceAvg200": 63.04025001525879,
       "volumeRatio": 2.64475178442586,
       "fpe": null,
-      "valuation": 50.49834,
+      "valuation": 46.060608,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -778,7 +778,7 @@
       "priceAvg200": 46.49799999237061,
       "volumeRatio": 1.7400071452286552,
       "fpe": null,
-      "valuation": 101.00001,
+      "valuation": 98.804344,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -918,7 +918,7 @@
       "priceAvg200": 65.34975006103515,
       "volumeRatio": 3.5893890748377895,
       "fpe": null,
-      "valuation": 28.754324,
+      "valuation": 26.893204,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -988,7 +988,7 @@
       "priceAvg200": 12.216299977302551,
       "volumeRatio": 1.436580531433863,
       "fpe": null,
-      "valuation": 24.1875,
+      "valuation": 23.59756,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -1018,7 +1018,8 @@
         "＋5｜站上20日均線"
       ],
       "profiles": [
-        "momentum"
+        "momentum",
+        "value"
       ],
       "qualityScore": 52,
       "eventSignals": [],
@@ -1053,7 +1054,7 @@
       "priceAvg200": 31.76749990463257,
       "volumeRatio": 2.3701688870913795,
       "fpe": null,
-      "valuation": 31.226416,
+      "valuation": 30.36697,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
