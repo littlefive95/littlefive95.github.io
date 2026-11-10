@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-09T20:06:41.296083-05:00",
+  "asOf": "2026-11-09T20:21:53.830254-05:00",
   "date": "2026-11-09",
   "snapshotDate": "2026-11-09",
   "dataMode": "LATEST_CLOSE",
@@ -67,8 +67,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 2,
-      "rankChange": 1
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -130,8 +130,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 9,
-      "rankChange": 7
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -255,8 +255,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -320,8 +320,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 6,
-      "rankChange": 1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -383,8 +383,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 13,
-      "rankChange": 7
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -449,8 +449,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 1,
-      "rankChange": -6
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -514,8 +514,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "DELL",
@@ -579,8 +579,8 @@
         "value"
       ],
       "rank": 9,
-      "previousRank": 5,
-      "rankChange": -4
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -644,8 +644,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -706,8 +706,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 14,
-      "rankChange": 3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "SKHY",
@@ -771,8 +771,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -838,8 +838,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 8,
-      "rankChange": -5
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -901,8 +901,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 15,
-      "rankChange": 1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -967,8 +967,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 18,
-      "rankChange": 3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1034,8 +1034,8 @@
         "momentum"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "ORCL",
@@ -1101,8 +1101,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "SNDK",
@@ -1168,8 +1168,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -1236,8 +1236,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -1301,8 +1301,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
