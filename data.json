@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-09T20:51:44.313846-05:00",
+  "asOf": "2026-11-09T21:06:42.282530-05:00",
   "date": "2026-11-09",
   "snapshotDate": "2026-11-09",
   "dataMode": "LATEST_CLOSE",
@@ -848,7 +848,7 @@
       "sector": "必需消費",
       "price": 125.66,
       "changePct": 0.111542,
-      "marketCap": 996954603520.0,
+      "marketCap": 1000012251136.0,
       "volume": 23806260.0,
       "averageVolume": 23876045.0,
       "fpe": 38.94683,
