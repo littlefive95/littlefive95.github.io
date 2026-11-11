@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-10T20:52:24.899339-05:00",
+  "asOf": "2026-11-10T21:07:30.326188-05:00",
   "date": "2026-11-10",
   "snapshotDate": "2026-11-10",
   "dataMode": "LATEST_CLOSE",
@@ -905,7 +905,7 @@
       "changePct": -0.22458,
       "marketCap": 406771400704.0,
       "volume": 19535617.0,
-      "averageVolume": 26921779.0,
+      "averageVolume": 26922640.0,
       "fpe": 66.49677,
       "forwardEps": 2.53877,
       "epsGrowthPct": 49.19460523609436,
