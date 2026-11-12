@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-12T21:38:27.883402+08:00",
+  "asOf": "2026-11-12T21:53:15.624491+08:00",
   "date": "2026-11-12",
   "snapshotDate": "2026-11-12",
   "dataMode": "INTRADAY",
@@ -1381,7 +1381,7 @@
   "directFpeCoverage": 40,
   "derivedFpeCoverage": 0,
   "valuationFallbackCoverage": 40,
-  "universeCount": 159,
+  "universeCount": 158,
   "focusCount": 20,
   "method": "TWSE/TPEx official snapshots supplemented by Yahoo Finance screener + Yahoo Finance technical/valuation data",
   "sourceMode": "MIXED",
