@@ -1,49 +1,49 @@
 {
-  "asOf": "2026-11-12T00:08:12.319228-05:00",
+  "asOf": "2026-11-13T00:08:40.658068-05:00",
   "source": "Yahoo historical daily bars used for forward outcome measurement",
-  "records": 21,
+  "records": 22,
   "method": "Daily TOP20 signal cohorts; close-to-close forward returns; not a simulated fill engine and excludes fees/slippage.",
   "results": {
     "1d": {
       "allTop20": {
-        "samples": 380,
-        "averageReturnPct": -0.4553,
-        "positiveRatePct": 48.16
+        "samples": 400,
+        "averageReturnPct": -0.4165,
+        "positiveRatePct": 48.25
       },
       "actionableEntrySignals": {
-        "samples": 33,
-        "averageReturnPct": -0.4481,
-        "positiveRatePct": 51.52
+        "samples": 34,
+        "averageReturnPct": -0.4254,
+        "positiveRatePct": 52.94
       }
     },
     "5d": {
       "allTop20": {
-        "samples": 300,
-        "averageReturnPct": -3.9511,
-        "positiveRatePct": 40.67
+        "samples": 320,
+        "averageReturnPct": -3.3253,
+        "positiveRatePct": 43.12
       },
       "actionableEntrySignals": {
-        "samples": 29,
-        "averageReturnPct": -5.6421,
-        "positiveRatePct": 24.14
+        "samples": 30,
+        "averageReturnPct": -5.4355,
+        "positiveRatePct": 26.67
       }
     },
     "20d": {
       "allTop20": {
-        "samples": 0,
-        "averageReturnPct": null,
-        "positiveRatePct": null
+        "samples": 20,
+        "averageReturnPct": -11.0238,
+        "positiveRatePct": 20.0
       },
       "actionableEntrySignals": {
-        "samples": 0,
-        "averageReturnPct": null,
-        "positiveRatePct": null
+        "samples": 4,
+        "averageReturnPct": -9.8029,
+        "positiveRatePct": 25.0
       }
     },
     "entrySignals20d": {
-      "samples": 0,
-      "stopHitRatePct": null,
-      "targetHitRatePct": null
+      "samples": 4,
+      "stopHitRatePct": 100.0,
+      "targetHitRatePct": 25.0
     }
   }
 }
