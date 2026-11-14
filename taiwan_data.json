@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-14T07:54:45.081262+08:00",
+  "asOf": "2026-11-14T08:09:37.093375+08:00",
   "date": "2026-11-14",
   "snapshotDate": "2026-11-13",
   "dataMode": "LATEST_CLOSE",
@@ -345,78 +345,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "3374",
-      "name": "精材",
-      "exchange": "TPEx",
-      "price": 519.0,
-      "changePct": 9.957627118644067,
-      "volume": 26879736.0,
-      "pe": null,
-      "priceAvg20": 452.4,
-      "priceAvg50": 455.83,
-      "priceAvg200": 294.555,
-      "volumeRatio": 1.9928741962861645,
-      "fpe": 53.922077,
-      "valuation": 53.922077,
-      "valuationSource": "FPE",
-      "fpeSource": "YAHOO_FORWARD_PE",
-      "valuationConfidence": 100,
-      "forwardEps": 9.625,
-      "forwardEpsSource": "YAHOO_INFO",
-      "forwardEpsAnalysts": 2,
-      "forwardEpsLow": 7.88,
-      "forwardEpsHigh": 11.37,
-      "epsGrowthPct": 40.9,
-      "analysts": 2,
-      "earningsDate": "2025-08-07",
-      "margin": 0.21475,
-      "roe": 0.19309,
-      "debt": 27.347,
-      "quality": 0.19309,
-      "sector": "半導體",
-      "score": 69,
-      "label": "值得研究",
-      "risk": "高",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線；注意：單日漲幅偏大",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜單日漲幅偏大",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋20｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜站上20日均線",
-        "⚠｜單日漲幅偏大",
-        "⚠｜估值很高"
-      ],
-      "profiles": [
-        "momentum",
-        "quality"
-      ],
-      "qualityScore": 93,
-      "eventSignals": [
-        "突破20日高點",
-        "量能放大",
-        "高波動"
-      ],
-      "atr": 44.0714,
-      "atrPct": 8.49,
-      "support": 455.83,
-      "resistance": 530.0,
-      "entryLow": 514.026,
-      "entryPrice": 520.6367,
-      "entryHigh": 533.8581,
-      "stopLoss": 465.5474,
-      "takeProfit1": 630.8153,
-      "takeProfit2": 685.9046,
-      "riskReward": 2.0,
-      "entryType": "突破",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "rank": 6,
-      "previousRank": 6,
-      "rankChange": 0
-    },
-    {
       "ticker": "3713",
       "name": "新晶投控",
       "exchange": "TPEx",
@@ -480,9 +408,9 @@
       "entryType": "突破",
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "rank": 7,
+      "rank": 6,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3441",
@@ -548,9 +476,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "2061",
@@ -615,9 +543,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5202",
@@ -682,9 +610,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 10,
+      "rank": 9,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "4577",
@@ -750,9 +678,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 11,
+      "rank": 10,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5209",
@@ -819,9 +747,9 @@
       "entryType": "回踩20日線",
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "rank": 12,
+      "rank": 11,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "3324",
@@ -889,9 +817,9 @@
       "entryType": "支撐回踩",
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
-      "rank": 13,
+      "rank": 12,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "5206",
@@ -959,9 +887,81 @@
       "entryType": "突破",
       "entryStatus": "價格偏高／不追",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
-      "rank": 14,
+      "rank": 13,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "3374",
+      "name": "精材",
+      "exchange": "TPEx",
+      "price": 519.0,
+      "changePct": 9.957627118644067,
+      "volume": 26879736.0,
+      "pe": null,
+      "priceAvg20": 452.4,
+      "priceAvg50": 455.83,
+      "priceAvg200": 294.555,
+      "volumeRatio": 1.9928741962861645,
+      "fpe": 53.922077,
+      "valuation": 53.922077,
+      "valuationSource": "FPE",
+      "fpeSource": "YAHOO_FORWARD_PE",
+      "valuationConfidence": 100,
+      "forwardEps": 9.625,
+      "forwardEpsSource": "YAHOO_INFO",
+      "forwardEpsAnalysts": 2,
+      "forwardEpsLow": 7.88,
+      "forwardEpsHigh": 11.37,
+      "epsGrowthPct": 5.123,
+      "analysts": 2,
+      "earningsDate": "2025-08-07",
+      "margin": 0.20924999,
+      "roe": 0.18494,
+      "debt": 41.548,
+      "quality": 0.18494,
+      "sector": "半導體",
+      "score": 58,
+      "label": "觀察",
+      "risk": "高",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線；注意：單日漲幅偏大",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜單日漲幅偏大",
+        "判斷｜目前量化優勢有限",
+        "＋20｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋5｜站上20日均線",
+        "⚠｜單日漲幅偏大",
+        "⚠｜估值很高"
+      ],
+      "profiles": [
+        "momentum",
+        "quality"
+      ],
+      "qualityScore": 93,
+      "eventSignals": [
+        "突破20日高點",
+        "量能放大",
+        "高波動"
+      ],
+      "atr": 44.0714,
+      "atrPct": 8.49,
+      "support": 455.83,
+      "resistance": 530.0,
+      "entryLow": 514.026,
+      "entryPrice": 520.6367,
+      "entryHigh": 533.8581,
+      "stopLoss": 465.5474,
+      "takeProfit1": 630.8153,
+      "takeProfit2": 685.9046,
+      "riskReward": 2.0,
+      "entryType": "突破",
+      "entryStatus": "可考慮進場區",
+      "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
+      "rank": 14,
+      "previousRank": 6,
+      "rankChange": -8
     },
     {
       "ticker": "4147",
