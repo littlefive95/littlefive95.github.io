@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-17T05:41:24.265058+08:00",
+  "asOf": "2026-11-17T05:56:19.057503+08:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -71,8 +71,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 1,
-      "previousRank": 3,
-      "rankChange": 2
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "2221",
@@ -206,8 +206,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3147",
@@ -274,8 +274,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 4,
-      "previousRank": 1,
-      "rankChange": -3
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "3293",
@@ -342,8 +342,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 5,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "3285",
@@ -412,8 +412,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "5206",
@@ -482,8 +482,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "5202",
@@ -549,8 +549,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3379",
@@ -617,8 +617,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "5263",
@@ -686,8 +686,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 10,
-      "previousRank": 8,
-      "rankChange": -2
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "5410",
@@ -755,8 +755,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 17,
-      "rankChange": 6
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "3105",
@@ -825,8 +825,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "3570",
@@ -895,8 +895,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待更深支撐區才評估。",
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "3374",
@@ -965,8 +965,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "4953",
@@ -1034,8 +1034,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 15,
-      "previousRank": 9,
-      "rankChange": -6
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "009814",
@@ -1101,8 +1101,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 16,
-      "previousRank": 14,
-      "rankChange": -2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "5457",
@@ -1171,8 +1171,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "4147",
