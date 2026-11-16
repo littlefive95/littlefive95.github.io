@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T00:12:34.016292+08:00",
+  "updatedAt": "2026-11-17T00:23:32.119448+08:00",
   "records": [
     {
       "date": "2026-10-27",
@@ -25,9 +25,12 @@
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
             "1": -4.5322,
-            "5": -9.9903
+            "5": -9.9903,
+            "20": -42.6413
           },
-          "referencePrice": 0.2052
+          "referencePrice": 0.2052,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "XRP",
@@ -67,9 +70,12 @@
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
             "1": 1.0028,
-            "5": -3.983
+            "5": -3.983,
+            "20": -20.4513
           },
-          "referencePrice": 741.91
+          "referencePrice": 741.91,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "BTC",
@@ -147,9 +153,12 @@
           "signalTime": "2026-10-27T21:58:39.568572+08:00",
           "returnsPct": {
             "1": 1.1165,
-            "5": -1.2369
+            "5": -1.2369,
+            "20": -21.0158
           },
-          "referencePrice": 0.9136
+          "referencePrice": 0.9136,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "UNI",
@@ -329,9 +338,12 @@
           "signalTime": "2026-10-28T00:21:00.717443+08:00",
           "returnsPct": {
             "1": -0.3524,
-            "5": -5.2713
+            "5": -5.2713,
+            "20": -21.5186
           },
-          "referencePrice": 752.0
+          "referencePrice": 752.0,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "ENA",
@@ -5125,7 +5137,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-11-12T00:24:05.791056+08:00",
           "returnsPct": {
-            "1": -12.6
+            "1": -12.6,
+            "5": -22.8
           },
           "referencePrice": 5e-06
         },
@@ -5185,7 +5198,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-11-12T00:24:05.791056+08:00",
           "returnsPct": {
-            "1": -3.8479
+            "1": -3.8479,
+            "5": -12.1031
           },
           "referencePrice": 1006.52
         },
@@ -6858,6 +6872,336 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "signalTime": "2026-11-16T00:26:33.646407+08:00",
+          "returnsPct": {}
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "asOf": "2026-11-17T00:22:42.177526+08:00",
+      "sourceMode": null,
+      "signals": [
+        {
+          "ticker": "RARE",
+          "name": "RARE",
+          "historySymbol": "RAREUSDT",
+          "score": 83,
+          "label": "優先研究",
+          "risk": "高",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 0.01441,
+          "entryLow": 0.0134,
+          "entryPrice": 0.0139,
+          "entryHigh": 0.0143,
+          "stopLoss": 0.012,
+          "takeProfit1": 0.0239,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "NEAR",
+          "name": "NEAR Protocol",
+          "historySymbol": "NEARUSDT",
+          "score": 56,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 3.157,
+          "entryLow": 2.8067,
+          "entryPrice": 2.8953,
+          "entryHigh": 2.9649,
+          "stopLoss": 2.5158,
+          "takeProfit1": 4.81,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "UNI",
+          "name": "Uniswap",
+          "historySymbol": "UNIUSDT",
+          "score": 48,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 5.152,
+          "entryLow": 4.8526,
+          "entryPrice": 5.02,
+          "entryHigh": 5.1515,
+          "stopLoss": 4.3028,
+          "takeProfit1": 7.82,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "ASTER",
+          "name": "Aster",
+          "historySymbol": "ASTERUSDT",
+          "score": 43,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 0.5654,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "ZEC",
+          "name": "Zcash",
+          "historySymbol": "ZECUSDT",
+          "score": 42,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 884.14,
+          "entryLow": 777.1473,
+          "entryPrice": 811.2691,
+          "entryHigh": 838.0791,
+          "stopLoss": 665.0328,
+          "takeProfit1": 1398.14,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "ETH",
+          "name": "Ethereum",
+          "historySymbol": "ETHUSDT",
+          "score": 39,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 1827.75,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "PEPE",
+          "name": "Pepe",
+          "historySymbol": "PEPEUSDT",
+          "score": 38,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 3.84e-06,
+          "entryLow": 0.0,
+          "entryPrice": 0.0,
+          "entryHigh": 0.0,
+          "stopLoss": 0.0,
+          "takeProfit1": 0.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "DOGE",
+          "name": "Dogecoin",
+          "historySymbol": "DOGEUSDT",
+          "score": 35,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 0.05917,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "BTC",
+          "name": "Bitcoin",
+          "historySymbol": "BTCUSDT",
+          "score": 29,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 64680.13,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "XRP",
+          "name": "XRP",
+          "historySymbol": "XRPUSDT",
+          "score": 27,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 0.9556,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "NVDAB",
+          "name": "NVIDIA Tokenized bStocks",
+          "historySymbol": "NVDABUSDT",
+          "score": 27,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 159.76,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "HYPE",
+          "name": "Hyperliquid",
+          "historySymbol": "HYPEUSDT",
+          "score": 24,
+          "label": "偏弱",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 66.59,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "MUB",
+          "name": "MUB",
+          "historySymbol": "MUBUSDT",
+          "score": 24,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 737.52,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "SPCXB",
+          "name": "SpaceX Tokenized bStocks",
+          "historySymbol": "SPCXBUSDT",
+          "score": 23,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 137.01,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "SOL",
+          "name": "Solana",
+          "historySymbol": "SOLUSDT",
+          "score": 21,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 70.94,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "SOXLB",
+          "name": "SOXLB",
+          "historySymbol": "SOXLBUSDT",
+          "score": 17,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 51.63,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "BNB",
+          "name": "BNB",
+          "historySymbol": "BNBUSDT",
+          "score": 14,
+          "label": "偏弱",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 589.62,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-17T00:22:42.177526+08:00",
           "returnsPct": {}
         }
       ]
