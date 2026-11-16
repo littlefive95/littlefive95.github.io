@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-17T01:26:06.967555+08:00",
+  "asOf": "2026-11-17T01:41:06.457752+08:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -901,8 +901,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 13,
-      "previousRank": 14,
-      "rankChange": 1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "009814",
@@ -968,8 +968,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "5209",
