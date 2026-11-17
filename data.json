@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-16T21:56:22.532221-05:00",
+  "asOf": "2026-11-16T22:11:38.627247-05:00",
   "date": "2026-11-16",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -209,7 +209,7 @@
       "averageVolume": 16486381.0,
       "fpe": 28.18969,
       "forwardEps": 3.52895,
-      "epsGrowthPct": 5.645166118824796,
+      "epsGrowthPct": 5.633149343263222,
       "analysts": 23,
       "priceAvg50": 91.04820022583007,
       "priceAvg200": 83.47455001831055,
@@ -334,7 +334,7 @@
       "averageVolume": 23979296.0,
       "fpe": 39.797436,
       "forwardEps": 3.22659,
-      "epsGrowthPct": 11.823541032012553,
+      "epsGrowthPct": 11.843309346532994,
       "analysts": 40,
       "priceAvg50": 114.96300064086914,
       "priceAvg200": 118.98039970397949,
@@ -570,8 +570,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -634,8 +634,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -700,8 +700,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "NKE",
@@ -764,8 +764,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -1106,7 +1106,7 @@
       "averageVolume": 13657870.0,
       "fpe": 13.198995,
       "forwardEps": 12.64263,
-      "epsGrowthPct": -7.639354106746399,
+      "epsGrowthPct": -7.653521474489833,
       "analysts": 22,
       "priceAvg50": 169.5266000366211,
       "priceAvg200": 156.48829986572267,
