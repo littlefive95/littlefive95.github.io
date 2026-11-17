@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-17T02:56:28.733670-05:00",
+  "asOf": "2026-11-17T03:11:31.848227-05:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -571,8 +571,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "JNJ",
@@ -633,8 +633,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -697,8 +697,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -763,8 +763,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
