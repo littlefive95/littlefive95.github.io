@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-18T05:56:59.729435+08:00",
+  "asOf": "2026-11-18T06:11:57.212119+08:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -578,7 +578,7 @@
       "forwardEpsAnalysts": 0,
       "forwardEpsLow": null,
       "forwardEpsHigh": null,
-      "epsGrowthPct": 465.21739130434787,
+      "epsGrowthPct": 457.1428571428572,
       "analysts": 0,
       "earningsDate": "2025-08-13",
       "margin": 0.0061299996,
@@ -640,7 +640,7 @@
       "priceAvg200": 23.73212203025818,
       "volumeRatio": 1.7750349182447367,
       "fpe": null,
-      "valuation": 4.2023025,
+      "valuation": 4.1748366,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -920,7 +920,7 @@
       "priceAvg200": 32.61424987792969,
       "volumeRatio": 1.1853682443053013,
       "fpe": null,
-      "valuation": 21.075949,
+      "valuation": 30.550457,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -951,8 +951,7 @@
         "⚠｜單日漲幅偏大"
       ],
       "profiles": [
-        "momentum",
-        "value"
+        "momentum"
       ],
       "qualityScore": 52,
       "eventSignals": [
@@ -1203,7 +1202,7 @@
       "forwardEpsHigh": 53.33913,
       "epsGrowthPct": 31.3,
       "analysts": 7,
-      "earningsDate": null,
+      "earningsDate": "2025-07-22",
       "margin": 0.53451,
       "roe": 0.65318,
       "debt": 0.261,
