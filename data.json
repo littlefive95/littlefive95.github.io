@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-16T23:11:36.143831-05:00",
+  "asOf": "2026-11-16T23:26:23.539801-05:00",
   "date": "2026-11-16",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -570,8 +570,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -634,8 +634,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -700,8 +700,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "NKE",
@@ -764,8 +764,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -1234,9 +1234,9 @@
       "marketCap": 356129406976.0,
       "volume": 8604372.0,
       "averageVolume": 10263632.0,
-      "fpe": 16.085123,
-      "forwardEps": 8.98097,
-      "epsGrowthPct": 222.08904907920456,
+      "fpe": 16.11455,
+      "forwardEps": 8.96457,
+      "epsGrowthPct": 221.50088762171177,
       "analysts": 26,
       "priceAvg50": 146.01559997558593,
       "priceAvg200": 128.81605003356933,
