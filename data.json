@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-16T20:11:26.473734-05:00",
+  "asOf": "2026-11-16T20:26:21.153485-05:00",
   "date": "2026-11-16",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -67,8 +67,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 5,
-      "rankChange": 4
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -132,8 +132,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 12,
-      "rankChange": 10
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "V",
@@ -194,8 +194,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -258,8 +258,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 9,
-      "rankChange": 5
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 3,
-      "rankChange": -2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 10,
-      "rankChange": 4
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -447,8 +447,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 4,
-      "rankChange": -3
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -510,8 +510,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 6,
-      "rankChange": -2
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "JPM",
@@ -573,8 +573,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 11,
-      "rankChange": 2
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "JNJ",
@@ -635,8 +635,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 8,
-      "rankChange": -2
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -699,8 +699,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 1,
-      "rankChange": -10
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -763,8 +763,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 7,
-      "rankChange": -5
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -892,8 +892,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -1024,8 +1024,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -1091,8 +1091,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 19,
-      "rankChange": 2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "XOM",
@@ -1155,8 +1155,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -1221,8 +1221,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 14,
-      "rankChange": -5
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "MRK",
@@ -1287,12 +1287,12 @@
         "value"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
-  "universeCount": 347,
+  "universeCount": 346,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
