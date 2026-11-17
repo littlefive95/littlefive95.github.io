@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-16T23:56:32.933293-05:00",
+  "asOf": "2026-11-16T23:59:01.859866-05:00",
   "date": "2026-11-16",
   "snapshotDate": "2026-11-16",
   "dataMode": "LATEST_CLOSE",
@@ -570,8 +570,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -634,8 +634,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -700,8 +700,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "NKE",
@@ -764,8 +764,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
