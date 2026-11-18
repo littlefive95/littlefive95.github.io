@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-18T08:56:57.363888+08:00",
+  "asOf": "2026-11-18T09:11:57.205929+08:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -849,7 +849,7 @@
       "priceAvg200": 169.3275,
       "volumeRatio": 4.373382808258629,
       "fpe": null,
-      "valuation": 12.780593,
+      "valuation": 11.505867,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -920,7 +920,7 @@
       "priceAvg200": 32.61424987792969,
       "volumeRatio": 1.1853682443053013,
       "fpe": null,
-      "valuation": 21.075949,
+      "valuation": 30.550457,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -951,8 +951,7 @@
         "⚠｜單日漲幅偏大"
       ],
       "profiles": [
-        "momentum",
-        "value"
+        "momentum"
       ],
       "qualityScore": 52,
       "eventSignals": [
@@ -1203,7 +1202,7 @@
       "forwardEpsHigh": 53.33913,
       "epsGrowthPct": 31.3,
       "analysts": 7,
-      "earningsDate": null,
+      "earningsDate": "2025-07-22",
       "margin": 0.53451,
       "roe": 0.65318,
       "debt": 0.261,
