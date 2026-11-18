@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-17T20:56:54.137747-05:00",
+  "asOf": "2026-11-17T21:11:51.703175-05:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -131,69 +131,6 @@
       "rankChange": 0
     },
     {
-      "ticker": "ADI",
-      "name": "Analog Devices, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "半導體",
-      "price": 383.67,
-      "changePct": 0.13049,
-      "marketCap": 185913245696.0,
-      "volume": 4066812.0,
-      "averageVolume": 3923475.0,
-      "fpe": 23.225323,
-      "forwardEps": 16.51947,
-      "epsGrowthPct": 28.277968328613333,
-      "analysts": 33,
-      "priceAvg50": 395.21619995117186,
-      "priceAvg200": 377.02480041503907,
-      "roe": 0.12227,
-      "margin": 0.29787,
-      "debt": 27.314,
-      "earningsDate": "2026-11-24",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 402.13499908447267,
-      "volumeRatio": 0.8264097572474223,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 21.3193,
-      "atrPct": 5.56,
-      "support": 377.0248,
-      "resistance": 433.72,
-      "entryLow": 372.7609,
-      "entryPrice": 379.1567,
-      "entryHigh": 384.4865,
-      "stopLoss": 354.6396,
-      "takeProfit1": 433.72,
-      "takeProfit2": 458.2372,
-      "riskReward": 2.23,
-      "entryType": "支撐回踩",
-      "entryStatus": "可考慮進場區",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 73,
-      "label": "值得研究",
-      "risk": "低",
-      "reasons": [
-        "摘要｜站上200日均線、短線維持正向",
-        "核心優勢｜站上200日均線、短線維持正向",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜條件偏多，但仍需確認風險",
-        "＋25｜站上200日均線",
-        "＋8｜短線維持正向",
-        "＋10｜FPE中性"
-      ],
-      "eventSignals": [],
-      "qualityScore": 77,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
-      "rank": 3,
-      "previousRank": 3,
-      "rankChange": 0
-    },
-    {
       "ticker": "WDC",
       "name": "Western Digital Corporation",
       "exchange": "NasdaqGS",
@@ -255,9 +192,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 3,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MSFT",
@@ -318,9 +255,9 @@
         "value",
         "quality"
       ],
-      "rank": 5,
+      "rank": 4,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AVGO",
@@ -383,9 +320,9 @@
         "value",
         "quality"
       ],
-      "rank": 6,
+      "rank": 5,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "MRVL",
@@ -449,9 +386,9 @@
         "value",
         "quality"
       ],
-      "rank": 7,
+      "rank": 6,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "AAPL",
@@ -512,9 +449,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 8,
+      "rank": 7,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": 1
     },
     {
       "ticker": "STX",
@@ -582,9 +519,72 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 8,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": 1
+    },
+    {
+      "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "exchange": "NYSE",
+      "sector": "銀行",
+      "price": 329.96,
+      "changePct": -2.43931,
+      "marketCap": 876244893696.0,
+      "volume": 8112161.0,
+      "averageVolume": 7139260.0,
+      "fpe": 12.90264,
+      "forwardEps": 25.57306,
+      "epsGrowthPct": 6.941276735256463,
+      "analysts": 23,
+      "priceAvg50": 340.01399963378907,
+      "priceAvg200": 325.02280044555664,
+      "roe": 0.18013,
+      "margin": 0.34592,
+      "debt": null,
+      "earningsDate": "2027-01-14",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 339.2789993286133,
+      "volumeRatio": 1.2598146966146258,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 8.2364,
+      "atrPct": 2.5,
+      "support": 325.07,
+      "resistance": 359.8,
+      "entryLow": 323.4227,
+      "entryPrice": 325.7289,
+      "entryHigh": 327.5409,
+      "stopLoss": 315.8452,
+      "takeProfit1": 359.8,
+      "takeProfit2": 369.6837,
+      "riskReward": 3.45,
+      "entryType": "支撐回踩",
+      "entryStatus": "等待回踩",
+      "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
+      "score": 65,
+      "label": "觀察",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、FPE偏低",
+        "核心優勢｜站上200日均線、FPE偏低",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜目前量化優勢有限",
+        "＋25｜站上200日均線",
+        "＋20｜FPE偏低",
+        "＋5｜預估EPS維持成長"
+      ],
+      "eventSignals": [],
+      "qualityScore": 63,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 9,
+      "previousRank": null,
+      "rankChange": null
     },
     {
       "ticker": "PG",
@@ -723,9 +723,9 @@
       "marketCap": 424984936448.0,
       "volume": 18957436.0,
       "averageVolume": 16597528.0,
-      "fpe": 27.990671,
-      "forwardEps": 3.52939,
-      "epsGrowthPct": 5.6463199990421264,
+      "fpe": 28.003366,
+      "forwardEps": 3.52779,
+      "epsGrowthPct": 5.5984267053005965,
       "analysts": 24,
       "priceAvg50": 91.04820022583007,
       "priceAvg200": 83.47455001831055,
@@ -846,7 +846,7 @@
       "sector": "必需消費",
       "price": 127.52,
       "changePct": -0.693098,
-      "marketCap": 1014814212096.0,
+      "marketCap": 1011711279104.0,
       "volume": 19483025.0,
       "averageVolume": 23974118.0,
       "fpe": 39.5216,
@@ -912,9 +912,9 @@
       "marketCap": 377230950400.0,
       "volume": 17268837.0,
       "averageVolume": 25635384.0,
-      "fpe": 61.66766,
-      "forwardEps": 2.53877,
-      "epsGrowthPct": 49.19460523609436,
+      "fpe": 61.75401,
+      "forwardEps": 2.53522,
+      "epsGrowthPct": 48.98598419181381,
       "analysts": 28,
       "priceAvg50": 184.51059936523438,
       "priceAvg200": 153.79182453155516,
@@ -1296,7 +1296,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 339,
+  "universeCount": 340,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
