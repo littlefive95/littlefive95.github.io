@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-18T03:27:00.680949-05:00",
+  "asOf": "2026-11-18T03:41:58.671961-05:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-18",
   "dataMode": "LATEST_CLOSE",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -258,8 +258,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -386,8 +386,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -452,8 +452,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -515,8 +515,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -585,8 +585,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
