@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-18T02:12:07.867817-05:00",
+  "asOf": "2026-11-18T02:27:00.676107-05:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-18",
   "dataMode": "LATEST_CLOSE",
@@ -193,8 +193,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -256,8 +256,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 5,
-      "rankChange": 1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 6,
-      "rankChange": 1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -387,8 +387,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 7,
-      "rankChange": 1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -450,8 +450,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 8,
-      "rankChange": 1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -520,8 +520,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 9,
-      "rankChange": 1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "JPM",
@@ -583,8 +583,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1427,8 +1427,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 18.457611,
-      "epsGrowthPct": 15.97674770387778,
+      "fpe": 18.48085,
+      "epsGrowthPct": 15.83090517103074,
       "volumeRatio": 0.7406706360276583,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
