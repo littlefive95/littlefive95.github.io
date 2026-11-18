@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-17T23:26:52.420434-05:00",
+  "asOf": "2026-11-17T23:41:57.766706-05:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -258,8 +258,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -386,8 +386,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -452,8 +452,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -515,8 +515,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -585,8 +585,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -1174,9 +1174,9 @@
       "marketCap": 3753892642816.0,
       "volume": 370067900.0,
       "averageVolume": 149917785.0,
-      "fpe": 9.799022,
-      "forwardEps": 15.86485,
-      "epsGrowthPct": 69.92797941779433,
+      "fpe": 9.79029,
+      "forwardEps": 15.879,
+      "epsGrowthPct": 70.07953968522591,
       "analysts": 54,
       "priceAvg50": 211.75740112304686,
       "priceAvg200": 203.8651001739502,
@@ -1383,8 +1383,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 9.799022,
-      "epsGrowthPct": 69.92797941779433,
+      "fpe": 9.79029,
+      "epsGrowthPct": 70.07953968522591,
       "volumeRatio": 1.5644235047436665,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
