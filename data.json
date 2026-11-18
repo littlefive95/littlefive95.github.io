@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-17T20:26:54.760803-05:00",
+  "asOf": "2026-11-17T20:41:54.655808-05:00",
   "date": "2026-11-17",
   "snapshotDate": "2026-11-17",
   "dataMode": "LATEST_CLOSE",
@@ -76,7 +76,7 @@
       "changePct": 0.0543219,
       "marketCap": 2788600315904.0,
       "volume": 37098176.0,
-      "averageVolume": 39364526.0,
+      "averageVolume": 39367481.0,
       "fpe": 23.60316,
       "forwardEps": 10.92608,
       "epsGrowthPct": 13.783702160895617,
@@ -139,7 +139,7 @@
       "changePct": 0.13049,
       "marketCap": 185913245696.0,
       "volume": 4066812.0,
-      "averageVolume": 3916162.0,
+      "averageVolume": 3923475.0,
       "fpe": 23.225323,
       "forwardEps": 16.51947,
       "epsGrowthPct": 28.277968328613333,
@@ -190,8 +190,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -202,7 +202,7 @@
       "changePct": 0.854303,
       "marketCap": 106057007104.0,
       "volume": 5029633.0,
-      "averageVolume": 7956834.0,
+      "averageVolume": 7957240.0,
       "fpe": 7.0122786,
       "forwardEps": 40.40484,
       "epsGrowthPct": 63.41846658229784,
@@ -256,8 +256,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -319,8 +319,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -331,7 +331,7 @@
       "changePct": 2.45951,
       "marketCap": 1630671994880.0,
       "volume": 25732265.0,
-      "averageVolume": 25377810.0,
+      "averageVolume": 25392907.0,
       "fpe": 17.595514,
       "forwardEps": 19.41404,
       "epsGrowthPct": 66.43825105598997,
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -396,7 +396,7 @@
       "changePct": 2.32526,
       "marketCap": 133831180288.0,
       "volume": 26073358.0,
-      "averageVolume": 24572237.0,
+      "averageVolume": 24601412.0,
       "fpe": 20.178835,
       "forwardEps": 7.37109,
       "epsGrowthPct": 74.68652316209317,
@@ -450,8 +450,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -462,7 +462,7 @@
       "changePct": -0.246611,
       "marketCap": 5114019971072.0,
       "volume": 36248936.0,
-      "averageVolume": 42882731.0,
+      "averageVolume": 42950648.0,
       "fpe": 33.288498,
       "forwardEps": 10.57152,
       "epsGrowthPct": 12.23123316640853,
@@ -513,8 +513,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -583,8 +583,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -722,7 +722,7 @@
       "changePct": -0.693609,
       "marketCap": 424984936448.0,
       "volume": 18957436.0,
-      "averageVolume": 16588509.0,
+      "averageVolume": 16597528.0,
       "fpe": 27.990671,
       "forwardEps": 3.52939,
       "epsGrowthPct": 5.6463199990421264,
@@ -911,7 +911,7 @@
       "changePct": -2.38793,
       "marketCap": 377230950400.0,
       "volume": 17268837.0,
-      "averageVolume": 25633021.0,
+      "averageVolume": 25635384.0,
       "fpe": 61.66766,
       "forwardEps": 2.53877,
       "epsGrowthPct": 49.19460523609436,
@@ -976,7 +976,7 @@
       "changePct": 3.65237,
       "marketCap": 41530703872.0,
       "volume": 10492716.0,
-      "averageVolume": 7603210.0,
+      "averageVolume": 7604484.0,
       "fpe": 13.355002,
       "forwardEps": 15.78884,
       "epsGrowthPct": 51.73071249482262,
@@ -1173,7 +1173,7 @@
       "changePct": -0.435502,
       "marketCap": 3753892642816.0,
       "volume": 370067900.0,
-      "averageVolume": 149880018.0,
+      "averageVolume": 149917785.0,
       "fpe": 9.799022,
       "forwardEps": 15.86485,
       "epsGrowthPct": 69.92797941779433,
