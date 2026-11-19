@@ -2049,7 +2049,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": 2.8282,
-            "5": 1.3811
+            "5": 1.3811,
+            "20": 8.8137
           },
           "referenceClose": 1270.75,
           "maxRunup20dPct": 16.0929,
@@ -2073,7 +2074,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -1.8092,
-            "5": 8.8459
+            "5": 8.8459,
+            "20": 2.7332
           },
           "referenceClose": 284.649994,
           "maxRunup20dPct": 11.4351,
@@ -2097,7 +2099,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -4.5243,
-            "5": 1.7643
+            "5": 1.7643,
+            "20": -16.0388
           },
           "referenceClose": 431.890015,
           "maxRunup20dPct": 2.0815,
@@ -2121,7 +2124,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -4.9759,
-            "5": 5.4956
+            "5": 5.4956,
+            "20": -5.907
           },
           "referenceClose": 405.959991,
           "maxRunup20dPct": 6.8381,
@@ -2145,7 +2149,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -4.5699,
-            "5": -2.9615
+            "5": -2.9615,
+            "20": 2.0467
           },
           "referenceClose": 262.369995,
           "maxRunup20dPct": 4.9434,
@@ -2169,7 +2174,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": 5.5789,
-            "5": 0.9054
+            "5": 0.9054,
+            "20": 8.5756
           },
           "referenceClose": 156.839996,
           "maxRunup20dPct": 10.6797,
@@ -2193,7 +2199,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -5.2487,
-            "5": -10.3012
+            "5": -10.3012,
+            "20": -32.1397
           },
           "referenceClose": 101.93,
           "maxRunup20dPct": -0.5396,
@@ -2217,7 +2224,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -4.397,
-            "5": -2.9689
+            "5": -2.9689,
+            "20": -31.9908
           },
           "referenceClose": 221.970001,
           "maxRunup20dPct": -0.892,
@@ -2241,7 +2249,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": 3.8267,
-            "5": 1.8811
+            "5": 1.8811,
+            "20": 8.2662
           },
           "referenceClose": 93.029999,
           "maxRunup20dPct": 14.1567,
@@ -2265,7 +2274,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -8.6983,
-            "5": 2.815
+            "5": 2.815,
+            "20": -40.5377
           },
           "referenceClose": 244.759995,
           "maxRunup20dPct": 3.6362,
@@ -2289,7 +2299,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -6.9776,
-            "5": -12.1903
+            "5": -12.1903,
+            "20": -11.6326
           },
           "referenceClose": 697.52002,
           "maxRunup20dPct": -2.3584,
@@ -2313,11 +2324,12 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": 2.534,
-            "5": -1.9527
+            "5": -1.9527,
+            "20": -40.8373
           },
           "referenceClose": 153.119995,
           "maxRunup20dPct": 4.1667,
-          "maxDrawdown20dPct": -39.8968,
+          "maxDrawdown20dPct": -41.7646,
           "stopHitWithin20d": true,
           "targetHitWithin20d": true
         },
@@ -2337,7 +2349,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -6.7774,
-            "5": 1.628
+            "5": 1.628,
+            "20": -35.5582
           },
           "referenceClose": 485.880005,
           "maxRunup20dPct": 4.427,
@@ -2361,7 +2374,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": 2.8701,
-            "5": -1.025
+            "5": -1.025,
+            "20": 5.8373
           },
           "referenceClose": 92.68,
           "maxRunup20dPct": 8.5024,
@@ -2385,7 +2399,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -6.2583,
-            "5": 7.6133
+            "5": 7.6133,
+            "20": -22.8091
           },
           "referenceClose": 913.669983,
           "maxRunup20dPct": 8.3542,
@@ -2409,7 +2424,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -2.2272,
-            "5": -0.364
+            "5": -0.364,
+            "20": -4.6271
           },
           "referenceClose": 532.950012,
           "maxRunup20dPct": 4.916,
@@ -2435,11 +2451,12 @@
           ],
           "returnsPct": {
             "1": -1.7614,
-            "5": -5.9715
+            "5": -5.9715,
+            "20": -8.0731
           },
           "referenceClose": 149.880005,
           "maxRunup20dPct": 2.7622,
-          "maxDrawdown20dPct": -7.119,
+          "maxDrawdown20dPct": -8.7337,
           "stopHitWithin20d": true,
           "targetHitWithin20d": true
         },
@@ -2459,7 +2476,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -6.4252,
-            "5": 4.7317
+            "5": 4.7317,
+            "20": -23.862
           },
           "referenceClose": 378.51001,
           "maxRunup20dPct": 6.2667,
@@ -2483,7 +2501,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -6.9273,
-            "5": -0.8254
+            "5": -0.8254,
+            "20": -16.7843
           },
           "referenceClose": 1676.689941,
           "maxRunup20dPct": 0.7998,
@@ -2507,7 +2526,8 @@
           "dataQualityFlags": [],
           "returnsPct": {
             "1": -2.7414,
-            "5": -2.4341
+            "5": -2.4341,
+            "20": -22.3329
           },
           "referenceClose": 201.720001,
           "maxRunup20dPct": 0.4511,
@@ -2712,7 +2732,7 @@
           },
           "referenceClose": 252.110001,
           "maxRunup20dPct": 3.078,
-          "maxDrawdown20dPct": -8.5161,
+          "maxDrawdown20dPct": -9.4046,
           "stopHitWithin20d": true,
           "targetHitWithin20d": true
         },
@@ -3105,7 +3125,7 @@
           },
           "referenceClose": 253.559998,
           "maxRunup20dPct": 2.4886,
-          "maxDrawdown20dPct": -9.0393,
+          "maxDrawdown20dPct": -9.9227,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -3249,7 +3269,7 @@
           },
           "referenceClose": 248.570007,
           "maxRunup20dPct": 0.9736,
-          "maxDrawdown20dPct": -22.1909,
+          "maxDrawdown20dPct": -24.991,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -3297,7 +3317,7 @@
           },
           "referenceClose": 158.960007,
           "maxRunup20dPct": 0.2139,
-          "maxDrawdown20dPct": -42.1049,
+          "maxDrawdown20dPct": -43.9041,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -3321,7 +3341,7 @@
           },
           "referenceClose": 249.369995,
           "maxRunup20dPct": 8.9786,
-          "maxDrawdown20dPct": -6.737,
+          "maxDrawdown20dPct": -8.8343,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -3808,7 +3828,7 @@
           },
           "referenceClose": 158.179993,
           "maxRunup20dPct": -0.6638,
-          "maxDrawdown20dPct": -41.8194,
+          "maxDrawdown20dPct": -43.6275,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -3976,7 +3996,7 @@
           },
           "referenceClose": 232.009995,
           "maxRunup20dPct": 1.9266,
-          "maxDrawdown20dPct": -11.2064,
+          "maxDrawdown20dPct": -11.3271,
           "stopHitWithin20d": true,
           "targetHitWithin20d": true
         }
@@ -5201,7 +5221,7 @@
           },
           "referenceClose": 247.220001,
           "maxRunup20dPct": 9.9264,
-          "maxDrawdown20dPct": -3.6971,
+          "maxDrawdown20dPct": -8.0414,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -5345,7 +5365,7 @@
           },
           "referenceClose": 141.619995,
           "maxRunup20dPct": 3.1422,
-          "maxDrawdown20dPct": -31.9658,
+          "maxDrawdown20dPct": -36.3084,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -5520,7 +5540,7 @@
           },
           "referenceClose": 413.589996,
           "maxRunup20dPct": 6.9247,
-          "maxDrawdown20dPct": -0.2031,
+          "maxDrawdown20dPct": -0.4255,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -5764,7 +5784,7 @@
           },
           "referenceClose": 638.01001,
           "maxRunup20dPct": 6.8933,
-          "maxDrawdown20dPct": 0.0,
+          "maxDrawdown20dPct": -0.2539,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -5987,7 +6007,7 @@
           },
           "referenceClose": 260.940002,
           "maxRunup20dPct": 4.1465,
-          "maxDrawdown20dPct": -8.7606,
+          "maxDrawdown20dPct": -12.8765,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -6109,8 +6129,8 @@
           },
           "referenceClose": 148.360001,
           "maxRunup20dPct": 3.3769,
-          "maxDrawdown20dPct": -4.0779,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -7.7986,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -6181,7 +6201,7 @@
           },
           "referenceClose": 227.770004,
           "maxRunup20dPct": -0.0922,
-          "maxDrawdown20dPct": -9.5535,
+          "maxDrawdown20dPct": -9.6764,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -6526,7 +6546,7 @@
           },
           "referenceClose": 98.879997,
           "maxRunup20dPct": 7.4029,
-          "maxDrawdown20dPct": 0.9304,
+          "maxDrawdown20dPct": 0.718,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -6794,8 +6814,8 @@
           },
           "referenceClose": 144.669998,
           "maxRunup20dPct": 6.0137,
-          "maxDrawdown20dPct": -1.6313,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -5.4469,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -7187,7 +7207,7 @@
           },
           "referenceClose": 142.539993,
           "maxRunup20dPct": -0.9611,
-          "maxDrawdown20dPct": -32.4049,
+          "maxDrawdown20dPct": -36.7195,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -7436,7 +7456,7 @@
           },
           "referenceClose": 156.75,
           "maxRunup20dPct": 17.0016,
-          "maxDrawdown20dPct": 1.5056,
+          "maxDrawdown20dPct": 1.1611,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -7628,7 +7648,7 @@
           },
           "referenceClose": 143.75,
           "maxRunup20dPct": 6.1496,
-          "maxDrawdown20dPct": -1.8713,
+          "maxDrawdown20dPct": -3.7078,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -7678,8 +7698,8 @@
           },
           "referenceClose": 146.940002,
           "maxRunup20dPct": 1.6129,
-          "maxDrawdown20dPct": -3.1509,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -6.9076,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -7726,7 +7746,7 @@
           },
           "referenceClose": 129.300003,
           "maxRunup20dPct": 1.0363,
-          "maxDrawdown20dPct": -25.4834,
+          "maxDrawdown20dPct": -30.2398,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -7798,7 +7818,7 @@
           },
           "referenceClose": 104.839996,
           "maxRunup20dPct": -0.3338,
-          "maxDrawdown20dPct": -4.5975,
+          "maxDrawdown20dPct": -5.0076,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -7870,7 +7890,7 @@
           },
           "referenceClose": 154.990005,
           "maxRunup20dPct": 13.175,
-          "maxDrawdown20dPct": -0.6968,
+          "maxDrawdown20dPct": -0.9614,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -8045,7 +8065,7 @@
           },
           "referenceClose": 422.649994,
           "maxRunup20dPct": 1.9733,
-          "maxDrawdown20dPct": -1.4764,
+          "maxDrawdown20dPct": -2.56,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8117,7 +8137,7 @@
           },
           "referenceClose": 334.48999,
           "maxRunup20dPct": 3.7998,
-          "maxDrawdown20dPct": -1.719,
+          "maxDrawdown20dPct": -3.2228,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -8167,7 +8187,7 @@
           },
           "referenceClose": 160.380005,
           "maxRunup20dPct": 9.3715,
-          "maxDrawdown20dPct": -4.0342,
+          "maxDrawdown20dPct": -4.2898,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8191,7 +8211,7 @@
           },
           "referenceClose": 148.910004,
           "maxRunup20dPct": 2.4713,
-          "maxDrawdown20dPct": -5.2716,
+          "maxDrawdown20dPct": -7.0445,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8263,7 +8283,7 @@
           },
           "referenceClose": 165.410004,
           "maxRunup20dPct": 10.876,
-          "maxDrawdown20dPct": -1.7834,
+          "maxDrawdown20dPct": -4.1352,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8414,7 +8434,7 @@
           },
           "referenceClose": 282.109985,
           "maxRunup20dPct": 2.8854,
-          "maxDrawdown20dPct": -1.9567,
+          "maxDrawdown20dPct": -3.3781,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -8438,7 +8458,7 @@
           },
           "referenceClose": 422.160004,
           "maxRunup20dPct": 2.0916,
-          "maxDrawdown20dPct": -1.362,
+          "maxDrawdown20dPct": -2.4469,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8486,7 +8506,7 @@
           },
           "referenceClose": 169.199997,
           "maxRunup20dPct": 3.6702,
-          "maxDrawdown20dPct": -9.0366,
+          "maxDrawdown20dPct": -9.279,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8582,7 +8602,7 @@
           },
           "referenceClose": 171.470001,
           "maxRunup20dPct": 6.9575,
-          "maxDrawdown20dPct": -5.2546,
+          "maxDrawdown20dPct": -7.5232,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -8901,8 +8921,8 @@
           },
           "referenceClose": 173.529999,
           "maxRunup20dPct": 5.6878,
-          "maxDrawdown20dPct": -6.3793,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -8.621,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -8997,7 +9017,7 @@
           },
           "referenceClose": 641.390015,
           "maxRunup20dPct": 1.1007,
-          "maxDrawdown20dPct": -4.3468,
+          "maxDrawdown20dPct": -4.8473,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9045,7 +9065,7 @@
           },
           "referenceClose": 393.299988,
           "maxRunup20dPct": 5.525,
-          "maxDrawdown20dPct": -3.913,
+          "maxDrawdown20dPct": -4.2893,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9117,7 +9137,7 @@
           },
           "referenceClose": 168.820007,
           "maxRunup20dPct": 3.9036,
-          "maxDrawdown20dPct": -8.8319,
+          "maxDrawdown20dPct": -9.0748,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9262,7 +9282,7 @@
             "5": -2.7374
           },
           "referenceClose": 225.759995,
-          "maxRunup20dPct": 5.6432,
+          "maxRunup20dPct": 6.3873,
           "maxDrawdown20dPct": -5.3641,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -9385,11 +9405,12 @@
           "takeProfit1": 205.85,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.3228
+            "1": 0.3228,
+            "5": -9.492
           },
           "referenceClose": 176.570007,
           "maxRunup20dPct": 3.8681,
-          "maxDrawdown20dPct": -7.9912,
+          "maxDrawdown20dPct": -10.1943,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -9408,7 +9429,8 @@
           "takeProfit1": 326.259,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.8618
+            "1": 0.8618,
+            "5": -5.6099
           },
           "referenceClose": 309.809998,
           "maxRunup20dPct": 2.3111,
@@ -9431,7 +9453,8 @@
           "takeProfit1": 275.34,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.4771
+            "1": 0.4771,
+            "5": 0.5898
           },
           "referenceClose": 266.170013,
           "maxRunup20dPct": 2.7914,
@@ -9454,11 +9477,12 @@
           "takeProfit1": 98.6751,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.1332
+            "1": -0.1332,
+            "5": 0.5329
           },
           "referenceClose": 97.57,
           "maxRunup20dPct": 3.0645,
-          "maxDrawdown20dPct": -0.1947,
+          "maxDrawdown20dPct": -0.4202,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -9477,7 +9501,8 @@
           "takeProfit1": 606.2,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 5.86
+            "1": 5.86,
+            "5": -4.1165
           },
           "referenceClose": 552.900024,
           "maxRunup20dPct": 7.4335,
@@ -9500,11 +9525,12 @@
           "takeProfit1": 771.27,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.8207
+            "1": -0.8207,
+            "5": -1.9705
           },
           "referenceClose": 628.77002,
           "maxRunup20dPct": 2.4079,
-          "maxDrawdown20dPct": -2.427,
+          "maxDrawdown20dPct": -2.9375,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9523,11 +9549,12 @@
           "takeProfit1": 433.72,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.0513
+            "1": 0.0513,
+            "5": -6.6246
           },
           "referenceClose": 409.079987,
           "maxRunup20dPct": 1.4545,
-          "maxDrawdown20dPct": -7.6195,
+          "maxDrawdown20dPct": -7.9813,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9546,7 +9573,8 @@
           "takeProfit1": 170.52,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.2147
+            "1": 0.2147,
+            "5": 1.5626
           },
           "referenceClose": 167.669998,
           "maxRunup20dPct": 3.5307,
@@ -9569,7 +9597,8 @@
           "takeProfit1": 572.5991,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.3588
+            "1": 0.3588,
+            "5": -2.4639
           },
           "referenceClose": 521.130005,
           "maxRunup20dPct": 1.6368,
@@ -9592,7 +9621,8 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -1.9015
+            "1": -1.9015,
+            "5": -12.2729
           },
           "referenceClose": 413.350006,
           "maxRunup20dPct": -0.3822,
@@ -9615,7 +9645,8 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 5.5443
+            "1": 5.5443,
+            "5": 2.5578
           },
           "referenceClose": 345.220001,
           "maxRunup20dPct": 7.1259,
@@ -9638,7 +9669,8 @@
           "takeProfit1": 367.0034,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.2109
+            "1": -0.2109,
+            "5": -0.8942
           },
           "referenceClose": 355.630005,
           "maxRunup20dPct": 1.4622,
@@ -9661,11 +9693,12 @@
           "takeProfit1": 282.73,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 1.1091
+            "1": 1.1091,
+            "5": -2.7495
           },
           "referenceClose": 280.410004,
           "maxRunup20dPct": 3.5091,
-          "maxDrawdown20dPct": -1.0164,
+          "maxDrawdown20dPct": -2.7923,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -9684,11 +9717,12 @@
           "takeProfit1": 131.82,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": 0.4138
+            "1": 0.4138,
+            "5": 1.3448
           },
           "referenceClose": 125.669998,
           "maxRunup20dPct": 3.3262,
-          "maxDrawdown20dPct": -0.1512,
+          "maxDrawdown20dPct": -0.4774,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9707,11 +9741,12 @@
           "takeProfit1": 210.88,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.4756
+            "1": -0.4756,
+            "5": -9.1241
           },
           "referenceClose": 172.399994,
           "maxRunup20dPct": 0.3782,
-          "maxDrawdown20dPct": -10.7251,
+          "maxDrawdown20dPct": -10.9629,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9730,7 +9765,8 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.8903
+            "1": -0.8903,
+            "5": -10.2637
           },
           "referenceClose": 235.880005,
           "maxRunup20dPct": 1.6067,
@@ -9753,7 +9789,8 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -2.3042
+            "1": -2.3042,
+            "5": -10.018
           },
           "referenceClose": 161.009995,
           "maxRunup20dPct": 0.4534,
@@ -9776,11 +9813,12 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -1.1672
+            "1": -1.1672,
+            "5": -1.4381
           },
           "referenceClose": 143.940002,
           "maxRunup20dPct": 2.9943,
-          "maxDrawdown20dPct": -1.7229,
+          "maxDrawdown20dPct": -2.6608,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -9799,7 +9837,8 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.6703
+            "1": -0.6703,
+            "5": -8.0176
           },
           "referenceClose": 313.309998,
           "maxRunup20dPct": 0.9894,
@@ -9822,11 +9861,12 @@
           "takeProfit1": 252.42,
           "dataQualityFlags": [],
           "returnsPct": {
-            "1": -0.2018
+            "1": -0.2018,
+            "5": -12.6646
           },
           "referenceClose": 218.009995,
           "maxRunup20dPct": 0.9128,
-          "maxDrawdown20dPct": -11.2839,
+          "maxDrawdown20dPct": -14.4764,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         }
@@ -9856,7 +9896,7 @@
           },
           "referenceClose": 177.139999,
           "maxRunup20dPct": 0.2202,
-          "maxDrawdown20dPct": -8.2872,
+          "maxDrawdown20dPct": -10.4832,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -9925,7 +9965,7 @@
           },
           "referenceClose": 409.290009,
           "maxRunup20dPct": 0.1955,
-          "maxDrawdown20dPct": -7.6669,
+          "maxDrawdown20dPct": -8.0285,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -9971,7 +10011,7 @@
           },
           "referenceClose": 97.440002,
           "maxRunup20dPct": 3.202,
-          "maxDrawdown20dPct": 0.5337,
+          "maxDrawdown20dPct": -0.2874,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10040,7 +10080,7 @@
           },
           "referenceClose": 171.580002,
           "maxRunup20dPct": 0.408,
-          "maxDrawdown20dPct": -10.2984,
+          "maxDrawdown20dPct": -10.5374,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10157,7 +10197,7 @@
           },
           "referenceClose": 126.190002,
           "maxRunup20dPct": 2.9004,
-          "maxDrawdown20dPct": 0.0238,
+          "maxDrawdown20dPct": -0.8876,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10250,7 +10290,7 @@
             "1": -1.4182
           },
           "referenceClose": 229.869995,
-          "maxRunup20dPct": 2.7407,
+          "maxRunup20dPct": 4.4851,
           "maxDrawdown20dPct": -7.0562,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -10274,7 +10314,7 @@
           },
           "referenceClose": 169.779999,
           "maxRunup20dPct": 1.1368,
-          "maxDrawdown20dPct": -1.9614,
+          "maxDrawdown20dPct": -5.4364,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10326,7 +10366,7 @@
             "1": -3.0929
           },
           "referenceClose": 303.600006,
-          "maxRunup20dPct": -1.6831,
+          "maxRunup20dPct": -1.3768,
           "maxDrawdown20dPct": -5.1845,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -10349,8 +10389,8 @@
             "1": -5.2055
           },
           "referenceClose": 197.289993,
-          "maxRunup20dPct": -2.8689,
-          "maxDrawdown20dPct": -7.1823,
+          "maxRunup20dPct": -1.0441,
+          "maxDrawdown20dPct": -7.5346,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10373,7 +10413,7 @@
           },
           "referenceClose": 172.470001,
           "maxRunup20dPct": 0.2609,
-          "maxDrawdown20dPct": -5.8039,
+          "maxDrawdown20dPct": -8.0594,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -10418,7 +10458,7 @@
             "1": -5.5762
           },
           "referenceClose": 534.059998,
-          "maxRunup20dPct": -1.4717,
+          "maxRunup20dPct": -0.3539,
           "maxDrawdown20dPct": -10.0288,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
@@ -10442,7 +10482,7 @@
           },
           "referenceClose": 397.970001,
           "maxRunup20dPct": -0.6332,
-          "maxDrawdown20dPct": -5.0406,
+          "maxDrawdown20dPct": -5.4125,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -10465,7 +10505,7 @@
           },
           "referenceClose": 285.75,
           "maxRunup20dPct": 1.5748,
-          "maxDrawdown20dPct": -2.8661,
+          "maxDrawdown20dPct": -4.6089,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10487,7 +10527,7 @@
             "1": -3.3413
           },
           "referenceClose": 266.660004,
-          "maxRunup20dPct": -1.4025,
+          "maxRunup20dPct": 0.6113,
           "maxDrawdown20dPct": -4.7476,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -10533,7 +10573,7 @@
             "1": -3.9221
           },
           "referenceClose": 347.01001,
-          "maxRunup20dPct": -0.8674,
+          "maxRunup20dPct": 2.9769,
           "maxDrawdown20dPct": -5.5359,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
@@ -10582,7 +10622,7 @@
           },
           "referenceClose": 169.800003,
           "maxRunup20dPct": 2.232,
-          "maxDrawdown20dPct": 0.8481,
+          "maxDrawdown20dPct": -0.2238,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -10605,8 +10645,8 @@
           },
           "referenceClose": 170.589996,
           "maxRunup20dPct": -0.1993,
-          "maxDrawdown20dPct": -2.4269,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -5.8855,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -10651,7 +10691,7 @@
           },
           "referenceClose": 128.089996,
           "maxRunup20dPct": 1.374,
-          "maxDrawdown20dPct": -0.726,
+          "maxDrawdown20dPct": -2.3577,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10674,8 +10714,8 @@
           },
           "referenceClose": 219.889999,
           "maxRunup20dPct": 0.0637,
-          "maxDrawdown20dPct": -2.101,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -6.4396,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -10720,7 +10760,7 @@
           },
           "referenceClose": 99.25,
           "maxRunup20dPct": 1.3199,
-          "maxDrawdown20dPct": -0.7254,
+          "maxDrawdown20dPct": -2.1058,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -10766,7 +10806,7 @@
           },
           "referenceClose": 167.990005,
           "maxRunup20dPct": -1.131,
-          "maxDrawdown20dPct": -8.3815,
+          "maxDrawdown20dPct": -8.6255,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         }
@@ -10798,7 +10838,7 @@
           },
           "referenceClose": 415.220001,
           "maxRunup20dPct": -0.1036,
-          "maxDrawdown20dPct": -6.3773,
+          "maxDrawdown20dPct": -6.5296,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10844,7 +10884,7 @@
           },
           "referenceClose": 626.409973,
           "maxRunup20dPct": 0.1708,
-          "maxDrawdown20dPct": -2.0593,
+          "maxDrawdown20dPct": -2.5718,
           "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
@@ -10867,8 +10907,8 @@
           },
           "referenceClose": 168.520004,
           "maxRunup20dPct": 1.4716,
-          "maxDrawdown20dPct": -3.596,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -5.9043,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -10890,7 +10930,7 @@
           },
           "referenceClose": 173.020004,
           "maxRunup20dPct": 0.3294,
-          "maxDrawdown20dPct": -1.0288,
+          "maxDrawdown20dPct": -2.0807,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -10913,7 +10953,7 @@
           },
           "referenceClose": 282.549988,
           "maxRunup20dPct": -0.2937,
-          "maxDrawdown20dPct": -1.7661,
+          "maxDrawdown20dPct": -3.5286,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -10935,7 +10975,7 @@
             "1": 0.5608
           },
           "referenceClose": 294.209991,
-          "maxRunup20dPct": 1.4547,
+          "maxRunup20dPct": 1.7709,
           "maxDrawdown20dPct": -2.1583,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -10959,7 +10999,7 @@
           },
           "referenceClose": 99.480003,
           "maxRunup20dPct": 0.1307,
-          "maxDrawdown20dPct": -0.955,
+          "maxDrawdown20dPct": -2.3321,
           "stopHitWithin20d": false,
           "targetHitWithin20d": true
         },
@@ -10982,7 +11022,7 @@
           },
           "referenceClose": 128.410004,
           "maxRunup20dPct": 0.475,
-          "maxDrawdown20dPct": -0.9734,
+          "maxDrawdown20dPct": -2.601,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -11005,7 +11045,7 @@
           },
           "referenceClose": 383.170013,
           "maxRunup20dPct": 3.2048,
-          "maxDrawdown20dPct": -1.3728,
+          "maxDrawdown20dPct": -1.759,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -11027,7 +11067,7 @@
             "1": -0.2466
           },
           "referenceClose": 352.779999,
-          "maxRunup20dPct": 0.7313,
+          "maxRunup20dPct": 1.0318,
           "maxDrawdown20dPct": -0.8816,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -11073,7 +11113,7 @@
             "1": 0.0543
           },
           "referenceClose": 257.75,
-          "maxRunup20dPct": 0.8341,
+          "maxRunup20dPct": 4.0892,
           "maxDrawdown20dPct": -1.4549,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -11099,8 +11139,8 @@
           },
           "referenceClose": 144.460007,
           "maxRunup20dPct": 0.2977,
-          "maxDrawdown20dPct": -1.4883,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -5.3094,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -11122,8 +11162,8 @@
           },
           "referenceClose": 217.139999,
           "maxRunup20dPct": 1.1007,
-          "maxDrawdown20dPct": -0.8612,
-          "stopHitWithin20d": false,
+          "maxDrawdown20dPct": -5.2547,
+          "stopHitWithin20d": true,
           "targetHitWithin20d": false
         },
         {
@@ -11140,8 +11180,14 @@
           "stopLoss": 164.0226,
           "takeProfit1": 188.5,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 166.869995
+          "returnsPct": {
+            "1": 0.2038
+          },
+          "referenceClose": 166.869995,
+          "maxRunup20dPct": 1.5581,
+          "maxDrawdown20dPct": -3.7874,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "PLTR",
@@ -11162,7 +11208,7 @@
           },
           "referenceClose": 160.389999,
           "maxRunup20dPct": 1.3717,
-          "maxDrawdown20dPct": -4.0401,
+          "maxDrawdown20dPct": -4.2958,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -11186,7 +11232,7 @@
             "1": 0.0974
           },
           "referenceClose": 379.73999,
-          "maxRunup20dPct": 0.8163,
+          "maxRunup20dPct": 2.5096,
           "maxDrawdown20dPct": -1.4773,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -11210,7 +11256,7 @@
           },
           "referenceClose": 50.080002,
           "maxRunup20dPct": 0.1597,
-          "maxDrawdown20dPct": -1.9968,
+          "maxDrawdown20dPct": -2.6757,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
         },
@@ -11232,7 +11278,7 @@
             "1": -0.4355
           },
           "referenceClose": 156.139999,
-          "maxRunup20dPct": 1.3129,
+          "maxRunup20dPct": 2.28,
           "maxDrawdown20dPct": -3.721,
           "stopHitWithin20d": false,
           "targetHitWithin20d": false
@@ -11258,8 +11304,14 @@
           "stopLoss": 141.4238,
           "takeProfit1": 153.3,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 142.020004
+          "returnsPct": {
+            "1": -0.1056
+          },
+          "referenceClose": 142.020004,
+          "maxRunup20dPct": 0.5351,
+          "maxDrawdown20dPct": -1.3449,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "PG",
@@ -11275,8 +11327,14 @@
           "stopLoss": 167.2796,
           "takeProfit1": 179.9143,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 171.720001
+          "returnsPct": {
+            "1": -0.8328
+          },
+          "referenceClose": 171.720001,
+          "maxRunup20dPct": -0.0408,
+          "maxDrawdown20dPct": -1.3394,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "V",
@@ -11292,8 +11350,14 @@
           "stopLoss": 405.3829,
           "takeProfit1": 442.23,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 416.769989
+          "returnsPct": {
+            "1": -0.3719
+          },
+          "referenceClose": 416.769989,
+          "maxRunup20dPct": 0.2711,
+          "maxDrawdown20dPct": -1.1853,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "KO",
@@ -11309,8 +11373,14 @@
           "stopLoss": 93.1323,
           "takeProfit1": 99.3,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 98.790001
+          "returnsPct": {
+            "1": -0.7086
+          },
+          "referenceClose": 98.790001,
+          "maxRunup20dPct": 0.081,
+          "maxDrawdown20dPct": -1.65,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "TXN",
@@ -11326,8 +11396,14 @@
           "stopLoss": 268.9044,
           "takeProfit1": 317.2,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 295.859985
+          "returnsPct": {
+            "1": -1.1593
+          },
+          "referenceClose": 295.859985,
+          "maxRunup20dPct": 1.2033,
+          "maxDrawdown20dPct": -2.5181,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "WMT",
@@ -11343,8 +11419,14 @@
           "stopLoss": 119.8969,
           "takeProfit1": 131.82,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 127.519997
+          "returnsPct": {
+            "1": -0.1255
+          },
+          "referenceClose": 127.519997,
+          "maxRunup20dPct": 0.196,
+          "maxDrawdown20dPct": -1.9213,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "MSFT",
@@ -11360,8 +11442,14 @@
           "stopLoss": 486.1717,
           "takeProfit1": 559.15,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 506.23999
+          "returnsPct": {
+            "1": 0.4049
+          },
+          "referenceClose": 506.23999,
+          "maxRunup20dPct": 0.8296,
+          "maxDrawdown20dPct": -1.0193,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "AAPL",
@@ -11377,8 +11465,14 @@
           "stopLoss": 336.6817,
           "takeProfit1": 369.4099,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 351.910004
+          "returnsPct": {
+            "1": 0.1535
+          },
+          "referenceClose": 351.910004,
+          "maxRunup20dPct": 1.2816,
+          "maxDrawdown20dPct": -0.125,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "JNJ",
@@ -11394,8 +11488,14 @@
           "stopLoss": 265.2245,
           "takeProfit1": 288.11,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 278.700012
+          "returnsPct": {
+            "1": -2.1529
+          },
+          "referenceClose": 278.700012,
+          "maxRunup20dPct": 0.0072,
+          "maxDrawdown20dPct": -2.1959,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "AMZN",
@@ -11411,8 +11511,14 @@
           "stopLoss": 245.5165,
           "takeProfit1": 283.5749,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 257.890015
+          "returnsPct": {
+            "1": 3.8194
+          },
+          "referenceClose": 257.890015,
+          "maxRunup20dPct": 4.0327,
+          "maxDrawdown20dPct": 0.6282,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "ADI",
@@ -11428,8 +11534,14 @@
           "stopLoss": 354.6396,
           "takeProfit1": 433.72,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 383.670013
+          "returnsPct": {
+            "1": -0.4405
+          },
+          "referenceClose": 383.670013,
+          "maxRunup20dPct": 1.6551,
+          "maxDrawdown20dPct": -1.887,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "NKE",
@@ -11445,8 +11557,14 @@
           "stopLoss": null,
           "takeProfit1": null,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 35.849998
+          "returnsPct": {
+            "1": 1.2831
+          },
+          "referenceClose": 35.849998,
+          "maxRunup20dPct": 2.8731,
+          "maxDrawdown20dPct": -2.4826,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "AMD",
@@ -11462,8 +11580,14 @@
           "stopLoss": 374.1698,
           "takeProfit1": 594.0,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 503.410004
+          "returnsPct": {
+            "1": 5.3098
+          },
+          "referenceClose": 503.410004,
+          "maxRunup20dPct": 5.713,
+          "maxDrawdown20dPct": -1.6309,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "QCOM",
@@ -11479,8 +11603,14 @@
           "stopLoss": null,
           "takeProfit1": null,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 166.669998
+          "returnsPct": {
+            "1": -4.1159
+          },
+          "referenceClose": 166.669998,
+          "maxRunup20dPct": 0.384,
+          "maxDrawdown20dPct": -4.8599,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "PLTR",
@@ -11496,8 +11626,14 @@
           "stopLoss": 142.7939,
           "takeProfit1": 202.63,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 156.559998
+          "returnsPct": {
+            "1": 0.0703
+          },
+          "referenceClose": 156.559998,
+          "maxRunup20dPct": 1.2008,
+          "maxDrawdown20dPct": -1.9545,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "WDC",
@@ -11513,8 +11649,14 @@
           "stopLoss": null,
           "takeProfit1": null,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 283.329987
+          "returnsPct": {
+            "1": 1.7153
+          },
+          "referenceClose": 283.329987,
+          "maxRunup20dPct": 4.3306,
+          "maxDrawdown20dPct": -1.4894,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "NVDA",
@@ -11530,8 +11672,14 @@
           "stopLoss": null,
           "takeProfit1": null,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 155.460007
+          "returnsPct": {
+            "1": -2.8946
+          },
+          "referenceClose": 155.460007,
+          "maxRunup20dPct": 2.7274,
+          "maxDrawdown20dPct": -3.2549,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "XOM",
@@ -11547,8 +11695,14 @@
           "stopLoss": 154.8316,
           "takeProfit1": 188.5,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 166.869995
+          "returnsPct": {
+            "1": -3.9651
+          },
+          "referenceClose": 167.210007,
+          "maxRunup20dPct": -0.1495,
+          "maxDrawdown20dPct": -3.983,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "AMAT",
@@ -11564,8 +11718,14 @@
           "stopLoss": null,
           "takeProfit1": null,
           "dataQualityFlags": [],
-          "returnsPct": {},
-          "referenceClose": 349.230011
+          "returnsPct": {
+            "1": 0.8791
+          },
+          "referenceClose": 349.230011,
+          "maxRunup20dPct": 1.9385,
+          "maxDrawdown20dPct": -1.9786,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "MRK",
@@ -11583,8 +11743,14 @@
           "dataQualityFlags": [
             "EPS成長極端值，已排除成長加分"
           ],
-          "returnsPct": {},
-          "referenceClose": 143.369995
+          "returnsPct": {
+            "1": -3.899
+          },
+          "referenceClose": 143.369995,
+          "maxRunup20dPct": -0.7184,
+          "maxDrawdown20dPct": -4.5895,
+          "stopHitWithin20d": false,
+          "targetHitWithin20d": false
         }
       ]
     },
@@ -11608,7 +11774,7 @@
           "takeProfit1": 317.2,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 295.859985
+          "referenceClose": 292.429993
         },
         {
           "ticker": "AMZN",
@@ -11625,7 +11791,7 @@
           "takeProfit1": 283.7699,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 257.890015
+          "referenceClose": 267.73999
         },
         {
           "ticker": "ADI",
@@ -11642,7 +11808,7 @@
           "takeProfit1": 433.72,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 383.670013
+          "referenceClose": 381.980011
         },
         {
           "ticker": "WDC",
@@ -11659,7 +11825,7 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 283.329987
+          "referenceClose": 288.190002
         },
         {
           "ticker": "MSFT",
@@ -11676,7 +11842,7 @@
           "takeProfit1": 559.15,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 506.23999
+          "referenceClose": 508.290009
         },
         {
           "ticker": "AVGO",
@@ -11693,7 +11859,7 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 341.600006
+          "referenceClose": 354.049988
         },
         {
           "ticker": "MRVL",
@@ -11710,7 +11876,7 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 148.740005
+          "referenceClose": 145.539993
         },
         {
           "ticker": "AAPL",
@@ -11727,7 +11893,7 @@
           "takeProfit1": 370.3784,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 351.910004
+          "referenceClose": 352.450012
         },
         {
           "ticker": "STX",
@@ -11746,7 +11912,7 @@
             "ROE超過200%，需核對股東權益基期"
           ],
           "returnsPct": {},
-          "referenceClose": 504.399994
+          "referenceClose": 515.900024
         },
         {
           "ticker": "PG",
@@ -11763,7 +11929,7 @@
           "takeProfit1": 173.57,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 171.720001
+          "referenceClose": 170.289993
         },
         {
           "ticker": "JNJ",
@@ -11780,7 +11946,7 @@
           "takeProfit1": 290.25,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 278.700012
+          "referenceClose": 272.700012
         },
         {
           "ticker": "KO",
@@ -11797,7 +11963,7 @@
           "takeProfit1": 100.56,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 98.790001
+          "referenceClose": 98.089996
         },
         {
           "ticker": "AMD",
@@ -11814,7 +11980,7 @@
           "takeProfit1": 594.0,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 503.410004
+          "referenceClose": 530.140015
         },
         {
           "ticker": "WMT",
@@ -11831,7 +11997,7 @@
           "takeProfit1": 131.82,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 127.519997
+          "referenceClose": 127.360001
         },
         {
           "ticker": "PLTR",
@@ -11848,7 +12014,7 @@
           "takeProfit1": 202.63,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 156.559998
+          "referenceClose": 156.669998
         },
         {
           "ticker": "COHR",
@@ -11865,7 +12031,7 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 210.860001
+          "referenceClose": 212.839996
         },
         {
           "ticker": "HD",
@@ -11882,7 +12048,7 @@
           "takeProfit1": 362.44,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 339.01001
+          "referenceClose": 337.640015
         },
         {
           "ticker": "UNH",
@@ -11899,7 +12065,7 @@
           "takeProfit1": 426.55,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 389.679993
+          "referenceClose": 349.910004
         },
         {
           "ticker": "NVDA",
@@ -11916,7 +12082,7 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "returnsPct": {},
-          "referenceClose": 155.460007
+          "referenceClose": 150.960007
         },
         {
           "ticker": "XOM",
@@ -11932,10 +12098,362 @@
           "stopLoss": 154.8716,
           "takeProfit1": 188.5,
           "dataQualityFlags": [],
-          "returnsPct": {}
+          "returnsPct": {},
+          "referenceClose": 160.580002
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "asOf": "2026-11-19T00:12:31.132301-05:00",
+      "sourceMode": "YAHOO_FALLBACK",
+      "signals": [
+        {
+          "ticker": "AMZN",
+          "score": 87,
+          "label": "高分觀察",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "回踩50日線",
+          "signalPrice": 267.74,
+          "entryLow": 254.931,
+          "entryPrice": 258.011,
+          "entryHigh": 260.431,
+          "stopLoss": 244.811,
+          "takeProfit1": 284.411,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 267.73999
+        },
+        {
+          "ticker": "TXN",
+          "score": 80,
+          "label": "高分觀察",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 292.43,
+          "entryLow": 282.8178,
+          "entryPrice": 287.5038,
+          "entryHigh": 291.4088,
+          "stopLoss": 269.5408,
+          "takeProfit1": 317.2,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 292.429993
+        },
+        {
+          "ticker": "AVGO",
+          "score": 76,
+          "label": "值得研究",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 354.05,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 354.049988
+        },
+        {
+          "ticker": "MSFT",
+          "score": 76,
+          "label": "值得研究",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 508.29,
+          "entryLow": 492.9277,
+          "entryPrice": 497.9429,
+          "entryHigh": 501.8834,
+          "stopLoss": 476.4492,
+          "takeProfit1": 559.15,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 508.290009
+        },
+        {
+          "ticker": "TSLA",
+          "score": 75,
+          "label": "高風險觀察",
+          "risk": "高",
+          "entryStatus": "可考慮進場區",
+          "entryType": "深度回調",
+          "signalPrice": 383.72,
+          "entryLow": 378.4848,
+          "entryPrice": 382.9761,
+          "entryHigh": 386.5691,
+          "stopLoss": 359.6216,
+          "takeProfit1": 429.6851,
+          "dataQualityFlags": [
+            "Forward PE 異常範圍，已標記供核對"
+          ],
+          "returnsPct": {},
+          "referenceClose": 383.720001
+        },
+        {
+          "ticker": "AMD",
+          "score": 74,
+          "label": "值得研究",
+          "risk": "中",
+          "entryStatus": "可考慮進場區",
+          "entryType": "回踩20日線",
+          "signalPrice": 530.14,
+          "entryLow": 504.6054,
+          "entryPrice": 519.6543,
+          "entryHigh": 532.195,
+          "stopLoss": 461.967,
+          "takeProfit1": 658.52,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 530.140015
+        },
+        {
+          "ticker": "AAPL",
+          "score": 74,
+          "label": "值得研究",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "回踩20日線",
+          "signalPrice": 352.45,
+          "entryLow": 345.7976,
+          "entryPrice": 348.6302,
+          "entryHigh": 350.9908,
+          "stopLoss": 337.7718,
+          "takeProfit1": 370.3471,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 352.450012
+        },
+        {
+          "ticker": "WDC",
+          "score": 70,
+          "label": "值得研究",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 288.19,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 288.190002
+        },
+        {
+          "ticker": "AMAT",
+          "score": 70,
+          "label": "值得研究",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 352.3,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 352.299988
+        },
+        {
+          "ticker": "PLTR",
+          "score": 68,
+          "label": "高風險觀察",
+          "risk": "高",
+          "entryStatus": "可考慮進場區",
+          "entryType": "支撐回踩",
+          "signalPrice": 156.67,
+          "entryLow": 151.8678,
+          "entryPrice": 154.6145,
+          "entryHigh": 156.7727,
+          "stopLoss": 142.843,
+          "takeProfit1": 202.63,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 156.669998
+        },
+        {
+          "ticker": "TSM",
+          "score": 66,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 362.62,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 362.619995
+        },
+        {
+          "ticker": "ADI",
+          "score": 65,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "可考慮進場區",
+          "entryType": "支撐回踩",
+          "signalPrice": 381.98,
+          "entryLow": 373.2812,
+          "entryPrice": 379.9279,
+          "entryHigh": 385.4668,
+          "stopLoss": 354.4488,
+          "takeProfit1": 433.72,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 381.980011
+        },
+        {
+          "ticker": "STX",
+          "score": 65,
+          "label": "觀察",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 515.9,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [
+            "ROE超過200%，需核對股東權益基期"
+          ],
+          "returnsPct": {},
+          "referenceClose": 515.900024
+        },
+        {
+          "ticker": "PG",
+          "score": 65,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "回踩20日線",
+          "signalPrice": 170.29,
+          "entryLow": 164.7701,
+          "entryPrice": 165.7997,
+          "entryHigh": 166.6577,
+          "stopLoss": 161.8528,
+          "takeProfit1": 173.59,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 170.289993
+        },
+        {
+          "ticker": "KO",
+          "score": 65,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "回踩20日線",
+          "signalPrice": 98.09,
+          "entryLow": 95.2359,
+          "entryPrice": 95.7783,
+          "entryHigh": 96.2303,
+          "stopLoss": 93.6993,
+          "takeProfit1": 100.56,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 98.089996
+        },
+        {
+          "ticker": "WMT",
+          "score": 61,
+          "label": "觀察",
+          "risk": "中",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "深度回調",
+          "signalPrice": 127.36,
+          "entryLow": 124.0611,
+          "entryPrice": 124.8322,
+          "entryHigh": 125.4491,
+          "stopLoss": 120.8226,
+          "takeProfit1": 131.82,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 127.360001
+        },
+        {
+          "ticker": "COHR",
+          "score": 60,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 212.84,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 212.839996
+        },
+        {
+          "ticker": "ASML",
+          "score": 60,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 1395.27,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 1395.27002
+        },
+        {
+          "ticker": "LRCX",
+          "score": 59,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 211.67,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 211.669998
+        },
+        {
+          "ticker": "CSCO",
+          "score": 58,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 97.18,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "returnsPct": {},
+          "referenceClose": 97.18
         }
       ]
     }
   ],
-  "updatedAt": "2026-11-18T23:57:46.535392-05:00"
+  "updatedAt": "2026-11-19T00:12:34.205576-05:00"
 }
