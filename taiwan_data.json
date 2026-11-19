@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-19T21:27:47.944465+08:00",
+  "asOf": "2026-11-19T21:42:44.170131+08:00",
   "date": "2026-11-19",
   "snapshotDate": "2026-11-19",
   "dataMode": "INTRADAY",
@@ -1186,7 +1186,7 @@
     },
     {
       "ticker": "4760",
-      "name": "勤凱",
+      "name": "勤凱科技",
       "exchange": "TPEx",
       "price": 216.0,
       "changePct": 0.0,
@@ -1257,7 +1257,7 @@
     },
     {
       "ticker": "4973",
-      "name": "廣穎",
+      "name": "廣穎電通",
       "exchange": "TPEx",
       "price": 101.0,
       "changePct": 0.0,
