@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-19T00:27:48.466207-05:00",
+  "asOf": "2026-11-19T00:42:37.037076-05:00",
   "date": "2026-11-19",
   "snapshotDate": "2026-11-19",
   "dataMode": "LATEST_CLOSE",
@@ -65,8 +65,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "DIS",
@@ -78,9 +78,9 @@
       "marketCap": 208994516992.0,
       "volume": 17500325.0,
       "averageVolume": 8481965.0,
-      "fpe": 14.361249,
-      "forwardEps": 8.52015,
-      "epsGrowthPct": 12.67058979106055,
+      "fpe": 14.364064,
+      "forwardEps": 8.51848,
+      "epsGrowthPct": 12.648505686326361,
       "analysts": 31,
       "priceAvg50": 110.06940002441407,
       "priceAvg200": 103.93855033874512,
@@ -130,8 +130,8 @@
         "value"
       ],
       "rank": 2,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AMZN",
@@ -192,8 +192,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 1,
-      "rankChange": -2
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -205,8 +205,8 @@
       "marketCap": 3774660476928.0,
       "volume": 21349348.0,
       "averageVolume": 23288156.0,
-      "fpe": 21.00641,
-      "forwardEps": 24.1969,
+      "fpe": 21.00299,
+      "forwardEps": 24.20084,
       "epsGrowthPct": 32.300000000000004,
       "analysts": 54,
       "priceAvg50": 519.9415991210938,
@@ -317,8 +317,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 2,
-      "rankChange": -3
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "APH",
@@ -382,8 +382,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -447,8 +447,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 3,
-      "rankChange": -4
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "TSLA",
@@ -512,8 +512,8 @@
         "momentum"
       ],
       "rank": 8,
-      "previousRank": 5,
-      "rankChange": -3
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -577,8 +577,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 6,
-      "rankChange": -3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -640,8 +640,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 7,
-      "rankChange": -3
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -706,8 +706,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 8,
-      "rankChange": -3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -772,8 +772,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 9,
-      "rankChange": -3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -837,8 +837,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 10,
-      "rankChange": -3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -903,8 +903,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 11,
-      "rankChange": -3
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -968,8 +968,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 12,
-      "rankChange": -3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -1038,8 +1038,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 13,
-      "rankChange": -3
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -1100,8 +1100,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 15,
-      "rankChange": -2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -1163,8 +1163,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 16,
-      "rankChange": -2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "COHR",
@@ -1229,8 +1229,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 17,
-      "rankChange": -2
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1295,8 +1295,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 18,
-      "rankChange": -2
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
@@ -1364,7 +1364,7 @@
       "entryHigh": 501.8834,
       "stopLoss": 476.4492,
       "takeProfit1": 559.15,
-      "fpe": 21.00641,
+      "fpe": 21.00299,
       "epsGrowthPct": 32.300000000000004,
       "volumeRatio": 0.7645780752063395,
       "dataQualityFlags": [],
