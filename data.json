@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-18T22:27:28.109432-05:00",
+  "asOf": "2026-11-18T22:42:33.602560-05:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-18",
   "dataMode": "LATEST_CLOSE",
@@ -64,8 +64,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 3,
-      "rankChange": 2
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -126,8 +126,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 5,
-      "rankChange": 3
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -191,8 +191,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 7,
-      "rankChange": 4
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -319,8 +319,8 @@
         "momentum"
       ],
       "rank": 5,
-      "previousRank": 8,
-      "rankChange": 3
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 9,
-      "rankChange": 3
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -447,8 +447,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 10,
-      "rankChange": 3
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -513,8 +513,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 11,
-      "rankChange": 3
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -579,8 +579,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 12,
-      "rankChange": 3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -644,8 +644,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 13,
-      "rankChange": 3
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -710,8 +710,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 14,
-      "rankChange": 3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -775,8 +775,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 15,
-      "rankChange": 3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -845,8 +845,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -908,8 +908,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -970,8 +970,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 17,
-      "rankChange": 2
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -1033,8 +1033,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "COHR",
@@ -1099,8 +1099,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 19,
-      "rankChange": 2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1165,8 +1165,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 20,
-      "rankChange": 2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "LRCX",
@@ -1230,8 +1230,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1296,8 +1296,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
