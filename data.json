@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-18T20:27:26.288321-05:00",
+  "asOf": "2026-11-18T20:42:48.940175-05:00",
   "date": "2026-11-18",
   "snapshotDate": "2026-11-18",
   "dataMode": "LATEST_CLOSE",
@@ -14,7 +14,7 @@
       "changePct": 3.81945,
       "marketCap": 2895109423104.0,
       "volume": 40845576.0,
-      "averageVolume": 39450731.0,
+      "averageVolume": 39453635.0,
       "fpe": 24.504671,
       "forwardEps": 10.92608,
       "epsGrowthPct": 13.783702160895617,
@@ -64,8 +64,8 @@
         "quality"
       ],
       "rank": 1,
-      "previousRank": 3,
-      "rankChange": 2
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -126,8 +126,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 5,
-      "rankChange": 3
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -138,7 +138,7 @@
       "changePct": 0.40495,
       "marketCap": 3774660476928.0,
       "volume": 21349348.0,
-      "averageVolume": 23286934.0,
+      "averageVolume": 23288156.0,
       "fpe": 21.00641,
       "forwardEps": 24.1969,
       "epsGrowthPct": 20.900594987078968,
@@ -189,8 +189,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 4,
-      "rankChange": 1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -201,7 +201,7 @@
       "changePct": 3.64461,
       "marketCap": 1690103578624.0,
       "volume": 25906478.0,
-      "averageVolume": 25442432.0,
+      "averageVolume": 25444560.0,
       "fpe": 18.236801,
       "forwardEps": 19.41404,
       "epsGrowthPct": 66.43825105598997,
@@ -254,8 +254,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 7,
-      "rankChange": 3
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "TSLA",
@@ -319,8 +319,8 @@
         "momentum"
       ],
       "rank": 5,
-      "previousRank": 8,
-      "rankChange": 3
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 9,
-      "rankChange": 3
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -447,8 +447,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 10,
-      "rankChange": 3
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -513,8 +513,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 11,
-      "rankChange": 3
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -525,7 +525,7 @@
       "changePct": 0.87907,
       "marketCap": 279584374784.0,
       "volume": 4741476.0,
-      "averageVolume": 7117801.0,
+      "averageVolume": 7118307.0,
       "fpe": 14.301539,
       "forwardEps": 24.63371,
       "epsGrowthPct": 27.734218021864532,
@@ -579,8 +579,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 12,
-      "rankChange": 3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -644,8 +644,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 13,
-      "rankChange": 3
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -656,7 +656,7 @@
       "changePct": 0.814588,
       "marketCap": 1880718835712.0,
       "volume": 11982497.0,
-      "averageVolume": 11901682.0,
+      "averageVolume": 11905265.0,
       "fpe": 15.506329,
       "forwardEps": 23.38529,
       "epsGrowthPct": 33.5977070724498,
@@ -710,8 +710,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 14,
-      "rankChange": 3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "ADI",
@@ -775,8 +775,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 15,
-      "rankChange": 3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "STX",
@@ -787,7 +787,7 @@
       "changePct": 2.27994,
       "marketCap": 118430580736.0,
       "volume": 4147380.0,
-      "averageVolume": 4804043.0,
+      "averageVolume": 4804493.0,
       "fpe": 7.895434,
       "forwardEps": 65.34157,
       "epsGrowthPct": 63.440139673677855,
@@ -845,8 +845,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -908,8 +908,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -970,8 +970,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 17,
-      "rankChange": 2
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -982,7 +982,7 @@
       "changePct": -0.125467,
       "marketCap": 1010441912320.0,
       "volume": 27868947.0,
-      "averageVolume": 23960776.0,
+      "averageVolume": 23961092.0,
       "fpe": 39.451103,
       "forwardEps": 3.2283,
       "epsGrowthPct": 11.830095019034982,
@@ -1033,8 +1033,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 18,
-      "rankChange": 2
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "COHR",
@@ -1045,7 +1045,7 @@
       "changePct": 0.93901,
       "marketCap": 41920684032.0,
       "volume": 6313718.0,
-      "averageVolume": 7621192.0,
+      "averageVolume": 7623290.0,
       "fpe": 13.480407,
       "forwardEps": 15.78884,
       "epsGrowthPct": 51.73071249482262,
@@ -1099,8 +1099,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 19,
-      "rankChange": 2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1111,7 +1111,7 @@
       "changePct": 0.879181,
       "marketCap": 537761808384.0,
       "volume": 1346478.0,
-      "averageVolume": 1479578.0,
+      "averageVolume": 1479759.0,
       "fpe": 22.00766,
       "forwardEps": 63.39929,
       "epsGrowthPct": 53.08687197761719,
@@ -1165,8 +1165,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 20,
-      "rankChange": 2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "LRCX",
@@ -1230,8 +1230,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1242,7 +1242,7 @@
       "changePct": 2.17643,
       "marketCap": 382595727360.0,
       "volume": 20520715.0,
-      "averageVolume": 17844739.0,
+      "averageVolume": 17845150.0,
       "fpe": 16.044643,
       "forwardEps": 6.05685,
       "epsGrowthPct": 10.61406296227303,
@@ -1296,8 +1296,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
