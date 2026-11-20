@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-21T01:13:28.102894+08:00",
+  "asOf": "2026-11-21T01:28:30.856624+08:00",
   "date": "2026-11-21",
   "snapshotDate": "2026-11-20",
   "dataMode": "LATEST_CLOSE",
@@ -1135,7 +1135,7 @@
     },
     {
       "ticker": "4973",
-      "name": "廣穎電通",
+      "name": "廣穎",
       "exchange": "TPEx",
       "price": 101.0,
       "changePct": -9.207920792079209,
