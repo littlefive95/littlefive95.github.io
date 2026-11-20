@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-21T06:13:34.663161+08:00",
+  "asOf": "2026-11-21T06:28:37.173363+08:00",
   "date": "2026-11-21",
   "snapshotDate": "2026-11-20",
   "dataMode": "LATEST_CLOSE",
@@ -169,7 +169,7 @@
       "forwardEpsAnalysts": 0,
       "forwardEpsLow": null,
       "forwardEpsHigh": null,
-      "epsGrowthPct": 365.95744680851067,
+      "epsGrowthPct": 376.08695652173907,
       "analysts": 0,
       "earningsDate": "2025-08-08",
       "margin": 0.021370001,
