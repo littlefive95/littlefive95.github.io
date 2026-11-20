@@ -1,10 +1,80 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-19T21:28:05.616896-05:00",
+  "asOf": "2026-11-19T21:43:06.772672-05:00",
   "date": "2026-11-19",
   "snapshotDate": "2026-11-19",
   "dataMode": "LATEST_CLOSE",
   "rows": [
+    {
+      "ticker": "SNDK",
+      "name": "Sandisk Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "電腦硬體",
+      "price": 755.16,
+      "changePct": -2.71315,
+      "marketCap": 107451228160.0,
+      "volume": 15100945.0,
+      "averageVolume": 10505996.0,
+      "fpe": 2.6125226,
+      "forwardEps": 289.05396,
+      "epsGrowthPct": 27.06740964512171,
+      "analysts": 24,
+      "priceAvg50": 170.68611190795897,
+      "priceAvg200": 160.6893465423584,
+      "roe": 1.41174,
+      "margin": 0.67039,
+      "debt": 1.108,
+      "earningsDate": "2026-10-29",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [
+        "Forward PE 異常範圍，已標記供核對",
+        "Forward PE 低於3倍，需核對預估EPS"
+      ],
+      "priceAvg20": 126.5564998626709,
+      "volumeRatio": 0.14409670400619226,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 12.8962,
+      "atrPct": 1.71,
+      "support": 170.6861,
+      "resistance": 780.9525,
+      "entryLow": 168.1069,
+      "entryPrice": 171.9757,
+      "entryHigh": 175.1998,
+      "stopLoss": 157.1451,
+      "takeProfit1": 238.685,
+      "takeProfit2": 253.5157,
+      "riskReward": 4.5,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "score": 70,
+      "label": "值得研究",
+      "risk": "中",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線；注意：Forward PE 異常偏低，未給予低估值加分",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜Forward PE 異常偏低，未給予低估值加分",
+        "判斷｜條件偏多，但仍需確認風險",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋20｜預估EPS高成長",
+        "⚠｜Forward PE 異常偏低，未給予低估值加分",
+        "資料品質｜Forward PE 異常範圍，已標記供核對、Forward PE 低於3倍，需核對預估EPS"
+      ],
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 1,
+      "previousRank": null,
+      "rankChange": null
+    },
     {
       "ticker": "WDC",
       "name": "Western Digital Corporation",
@@ -67,9 +137,9 @@
         "value",
         "quality"
       ],
-      "rank": 1,
+      "rank": 2,
       "previousRank": 1,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "QCOM",
@@ -133,9 +203,9 @@
         "value",
         "quality"
       ],
-      "rank": 2,
+      "rank": 3,
       "previousRank": 2,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TXN",
@@ -195,9 +265,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 3,
+      "rank": 4,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MSFT",
@@ -260,9 +330,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 5,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AAPL",
@@ -323,9 +393,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 5,
+      "rank": 6,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "KO",
@@ -385,9 +455,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 6,
+      "rank": 7,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CRWD",
@@ -450,9 +520,9 @@
       "profiles": [
         "momentum"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "STX",
@@ -520,9 +590,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
+      "rank": 9,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "PG",
@@ -583,9 +653,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMZN",
@@ -647,9 +717,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "V",
@@ -711,9 +781,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AVGO",
@@ -776,9 +846,9 @@
         "value",
         "quality"
       ],
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "WMT",
@@ -839,9 +909,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "COHR",
@@ -905,9 +975,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMD",
@@ -971,9 +1041,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "JNJ",
@@ -1034,9 +1104,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TSM",
@@ -1099,9 +1169,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "ASML",
@@ -1164,9 +1234,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CVX",
@@ -1230,74 +1300,9 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "MU",
-      "name": "Micron Technology, Inc.",
-      "exchange": "NasdaqGS",
-      "sector": "半導體",
-      "price": 690.44,
-      "changePct": -2.10274,
-      "marketCap": 781179879424.0,
-      "volume": 34838782.0,
-      "averageVolume": 27543710.0,
-      "fpe": 3.3232498,
-      "forwardEps": 207.76048,
-      "epsGrowthPct": 17.710199698949047,
-      "analysts": 45,
-      "priceAvg50": 919.8790002441406,
-      "priceAvg200": 771.4846012878418,
-      "roe": 0.8826,
-      "margin": 0.63796,
-      "debt": 3.743,
-      "earningsDate": "2026-12-17",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [],
-      "priceAvg20": 800.8010009765625,
-      "volumeRatio": 1.0936061668485746,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 65.3121,
-      "atrPct": 9.46,
-      "support": 650.0,
-      "resistance": 990.0,
-      "entryLow": null,
-      "entryPrice": null,
-      "entryHigh": null,
-      "stopLoss": null,
-      "takeProfit1": null,
-      "takeProfit2": null,
-      "riskReward": null,
-      "entryType": "暫無訊號",
-      "entryStatus": "等待",
-      "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
-      "score": 47,
-      "label": "暫不優先",
-      "risk": "低",
-      "reasons": [
-        "摘要｜FPE偏低、預估EPS成長",
-        "核心優勢｜FPE偏低、預估EPS成長",
-        "主要風險｜目前未偵測到明顯風險",
-        "判斷｜目前量化優勢有限",
-        "＋20｜FPE偏低",
-        "＋12｜預估EPS成長",
-        "＋5｜分析師覆蓋度佳"
-      ],
-      "eventSignals": [
-        "跌破50日線",
-        "跌破200日線"
-      ],
-      "qualityScore": 100,
-      "profiles": [
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 95,
@@ -1311,7 +1316,7 @@
   "fpeCoverage": 95,
   "epsGrowthCoverage": 100,
   "analystCoverage": 100,
-  "dataQualityFlagCount": 2,
+  "dataQualityFlagCount": 4,
   "historicalDataCoverage": {
     "massive": 0,
     "yahooBackup": 50
