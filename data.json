@@ -1,10 +1,75 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-20T01:58:09.029583-05:00",
+  "asOf": "2026-11-20T02:13:10.549675-05:00",
   "date": "2026-11-20",
   "snapshotDate": "2026-11-20",
   "dataMode": "LATEST_CLOSE",
   "rows": [
+    {
+      "ticker": "SNDK",
+      "name": "Sandisk Corporation",
+      "exchange": "NasdaqGS",
+      "sector": "電腦硬體",
+      "price": 755.16,
+      "changePct": -2.71315,
+      "marketCap": 107451228160.0,
+      "volume": 15100945.0,
+      "averageVolume": 10505996.0,
+      "fpe": 20.900183,
+      "forwardEps": 36.13174,
+      "epsGrowthPct": 27.06739206122013,
+      "analysts": 24,
+      "priceAvg50": 170.68611190795897,
+      "priceAvg200": 160.6893465423584,
+      "roe": 1.41174,
+      "margin": 0.67039,
+      "debt": 1.108,
+      "earningsDate": "2026-10-29",
+      "quoteSource": "YAHOO",
+      "fundamentalSource": "YAHOO_BACKUP",
+      "dataQualityFlags": [],
+      "priceAvg20": 126.5564998626709,
+      "volumeRatio": 0.14409670400619226,
+      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
+      "atr": 12.8962,
+      "atrPct": 1.71,
+      "support": 170.6861,
+      "resistance": 780.9525,
+      "entryLow": 168.1069,
+      "entryPrice": 171.9757,
+      "entryHigh": 175.1998,
+      "stopLoss": 157.1451,
+      "takeProfit1": 238.685,
+      "takeProfit2": 253.5157,
+      "riskReward": 4.5,
+      "entryType": "支撐回踩",
+      "entryStatus": "價格偏高／不追",
+      "entryNote": "等待20日線／近端支撐回踩，不追高。",
+      "score": 86,
+      "label": "高分觀察",
+      "risk": "低",
+      "reasons": [
+        "摘要｜站上200日均線、站上50日均線",
+        "核心優勢｜站上200日均線、站上50日均線",
+        "主要風險｜目前未偵測到明顯風險",
+        "判斷｜趨勢與基本面條件偏多",
+        "＋25｜站上200日均線",
+        "＋10｜站上50日均線",
+        "＋16｜FPE合理"
+      ],
+      "eventSignals": [
+        "突破20日高點"
+      ],
+      "qualityScore": 100,
+      "profiles": [
+        "momentum",
+        "value",
+        "quality"
+      ],
+      "rank": 1,
+      "previousRank": 20,
+      "rankChange": 19
+    },
     {
       "ticker": "WDC",
       "name": "Western Digital Corporation",
@@ -67,9 +132,9 @@
         "value",
         "quality"
       ],
-      "rank": 1,
+      "rank": 2,
       "previousRank": 1,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "QCOM",
@@ -133,9 +198,9 @@
         "value",
         "quality"
       ],
-      "rank": 2,
+      "rank": 3,
       "previousRank": 2,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TXN",
@@ -195,9 +260,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 3,
+      "rank": 4,
       "previousRank": 3,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "MSFT",
@@ -209,9 +274,9 @@
       "marketCap": 3700472676352.0,
       "volume": 28435392.0,
       "averageVolume": 23320784.0,
-      "fpe": 20.590195,
-      "forwardEps": 24.20084,
-      "epsGrowthPct": 20.9202813247606,
+      "fpe": 20.58771,
+      "forwardEps": 24.20376,
+      "epsGrowthPct": 20.934871199387615,
       "analysts": 54,
       "priceAvg50": 520.058798828125,
       "priceAvg200": 443.17819900512694,
@@ -260,9 +325,9 @@
         "value",
         "quality"
       ],
-      "rank": 4,
+      "rank": 5,
       "previousRank": 4,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AAPL",
@@ -323,9 +388,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 5,
+      "rank": 6,
       "previousRank": 5,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "KO",
@@ -385,9 +450,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 6,
+      "rank": 7,
       "previousRank": 6,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CRWD",
@@ -450,9 +515,9 @@
       "profiles": [
         "momentum"
       ],
-      "rank": 7,
+      "rank": 8,
       "previousRank": 7,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "STX",
@@ -520,9 +585,9 @@
         "value",
         "quality"
       ],
-      "rank": 8,
+      "rank": 9,
       "previousRank": 8,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "PG",
@@ -583,9 +648,9 @@
         "value",
         "quality"
       ],
-      "rank": 9,
+      "rank": 10,
       "previousRank": 9,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMZN",
@@ -647,9 +712,9 @@
         "value",
         "quality"
       ],
-      "rank": 10,
+      "rank": 11,
       "previousRank": 10,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "V",
@@ -711,9 +776,9 @@
         "value",
         "quality"
       ],
-      "rank": 11,
+      "rank": 12,
       "previousRank": 11,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AVGO",
@@ -776,9 +841,9 @@
         "value",
         "quality"
       ],
-      "rank": 12,
+      "rank": 13,
       "previousRank": 12,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "WMT",
@@ -787,7 +852,7 @@
       "sector": "必需消費",
       "price": 126.04,
       "changePct": -1.03643,
-      "marketCap": 1003036278784.0,
+      "marketCap": 999969390592.0,
       "volume": 31544343.0,
       "averageVolume": 23862281.0,
       "fpe": 39.04222,
@@ -839,9 +904,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 13,
+      "rank": 14,
       "previousRank": 13,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "COHR",
@@ -905,9 +970,9 @@
         "value",
         "quality"
       ],
-      "rank": 14,
+      "rank": 15,
       "previousRank": 14,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "AMD",
@@ -971,9 +1036,9 @@
         "momentum",
         "quality"
       ],
-      "rank": 15,
+      "rank": 16,
       "previousRank": 15,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "JNJ",
@@ -985,9 +1050,9 @@
       "marketCap": 643088908288.0,
       "volume": 9833473.0,
       "averageVolume": 7151304.0,
-      "fpe": 23.002344,
-      "forwardEps": 11.6136,
-      "epsGrowthPct": 4.454066149924718,
+      "fpe": 23.005335,
+      "forwardEps": 11.61209,
+      "epsGrowthPct": 4.4404850346903,
       "analysts": 22,
       "priceAvg50": 267.3302014160156,
       "priceAvg200": 250.66410026550292,
@@ -1034,9 +1099,9 @@
         "value",
         "quality"
       ],
-      "rank": 16,
+      "rank": 17,
       "previousRank": 16,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "TSM",
@@ -1099,9 +1164,9 @@
         "value",
         "quality"
       ],
-      "rank": 17,
+      "rank": 18,
       "previousRank": 17,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "ASML",
@@ -1164,9 +1229,9 @@
         "value",
         "quality"
       ],
-      "rank": 18,
+      "rank": 19,
       "previousRank": 18,
-      "rankChange": 0
+      "rankChange": -1
     },
     {
       "ticker": "CVX",
@@ -1230,85 +1295,13 @@
         "value",
         "quality"
       ],
-      "rank": 19,
-      "previousRank": 19,
-      "rankChange": 0
-    },
-    {
-      "ticker": "SNDK",
-      "name": "Sandisk Corporation",
-      "exchange": "NasdaqGS",
-      "sector": "電腦硬體",
-      "price": 755.16,
-      "changePct": -2.71315,
-      "marketCap": 107451228160.0,
-      "volume": 15100945.0,
-      "averageVolume": 10505996.0,
-      "fpe": 2.6125226,
-      "forwardEps": 289.05396,
-      "epsGrowthPct": 916.5392771609737,
-      "analysts": 24,
-      "priceAvg50": 170.68611190795897,
-      "priceAvg200": 160.6893465423584,
-      "roe": 1.41174,
-      "margin": 0.67039,
-      "debt": 1.108,
-      "earningsDate": "2026-10-29",
-      "quoteSource": "YAHOO",
-      "fundamentalSource": "YAHOO_BACKUP",
-      "dataQualityFlags": [
-        "Forward PE 異常範圍，已標記供核對",
-        "EPS成長極端值，已排除成長加分",
-        "Forward PE 低於3倍，需核對預估EPS"
-      ],
-      "priceAvg20": 126.5564998626709,
-      "volumeRatio": 0.14409670400619226,
-      "historicalDataSource": "YAHOO_HISTORY_BACKUP",
-      "atr": 12.8962,
-      "atrPct": 1.71,
-      "support": 170.6861,
-      "resistance": 780.9525,
-      "entryLow": 168.1069,
-      "entryPrice": 171.9757,
-      "entryHigh": 175.1998,
-      "stopLoss": 157.1451,
-      "takeProfit1": 238.685,
-      "takeProfit2": 253.5157,
-      "riskReward": 4.5,
-      "entryType": "支撐回踩",
-      "entryStatus": "價格偏高／不追",
-      "entryNote": "等待20日線／近端支撐回踩，不追高。",
-      "score": 50,
-      "label": "暫不優先",
-      "risk": "中",
-      "reasons": [
-        "摘要｜站上200日均線、站上50日均線；注意：Forward PE 異常偏低，未給予低估值加分",
-        "核心優勢｜站上200日均線、站上50日均線",
-        "主要風險｜Forward PE 異常偏低，未給予低估值加分",
-        "判斷｜目前量化優勢有限",
-        "＋25｜站上200日均線",
-        "＋10｜站上50日均線",
-        "＋5｜分析師覆蓋度佳",
-        "⚠｜Forward PE 異常偏低，未給予低估值加分",
-        "⚠｜EPS成長幅度極端，需核對估算基期",
-        "資料品質｜Forward PE 異常範圍，已標記供核對、EPS成長極端值，已排除成長加分、Forward PE 低於3倍，需核對預估EPS"
-      ],
-      "eventSignals": [
-        "突破20日高點"
-      ],
-      "qualityScore": 100,
-      "profiles": [
-        "momentum",
-        "value",
-        "quality"
-      ],
       "rank": 20,
-      "previousRank": 20,
-      "rankChange": 0
+      "previousRank": 19,
+      "rankChange": -1
     }
   ],
   "coverage": 95,
-  "universeCount": 335,
+  "universeCount": 336,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1316,9 +1309,9 @@
   "sourceWarnings": [],
   "fpeFormula": "FMP analyst EPS estimate, fallback to validated Forward PE / price-to-forward-EPS",
   "fpeCoverage": 95,
-  "epsGrowthCoverage": 95,
+  "epsGrowthCoverage": 100,
   "analystCoverage": 100,
-  "dataQualityFlagCount": 5,
+  "dataQualityFlagCount": 2,
   "historicalDataCoverage": {
     "massive": 0,
     "yahooBackup": 50
@@ -1372,8 +1365,8 @@
       "entryHigh": 502.1522,
       "stopLoss": 475.446,
       "takeProfit1": 559.15,
-      "fpe": 20.590195,
-      "epsGrowthPct": 20.9202813247606,
+      "fpe": 20.58771,
+      "epsGrowthPct": 20.934871199387615,
       "volumeRatio": 1.0041570150091772,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
