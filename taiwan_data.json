@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-20T13:58:16.429694+08:00",
+  "asOf": "2026-11-20T14:13:14.040683+08:00",
   "date": "2026-11-20",
   "snapshotDate": "2026-11-20",
   "dataMode": "INTRADAY",
@@ -351,8 +351,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 5,
-      "previousRank": 20,
-      "rankChange": 15
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "3357",
@@ -423,8 +423,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 6,
-      "previousRank": 5,
-      "rankChange": -1
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "3587",
@@ -494,8 +494,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 7,
-      "previousRank": 6,
-      "rankChange": -1
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "3227",
@@ -566,8 +566,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 8,
-      "previousRank": 7,
-      "rankChange": -1
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3680",
@@ -638,8 +638,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 9,
-      "previousRank": 8,
-      "rankChange": -1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "3088",
@@ -710,8 +710,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "3479",
@@ -782,8 +782,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "5289",
@@ -1420,8 +1420,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
