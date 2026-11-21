@@ -1,7 +1,7 @@
 {
-  "status": "LIVE",
-  "asOf": "2026-11-20T23:58:48.295000-05:00",
-  "date": "2026-11-20",
+  "status": "MARKET_CLOSED",
+  "asOf": "2026-11-21T00:13:44.541452-05:00",
+  "date": "2026-11-21",
   "snapshotDate": "2026-11-20",
   "dataMode": "LATEST_CLOSE",
   "rows": [
@@ -202,7 +202,7 @@
       "sector": "必需消費",
       "price": 127.95,
       "changePct": 1.5153887,
-      "marketCap": 1015122821120.0,
+      "marketCap": 1018236174336.0,
       "volume": 42631719.0,
       "averageVolume": 23060034.0,
       "fpe": 39.63386,
@@ -270,9 +270,9 @@
       "marketCap": 3598139523072.0,
       "volume": 47123194.0,
       "averageVolume": 23466562.0,
-      "fpe": 20.018377,
-      "forwardEps": 24.20376,
-      "epsGrowthPct": 20.934871199387615,
+      "fpe": 20.020792,
+      "forwardEps": 24.20084,
+      "epsGrowthPct": 20.9202813247606,
       "analysts": 54,
       "priceAvg50": 519.8365985107422,
       "priceAvg200": 443.63244888305667,
@@ -1068,9 +1068,9 @@
       "marketCap": 1453140738048.0,
       "volume": 59550482.0,
       "averageVolume": 25403431.0,
-      "fpe": 15.67989,
-      "forwardEps": 19.41404,
-      "epsGrowthPct": 66.58063364691913,
+      "fpe": 15.702569,
+      "forwardEps": 19.386,
+      "epsGrowthPct": 66.34003864621552,
       "analysts": 47,
       "priceAvg50": 342.7116003417969,
       "priceAvg200": 367.81770065307614,
@@ -1324,7 +1324,7 @@
     }
   ],
   "coverage": 100,
-  "universeCount": 338,
+  "universeCount": 337,
   "evaluatedUniverseCount": 50,
   "focusCount": 20,
   "method": "Yahoo fallback screener + seven-magnificent mandatory evaluation",
@@ -1388,8 +1388,8 @@
       "entryHigh": 449.2339,
       "stopLoss": 422.7204,
       "takeProfit1": 559.15,
-      "fpe": 20.018377,
-      "epsGrowthPct": 20.934871199387615,
+      "fpe": 20.020792,
+      "epsGrowthPct": 20.9202813247606,
       "volumeRatio": 1.5705574434444336,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1513,6 +1513,8 @@
       "fundamentalSource": "YAHOO_BACKUP"
     }
   ],
-  "holiday": [],
+  "holiday": [
+    "Weekend"
+  ],
   "note": "尚未設定 Massive/FMP API Key，目前使用 Yahoo 備援與強制納入七巨頭。高分不等於可買進；進場標籤要求進場區、風險與資料品質同時通過。研究/監控工具，不構成投資建議。"
 }
