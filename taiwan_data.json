@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-24T05:45:21.108112+08:00",
+  "asOf": "2026-11-24T05:52:13.395932+08:00",
   "date": "2026-11-24",
   "snapshotDate": "2026-11-23",
   "dataMode": "LATEST_CLOSE",
@@ -709,8 +709,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "3526",
@@ -780,8 +780,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 13,
-      "rankChange": 2
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "3548",
@@ -851,8 +851,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 12,
-      "previousRank": 15,
-      "rankChange": 3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "4973",
@@ -924,8 +924,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "5289",
@@ -997,8 +997,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 14,
-      "previousRank": 17,
-      "rankChange": 3
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "4556",
@@ -1064,8 +1064,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 15,
-      "previousRank": 18,
-      "rankChange": 3
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "3680",
@@ -1137,8 +1137,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 16,
-      "previousRank": 10,
-      "rankChange": -6
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "3675",
@@ -1209,8 +1209,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 17,
-      "previousRank": 19,
-      "rankChange": 2
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "3357",
@@ -1281,8 +1281,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 18,
-      "previousRank": 20,
-      "rankChange": 2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "5274",
@@ -1351,8 +1351,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 19,
-      "previousRank": 12,
-      "rankChange": -7
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "3402",
@@ -1423,8 +1423,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
