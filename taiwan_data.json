@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-24T14:15:23.036092+08:00",
+  "asOf": "2026-11-24T14:30:22.763870+08:00",
   "date": "2026-11-24",
   "snapshotDate": "2026-11-24",
   "dataMode": "INTRADAY",
@@ -213,8 +213,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 3,
-      "previousRank": 9,
-      "rankChange": 6
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "009814",
@@ -282,8 +282,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 4,
-      "previousRank": 3,
-      "rankChange": -1
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "4174",
@@ -347,8 +347,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 5,
-      "previousRank": 4,
-      "rankChange": -1
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "5009",
@@ -420,8 +420,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 6,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "4923",
@@ -490,8 +490,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 7,
-      "previousRank": 5,
-      "rankChange": -2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "1584",
@@ -560,8 +560,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "4541",
@@ -633,8 +633,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 9,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "00955",
@@ -701,8 +701,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 10,
-      "previousRank": 6,
-      "rankChange": -4
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "3551",
@@ -717,7 +717,7 @@
       "priceAvg200": 186.515,
       "volumeRatio": 1.4216933435402903,
       "fpe": null,
-      "valuation": 15.508253,
+      "valuation": 16.573816,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -772,8 +772,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 14,
-      "rankChange": 3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "3479",
@@ -845,8 +845,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 12,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "5321",
@@ -915,8 +915,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "4114",
@@ -986,8 +986,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "5230",
@@ -1055,8 +1055,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 15,
-      "previousRank": 8,
-      "rankChange": -7
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "4162",
@@ -1128,8 +1128,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "1586",
@@ -1197,8 +1197,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "5202",
@@ -1266,8 +1266,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 18,
-      "previousRank": 10,
-      "rankChange": -8
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "5013",
@@ -1335,8 +1335,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 19,
-      "previousRank": 11,
-      "rankChange": -8
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "5314",
@@ -1351,7 +1351,7 @@
       "priceAvg200": 20.696758184432984,
       "volumeRatio": 0.9362420029098134,
       "fpe": null,
-      "valuation": 23.978493,
+      "valuation": 25.632183,
       "valuationSource": "PE",
       "fpeSource": null,
       "valuationConfidence": 50,
@@ -1383,7 +1383,6 @@
       ],
       "profiles": [
         "momentum",
-        "value",
         "quality"
       ],
       "qualityScore": 100,
@@ -1405,8 +1404,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 20,
-      "previousRank": 7,
-      "rankChange": -13
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 75,
