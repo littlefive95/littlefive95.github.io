@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-23T20:00:18.534762-05:00",
+  "asOf": "2026-11-23T20:15:10.987505-05:00",
   "date": "2026-11-23",
   "snapshotDate": "2026-11-23",
   "dataMode": "LATEST_CLOSE",
@@ -128,8 +128,8 @@
         "quality"
       ],
       "rank": 2,
-      "previousRank": 3,
-      "rankChange": 1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "TXN",
@@ -193,8 +193,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -258,8 +258,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 9,
-      "rankChange": 5
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -384,8 +384,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 18,
-      "rankChange": 12
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "AMD",
@@ -449,8 +449,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 14,
-      "rankChange": 7
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -515,8 +515,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "TSLA",
@@ -583,8 +583,8 @@
         "momentum"
       ],
       "rank": 9,
-      "previousRank": 4,
-      "rankChange": -5
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "JNJ",
@@ -646,8 +646,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 6,
-      "rankChange": -4
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "PLTR",
@@ -713,8 +713,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "SKHY",
@@ -780,8 +780,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 7,
-      "rankChange": -5
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -848,8 +848,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 16,
-      "rankChange": 3
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -916,8 +916,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 8,
-      "rankChange": -6
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -984,8 +984,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -1052,8 +1052,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "GOOG",
@@ -1118,8 +1118,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "BAC",
@@ -1183,8 +1183,8 @@
         "value"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "PANW",
@@ -1247,8 +1247,8 @@
         "momentum"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -1315,8 +1315,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 11,
-      "rankChange": -9
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
