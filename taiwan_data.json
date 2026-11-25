@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-26T07:16:40.095192+08:00",
+  "asOf": "2026-11-26T07:31:45.435750+08:00",
   "date": "2026-11-26",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -829,7 +829,7 @@
     },
     {
       "ticker": "6023",
-      "name": "元大期",
+      "name": "元大期貨",
       "exchange": "TPEx",
       "price": 81.0999984741211,
       "changePct": -0.976800976800977,
@@ -1314,7 +1314,7 @@
     },
     {
       "ticker": "4973",
-      "name": "廣穎",
+      "name": "廣穎電通",
       "exchange": "TPEx",
       "price": 99.5,
       "changePct": -9.95475113122172,
