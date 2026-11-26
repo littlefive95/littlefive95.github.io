@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-11-26T00:17:24.715416+08:00",
+  "asOf": "2026-11-27T00:17:47.142488+08:00",
   "source": "Binance Spot 1d klines",
-  "records": 31,
+  "records": 32,
   "method": "加密貨幣每日 TOP20 名單；以訊號快照價格計算後續日 K 報酬，停損率依未來日 K 低點判斷；非成交模擬，不含手續費與滑價。",
   "results": {
     "1d": {
@@ -20,15 +20,15 @@
     },
     "20d": {
       "actionableEntrySignals": {
-        "samples": 19,
-        "averageReturnPct": -28.5892,
+        "samples": 23,
+        "averageReturnPct": -27.1386,
         "positiveRatePct": 0.0
       }
     },
     "entrySignals20d": {
-      "samples": 19,
-      "stopHitRatePct": 94.74,
-      "targetHitRatePct": 5.26
+      "samples": 23,
+      "stopHitRatePct": 95.65,
+      "targetHitRatePct": 4.35
     }
   }
 }
