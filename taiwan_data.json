@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-27T02:47:07.194137+08:00",
+  "asOf": "2026-11-27T03:17:03.321595+08:00",
   "date": "2026-11-27",
   "snapshotDate": "2026-11-26",
   "dataMode": "LATEST_CLOSE",
@@ -1410,8 +1410,5 @@
   "holiday": [
     "Outside Taiwan cash-session; latest completed trading day shown"
   ],
-  "note": "目前非台股即時交易時段；顯示最近交易日 2026-11-26 收盤 TOP 20，並維持量化排序，研究/監控工具，不構成投資建議。",
-  "fallback": true,
-  "refreshCheckedAt": "2026-11-27T03:04:37.920536+08:00",
-  "refreshError": "Yahoo Finance Taiwan fallback unavailable: HTTP Error 401: "
+  "note": "目前非台股即時交易時段；顯示最近交易日 2026-11-26 收盤 TOP 20，並維持量化排序，研究/監控工具，不構成投資建議。"
 }
