@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-26T07:46:49.217976-05:00",
+  "asOf": "2026-11-26T08:01:44.111975-05:00",
   "date": "2026-11-26",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -1462,7 +1462,7 @@
       "exchange": "NasdaqGS",
       "price": 380.14,
       "changePct": -1.1802,
-      "score": 27,
+      "score": 35,
       "label": "高風險觀察",
       "risk": "高",
       "entryStatus": "等待",
@@ -1472,8 +1472,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 176.05432,
-      "epsGrowthPct": 24.907153517753635,
+      "fpe": 175.6833,
+      "epsGrowthPct": 25.170941654229285,
       "volumeRatio": 0.9527375195967929,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"

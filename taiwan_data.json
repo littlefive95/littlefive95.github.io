@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-26T20:46:54.080114+08:00",
+  "asOf": "2026-11-26T21:01:48.680078+08:00",
   "date": "2026-11-26",
   "snapshotDate": "2026-11-26",
   "dataMode": "INTRADAY",
@@ -487,7 +487,7 @@
     },
     {
       "ticker": "6140",
-      "name": "訊達",
+      "name": "訊達電腦",
       "exchange": "TPEx",
       "price": 33.5,
       "changePct": 0.0,
