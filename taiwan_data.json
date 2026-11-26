@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-26T15:31:46.506080+08:00",
+  "asOf": "2026-11-26T15:46:41.206350+08:00",
   "date": "2026-11-26",
   "snapshotDate": "2026-11-26",
   "dataMode": "INTRADAY",
@@ -423,8 +423,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 6,
-      "previousRank": 12,
-      "rankChange": 6
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "5009",
@@ -495,8 +495,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 7,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "5536",
@@ -567,8 +567,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 8,
-      "previousRank": 13,
-      "rankChange": 5
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "3285",
@@ -637,8 +637,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "20日高點突破後確認；突破後拉離區間過大不追。",
       "rank": 9,
-      "previousRank": 6,
-      "rankChange": -3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "4198",
@@ -704,8 +704,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 10,
-      "previousRank": 7,
-      "rankChange": -3
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "5289",
@@ -776,8 +776,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 11,
-      "previousRank": 9,
-      "rankChange": -2
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "5457",
@@ -847,8 +847,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "3680",
@@ -919,8 +919,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 13,
-      "previousRank": 8,
-      "rankChange": -5
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "4973",
@@ -991,8 +991,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "3293",
@@ -1130,8 +1130,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "5425",
@@ -1202,8 +1202,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 17,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "4749",
@@ -1273,8 +1273,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 18,
-      "previousRank": 16,
-      "rankChange": -2
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "4979",
@@ -1344,8 +1344,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "4541",
@@ -1415,8 +1415,8 @@
       "entryStatus": "等待",
       "entryNote": "尚未形成可接受的多頭趨勢／回踩結構。",
       "rank": 20,
-      "previousRank": 10,
-      "rankChange": -10
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
