@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-25T20:31:41.352154-05:00",
+  "asOf": "2026-11-25T20:46:51.774647-05:00",
   "date": "2026-11-25",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -461,7 +461,7 @@
       "changePct": -1.24967,
       "marketCap": 3638315450368.0,
       "volume": 26095270.0,
-      "averageVolume": 24113917.0,
+      "averageVolume": 24114192.0,
       "fpe": 20.244339,
       "forwardEps": 24.20084,
       "epsGrowthPct": 20.831592070726977,
@@ -716,7 +716,7 @@
       "changePct": 0.198016,
       "marketCap": 59234316288.0,
       "volume": 20036492.0,
-      "averageVolume": 20667067.0,
+      "averageVolume": 20667985.0,
       "fpe": 19.255257,
       "forwardEps": 3.41621,
       "epsGrowthPct": 38.17775135196353,
@@ -781,7 +781,7 @@
       "changePct": 3.40273,
       "marketCap": 1559025942528.0,
       "volume": 18558019.0,
-      "averageVolume": 21171915.0,
+      "averageVolume": 21172414.0,
       "fpe": 17.09565,
       "forwardEps": 35.67516,
       "epsGrowthPct": 21.51871311663871,
@@ -911,7 +911,7 @@
       "changePct": -1.96449,
       "marketCap": 1775537094656.0,
       "volume": 22685134.0,
-      "averageVolume": 13011120.0,
+      "averageVolume": 13011910.0,
       "fpe": 14.639117,
       "forwardEps": 23.38529,
       "epsGrowthPct": 33.5977070724498,
@@ -1029,8 +1029,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1094,8 +1094,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "NFLX",
@@ -1106,7 +1106,7 @@
       "changePct": 0.917277,
       "marketCap": 243956826112.0,
       "volume": 45614479.0,
-      "averageVolume": 38352918.0,
+      "averageVolume": 38353510.0,
       "fpe": 15.7609625,
       "forwardEps": 3.76944,
       "epsGrowthPct": 5.8983168937122965,
@@ -1172,7 +1172,7 @@
       "changePct": -0.486444,
       "marketCap": 117806342144.0,
       "volume": 28416262.0,
-      "averageVolume": 24872340.0,
+      "averageVolume": 24874853.0,
       "fpe": 17.762636,
       "forwardEps": 7.37109,
       "epsGrowthPct": 74.68652316209317,
