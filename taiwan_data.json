@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-27T04:32:07.155222+08:00",
+  "asOf": "2026-11-27T04:47:02.439175+08:00",
   "date": "2026-11-27",
   "snapshotDate": "2026-11-26",
   "dataMode": "LATEST_CLOSE",
@@ -68,8 +68,8 @@
       "entryStatus": "可考慮進場區",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 1,
-      "previousRank": 3,
-      "rankChange": 2
+      "previousRank": 1,
+      "rankChange": 0
     },
     {
       "ticker": "3374",
@@ -138,8 +138,8 @@
       "entryStatus": "等待回踩",
       "entryNote": "中期趨勢偏多，等待主要支撐／50日線回踩。",
       "rank": 2,
-      "previousRank": 1,
-      "rankChange": -1
+      "previousRank": 2,
+      "rankChange": 0
     },
     {
       "ticker": "6140",
@@ -205,8 +205,8 @@
       "entryStatus": "價格偏高／不追",
       "entryNote": "等待20日線／近端支撐回踩，不追高。",
       "rank": 3,
-      "previousRank": 2,
-      "rankChange": -1
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "3357",
