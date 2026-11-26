@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-25T23:01:45.840045-05:00",
+  "asOf": "2026-11-25T23:16:43.117568-05:00",
   "date": "2026-11-25",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -83,7 +83,7 @@
       "fpe": 15.11415,
       "forwardEps": 15.91158,
       "epsGrowthPct": 8.420233526666966,
-      "analysts": 25,
+      "analysts": 26,
       "priceAvg50": 224.0501986694336,
       "priceAvg200": 189.7559994506836,
       "roe": 0.26025,
@@ -718,7 +718,7 @@
       "fpe": 19.255257,
       "forwardEps": 3.41621,
       "epsGrowthPct": 38.17775135196353,
-      "analysts": 30,
+      "analysts": 31,
       "priceAvg50": 95.85859985351563,
       "priceAvg200": 90.6857250213623,
       "roe": 0.21452999,
@@ -780,9 +780,9 @@
       "marketCap": 1559025942528.0,
       "volume": 18558019.0,
       "averageVolume": 21172414.0,
-      "fpe": 17.09565,
-      "forwardEps": 35.67516,
-      "epsGrowthPct": 21.51871311663871,
+      "fpe": 17.151987,
+      "forwardEps": 35.55798,
+      "epsGrowthPct": 21.119568086791407,
       "analysts": 58,
       "priceAvg50": 672.4167993164062,
       "priceAvg200": 627.5314978027344,
@@ -1027,8 +1027,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1092,8 +1092,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "NFLX",
@@ -1449,8 +1449,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.09565,
-      "epsGrowthPct": 21.51871311663871,
+      "fpe": 17.151987,
+      "epsGrowthPct": 21.119568086791407,
       "volumeRatio": 1.0143779371111465,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
