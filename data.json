@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-26T14:16:59.702409-05:00",
+  "asOf": "2026-11-26T14:32:05.991213-05:00",
   "date": "2026-11-26",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -195,8 +195,8 @@
         "quality"
       ],
       "rank": 3,
-      "previousRank": 9,
-      "rankChange": 6
+      "previousRank": 3,
+      "rankChange": 0
     },
     {
       "ticker": "AAPL",
@@ -258,8 +258,8 @@
         "quality"
       ],
       "rank": 4,
-      "previousRank": 11,
-      "rankChange": 7
+      "previousRank": 4,
+      "rankChange": 0
     },
     {
       "ticker": "PG",
@@ -321,8 +321,8 @@
         "quality"
       ],
       "rank": 5,
-      "previousRank": 3,
-      "rankChange": -2
+      "previousRank": 5,
+      "rankChange": 0
     },
     {
       "ticker": "QCOM",
@@ -386,8 +386,8 @@
         "quality"
       ],
       "rank": 6,
-      "previousRank": 4,
-      "rankChange": -2
+      "previousRank": 6,
+      "rankChange": 0
     },
     {
       "ticker": "MDT",
@@ -449,8 +449,8 @@
         "quality"
       ],
       "rank": 7,
-      "previousRank": 5,
-      "rankChange": -2
+      "previousRank": 7,
+      "rankChange": 0
     },
     {
       "ticker": "MSFT",
@@ -462,9 +462,9 @@
       "marketCap": 3638315450368.0,
       "volume": 26095270.0,
       "averageVolume": 24207546.0,
-      "fpe": 20.241896,
-      "forwardEps": 24.20376,
-      "epsGrowthPct": 20.84617124437742,
+      "fpe": 20.244339,
+      "forwardEps": 24.20084,
+      "epsGrowthPct": 20.831592070726977,
       "analysts": 54,
       "priceAvg50": 519.5511987304687,
       "priceAvg200": 444.8851988220215,
@@ -514,8 +514,8 @@
         "quality"
       ],
       "rank": 8,
-      "previousRank": 12,
-      "rankChange": 4
+      "previousRank": 8,
+      "rankChange": 0
     },
     {
       "ticker": "JNJ",
@@ -577,8 +577,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 6,
-      "rankChange": -3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -639,8 +639,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 7,
-      "rankChange": -3
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "WMT",
@@ -649,7 +649,7 @@
       "sector": "必需消費",
       "price": 131.94,
       "changePct": -0.279643,
-      "marketCap": 1046778478592.0,
+      "marketCap": 1049988956160.0,
       "volume": 23588314.0,
       "averageVolume": 22739776.0,
       "fpe": 40.86981,
@@ -702,8 +702,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 8,
-      "rankChange": -3
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -767,8 +767,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 10,
-      "rankChange": -2
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "META",
@@ -780,9 +780,9 @@
       "marketCap": 1559025942528.0,
       "volume": 18558019.0,
       "averageVolume": 20972150.0,
-      "fpe": 17.09565,
-      "forwardEps": 35.67516,
-      "epsGrowthPct": 21.51871311663871,
+      "fpe": 17.151987,
+      "forwardEps": 35.55798,
+      "epsGrowthPct": 21.119568086791407,
       "analysts": 58,
       "priceAvg50": 672.4167993164062,
       "priceAvg200": 627.5314978027344,
@@ -832,8 +832,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -897,8 +897,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -962,8 +962,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -975,9 +975,9 @@
       "marketCap": 1436194177024.0,
       "volume": 33594318.0,
       "averageVolume": 26837475.0,
-      "fpe": 15.562379,
-      "forwardEps": 19.33252,
-      "epsGrowthPct": 65.88685125501542,
+      "fpe": 15.519446,
+      "forwardEps": 19.386,
+      "epsGrowthPct": 66.34574791231194,
       "analysts": 47,
       "priceAvg50": 340.5513995361328,
       "priceAvg200": 367.30865036010744,
@@ -1027,8 +1027,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1040,9 +1040,9 @@
       "marketCap": 371378585600.0,
       "volume": 18516961.0,
       "averageVolume": 18734685.0,
-      "fpe": 15.571921,
-      "forwardEps": 6.04935,
-      "epsGrowthPct": 10.477093172329898,
+      "fpe": 15.552638,
+      "forwardEps": 6.05685,
+      "epsGrowthPct": 10.61406296227303,
       "analysts": 24,
       "priceAvg50": 105.39439971923828,
       "priceAvg200": 102.81884979248046,
@@ -1092,8 +1092,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 13,
-      "rankChange": -4
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "NFLX",
@@ -1158,8 +1158,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "MRVL",
@@ -1223,8 +1223,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "KLAC",
@@ -1288,8 +1288,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 14,
-      "rankChange": -6
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 100,
@@ -1357,8 +1357,8 @@
       "entryHigh": 486.1459,
       "stopLoss": 461.9308,
       "takeProfit1": 559.15,
-      "fpe": 20.241896,
-      "epsGrowthPct": 20.84617124437742,
+      "fpe": 20.244339,
+      "epsGrowthPct": 20.831592070726977,
       "volumeRatio": 0.8510432142521113,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1426,8 +1426,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.85552,
-      "epsGrowthPct": 16.849663775281787,
+      "fpe": 17.85273,
+      "epsGrowthPct": 16.867922740892283,
       "volumeRatio": 0.8973878257465546,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1449,8 +1449,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 17.09565,
-      "epsGrowthPct": 21.51871311663871,
+      "fpe": 17.151987,
+      "epsGrowthPct": 21.119568086791407,
       "volumeRatio": 1.0143779371111465,
       "dataQualityFlags": [],
       "quoteSource": "YAHOO",
@@ -1462,7 +1462,7 @@
       "exchange": "NasdaqGS",
       "price": 380.14,
       "changePct": -1.1802,
-      "score": 35,
+      "score": 27,
       "label": "高風險觀察",
       "risk": "高",
       "entryStatus": "等待",
@@ -1472,8 +1472,8 @@
       "entryHigh": null,
       "stopLoss": null,
       "takeProfit1": null,
-      "fpe": 175.6833,
-      "epsGrowthPct": 25.170941654229285,
+      "fpe": 176.05432,
+      "epsGrowthPct": 24.907153517753635,
       "volumeRatio": 0.9527375195967929,
       "dataQualityFlags": [
         "Forward PE 異常範圍，已標記供核對"
