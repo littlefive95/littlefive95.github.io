@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-25T21:31:30.194148-05:00",
+  "asOf": "2026-11-25T21:44:27.955632-05:00",
   "date": "2026-11-25",
   "snapshotDate": "2026-11-25",
   "dataMode": "LATEST_CLOSE",
@@ -1027,8 +1027,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 17,
-      "rankChange": 1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "CSCO",
@@ -1092,8 +1092,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "NFLX",
