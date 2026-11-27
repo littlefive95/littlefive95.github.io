@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-27T14:47:44.249880-05:00",
+  "asOf": "2026-11-27T15:02:46.184469-05:00",
   "date": "2026-11-27",
   "snapshotDate": "2026-11-27",
   "dataMode": "INTRADAY",
@@ -583,8 +583,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -649,8 +649,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "PANW",
@@ -711,8 +711,8 @@
         "momentum"
       ],
       "rank": 11,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "TSLA",
@@ -776,8 +776,8 @@
         "momentum"
       ],
       "rank": 12,
-      "previousRank": 9,
-      "rankChange": -3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -842,8 +842,8 @@
         "quality"
       ],
       "rank": 13,
-      "previousRank": 12,
-      "rankChange": -1
+      "previousRank": 13,
+      "rankChange": 0
     },
     {
       "ticker": "LRCX",
@@ -908,8 +908,8 @@
         "quality"
       ],
       "rank": 14,
-      "previousRank": 13,
-      "rankChange": -1
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "AVGO",
@@ -974,8 +974,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -1040,8 +1040,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "ASML",
@@ -1106,8 +1106,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "KO",
@@ -1168,8 +1168,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "SHOP",
@@ -1234,8 +1234,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1301,8 +1301,8 @@
         "momentum"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
