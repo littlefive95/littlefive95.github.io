@@ -1404,5 +1404,8 @@
   "holiday": [
     "Outside Taiwan cash-session; latest completed trading day shown"
   ],
-  "note": "目前非台股即時交易時段；顯示最近交易日 2026-11-26 收盤 TOP 20，並維持量化排序，研究/監控工具，不構成投資建議。"
+  "note": "目前非台股即時交易時段；顯示最近交易日 2026-11-26 收盤 TOP 20，並維持量化排序，研究/監控工具，不構成投資建議。",
+  "fallback": true,
+  "refreshCheckedAt": "2026-11-27T08:49:44.370176+08:00",
+  "refreshError": "Yahoo Finance Taiwan fallback unavailable: Failed to perform, curl: (28) Operation timed out after 30002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
 }
