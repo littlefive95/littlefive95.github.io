@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-27T13:17:39.870764-05:00",
+  "asOf": "2026-11-27T13:32:51.177447-05:00",
   "date": "2026-11-27",
   "snapshotDate": "2026-11-27",
   "dataMode": "INTRADAY",
@@ -644,8 +644,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 18,
-      "rankChange": 8
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -710,8 +710,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -776,8 +776,8 @@
         "quality"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
@@ -1172,8 +1172,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 19,
-      "rankChange": 1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "CRWD",
@@ -1239,8 +1239,8 @@
         "momentum"
       ],
       "rank": 19,
-      "previousRank": 20,
-      "rankChange": 1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "APP",
@@ -1306,8 +1306,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 90,
