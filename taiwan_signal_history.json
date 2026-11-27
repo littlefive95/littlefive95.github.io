@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T13:33:03.876452+08:00",
+  "updatedAt": "2026-11-27T13:48:02.945656+08:00",
   "records": [
     {
       "date": "2026-10-27",
@@ -1282,9 +1282,12 @@
           "signalTime": "2026-10-30T13:51:30.946909+08:00",
           "returnsPct": {
             "1": 1.1035,
-            "5": 2.069
+            "5": 2.069,
+            "20": -5.2414
           },
-          "referencePrice": 72.5
+          "referencePrice": 72.5,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "4105",
@@ -1324,9 +1327,12 @@
           "signalTime": "2026-10-30T13:51:30.946909+08:00",
           "returnsPct": {
             "1": 0.0,
-            "5": -11.2037
+            "5": -11.2037,
+            "20": -15.1852
           },
-          "referencePrice": 54.0
+          "referencePrice": 54.0,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "3105",
@@ -1366,9 +1372,12 @@
           "signalTime": "2026-10-30T13:51:30.946909+08:00",
           "returnsPct": {
             "1": -0.708,
-            "5": -15.6637
+            "5": -15.6637,
+            "20": -23.7168
           },
-          "referencePrice": 56.5
+          "referencePrice": 56.5,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "3374",
@@ -1522,9 +1531,12 @@
           "signalTime": "2026-10-30T13:51:30.946909+08:00",
           "returnsPct": {
             "1": -0.7107,
-            "5": -22.0305
+            "5": -22.0305,
+            "20": -29.1371
           },
-          "referencePrice": 492.5
+          "referencePrice": 492.5,
+          "stopHitWithin20d": true,
+          "targetHitWithin20d": false
         },
         {
           "ticker": "3691",
@@ -7295,7 +7307,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-11-20T13:58:16.429694+08:00",
           "returnsPct": {
-            "1": -0.2653
+            "1": -0.2653,
+            "5": 2.5199
           },
           "referencePrice": 754.0
         },
@@ -7317,7 +7330,8 @@
           "dataQualityFlags": [],
           "signalTime": "2026-11-20T13:58:16.429694+08:00",
           "returnsPct": {
-            "1": 2.5031
+            "1": 2.5031,
+            "5": -2.6283
           },
           "referencePrice": 79.9
         },
@@ -8913,8 +8927,10 @@
           "takeProfit1": 119.0,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
-          "returnsPct": {},
-          "referencePrice": 80.3
+          "returnsPct": {
+            "1": -2.9925
+          },
+          "referencePrice": 80.2
         },
         {
           "ticker": "3624",
@@ -8933,8 +8949,10 @@
           "takeProfit1": 138.0,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
-          "returnsPct": {},
-          "referencePrice": 94.7
+          "returnsPct": {
+            "1": -0.9564
+          },
+          "referencePrice": 94.1
         },
         {
           "ticker": "3374",
@@ -9010,8 +9028,10 @@
           "takeProfit1": 70.9643,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
-          "returnsPct": {},
-          "referencePrice": 60.4
+          "returnsPct": {
+            "1": -9.1803
+          },
+          "referencePrice": 61.0
         },
         {
           "ticker": "5289",
@@ -9125,7 +9145,9 @@
           "takeProfit1": 847.3143,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
-          "returnsPct": {},
+          "returnsPct": {
+            "1": -1.4031
+          },
           "referencePrice": 784.0
         },
         {
@@ -9145,8 +9167,10 @@
           "takeProfit1": 52.5,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
-          "returnsPct": {},
-          "referencePrice": 46.9
+          "returnsPct": {
+            "1": 0.2128
+          },
+          "referencePrice": 47.0
         },
         {
           "ticker": "3264",
@@ -9241,6 +9265,396 @@
           "takeProfit1": null,
           "dataQualityFlags": [],
           "signalTime": "2026-11-26T13:46:44.497334+08:00",
+          "returnsPct": {}
+        }
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "asOf": "2026-11-27T13:47:18.969606+08:00",
+      "sourceMode": "MIXED",
+      "signals": [
+        {
+          "ticker": "3147",
+          "name": "大綜",
+          "historySymbol": "3147.TWO",
+          "score": 62,
+          "label": "觀察",
+          "risk": "中",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 258.5,
+          "entryLow": 222.1886,
+          "entryPrice": 229.4986,
+          "entryHigh": 235.2421,
+          "stopLoss": 198.17,
+          "takeProfit1": 362.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "6190",
+          "name": "萬泰科",
+          "historySymbol": "6190.TWO",
+          "score": 62,
+          "label": "觀察",
+          "risk": "中",
+          "entryStatus": "可考慮進場區",
+          "entryType": "深度回調",
+          "signalPrice": 68.0,
+          "entryLow": 65.8597,
+          "entryPrice": 67.2901,
+          "entryHigh": 68.4344,
+          "stopLoss": 59.8522,
+          "takeProfit1": 79.7,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {},
+          "referencePrice": 68.0
+        },
+        {
+          "ticker": "3227",
+          "name": "原相",
+          "historySymbol": "3227.TWO",
+          "score": 60,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 186.5,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3491",
+          "name": "昇達科",
+          "historySymbol": "3491.TWO",
+          "score": 57,
+          "label": "觀察",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "深度回調",
+          "signalPrice": 1510.0,
+          "entryLow": 1434.235,
+          "entryPrice": 1471.735,
+          "entryHigh": 1501.735,
+          "stopLoss": 1276.735,
+          "takeProfit1": 1861.735,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3293",
+          "name": "鈊象",
+          "historySymbol": "3293.TWO",
+          "score": 55,
+          "label": "觀察",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 774.0,
+          "entryLow": 743.34,
+          "entryPrice": 752.19,
+          "entryHigh": 759.565,
+          "stopLoss": 718.265,
+          "takeProfit1": 816.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "4541",
+          "name": "晟田",
+          "historySymbol": "4541.TWO",
+          "score": 54,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 43.20000076293945,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "4174",
+          "name": "浩鼎",
+          "historySymbol": "4174.TWO",
+          "score": 54,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "回踩20日線",
+          "signalPrice": 65.5,
+          "entryLow": 59.7257,
+          "entryPrice": 61.6821,
+          "entryHigh": 63.3125,
+          "stopLoss": 54.1825,
+          "takeProfit1": 83.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3105",
+          "name": "穩懋",
+          "historySymbol": "3105.TWO",
+          "score": 53,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "可考慮進場區",
+          "entryType": "支撐回踩",
+          "signalPrice": 440.0,
+          "entryLow": 423.3614,
+          "entryPrice": 438.9293,
+          "entryHigh": 451.9025,
+          "stopLoss": 379.2525,
+          "takeProfit1": 596.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {},
+          "referencePrice": 438.5
+        },
+        {
+          "ticker": "6199",
+          "name": "天品",
+          "historySymbol": "6199.TWO",
+          "score": 53,
+          "label": "暫不優先",
+          "risk": "低",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "回踩20日線",
+          "signalPrice": 173.0,
+          "entryLow": 168.4893,
+          "entryPrice": 169.0679,
+          "entryHigh": 169.55,
+          "stopLoss": 166.85,
+          "takeProfit1": 174.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "4198",
+          "name": "欣大健康",
+          "historySymbol": "4198.TWO",
+          "score": 48,
+          "label": "暫不優先",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "回踩20日線",
+          "signalPrice": 47.099998474121094,
+          "entryLow": 46.1539,
+          "entryPrice": 46.6018,
+          "entryHigh": 46.975,
+          "stopLoss": 44.885,
+          "takeProfit1": 52.5,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "5351",
+          "name": "鈺創",
+          "historySymbol": "5351.TWO",
+          "score": 48,
+          "label": "暫不優先",
+          "risk": "低",
+          "entryStatus": "可考慮進場區",
+          "entryType": "回踩20日線",
+          "signalPrice": 91.4000015258789,
+          "entryLow": 87.15,
+          "entryPrice": 89.505,
+          "entryHigh": 91.4675,
+          "stopLoss": 80.4775,
+          "takeProfit1": 109.5,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {},
+          "referencePrice": 91.5
+        },
+        {
+          "ticker": "5457",
+          "name": "宣德",
+          "historySymbol": "5457.TWO",
+          "score": 47,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "突破",
+          "signalPrice": 30.149999618530273,
+          "entryLow": 28.7574,
+          "entryPrice": 29.0928,
+          "entryHigh": 29.7635,
+          "stopLoss": 26.2981,
+          "takeProfit1": 34.6214,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3285",
+          "name": "微端",
+          "historySymbol": "3285.TWO",
+          "score": 46,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "價格偏高／不追",
+          "entryType": "支撐回踩",
+          "signalPrice": 55.599998474121094,
+          "entryLow": 47.6357,
+          "entryPrice": 49.2377,
+          "entryHigh": 50.4964,
+          "stopLoss": 42.372,
+          "takeProfit1": 61.2,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3624",
+          "name": "光頡",
+          "historySymbol": "3624.TWO",
+          "score": 45,
+          "label": "暫不優先",
+          "risk": "低",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 93.30000305175781,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "5381",
+          "name": "光譜",
+          "historySymbol": "5381.TWO",
+          "score": 44,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 18.5,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3609",
+          "name": "三一東林",
+          "historySymbol": "3609.TWO",
+          "score": 43,
+          "label": "暫不優先",
+          "risk": "低",
+          "entryStatus": "等待回踩",
+          "entryType": "深度回調",
+          "signalPrice": 29.5,
+          "entryLow": 28.3554,
+          "entryPrice": 28.7768,
+          "entryHigh": 29.1139,
+          "stopLoss": 26.5854,
+          "takeProfit1": 33.1596,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "6140",
+          "name": "訊達電腦",
+          "historySymbol": "6140.TWO",
+          "score": 42,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "回踩20日線",
+          "signalPrice": 30.149999618530273,
+          "entryLow": 27.1711,
+          "entryPrice": 28.2532,
+          "entryHigh": 29.155,
+          "stopLoss": 24.105,
+          "takeProfit1": 36.85,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "6163",
+          "name": "華電網",
+          "historySymbol": "6163.TWO",
+          "score": 39,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 35.04999923706055,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3374",
+          "name": "精材",
+          "historySymbol": "3374.TWO",
+          "score": 38,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待回踩",
+          "entryType": "支撐回踩",
+          "signalPrice": 331.5,
+          "entryLow": 295.8611,
+          "entryPrice": 307.3011,
+          "entryHigh": 316.2896,
+          "stopLoss": 258.2725,
+          "takeProfit1": 519.0,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
+          "returnsPct": {}
+        },
+        {
+          "ticker": "3131",
+          "name": "弘塑",
+          "historySymbol": "3131.TWO",
+          "score": 37,
+          "label": "暫不優先",
+          "risk": "中",
+          "entryStatus": "等待",
+          "entryType": "暫無訊號",
+          "signalPrice": 1480.0,
+          "entryLow": null,
+          "entryPrice": null,
+          "entryHigh": null,
+          "stopLoss": null,
+          "takeProfit1": null,
+          "dataQualityFlags": [],
+          "signalTime": "2026-11-27T13:47:18.969606+08:00",
           "returnsPct": {}
         }
       ]
