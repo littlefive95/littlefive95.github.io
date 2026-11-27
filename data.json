@@ -1,6 +1,6 @@
 {
   "status": "LIVE",
-  "asOf": "2026-11-27T18:20:45.032868-05:00",
+  "asOf": "2026-11-27T18:35:45.734897-05:00",
   "date": "2026-11-27",
   "snapshotDate": "2026-11-27",
   "dataMode": "INTRADAY",
@@ -902,8 +902,8 @@
         "momentum"
       ],
       "rank": 14,
-      "previousRank": null,
-      "rankChange": null
+      "previousRank": 14,
+      "rankChange": 0
     },
     {
       "ticker": "HOOD",
@@ -967,8 +967,8 @@
         "quality"
       ],
       "rank": 15,
-      "previousRank": 14,
-      "rankChange": -1
+      "previousRank": 15,
+      "rankChange": 0
     },
     {
       "ticker": "APP",
@@ -1034,8 +1034,8 @@
         "quality"
       ],
       "rank": 16,
-      "previousRank": 15,
-      "rankChange": -1
+      "previousRank": 16,
+      "rankChange": 0
     },
     {
       "ticker": "WDC",
@@ -1099,8 +1099,8 @@
         "quality"
       ],
       "rank": 17,
-      "previousRank": 16,
-      "rankChange": -1
+      "previousRank": 17,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -1164,8 +1164,8 @@
         "quality"
       ],
       "rank": 18,
-      "previousRank": 17,
-      "rankChange": -1
+      "previousRank": 18,
+      "rankChange": 0
     },
     {
       "ticker": "ORCL",
@@ -1230,8 +1230,8 @@
         "quality"
       ],
       "rank": 19,
-      "previousRank": 18,
-      "rankChange": -1
+      "previousRank": 19,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -1295,8 +1295,8 @@
         "quality"
       ],
       "rank": 20,
-      "previousRank": 19,
-      "rankChange": -1
+      "previousRank": 20,
+      "rankChange": 0
     }
   ],
   "coverage": 95,
