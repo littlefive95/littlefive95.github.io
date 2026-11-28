@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-28T04:05:51.462106-05:00",
+  "asOf": "2026-11-28T04:21:00.989503-05:00",
   "date": "2026-11-28",
   "snapshotDate": "2026-11-27",
   "dataMode": "LATEST_CLOSE",
@@ -582,8 +582,8 @@
         "momentum"
       ],
       "rank": 9,
-      "previousRank": 12,
-      "rankChange": 3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -648,8 +648,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -714,8 +714,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "PANW",
@@ -776,8 +776,8 @@
         "momentum"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
