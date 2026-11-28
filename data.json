@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-28T06:21:04.904897-05:00",
+  "asOf": "2026-11-28T06:36:05.000166-05:00",
   "date": "2026-11-28",
   "snapshotDate": "2026-11-27",
   "dataMode": "LATEST_CLOSE",
@@ -464,7 +464,7 @@
       "changePct": 5.24482,
       "marketCap": 414843207680.0,
       "volume": 15054529.0,
-      "averageVolume": 24520101.0,
+      "averageVolume": 24361280.0,
       "fpe": 67.652954,
       "forwardEps": 2.5449,
       "epsGrowthPct": 49.29164344586867,
@@ -582,8 +582,8 @@
         "momentum"
       ],
       "rank": 9,
-      "previousRank": 12,
-      "rankChange": 3
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "NVDA",
@@ -648,8 +648,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 9,
-      "rankChange": -1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -714,8 +714,8 @@
         "quality"
       ],
       "rank": 11,
-      "previousRank": 10,
-      "rankChange": -1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "PANW",
@@ -776,8 +776,8 @@
         "momentum"
       ],
       "rank": 12,
-      "previousRank": 11,
-      "rankChange": -1
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
