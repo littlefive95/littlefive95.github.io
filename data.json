@@ -1,6 +1,6 @@
 {
   "status": "MARKET_CLOSED",
-  "asOf": "2026-11-28T04:35:55.147481-05:00",
+  "asOf": "2026-11-28T04:52:31.551497-05:00",
   "date": "2026-11-28",
   "snapshotDate": "2026-11-27",
   "dataMode": "LATEST_CLOSE",
@@ -583,8 +583,8 @@
         "quality"
       ],
       "rank": 9,
-      "previousRank": 10,
-      "rankChange": 1
+      "previousRank": 9,
+      "rankChange": 0
     },
     {
       "ticker": "AMAT",
@@ -649,8 +649,8 @@
         "quality"
       ],
       "rank": 10,
-      "previousRank": 11,
-      "rankChange": 1
+      "previousRank": 10,
+      "rankChange": 0
     },
     {
       "ticker": "PANW",
@@ -711,8 +711,8 @@
         "momentum"
       ],
       "rank": 11,
-      "previousRank": 12,
-      "rankChange": 1
+      "previousRank": 11,
+      "rankChange": 0
     },
     {
       "ticker": "TSLA",
@@ -776,8 +776,8 @@
         "momentum"
       ],
       "rank": 12,
-      "previousRank": 9,
-      "rankChange": -3
+      "previousRank": 12,
+      "rankChange": 0
     },
     {
       "ticker": "TSM",
